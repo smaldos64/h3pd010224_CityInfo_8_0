@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Contracts;
-using Contracts.Services;
 using ServicesContracts;
 using Entities.Models;
 
@@ -20,9 +19,9 @@ namespace Services
         this._repositoryWrapper = repositoryWrapper; 
       }
 
-    public async Task<IEnumerable<City>> GetCities()
+    public async Task<IEnumerable<City>> GetCities(bool IncludeRelations = false)
     {
-      return (await _repositoryWrapper.CityRepositoryWrapper.GetAllCities());
+      return (await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(IncludeRelations));
     }
 
   }

@@ -4,7 +4,7 @@ using Repository;
 
 using Entities;
 using LoggerService;
-using Contracts.Services;
+using ServicesContracts;
 using Services;
 
 namespace CityInfo_8_0_Server.Extensions
@@ -61,7 +61,7 @@ namespace CityInfo_8_0_Server.Extensions
       services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
     }
 
-    public static void ConfigureServiceLayerWrapper(this IServiceCollection services)
+    public static void ConfigureServiceLayerWrappers(this IServiceCollection services)
     {
       services.AddScoped<ICityService, CityService>();
     }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 using Entities.Models;
 
-namespace Contracts.Services
+namespace ServicesContracts
 {
   public interface ICityService
   {
-    Task<IEnumerable<City>> GetCities();
+    Task<IEnumerable<City>> GetCities(bool IncludeRelations = false);
   }
 }

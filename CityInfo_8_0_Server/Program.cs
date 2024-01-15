@@ -36,6 +36,7 @@ builder.Services.ConfigureLoggerService();
 
 builder.Services.ConfigureMsSqlContext(builder.Configuration); 
 builder.Services.ConfigureRepositoryWrapper();
+builder.Services.ConfigureServiceLayerWrappers();
 
 // Mapster
 TypeAdapterConfig<City, CityDto>.NewConfig().Map(dest => dest.CityLanguages, src => src.CityLanguages.Select(x => x.Language)).Map(dest => dest.CityId, src => src.CityId);
