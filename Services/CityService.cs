@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Contracts;
 using ServicesContracts;
 using Entities.Models;
+using Entities.DataTransferObjects;
 
 namespace Services
 {
@@ -23,6 +24,24 @@ namespace Services
     {
       return (await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(IncludeRelations));
     }
+
+    public async Task<int> SaveCity(City City_Object)
+    {
+      int NumberOfObjectsSaved;
+
+      try
+      {
+        await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
+        NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
+
+        return (NumberOfObjectsSaved);
+      }
+      catch (Exception Error)
+      {
+        return (0);
+      }
+    }
+
 
   }
 }

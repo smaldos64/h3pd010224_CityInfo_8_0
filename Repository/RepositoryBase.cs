@@ -57,7 +57,7 @@ namespace Repository
         public virtual async Task Create(T entity)
         {
             await this.RepositoryContext.Set<T>().AddAsync(entity);
-            await this.Save();
+            //await this.Save();
         }
 
         public virtual async Task Update(T entity)
@@ -66,7 +66,7 @@ namespace Repository
             try
             {
                 this.RepositoryContext.Set<T>().Update(entity);
-                await this.Save();
+                //await this.Save();
             }
             catch (Exception Error)
             {
@@ -77,13 +77,14 @@ namespace Repository
         public virtual async Task Delete(T entity)
         {
             this.RepositoryContext.Set<T>().Remove(entity);
-            await this.Save();
+            //await this.Save();
         }
 
-        public virtual async Task Save()
+        public virtual async Task<int> Save()
         {
-            int NumberOfObjectsSaved = -1;
-            NumberOfObjectsSaved = await this.RepositoryContext.SaveChangesAsync();
+            int NumberOfObjectsChanged = -1;
+            NumberOfObjectsChanged = await this.RepositoryContext.SaveChangesAsync();
+            return NumberOfObjectsChanged;
         }
 
         public virtual void EnableLazyLoading()

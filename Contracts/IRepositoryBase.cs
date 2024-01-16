@@ -15,7 +15,7 @@ namespace Contracts
         Task Create(T entity);
         Task Update(T entity);
         Task Delete(T entity);
-        Task Save();
+        Task<int> Save();
 
         // LTPE funktionalitet adderet herunder !!!
         void EnableLazyLoading();
