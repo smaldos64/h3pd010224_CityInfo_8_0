@@ -76,5 +76,34 @@ namespace Repository
             return (collection.ToList());
         }
 #endif
-    }
-}
+      public async Task<IEnumerable<City>> GetSpecifiedNumberOfCities(int NumberOfCities = 5,
+                                                                      bool IncludeRelations = false,
+                                                                      bool UseIQueryable = false)
+      {
+        IEnumerable<City> CityList = new List<City>();
+        IEnumerable<City> CityListToReturn = new List<City>();
+
+        if (false == IncludeRelations)
+        {
+          CityList = await base.FindByCondition(c => c.CityId > 0, UseIQueryable);
+          CityListToReturn = CityList.Take(NumberOfCities);
+        }
+        else
+        {
+        //  var Collection = await base.FindByConditionReturnIQueryable(c => c.CityId > 0).
+        //      Include(c => c.PointsOfInterest).
+        //      Include(co => co.Country).
+        //      Include(c => c.CityLanguages).
+        //      ThenInclude(l => l.Language).ToListAsync();
+
+        //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
+        //return (collection1);
+          base.EnableLazyLoading();
+          CityList = await base.FindByCondition(c => c.CityId > 0, UseIQueryable);
+          CityListToReturn = CityList.Take(NumberOfCities);
+      }
+
+        return (CityListToReturn);
+      }
+  }
+}  

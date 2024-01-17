@@ -88,9 +88,12 @@ namespace Repository
             this._repoContext = repositoryContext;
         }
 
-        public void Save()
+        public int Save()
         {
-            _repoContext.SaveChanges();
+          int NumberOfObjectsChanged = 0;
+          NumberOfObjectsChanged = _repoContext.SaveChanges();
+
+          return (NumberOfObjectsChanged);
         }
     }
 }

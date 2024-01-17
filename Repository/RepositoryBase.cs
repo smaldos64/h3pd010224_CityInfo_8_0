@@ -12,10 +12,12 @@ namespace Repository
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     { 
         protected DatabaseContext RepositoryContext { get; set; }
+        internal DbSet<T> dbSet;
 
         public RepositoryBase(DatabaseContext repositoryContext)
         {
             this.RepositoryContext = repositoryContext;
+            this.dbSet = RepositoryContext.Set<T>();
         }
 
         public virtual async Task<IEnumerable<T>> FindAll()
@@ -38,23 +40,52 @@ namespace Repository
 #endif
         }
 
-        public virtual async Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression)
-        {
-            ParameterExpression s = Expression.Parameter(typeof(T));
+    public virtual async Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression,
+                                                              bool UseIQueryable = false)
+    {
+      ParameterExpression s = Expression.Parameter(typeof(T));
+
+      if (false == UseIQueryable)
+      {
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-            return await this.RepositoryContext.Set<T>().Where(expression).ToListAsync();
+        return await this.RepositoryContext.Set<T>().Where(expression).ToListAsync();
 #else
-            return await this.RepositoryContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
+        return await this.RepositoryContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
 #endif
-        }
+      }
+      else
+      {
+        IQueryable<T> Query = dbSet;
+#if (ENABLED_FOR_LAZY_LOADING_USAGE)
+        return await Query.Where(expression).ToListAsync();
+#else
+        return await Query.Where(expression).AsNoTracking().ToListAsync();
+#endif
+      }
+    }
 
-        //public virtual List<T> FindByCondition(Expression<Func<T, bool>> expression)
-        //{
-        //    //ParameterExpression s = Expression.Parameter(typeof(T));
-        //    return this.RepositoryContext.Set<T>().Where(expression).AsNoTracking().ToList();
-        //}
+    public virtual async Task<IQueryable<T>> FindByConditionReturnIQueryable(Expression<Func<T, bool>> expression)
+    {
+      IQueryable<T> Query = dbSet;
+#if (ENABLED_FOR_LAZY_LOADING_USAGE)
+      //return await Query.Where(expression).AsQueryable<T>();
+      var Data = await Query.Where(expression).ToListAsync();
+      return (Data.AsQueryable<T>());
 
-        public virtual async Task Create(T entity)
+#else
+      var Data = await Query.Where(expression).AsNoTracking().ToListAsync();
+      return (Data.AsQueryable<T>());
+      //return await Query.Where(expression).AsNoTracking().ToListAsync();
+#endif
+    }
+
+    //public virtual List<T> FindByCondition(Expression<Func<T, bool>> expression)
+    //{
+    //    //ParameterExpression s = Expression.Parameter(typeof(T));
+    //    return this.RepositoryContext.Set<T>().Where(expression).AsNoTracking().ToList();
+    //}
+
+    public virtual async Task Create(T entity)
         {
             await this.RepositoryContext.Set<T>().AddAsync(entity);
             //await this.Save();

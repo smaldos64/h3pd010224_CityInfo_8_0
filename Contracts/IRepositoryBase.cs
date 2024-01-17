@@ -11,7 +11,8 @@ namespace Contracts
     {
         Task<IEnumerable<T>> FindAll();
         Task<T> FindOne(int id);
-        Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression, bool UseIQueryable = false);
+        Task<IQueryable<T>> FindByConditionReturnIQueryable(Expression<Func<T, bool>> expression);
         Task Create(T entity);
         Task Update(T entity);
         Task Delete(T entity);

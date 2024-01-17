@@ -17,5 +17,9 @@ namespace Contracts
         Task<City> GetCity(int CityId, bool IncludeRelations = false);
 
         Task <IEnumerable<City>> GetCitiesFromLanguageID(int languageID);
+
+        Task<IEnumerable<City>> GetSpecifiedNumberOfCities(int NumberOfCities = 5,
+                                                           bool IncludeRelations = false,
+                                                           bool UseIQueryable = false);
     }
 }

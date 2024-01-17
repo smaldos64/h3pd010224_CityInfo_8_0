@@ -35,25 +35,11 @@ namespace CityInfo_8_0_Server.Extensions
       services.AddSingleton<ILoggerManager, LoggerManager>();
     }
 
-    //public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
-    //{
-    //  var connectionString = config["mysqlconnection:connectionString"];
-
-    //  services.AddDbContext<RepositoryContext>(o => o.UseMySql(connectionString,
-    //      MySqlServerVersion.LatestSupportedServerVersion));
-    //}
-
     public static void ConfigureMsSqlContext(this IServiceCollection services, IConfiguration config)
     {
       var connectionString = config["ConnectionStrings:cityInfoDBConnectionString"];
 
-      //services.AddDbContext<DatabaseContext>(o => o.UseMySql(connectionString,
-      //    MySqlServerVersion.LatestSupportedServerVersion, b => b.MigrationsAssembly("Entities")));
-
       services.AddDbContext<DatabaseContext>(o => o.UseSqlServer(connectionString, x => x.MigrationsAssembly("Entities")));
-      
-      //services.AddDbContext<DatabaseContext>(o => o.UseMySql("cityInfoDBConnectionString",
-      //    MySqlServerVersion.LatestSupportedServerVersion, b => b.MigrationsAssembly("Entities")));
     }
 
     public static void ConfigureRepositoryWrapper(this IServiceCollection services)

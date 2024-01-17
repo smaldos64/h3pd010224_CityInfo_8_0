@@ -16,7 +16,7 @@ namespace Contracts
 
         IPointOfInterestRepository PointOfInterestRepositoryWrapper { get; }
 
-        void Save();
+        int Save();
 
     }
 }

@@ -19,20 +19,6 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CityInfo_8_0_Server.Controllers
 {
-    public class CityControllerParameters
-    {
-        // De 3 parametre herunder bestemmer hvordan output data fra controlleren her
-        // præsenteres og behandles for klienten. 
-        // Parameterne er medtaget først og fremmest af uddennelsesmæssige
-        // formål, således at brugerne af controlleren her, kan se
-        // hvordan man kan returnere (relationelle) data på forskellige måder fra en 
-        // controller tilbage til en klient.
-
-        public bool _use_Lazy_Loading_On_City_Controller = true;
-        public bool _show_Cyclic_Data = false;
-        public bool _use_Mapster = true;
-    }
-
     //[Route("api/[controller]")]
     //[ApiController]
 
@@ -40,8 +26,6 @@ namespace CityInfo_8_0_Server.Controllers
     [Route("[controller]")]
     public class CityController : ControllerBase
     {
-        private static CityControllerParameters _cityControllerParameters_Object = new CityControllerParameters();
-
         private IRepositoryWrapper _repositoryWrapper;
         private ILoggerManager _logger;
         private ICityService _cityService;
@@ -68,11 +52,11 @@ namespace CityInfo_8_0_Server.Controllers
           {
             IEnumerable<City> CityList = new List<City>();
 
-            if ((false == includeRelations) || (false == UseLazyLoading))
+            if (false == UseLazyLoading)
             {
               _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
             }
-            else  // true == includeRelations && true == UseLazyLoading 
+            else  
             {
               _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
             }
@@ -158,7 +142,51 @@ namespace CityInfo_8_0_Server.Controllers
         return StatusCode(500, "Internal server error");
       }
     }
-       
+
+    [HttpGet]
+    [Route("[action]")]
+    public async Task<IActionResult> GetSpecifiedNumberOfCities(bool includeRelations = true,
+                                                                bool UseLazyLoading = true,
+                                                                bool UseMapster = true,
+                                                                bool UseQueryable = true,
+                                                                int NumberOfCities = 5,
+                                                                string UserName = "No Name")
+    {
+      try
+      {
+        IEnumerable<City> CityList = new List<City>();
+
+        if (false == UseLazyLoading)
+        {
+          _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
+        }
+        else  
+        {
+          _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
+        }
+
+        CityList = await _repositoryWrapper.CityRepositoryWrapper.GetSpecifiedNumberOfCities(NumberOfCities, includeRelations, UseQueryable);
+        
+        List<CityDto> CityDtos;
+
+        if (true == UseMapster)
+        {
+          CityDtos = CityList.Adapt<CityDto[]>().ToList();
+        }
+        else
+        {
+          CityDtos = MapHere(CityList.ToList());
+        }
+        _logger.LogInfo($"{NumberOfCities} Cities has been read from GetCities action by {UserName}");
+        return Ok(CityDtos);
+      }
+      catch (Exception Error)
+      {
+        _logger.LogError($"Something went wrong inside GetCities action for {UserName}: {Error.Message}");
+        return StatusCode(500, "Internal server error");
+      }
+    }
+
     // POST: api/City
     [HttpPost]
     public async Task<IActionResult> CreateCity([FromBody] CityForSaveWithCountryDto CityDto_Object,
@@ -182,10 +210,10 @@ namespace CityInfo_8_0_Server.Controllers
         City City_Object = CityDto_Object.Adapt<City>();
 
         await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-        NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
+        NumberOfObjectsSaved = _repositoryWrapper.Save();
 
 #if Use_Hub_Logic_On_ServertSide
-                  await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
+        await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
 #endif
         if (1 == NumberOfObjectsSaved)
         {
