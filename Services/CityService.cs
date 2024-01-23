@@ -42,6 +42,23 @@ namespace Services
       }
     }
 
+    public async Task<int> SaveCityAllInfo(City City_Object)
+    {
+      int NumberOfObjectsSaved;
+
+      try
+      {
+        await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
+        NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
+
+        return (NumberOfObjectsSaved);
+      }
+      catch (Exception Error)
+      {
+        return (0);
+      }
+    }
+
 
   }
 }

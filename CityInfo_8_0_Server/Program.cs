@@ -40,6 +40,8 @@ builder.Services.ConfigureServiceLayerWrappers();
 
 // Mapster
 TypeAdapterConfig<City, CityDto>.NewConfig().Map(dest => dest.CityLanguages, src => src.CityLanguages.Select(x => x.Language)).Map(dest => dest.CityId, src => src.CityId);
+TypeAdapterConfig<CityDto, City>.NewConfig();
+TypeAdapterConfig<CityForUpdateDto, City>.NewConfig();
 // Mapning herover bevirker, at man får LanguageName med ud, når man konverterer fra 
 // City Objekter(er) til CityDTO Objekt(er)
 TypeAdapterConfig<Country, CountryDto>.NewConfig().Map(dest => dest.CountryID, src => src.CountryID);

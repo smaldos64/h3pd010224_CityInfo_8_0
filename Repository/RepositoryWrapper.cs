@@ -12,11 +12,11 @@ namespace Repository
     {
         private DatabaseContext _repoContext;
 
-        private ICityRepository _cityRepositoryWrapper;
-        private ICityLanguageRepository _cityLanguageRepositoryWrapper;
-        private ILanguageRepository _languageRepositoryWrapper;
-        private ICountryRepository _countryRepositoryWrapper;
-        private IPointOfInterestRepository _pointOfInterestRepositoryWrapper;
+        private ICityRepository? _cityRepositoryWrapper;
+        private ICityLanguageRepository? _cityLanguageRepositoryWrapper;
+        private ILanguageRepository? _languageRepositoryWrapper;
+        private ICountryRepository? _countryRepositoryWrapper;
+        private IPointOfInterestRepository? _pointOfInterestRepositoryWrapper;
 
         public ICityRepository CityRepositoryWrapper
         {
