@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Entities.DataTransferObjects;
 using Entities.Models;
 using Mapster;
+using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,16 +40,7 @@ builder.Services.ConfigureRepositoryWrapper();
 builder.Services.ConfigureServiceLayerWrappers();
 
 // Mapster
-TypeAdapterConfig<City, CityDto>.NewConfig().Map(dest => dest.CityLanguages, src => src.CityLanguages.Select(x => x.Language)).Map(dest => dest.CityId, src => src.CityId);
-TypeAdapterConfig<CityDto, City>.NewConfig();
-TypeAdapterConfig<CityForUpdateDto, City>.NewConfig();
-// Mapning herover bevirker, at man får LanguageName med ud, når man konverterer fra 
-// City Objekter(er) til CityDTO Objekt(er)
-TypeAdapterConfig<Country, CountryDto>.NewConfig().Map(dest => dest.CountryID, src => src.CountryID);
-TypeAdapterConfig<Language, LanguageDto>.NewConfig().Map(dest => dest.CityLanguages, src => src.CityLanguages.Select(x => x.City));
-TypeAdapterConfig<CityLanguage, CityLanguageDto>.NewConfig().Map(dest => dest.CityId, src => src.CityId).Map(dest => dest.LanguageId, src => src.LanguageId).
-   Map(dest => dest.City, src => src.City);
-
+UtilityService.SetupMapsterConfiguration();
 // LTPE added above
 
 builder.Services.AddControllers();
@@ -60,6 +52,11 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
+{
+  app.UseSwagger();
+  app.UseSwaggerUI();
+}
+else // LTPE
 {
   app.UseSwagger();
   app.UseSwaggerUI();
