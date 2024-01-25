@@ -86,46 +86,46 @@ namespace Repository
     //}
 
     public virtual async Task Create(T entity)
+    {
+        await this.RepositoryContext.Set<T>().AddAsync(entity);
+        //await this.Save();
+    }
+
+    public virtual async Task Update(T entity)
+    {
+        // Skal laves asynkron i linjen herunder. Men UpdateAsync findes ikke !!!
+        try
         {
-            await this.RepositoryContext.Set<T>().AddAsync(entity);
+            this.RepositoryContext.Set<T>().Update(entity);
             //await this.Save();
         }
-
-        public virtual async Task Update(T entity)
+        catch (Exception Error)
         {
-            // Skal laves asynkron i linjen herunder. Men UpdateAsync findes ikke !!!
-            try
-            {
-                this.RepositoryContext.Set<T>().Update(entity);
-                //await this.Save();
-            }
-            catch (Exception Error)
-            {
-                string ErrorString = Error.ToString();
-            }
-        }
-
-        public virtual async Task Delete(T entity)
-        {
-            this.RepositoryContext.Set<T>().Remove(entity);
-            //await this.Save();
-        }
-
-        public virtual async Task<int> Save()
-        {
-            int NumberOfObjectsChanged = -1;
-            NumberOfObjectsChanged = await this.RepositoryContext.SaveChangesAsync();
-            return NumberOfObjectsChanged;
-        }
-
-        public virtual void EnableLazyLoading()
-        {
-            this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = true;
-        }
-
-        public virtual void DisableLazyLoading()
-        {
-            this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = false;
+            string ErrorString = Error.ToString();
         }
     }
+
+    public virtual async Task Delete(T entity)
+    {
+        this.RepositoryContext.Set<T>().Remove(entity);
+        //await this.Save();
+    }
+
+    public virtual async Task<int> Save()
+    {
+        int NumberOfObjectsChanged = -1;
+        NumberOfObjectsChanged = await this.RepositoryContext.SaveChangesAsync();
+        return NumberOfObjectsChanged;
+    }
+
+    public virtual void EnableLazyLoading()
+    {
+        this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = true;
+    }
+
+    public virtual void DisableLazyLoading()
+    {
+        this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = false;
+    }
+  }
 }

@@ -13,13 +13,13 @@ namespace Contracts
         #region From_CityLanguage
         Task<IEnumerable<CityLanguage>> GetAllCitiesLanguages(bool IncludeRelations = false);
 
-        Task<IEnumerable<CityLanguage>> GetAllCitiesFromLanguageID(int LanguageID);
+        Task<IEnumerable<CityLanguage>> GetAllCitiesFromLanguageId(int LanguageId);
 
-        Task<IEnumerable<CityLanguage>> GetAllLanguagesFromCityID(int CityID);
+        Task<IEnumerable<CityLanguage>> GetAllLanguagesFromCityId(int CityId);
 
         Task AddCityLanguage(CityLanguage cityLanguage);
 
-        Task<IEnumerable<CityLanguage>> GetAllCitiesWithLanguageID(int LanguageID);
+        Task<IEnumerable<CityLanguage>> GetAllCitiesWithLanguageId(int LanguageId);
 
         Task<CityLanguage> GetCityIdLanguageIdCombination(int CityId, int LanguageId);
 

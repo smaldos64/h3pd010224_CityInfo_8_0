@@ -17,12 +17,15 @@ namespace Services
 {
   public class CityService : ICityService
   {
-      private readonly IRepositoryWrapper _repositoryWrapper;
+    private readonly IRepositoryWrapper _repositoryWrapper;
+    private readonly ICityLanguage _cityLanguage;
 
-      public CityService(IRepositoryWrapper repositoryWrapper)
-      {
-        this._repositoryWrapper = repositoryWrapper;
-        UtilityService.SetupMapsterConfiguration();
+    public CityService(IRepositoryWrapper repositoryWrapper,
+                       ICityLanguage cityLanguage)
+    {
+      this._repositoryWrapper = repositoryWrapper;
+      this._cityLanguage = cityLanguage;
+      UtilityService.SetupMapsterConfiguration();
     }
 
     public async Task<IEnumerable<City>> GetCities(bool IncludeRelations = false)
@@ -86,7 +89,14 @@ namespace Services
 
       TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
       await _repositoryWrapper.CityRepositoryWrapper.Update(CityFromRepo);
-      
+      NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
+      if (1 != NumberOfObjectsChanged)
+      {
+        CommunicationResults_Object.ResultString = $"City with Id : {CityForUpdateDto_Object.CityId} not updated for {UserName} in action UpdateCityWithAllRelations";
+        CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
+        return (CommunicationResults_Object);
+      }
+
       if (null != PointOfInterestForUpdateDto_List)
       {
         for (int Counter = 0; Counter < PointOfInterestForUpdateDto_List.Count; Counter++)
@@ -119,6 +129,7 @@ namespace Services
               return (CommunicationResults_Object);
             }
 
+            TypeAdapter.Adapt(PointOfInterestForUpdateDto_List[Counter], PointOfInterestFromRepo);
             await _repositoryWrapper.PointOfInterestRepositoryWrapper.Update(PointOfInterestFromRepo);
             NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
 
@@ -134,8 +145,7 @@ namespace Services
         if (true == DeleteOldElementsInListsNotSpecifiedInCurrentLists)
         {
           var PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.GetAllPointOfInterestWithCityID(CityForUpdateDto_Object.CityId, false);
-          //ListCounter = 1;
-
+         
           foreach (PointOfInterest PointOfInterest_object in PointOfInterestList)
           {
             var Matches = PointOfInterestForUpdateDto_List.Where(p => p.PointOfInterestId == PointOfInterest_object.PointOfInterestId);
@@ -176,31 +186,21 @@ namespace Services
         }
       }
 
-      //if (null != CityLanguageForSaveAndUpdateDto_List)
-      //{
-      //  var ActionResultUpdateCityLanguageList = await this._cityLanguageController.UpdateCityLanguagesList(UpdateCityWithAllRelations_Object.CityLanguages,
-      //                                                                                                      DeleteOldElementsInListsNotSpecifiedInCurrentLists,
-      //                                                                                                      UserName);
-      //  var NoContentActionResultUpdateCityLanguageList = ActionResultUpdateCityLanguageList as NoContentResult;
-
-      //  if (null == NoContentActionResultUpdateCityLanguageList)
-      //  {
-      //    var BadRequestActionResultUpdateCityLanguageList = ActionResultUpdateCityLanguageList as BadRequestObjectResult;
-
-      //    string ErrorString = (string)(BadRequestActionResultUpdateCityLanguageList.Value);
-
-      //    return BadRequest(ErrorString);
-      //  }
-
-      //}
+      if (null != CityLanguageForSaveAndUpdateDto_List)
+      {
+        CommunicationResults_Object = await this._cityLanguage.UpdateCityLanguagesList(CityLanguageForSaveAndUpdateDto_List,
+                                                                                       DeleteOldElementsInListsNotSpecifiedInCurrentLists,
+                                                                                       UserName);
+        if (true == CommunicationResults_Object.HasErrorOccured)
+        {
+          return CommunicationResults_Object;
+        }
+      }
 
       CommunicationResults_Object.ResultString = $"City and all relations has been updated/saved for {UserName} in action UpdateCityWithAllRelations";
       CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.OK;
       CommunicationResults_Object.HasErrorOccured = false;
       return (CommunicationResults_Object);
     }
-
-
-
   }
 }

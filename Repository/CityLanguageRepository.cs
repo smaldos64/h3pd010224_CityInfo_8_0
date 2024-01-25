@@ -47,9 +47,9 @@ namespace Repository
             }
         }
 
-        public async Task<IEnumerable<CityLanguage>> GetAllCitiesFromLanguageID(int LanguageID)
+        public async Task<IEnumerable<CityLanguage>> GetAllCitiesFromLanguageId(int LanguageId)
         {
-            var collection = await _context.Core_8_0_CityLanguages.Where(l => l.LanguageId == LanguageID).ToListAsync();
+            var collection = await _context.Core_8_0_CityLanguages.Where(l => l.LanguageId == LanguageId).ToListAsync();
                 //as IQueryable<CityLanguage>;
 
             var collection1 = collection.OrderByDescending(c => c.City.CityLanguages.Count);
@@ -57,9 +57,9 @@ namespace Repository
             return collection1;
         }
 
-        public async Task<IEnumerable<CityLanguage>> GetAllLanguagesFromCityID(int CityID)
+        public async Task<IEnumerable<CityLanguage>> GetAllLanguagesFromCityId(int CityId)
         {
-            var collection = await _context.Core_8_0_CityLanguages.Where(c => c.CityId == CityID).
+            var collection = await _context.Core_8_0_CityLanguages.Where(c => c.CityId == CityId).
                 Include(c => c.City).
                 Include(l => l.Language).ToListAsync();
                 //as IQueryable<CityLanguage>;
@@ -75,9 +75,9 @@ namespace Repository
         }
 
         // Kode fra nyt generisk interface herunder.
-        public async Task<IEnumerable<CityLanguage>> GetAllCitiesWithLanguageID(int LanguageID)
+        public async Task<IEnumerable<CityLanguage>> GetAllCitiesWithLanguageId(int LanguageId)
         {
-            var collection = await base.FindByCondition(l => l.LanguageId == LanguageID);
+            var collection = await base.FindByCondition(l => l.LanguageId == LanguageId);
             collection = collection.OrderByDescending(l => l.Language.CityLanguages.Count).ThenBy(c => c.City.CityName);
 
             return (collection.ToList());

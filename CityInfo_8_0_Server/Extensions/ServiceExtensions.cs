@@ -51,6 +51,7 @@ namespace CityInfo_8_0_Server.Extensions
     public static void ConfigureServiceLayerWrappers(this IServiceCollection services)
     {
       services.AddScoped<ICityService, CityService>();
+      services.AddScoped<ICityLanguage, CityLanguageService>();
     }
 
     // The function below has been made to handle Update problem when using Mapster.
