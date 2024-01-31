@@ -52,6 +52,7 @@ namespace CityInfo_8_0_Server.Extensions
     {
       services.AddScoped<ICityService, CityService>();
       services.AddScoped<ICityLanguageService, CityLanguageService>();
+      services.AddScoped<IPointOfInterestService, PointOfInterestService>();
     }
 
     // The function below has been made to handle Update problem when using Mapster.

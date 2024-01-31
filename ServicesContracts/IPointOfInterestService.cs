@@ -9,10 +9,10 @@ namespace ServicesContracts
 {
   public interface IPointOfInterestService
   {
-    Task<ICommunicationResults> UpdatePointOfInterestForCity(int CityId,
-                                                             List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
-                                                             bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
-                                                             string UserName = "No Name",
-                                                             bool UseExtendedDatabaseDebugging = false);
+    Task<ICommunicationResults> UpdatePointOfInterestListForCity(int CityId,
+                                                                 List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
+                                                                 bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
+                                                                 string UserName = "No Name",
+                                                                 bool UseExtendedDatabaseDebugging = false);
   }
 }

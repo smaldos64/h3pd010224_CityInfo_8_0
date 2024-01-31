@@ -22,11 +22,11 @@ namespace Services
       UtilityService.SetupMapsterConfiguration();
     }
 
-    public async Task<ICommunicationResults> UpdatePointOfInterestForCity(int CityId,
-                                                             List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
-                                                             bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
-                                                             string UserName = "No Name",
-                                                             bool UseExtendedDatabaseDebugging = false)
+    public async Task<ICommunicationResults> UpdatePointOfInterestListForCity(int CityId,
+                                                                List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
+                                                                bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
+                                                                string UserName = "No Name",
+                                                                bool UseExtendedDatabaseDebugging = false)
     {
       int NumberOfObjectsChanged = 0;
       int NumberOfObjectsActuallySaved = 0;
@@ -96,10 +96,6 @@ namespace Services
               }
             }
             CommunicationResults_Object.NumberOfObjetsChanged++;
-            //else
-            //{
-            //  NumberOfObjectsChanged++;
-            //}
           }
         }
 
@@ -146,10 +142,6 @@ namespace Services
                   }
                 }
                 CommunicationResults_Object.NumberOfObjetsChanged++;
-                //else
-                //{
-                //  NumberOfObjectsChanged++;
-                //}
               }
             }
           }
@@ -167,7 +159,7 @@ namespace Services
           }
 
           CommunicationResults_Object.HasErrorOccured = false;
-          CommunicationResults_Object.ResultString = $"PointOfInterstlist for CityId : {CityId} er nu opdateret for for {UserName} in action UpdatePointOfInterestForCity og tidligere PointOfInterests er slettet.";
+          CommunicationResults_Object.ResultString = $"PointOfInterstlist for CityId : {CityId} er nu opdateret for for {UserName} in action UpdatePointOfInterestForCity og tidligere PointOfInterests er slettet. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
           CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;
           return (CommunicationResults_Object);
         }
@@ -186,7 +178,7 @@ namespace Services
           }
 
           CommunicationResults_Object.HasErrorOccured = false;
-          CommunicationResults_Object.ResultString = $"PointOfInterstlist for CityId : {CityId} er nu opdateret for for {UserName} in action UpdatePointOfInterestForCity uden at slette tidligere PointOfInterests.";
+          CommunicationResults_Object.ResultString = $"PointOfInterstlist for CityId : {CityId} er nu opdateret for for {UserName} in action UpdatePointOfInterestForCity uden at slette tidligere PointOfInterests. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
           CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;
           return (CommunicationResults_Object);
         }

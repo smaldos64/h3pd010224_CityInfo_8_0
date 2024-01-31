@@ -107,7 +107,7 @@ namespace Services
       if (null != PointOfInterestForUpdateDto_List)
       {
           NumberOfObjectsActuallySaved = CommunicationResults_Object.NumberOfObjetsChanged;
-          CommunicationResults_Object = await this._pointOfInterestService.UpdatePointOfInterestForCity(CityForUpdateDto_Object.CityId,
+          CommunicationResults_Object = await this._pointOfInterestService.UpdatePointOfInterestListForCity(CityForUpdateDto_Object.CityId,
                                                                                        PointOfInterestForUpdateDto_List,
                                                                                        DeleteOldElementsInListsNotSpecifiedInCurrentLists,
                                                                                        UserName,
@@ -133,7 +133,7 @@ namespace Services
         CommunicationResults_Object.NumberOfObjetsChanged += NumberOfObjectsActuallySaved;
       }
 
-      CommunicationResults_Object.ResultString = $"City and all relations has been updated/saved for {UserName} in action UpdateCityWithAllRelations";
+      CommunicationResults_Object.ResultString = $"City and all relations has been updated/saved for {UserName} in action UpdateCityWithAllRelations. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
       CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.OK;
       CommunicationResults_Object.HasErrorOccured = false;
       return (CommunicationResults_Object);

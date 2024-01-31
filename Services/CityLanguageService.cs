@@ -117,7 +117,7 @@ namespace Services
         }
 
         CommunicationResults_Object.HasErrorOccured = false;
-        CommunicationResults_Object.ResultString = $"Languagelist for CityId : {CityIdSave} er nu opdateret for for {UserName} in action UpdateCityLanguagesList";
+        CommunicationResults_Object.ResultString = $"Languagelist for CityId : {CityIdSave} er nu opdateret for for {UserName} in action UpdateCityLanguagesList. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
         CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;
         return (CommunicationResults_Object);
       }

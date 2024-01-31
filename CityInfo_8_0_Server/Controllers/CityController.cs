@@ -18,6 +18,10 @@ using CityInfo_8_0_Server.ViewModels;
 using CityInfo_8_0_Server.Extensions;
 using Entities.MyMapsterFunctions;
 
+#if Use_Hub_Logic_On_ServertSide
+using CityInfo_8_0_Server.Hubs;
+#endif
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CityInfo_8_0_Server.Controllers
@@ -34,11 +38,11 @@ namespace CityInfo_8_0_Server.Controllers
         private readonly IHubContext<BroadcastHub> _broadcastHub;
 #endif
         public CityController(ILoggerManager logger, 
-                              IRepositoryWrapper repository,
+                              IRepositoryWrapper repositoryWrapper,
                               ICityService cityService )
         {
               this._logger = logger;
-              this._repositoryWrapper = repository;
+              this._repositoryWrapper = repositoryWrapper;
               this._cityService = cityService;
         }
 
@@ -619,12 +623,10 @@ namespace CityInfo_8_0_Server.Controllers
       try
       {
         ICommunicationResults CommunicationResults_Object;
-        List<int> AddedList = new List<int>();
-        int ListCounter = 0;
-
+         
         if (CityId != UpdateCityWithAllRelations_Object.CityDto_Object.CityId)
         {
-          return BadRequest();
+          return BadRequest("CityID error !!!");
         }
 
         if (UpdateCityWithAllRelations_Object.CityDto_Object.CityDescription ==
@@ -656,128 +658,8 @@ namespace CityInfo_8_0_Server.Controllers
         {
           _logger.LogInfo(CommunicationResults_Object.ResultString);
         }
-        //(CommunicationResults_Object.HasErrorOccured == true) ? _logger.LogError(CommunicationResults_Object.ResultString) :
-        //                                              _logger.LogInfo(CommunicationResults_Object.ResultString);
-
-
+       
         return StatusCode(CommunicationResults_Object.HttpStatusCodeResult, CommunicationResults_Object.ResultString); 
-
-//        var CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
-
-//        if (null == CityFromRepo)
-//        {
-//          _logger.LogError($"City With ID : {CityId} not found in Cities for {UserName} in action UpdateCityWithAllRelations");
-//          return NotFound($"City With ID : {CityId} not found in Cities for {UserName} in action UpdateCityWithAllRelations");
-//        }
-
-//        TypeAdapter.Adapt(UpdateCityWithAllRelations_Object.CityDto_Object, CityFromRepo);
-//        //if (CityFromRepo.CloneData<City>(UpdateCityWithAllRelations_Object.CityDto_Object))
-//        //{
-//          await _repositoryWrapper.CityRepositoryWrapper.Update(CityFromRepo);
-//#if Use_Hub_Logic_On_ServertSide
-//          await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-//#endif
-
-//        //}
-//        //else
-//        //{
-//        //  return BadRequest("Data Clone Fejl !!!");
-//        //}
-
-//        if (null != UpdateCityWithAllRelations_Object.PointOfInterests)
-//        {
-//          for (int Counter = 0; Counter < UpdateCityWithAllRelations_Object.PointOfInterests.Count; Counter++)
-//          {
-//            if (0 == UpdateCityWithAllRelations_Object.PointOfInterests[Counter].PointOfInterestId)
-//            {
-//              PointOfInterestForSaveWithCityDto PointOfInterestForSaveWithCityDto_Object =
-//                  UpdateCityWithAllRelations_Object.PointOfInterests[Counter].Adapt<PointOfInterestForSaveWithCityDto>();
-
-//              var ActionResultAdd = await _pointOfInterestController.AddPointOfInterest(PointOfInterestForSaveWithCityDto_Object,
-//                                                                                        UserName);
-//              var OkResultActionResultAdd = ActionResultAdd as OkObjectResult;
-
-//              if (null != OkResultActionResultAdd)
-//              {
-//                int Test = (int)OkResultActionResultAdd.Value;
-//                AddedList.Add((int)OkResultActionResultAdd.Value);
-//              }
-//              else
-//              {
-//                string ErrorString = "Add Fejl i PointOfInterest objekt nummer " + Counter.ToString() + " !!!";
-//                return BadRequest(ErrorString);
-//              }
-//            }
-//            else
-//            {
-//              var ActionResultUpdate = await _pointOfInterestController.UpdatePointOfInterest(UpdateCityWithAllRelations_Object.PointOfInterests[Counter].PointOfInterestId,
-//                                                                                              UpdateCityWithAllRelations_Object.PointOfInterests[Counter],
-//                                                                                              UserName);
-//              var NoContentResultActionResultUpdate = ActionResultUpdate as NoContentResult;
-
-//              if (null == NoContentResultActionResultUpdate)
-//              {
-//                string ErrorString = "Update Fejl i PointOfInterest objekt nummer " + Counter.ToString() + " !!!";
-//                return BadRequest(ErrorString);
-//              }
-//            }
-//          }
-
-//          if (true == DeleteOldElementsInListsNotSpecifiedInCurrentLists)
-//          {
-//            var PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.GetAllPointOfInterestWithCityID(CityId, false);
-//            ListCounter = 1;
-
-//            foreach (PointOfInterest PointOfInterest_object in PointOfInterestList)
-//            {
-//              var Matches = UpdateCityWithAllRelations_Object.PointOfInterests.Where(p => p.PointOfInterestId == PointOfInterest_object.PointOfInterestId);
-//              if (0 == Matches.Count())
-//              {
-//                var Matches1 = AddedList.Any(p => p == PointOfInterest_object.PointOfInterestId);
-
-//                if (!Matches1)
-//                {
-//                  // Et af de nuværende PointOfinterests for det angivne CityId
-//                  // findes ikke i den nye liste over ønskede opdateringer og heller
-//                  // ikke i liste for nye PointOfInterests for det angivne CityId. 
-//                  // Og desuden er parameteren for at slette "gamle" elementer i
-//                  // PointOfInterest listen for det angivne CityId sat. Så slet 
-//                  // dette PointOfInterest fra databasen !!!
-//                  var ActionResultDelete = await _pointOfInterestController.DeletePointOfInterest(PointOfInterest_object.PointOfInterestId,
-//                                                                                                  UserName);
-//                  var NoContentActionResultDelete = ActionResultDelete as NoContentResult;
-
-//                  if (null == NoContentActionResultDelete)
-//                  {
-//                    string ErrorString = "Delete Fejl i PointOfInterest objekt nummer " + ListCounter.ToString() + " med PointOfInterestId " +
-//                                          PointOfInterest_object.PointOfInterestId.ToString() + " i Databasen !!!";
-//                    return BadRequest(ErrorString);
-//                  }
-//                }
-//              }
-//            }
-//          }
-//        }
-
-//        if (null != UpdateCityWithAllRelations_Object.CityLanguages)
-//        {
-//          var ActionResultUpdateCityLanguageList = await this._cityLanguageController.UpdateCityLanguagesList(UpdateCityWithAllRelations_Object.CityLanguages,
-//                                                                                                              DeleteOldElementsInListsNotSpecifiedInCurrentLists,
-//                                                                                                              UserName);
-//          var NoContentActionResultUpdateCityLanguageList = ActionResultUpdateCityLanguageList as NoContentResult;
-
-//          if (null == NoContentActionResultUpdateCityLanguageList)
-//          {
-//            var BadRequestActionResultUpdateCityLanguageList = ActionResultUpdateCityLanguageList as BadRequestObjectResult;
-
-//            string ErrorString = (string)(BadRequestActionResultUpdateCityLanguageList.Value);
-
-//            return BadRequest(ErrorString);
-//          }
-
-//        }
-
-//        return NoContent();
       }
       catch (Exception Error)
       {
