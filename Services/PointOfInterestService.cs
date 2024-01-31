@@ -1,107 +1,50 @@
-﻿using System;
+﻿using Contracts;
+using Entities.DataTransferObjects;
+using Entities.Models;
+using Mapster;
+using ServicesContracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
-using Contracts;
-using ServicesContracts;
-using Entities.Models;
-using Entities.DataTransferObjects;
-//using Microsoft.AspNetCore.Http; // StatusCodes
-
-using Mapster;
 
 namespace Services
 {
-  public class CityService : ICityService
+  public class PointOfInterestService : IPointOfInterestService
   {
     private readonly IRepositoryWrapper _repositoryWrapper;
-    private readonly ICityLanguageService _cityLanguage;
 
-    public CityService(IRepositoryWrapper repositoryWrapper,
-                       ICityLanguageService cityLanguage)
+    public PointOfInterestService(IRepositoryWrapper repositoryWrapper)
     {
       this._repositoryWrapper = repositoryWrapper;
-      this._cityLanguage = cityLanguage;
       UtilityService.SetupMapsterConfiguration();
     }
 
-    public async Task<IEnumerable<City>> GetCities(bool IncludeRelations = false)
-    {
-      return (await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(IncludeRelations));
-    }
-
-    public async Task<int> SaveCity(City City_Object)
-    {
-      int NumberOfObjectsChanged;
-
-      try
-      {
-        await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-        NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
-
-        return (NumberOfObjectsChanged);
-      }
-      catch (Exception Error)
-      {
-        return (0);
-      }
-    }
-
-    public async Task<int> SaveCityAllInfo(City City_Object)
-    {
-      int NumberOfObjectsChanged;
-
-      try
-      {
-        await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-        NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
-
-        return (NumberOfObjectsChanged);
-      }
-      catch (Exception Error)
-      {
-        return (0);
-      }
-    }
-
-    public async Task<ICommunicationResults> UpdateCityWithAllRelations(CityForUpdateDto CityForUpdateDto_Object,
-                                                List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
-                                                List<CityLanguageForSaveAndUpdateDto> CityLanguageForSaveAndUpdateDto_List,
-                                                string UserName,
-                                                bool DeleteOldElementsInListsNotSpecifiedInCurrentLists = true,
-                                                bool UseExtendedDatabaseDebugging = false)
+    public async Task<ICommunicationResults> UpdatePointOfInterestForCity(int CityId,
+                                                             List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
+                                                             bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
+                                                             string UserName = "No Name",
+                                                             bool UseExtendedDatabaseDebugging = false)
     {
       int NumberOfObjectsChanged = 0;
       int NumberOfObjectsActuallySaved = 0;
-      //int ListCounter = 0;
       List<int> AddedList = new List<int>();
       ICommunicationResults CommunicationResults_Object = new CommunicationResults(true);
 
-      City CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityForUpdateDto_Object.CityId);
+      City CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
 
       if (null == CityFromRepo)
       {
-        CommunicationResults_Object.ResultString = $"City With ID : {CityForUpdateDto_Object.CityId} not found in Cities for {UserName} in action UpdateCityWithAllRelations";
+        CommunicationResults_Object.ResultString = $"City With ID : {CityId} not found in Cities for {UserName} in action UpdatePointOfInterestForCity";
         CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotFound;
         return (CommunicationResults_Object);
       }
 
-      TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
-
-      NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
-      if (1 != NumberOfObjectsChanged)
-      {
-        CommunicationResults_Object.ResultString = $"City with Id : {CityForUpdateDto_Object.CityId} not updated for {UserName} in action UpdateCityWithAllRelations";
-        CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
-        return (CommunicationResults_Object);
-      }
-      CommunicationResults_Object.NumberOfObjetsChanged++;
-
       if (null != PointOfInterestForUpdateDto_List)
       {
+
         for (int Counter = 0; Counter < PointOfInterestForUpdateDto_List.Count; Counter++)
         {
           if (0 == PointOfInterestForUpdateDto_List[Counter].PointOfInterestId)
@@ -110,7 +53,7 @@ namespace Services
                 PointOfInterestForUpdateDto_List[Counter].Adapt<PointOfInterest>();
 
             await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
-            
+
             if (UseExtendedDatabaseDebugging)
             {
               NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
@@ -122,18 +65,15 @@ namespace Services
                 return (CommunicationResults_Object);
               }
             }
-            else
-            {
-              NumberOfObjectsChanged++;
-            }
+            CommunicationResults_Object.NumberOfObjetsChanged++;
             
             AddedList.Add(PointOfInterest_Object.PointOfInterestId);
           }
           else
           {
-            PointOfInterest PointOfInterestFromRepo = 
+            PointOfInterest PointOfInterestFromRepo =
               await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestForUpdateDto_List[Counter].PointOfInterestId);
-        
+
             if (null == PointOfInterestFromRepo)
             {
               CommunicationResults_Object.ResultString = $"PointOfInterest Object with PointOfInterestId : {PointOfInterestForUpdateDto_List[Counter].PointOfInterestId} not found in Database for {UserName} in action UpdateCityWithAllRelations";
@@ -155,17 +95,18 @@ namespace Services
                 return (CommunicationResults_Object);
               }
             }
-            else
-            {
-              NumberOfObjectsChanged++;
-            }
+            CommunicationResults_Object.NumberOfObjetsChanged++;
+            //else
+            //{
+            //  NumberOfObjectsChanged++;
+            //}
           }
         }
 
-        if (true == DeleteOldElementsInListsNotSpecifiedInCurrentLists)
+        if (true == DeleteOldElementsInListNotSpecifiedInCurrentList)
         {
-          var PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.GetAllPointOfInterestWithCityID(CityForUpdateDto_Object.CityId, false);
-         
+          var PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.GetAllPointOfInterestWithCityID(CityId, false);
+
           foreach (PointOfInterest PointOfInterest_object in PointOfInterestList)
           {
             var Matches = PointOfInterestForUpdateDto_List.Where(p => p.PointOfInterestId == PointOfInterest_object.PointOfInterestId);
@@ -204,32 +145,59 @@ namespace Services
                     return (CommunicationResults_Object);
                   }
                 }
-                else
-                {
-                  NumberOfObjectsChanged++;
-                }
+                CommunicationResults_Object.NumberOfObjetsChanged++;
+                //else
+                //{
+                //  NumberOfObjectsChanged++;
+                //}
               }
             }
           }
-        }
-      }
 
-      if (null != CityLanguageForSaveAndUpdateDto_List)
-      {
-        CommunicationResults_Object = await this._cityLanguage.UpdateCityLanguagesList(CityLanguageForSaveAndUpdateDto_List,
-                                                                                       DeleteOldElementsInListsNotSpecifiedInCurrentLists,
-                                                                                       UserName,
-                                                                                       UseExtendedDatabaseDebugging);
-        if (true == CommunicationResults_Object.HasErrorOccured)
+          if (!UseExtendedDatabaseDebugging)
+          {
+            NumberOfObjectsActuallySaved = await _repositoryWrapper.PointOfInterestRepositoryWrapper.Save();
+
+            if (NumberOfObjectsActuallySaved != CommunicationResults_Object.NumberOfObjetsChanged)
+            {
+              CommunicationResults_Object.ResultString = $"Noget gik galt ved opdatering/slet af et eller flere objekter for {UserName} in action UpdatePointOfInterestForCity";
+              CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.BadRequest;
+              return (CommunicationResults_Object);
+            }
+          }
+
+          CommunicationResults_Object.HasErrorOccured = false;
+          CommunicationResults_Object.ResultString = $"PointOfInterstlist for CityId : {CityId} er nu opdateret for for {UserName} in action UpdatePointOfInterestForCity og tidligere PointOfInterests er slettet.";
+          CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;
+          return (CommunicationResults_Object);
+        }
+        else
         {
-          return CommunicationResults_Object;
+          if (!UseExtendedDatabaseDebugging)
+          {
+            NumberOfObjectsActuallySaved = await _repositoryWrapper.PointOfInterestRepositoryWrapper.Save();
+
+            if (NumberOfObjectsActuallySaved != CommunicationResults_Object.NumberOfObjetsChanged)
+            {
+              CommunicationResults_Object.ResultString = $"Noget gik galt ved opdatering/slet af et eller flere objekter for {UserName} in action UpdatePointOfInterestForCity";
+              CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.BadRequest;
+              return (CommunicationResults_Object);
+            }
+          }
+
+          CommunicationResults_Object.HasErrorOccured = false;
+          CommunicationResults_Object.ResultString = $"PointOfInterstlist for CityId : {CityId} er nu opdateret for for {UserName} in action UpdatePointOfInterestForCity uden at slette tidligere PointOfInterests.";
+          CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;
+          return (CommunicationResults_Object);
         }
       }
-
-      CommunicationResults_Object.ResultString = $"City and all relations has been updated/saved for {UserName} in action UpdateCityWithAllRelations";
-      CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.OK;
-      CommunicationResults_Object.HasErrorOccured = false;
-      return (CommunicationResults_Object);
+      else
+      {
+        CommunicationResults_Object.HasErrorOccured = false;
+        CommunicationResults_Object.ResultString = $"No PointOfInterest Object specified in list for {UserName} in action UpdatePointOfInterestForCity";
+        CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotImplemented;
+        return (CommunicationResults_Object);
+      }
     }
   }
 }

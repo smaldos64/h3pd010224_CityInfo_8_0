@@ -613,6 +613,7 @@ namespace CityInfo_8_0_Server.Controllers
     public async Task<IActionResult> UpdateCityWithAllRelations(int CityId,
                                                                 [FromBody] UpdateCityWithAllRelations UpdateCityWithAllRelations_Object,
                                                                 bool DeleteOldElementsInListsNotSpecifiedInCurrentLists = true,
+                                                                bool UseExtendedDatabaseDebugging = false,
                                                                 string UserName = "No Name")
     {
       try
@@ -644,7 +645,8 @@ namespace CityInfo_8_0_Server.Controllers
                                                                                     UpdateCityWithAllRelations_Object.PointOfInterests,
                                                                                     UpdateCityWithAllRelations_Object.CityLanguages,
                                                                                     UserName,
-                                                                                    DeleteOldElementsInListsNotSpecifiedInCurrentLists);
+                                                                                    DeleteOldElementsInListsNotSpecifiedInCurrentLists,
+                                                                                    UseExtendedDatabaseDebugging);
 
         if (CommunicationResults_Object.HasErrorOccured == true) 
         {

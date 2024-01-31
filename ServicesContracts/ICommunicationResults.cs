@@ -10,7 +10,7 @@ namespace ServicesContracts
 {
   public interface ICommunicationResults
   {
-    int NumberOfObjetsSaved { get; set; }
+    int NumberOfObjetsChanged { get; set; }
     int IdToReturn { get; set; }
     //HttpStatusCode HttpStatusCodeResult { get; set; }
     int HttpStatusCodeResult { get; set; }

@@ -14,7 +14,7 @@ using System.Xml.Linq;
 
 namespace Services
 {
-  public class CityLanguageService : ICityLanguage
+  public class CityLanguageService : ICityLanguageService
   {
     private readonly IRepositoryWrapper _repositoryWrapper;
 
@@ -26,9 +26,11 @@ namespace Services
 
     public async Task<ICommunicationResults> UpdateCityLanguagesList(List<CityLanguageForSaveAndUpdateDto> CityLanguageForSaveAndUpdateDto_List,
                                                                      bool DeleteOldElementsInListNotSpecifiedInCurrentList,
-                                                                     string UserName = "No Name")
+                                                                     string UserName = "No Name",
+                                                                     bool UseExtendedDatabaseDebugging = false)
     {
       int NumberOfObjectsChanged = 0;
+      int NumberOfObjectsActuallySaved = 0;
       List<int> CurrentLanguageIds = new List<int>();
       ICommunicationResults CommunicationResults_Object = new CommunicationResults(true);
 
@@ -57,7 +59,19 @@ namespace Services
                                                                                                     CityLanguageCombination.LanguageId))
             {
               await _repositoryWrapper.CityLanguageRepositoryWrapper.Delete(CityLanguageCombination);
-              NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
+              
+              if (UseExtendedDatabaseDebugging) 
+              {
+                NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
+
+                if (1 != NumberOfObjectsChanged)
+                {
+                  CommunicationResults_Object.ResultString = $"CityLanguage Object with CityId : {CityLanguageCombination.CityId} and LanguageId : {CityLanguageCombination.LanguageId} not deleted for {UserName} in action UpdateCityLanguagesList";
+                  CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
+                  return (CommunicationResults_Object);
+                }
+              }
+              CommunicationResults_Object.NumberOfObjetsChanged++;
             }
           }
 
@@ -78,9 +92,30 @@ namespace Services
             CityLanguage CityLanguage_Object = new CityLanguage();
             TypeAdapter.Adapt(CityLanguageForSaveAndUpdateDto_List[ListCounter], CityLanguage_Object);
             await _repositoryWrapper.CityLanguageRepositoryWrapper.Create(CityLanguage_Object);
+
             NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
+            if (1 != NumberOfObjectsChanged)
+            {
+              CommunicationResults_Object.ResultString = $"CityLanguage Object with CityId : {CityLanguage_Object.CityId} and LanguageId : {CityLanguage_Object.LanguageId} not saved for {UserName} in action UpdateCityLanguagesList";
+              CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
+              return (CommunicationResults_Object);
+            }
+            CommunicationResults_Object.NumberOfObjetsChanged++;
           }
         }
+
+        if (!UseExtendedDatabaseDebugging) 
+        {
+          NumberOfObjectsActuallySaved = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
+
+          if (NumberOfObjectsActuallySaved != CommunicationResults_Object.NumberOfObjetsChanged)
+          {
+            CommunicationResults_Object.ResultString = $"Noget gik galt ved opdatering/slet af et eller flere objekter for {UserName} in action UpdateCityLanguagesList";
+            CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.BadRequest;
+            return (CommunicationResults_Object);
+          }
+        }
+
         CommunicationResults_Object.HasErrorOccured = false;
         CommunicationResults_Object.ResultString = $"Languagelist for CityId : {CityIdSave} er nu opdateret for for {UserName} in action UpdateCityLanguagesList";
         CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;

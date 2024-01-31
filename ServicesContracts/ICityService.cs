@@ -17,7 +17,8 @@ namespace ServicesContracts
     Task<ICommunicationResults> UpdateCityWithAllRelations(CityForUpdateDto CityForUpdateDto_Object,
                                                            List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
                                                            List<CityLanguageForSaveAndUpdateDto> CityLanguageForSaveAndUpdateDto_list,
-                                                           string UserName,
-                                                           bool DeleteOldElementsInListsNotSpecifiedInCurrentLists = true);
+                                                           string UserName = "No Name",
+                                                           bool DeleteOldElementsInListsNotSpecifiedInCurrentLists = true,
+                                                           bool UseExtendedDatabaseDebugging = false);
   }
 }

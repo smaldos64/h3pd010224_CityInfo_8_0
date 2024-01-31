@@ -10,17 +10,17 @@ namespace Services
 {
   public class CommunicationResults : ICommunicationResults
   {
-        private int _numberOfObjetsSaved { get; set; }
+        private int _numberOfObjetsChanged { get; set; }
         //private HttpStatusCode _httpStatusCodeResult { get; set; }
         private int _httpStatusCodeResult { get; set; }
         private int _idToReturn { get; set; }
         private string _resultString { get; set; }
         private bool _hasErrorOccured;
 
-        public int NumberOfObjetsSaved
+        public int NumberOfObjetsChanged
         { 
-          get { return _numberOfObjetsSaved;}
-          set { _numberOfObjetsSaved = value; }
+          get { return _numberOfObjetsChanged;}
+          set { _numberOfObjetsChanged = value; }
         }
 
         public int HttpStatusCodeResult
