@@ -39,6 +39,15 @@ namespace Services
         int ListCounter;
         int CityIdSave = CityLanguageForSaveAndUpdateDto_List[0].CityId;
 
+        City CityObject = await this._repositoryWrapper.CityRepositoryWrapper.GetCity(CityLanguageForSaveAndUpdateDto_List[0].CityId, false);
+
+        if (null == CityObject)
+        {
+            CommunicationResults_Object.ResultString = $"City med CityId : {CityLanguageForSaveAndUpdateDto_List[0].CityId} findes ikke i Databsen !!!";
+            CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotFound;
+            return (CommunicationResults_Object);
+        }
+        
         for (ListCounter = 1; ListCounter < CityLanguageForSaveAndUpdateDto_List.Count; ListCounter++)
         {
           if (CityLanguageForSaveAndUpdateDto_List[ListCounter].CityId != CityLanguageForSaveAndUpdateDto_List[0].CityId)
@@ -50,7 +59,9 @@ namespace Services
         }
 
         IEnumerable<CityLanguage> CityLangualeListFromRepo = await _repositoryWrapper.CityLanguageRepositoryWrapper.GetAllLanguagesFromCityId(CityLanguageForSaveAndUpdateDto_List[0].CityId);
-        
+        List<CityLanguage> CityLangualeList = CityLangualeListFromRepo.ToList();
+
+        int PositonInList = 0;
         if (true == DeleteOldElementsInListNotSpecifiedInCurrentList)
         {
           foreach (var CityLanguageCombination in CityLangualeListFromRepo)
@@ -72,17 +83,15 @@ namespace Services
                 }
               }
               CommunicationResults_Object.NumberOfObjetsChanged++;
+              CityLangualeList.RemoveAt(PositonInList);
             }
+            PositonInList++;
           }
-
-          // Hent listen med nuværende CityId igen fra databasen. Der er sikkert slettet et eller flere
-          // elementer i denne. Dette kan sikert gøres uden at skulle kalde databasen igen !!! => se på dette senere.
-          CityLangualeListFromRepo = await _repositoryWrapper.CityLanguageRepositoryWrapper.GetAllLanguagesFromCityId(CityIdSave);
         }
        
-        foreach (var CityLanguageCombination in CityLangualeListFromRepo)
+        foreach (var CityLanguageCombination in CityLangualeList)
         {
-          CurrentLanguageIds.Add(CityLanguageCombination.LanguageId);
+            CurrentLanguageIds.Add(CityLanguageCombination.LanguageId);
         }
 
         for (ListCounter = 0; ListCounter < CityLanguageForSaveAndUpdateDto_List.Count; ListCounter++)
@@ -93,12 +102,15 @@ namespace Services
             TypeAdapter.Adapt(CityLanguageForSaveAndUpdateDto_List[ListCounter], CityLanguage_Object);
             await _repositoryWrapper.CityLanguageRepositoryWrapper.Create(CityLanguage_Object);
 
-            NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
-            if (1 != NumberOfObjectsChanged)
+            if (UseExtendedDatabaseDebugging)
             {
-              CommunicationResults_Object.ResultString = $"CityLanguage Object with CityId : {CityLanguage_Object.CityId} and LanguageId : {CityLanguage_Object.LanguageId} not saved for {UserName} in action UpdateCityLanguagesList";
-              CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
-              return (CommunicationResults_Object);
+                NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
+                if (1 != NumberOfObjectsChanged)
+                {
+                    CommunicationResults_Object.ResultString = $"CityLanguage Object with CityId : {CityLanguage_Object.CityId} and LanguageId : {CityLanguage_Object.LanguageId} not saved for {UserName} in action UpdateCityLanguagesList";
+                    CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
+                    return (CommunicationResults_Object);
+                }
             }
             CommunicationResults_Object.NumberOfObjetsChanged++;
           }
@@ -116,8 +128,15 @@ namespace Services
           }
         }
 
+        if (DeleteOldElementsInListNotSpecifiedInCurrentList) 
+        {
+            CommunicationResults_Object.ResultString = $"Languagelist for CityId : {CityIdSave} er nu opdateret for for {UserName} in action UpdateCityLanguagesList og tidligere City-Language kombinationer er slettet. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
+        }
+        else
+        {
+            CommunicationResults_Object.ResultString = $"Languagelist for CityId : {CityIdSave} er nu opdateret for for {UserName} in action UpdateCityLanguagesList og tidligere City-Language kombinationer er ikke slettet. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
+        }
         CommunicationResults_Object.HasErrorOccured = false;
-        CommunicationResults_Object.ResultString = $"Languagelist for CityId : {CityIdSave} er nu opdateret for for {UserName} in action UpdateCityLanguagesList. Number of objects changed : {CommunicationResults_Object.NumberOfObjetsChanged}";
         CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.Created;
         return (CommunicationResults_Object);
       }

@@ -43,7 +43,7 @@ namespace CityInf0_8_0_Server.Controllers
         }
 
         // PUT api/<PointOfInteresController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{CityId}")]
         public async Task<IActionResult> UpdatePointOfInterestListForCity(int CityId,
                                                                         [FromBody] List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
                                                                         bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
