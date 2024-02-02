@@ -29,13 +29,13 @@ namespace Entities
     }
 
     private readonly IConfiguration _configuration;
-    public DbSet<Country> Core_8_0_Countries { get; set; }
-    public DbSet<City> Core_8_0_Cities { get; set; }
-    public DbSet<PointOfInterest> Core_8_0_PointsOfInterest { get; set; }
+    public virtual DbSet<Country> Core_8_0_Countries { get; set; }
+    public virtual DbSet<City> Core_8_0_Cities { get; set; }
+    public virtual DbSet<PointOfInterest> Core_8_0_PointsOfInterest { get; set; }
 
-    public DbSet<Language> Core_8_0_Languages { get; set; }
+    public virtual DbSet<Language> Core_8_0_Languages { get; set; }
 
-    public DbSet<CityLanguage> Core_8_0_CityLanguages { get; set; }
+    public virtual DbSet<CityLanguage> Core_8_0_CityLanguages { get; set; }
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options,
                            IConfiguration configuration) : base(options)
@@ -43,7 +43,14 @@ namespace Entities
       this._configuration = configuration;
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // LTPE => Constructor herunder oprettet af hensyn til unit test.
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) :
+            base(options)
+        {
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<CityLanguage>()
           .HasKey(cl => new
