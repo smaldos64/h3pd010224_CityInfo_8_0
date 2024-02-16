@@ -1,9 +1,6 @@
-﻿using CityInf0_8_0_Server;
-using Contracts;
+﻿using Contracts;
 using Entities;
 using Entities.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Repository;
 using System;
@@ -11,27 +8,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xunit;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
-    public class CityRepositoryTest1
+    public class CityRepositoryTest2
     {
-        protected DbContextOptions<DatabaseContext> _contextOptions { get; }
-
+        private IRepositoryWrapper _repositoryWrapper;
         private DatabaseContext _databaseContext;
         private DbContextOptions<DatabaseContext> _dbContextoptions;
 
-        protected TestServer _testServer;
-
-        private IRepositoryWrapper _repositoryWrapper { get; }
-
-        //private void SeedData(DatabaseContext context)
         private void SeedData()
         {
-            using (var context = new DatabaseContext(this._dbContextoptions))
+            //using (var context = new DatabaseContext(this._dbContextoptions))
+            using (var context = this._databaseContext)
             {
                 List<Language> LanguageObjectList = new List<Language>()
                 {
@@ -173,68 +162,35 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             }
         }
 
-        //public CityRepositoryTest1(DbContextOptions<DatabaseContext> contextOptions,
-        //                           IRepositoryWrapper repositoryWrapper)
-        //{
-        //    this._contextOptions = contextOptions;
-        //    this._dbContextoptions = contextOptions;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._repositoryWrapper = repositoryWrapper;
-        //    SeedData();
-        //}
-
-        public CityRepositoryTest1(TestServer testServer)
+        //public CityRepositoryTest2(IRepositoryWrapper repositoryWrapper)
+        public CityRepositoryTest2()
         {
-            //this._contextOptions = contextOptions;
-            //this._dbContextoptions = contextOptions;
-            //this._databaseContext = new DatabaseContext(this._contextOptions);
-            this._testServer = testServer;
-            this._repositoryWrapper = testServer.Services.GetService<IRepositoryWrapper>();
-            //SeedData();
+            this._dbContextoptions = (new DbContextOptionsBuilder<DatabaseContext>()
+                                    .UseInMemoryDatabase("UnitTestDatabase")
+                                    .Options);
+
+            this._databaseContext = new DatabaseContext(this._dbContextoptions);
+            //this._repositoryWrapper = repositoryWrapper;
+            
+            SeedData();
         }
 
-        //public CityRepositoryTest1(DbContextOptions<DatabaseContext> contextOptions,
-        //                           TestServer testServer)
-        //{
-        //    this._contextOptions = contextOptions;
-        //    this._dbContextoptions = contextOptions;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._testServer = testServer;
-        //    this._repositoryWrapper = testServer.Services.GetService<IRepositoryWrapper>();
-        //    //SeedData();
-        //}
-
-        //public CityRepositoryTest1(DbContextOptions<DatabaseContext> contextOptions,
-        //                           TestServer testServer)
-        //{
-        //    this._contextOptions = contextOptions;
-        //    this._dbContextoptions = contextOptions;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._testServer = testServer;
-        //    this._repositoryWrapper = testServer.Services.GetService<IRepositoryWrapper>();
-        //    //SeedData();
-        //}
-
-        //protected CityRepositoryTest1(DbContextOptions<DatabaseContext> options) 
-        //{
-        //    this._contextOptions = options;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._repositoryWrapper = new RepositoryWrapper();
-        //    SeedData();
-        //}
-
         [Fact]
-        public async void Test_CityRepository_GetAllCities()
+        public async void Test_CityRepository_GetAllCities_2()
         {
             // Arrange
             //var controller = new RegistrationController(context);
+            CityRepository CityRepositoryObject = new CityRepository(this._databaseContext);
 
             // Act
-            IEnumerable<City> CityList = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(false);
+            //IEnumerable<City> CityList = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(false);
+            IEnumerable<City> CityList = await CityRepositoryObject.GetAllCities(false);
             List<City> cities = CityList.ToList();
 
             // Assert
             Assert.Equal(3, cities.Count);
         }
+
+
     }
 }

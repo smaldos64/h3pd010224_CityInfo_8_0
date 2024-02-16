@@ -26,8 +26,9 @@ using CityInfo_8_0_Server.Hubs;
 
 namespace CityInfo_8_0_Server.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
+    //[Route("[controller]")]
     public class CityController : ControllerBase
     {
         private IRepositoryWrapper _repositoryWrapper;
@@ -191,9 +192,11 @@ namespace CityInfo_8_0_Server.Controllers
 
     // POST: api/City
     [HttpPost("CreateCity")]
+    //[HttpPost]
     public async Task<IActionResult> CreateCity([FromBody] CityForSaveWithCountryDto CityDto_Object,
                                                 string UserName = "No Name")
     {
+      //string UserName = "No Name";
       try
       {
         //HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError; 
@@ -238,146 +241,146 @@ namespace CityInfo_8_0_Server.Controllers
       }
     }
 
-    // POST: api/City
-    [HttpPost("CreateCityServiceLayer")]
-    //[Route("[action]")]
-    public async Task<IActionResult> CreateCityServiceLayer([FromBody] CityForSaveWithCountryDto CityForSaveWithCountryDto_Object,
-                                                             string UserName = "No Name")
-    {
-      try
-      {
-        int NumberOfObjectsSavedThroughServiceLayer = 0;
-        if (CityForSaveWithCountryDto_Object.CityDescription == CityForSaveWithCountryDto_Object.CityName)
-        {
-          ModelState.AddModelError(
-              "Description",
-              "The provided description should be different from the name.");
-        }
+//    // POST: api/City
+//    [HttpPost("CreateCityServiceLayer")]
+//    //[Route("[action]")]
+//    public async Task<IActionResult> CreateCityServiceLayer([FromBody] CityForSaveWithCountryDto CityForSaveWithCountryDto_Object,
+//                                                             string UserName = "No Name")
+//    {
+//      try
+//      {
+//        int NumberOfObjectsSavedThroughServiceLayer = 0;
+//        if (CityForSaveWithCountryDto_Object.CityDescription == CityForSaveWithCountryDto_Object.CityName)
+//        {
+//          ModelState.AddModelError(
+//              "Description",
+//              "The provided description should be different from the name.");
+//        }
 
-        if (!ModelState.IsValid)
-        {
-          _logger.LogError($"ModelState is Invalid for {UserName} in action CreateCityServiceLayer");
-          return BadRequest(ModelState);
-        }
+//        if (!ModelState.IsValid)
+//        {
+//          _logger.LogError($"ModelState is Invalid for {UserName} in action CreateCityServiceLayer");
+//          return BadRequest(ModelState);
+//        }
 
-        City City_Object = CityForSaveWithCountryDto_Object.Adapt<City>();
+//        City City_Object = CityForSaveWithCountryDto_Object.Adapt<City>();
 
-        NumberOfObjectsSavedThroughServiceLayer = await _cityService.SaveCity(City_Object);
+//        NumberOfObjectsSavedThroughServiceLayer = await _cityService.SaveCity(City_Object);
         
-#if Use_Hub_Logic_On_ServertSide
-        await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-#endif
-        if (1 == NumberOfObjectsSavedThroughServiceLayer)
-        {
-          _logger.LogInfo($"City with Id : {City_Object.CityId} has been stored using Service Layer by {UserName}!!!");
-          return Ok(City_Object.CityId);
-        }
-        else
-        {
-          _logger.LogError($"Error when saving City using Service Layer by {UserName} !!!");
-          return BadRequest($"Error when saving City using Service Layer by {UserName} !!!");
-        }
-      }
-      catch (Exception Error)
-      {
-        _logger.LogError($"Something went wrong inside Save City action for {UserName}: {Error.Message}");
-        return StatusCode(500, "Internal server error for {UserName}");
-      }
-    }
+//#if Use_Hub_Logic_On_ServertSide
+//        await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
+//#endif
+//        if (1 == NumberOfObjectsSavedThroughServiceLayer)
+//        {
+//          _logger.LogInfo($"City with Id : {City_Object.CityId} has been stored using Service Layer by {UserName}!!!");
+//          return Ok(City_Object.CityId);
+//        }
+//        else
+//        {
+//          _logger.LogError($"Error when saving City using Service Layer by {UserName} !!!");
+//          return BadRequest($"Error when saving City using Service Layer by {UserName} !!!");
+//        }
+//      }
+//      catch (Exception Error)
+//      {
+//        _logger.LogError($"Something went wrong inside Save City action for {UserName}: {Error.Message}");
+//        return StatusCode(500, "Internal server error for {UserName}");
+//      }
+//    }
 
-    // POST: api/City
-    [HttpPost("CreateCityWithAllRelations")]
-    public async Task<IActionResult> CreateCityWithAllRelations([FromBody] SaveCityWithAllRelations SaveCityWithAllRelations_Object,
-                                                                string UserName = "No Name")
-    {
-      int NumberOfObjectsSaved = 0;
-      try
-      {
-        if (SaveCityWithAllRelations_Object.CityDto_Object.CityDescription == SaveCityWithAllRelations_Object.CityDto_Object.CityName)
-        {
-          ModelState.AddModelError(
-              "Description",
-              "The provided description should be different from the name.");
-        }
+//    // POST: api/City
+//    [HttpPost("CreateCityWithAllRelations")]
+//    public async Task<IActionResult> CreateCityWithAllRelations([FromBody] SaveCityWithAllRelations SaveCityWithAllRelations_Object,
+//                                                                string UserName = "No Name")
+//    {
+//      int NumberOfObjectsSaved = 0;
+//      try
+//      {
+//        if (SaveCityWithAllRelations_Object.CityDto_Object.CityDescription == SaveCityWithAllRelations_Object.CityDto_Object.CityName)
+//        {
+//          ModelState.AddModelError(
+//              "Description",
+//              "The provided description should be different from the name.");
+//        }
 
-        if (!ModelState.IsValid)
-        {
-          _logger.LogError($"ModelState is Invalid for {UserName} in action CreateCityWithAllRelations");
-          return BadRequest(ModelState);
-        }
+//        if (!ModelState.IsValid)
+//        {
+//          _logger.LogError($"ModelState is Invalid for {UserName} in action CreateCityWithAllRelations");
+//          return BadRequest(ModelState);
+//        }
 
-        City City_Object = SaveCityWithAllRelations_Object.CityDto_Object.Adapt<City>();
-        await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-        NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
+//        City City_Object = SaveCityWithAllRelations_Object.CityDto_Object.Adapt<City>();
+//        await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
+//        NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
 
-        if (1 == NumberOfObjectsSaved)
-        {
-          if (null != SaveCityWithAllRelations_Object.PointOfInterests)
-          {
-            for (int Counter = 0; Counter < SaveCityWithAllRelations_Object.PointOfInterests.Count; Counter++)
-            {
-              SaveCityWithAllRelations_Object.PointOfInterests[Counter].CityId = City_Object.CityId;
-              PointOfInterest PointOfInterest_Object = SaveCityWithAllRelations_Object.PointOfInterests[Counter].Adapt<PointOfInterest>();
-              await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
-              //if (PointOfInterest_Object.PointOfInterestId <= 0)
-              //{
-              //  return BadRequest("PointOfInterest kunne ikke gemmes");
-              //}
-            }
-          }
+//        if (1 == NumberOfObjectsSaved)
+//        {
+//          if (null != SaveCityWithAllRelations_Object.PointOfInterests)
+//          {
+//            for (int Counter = 0; Counter < SaveCityWithAllRelations_Object.PointOfInterests.Count; Counter++)
+//            {
+//              SaveCityWithAllRelations_Object.PointOfInterests[Counter].CityId = City_Object.CityId;
+//              PointOfInterest PointOfInterest_Object = SaveCityWithAllRelations_Object.PointOfInterests[Counter].Adapt<PointOfInterest>();
+//              await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
+//              //if (PointOfInterest_Object.PointOfInterestId <= 0)
+//              //{
+//              //  return BadRequest("PointOfInterest kunne ikke gemmes");
+//              //}
+//            }
+//          }
 
-          if (null != SaveCityWithAllRelations_Object.CityLanguages)
-          {
-            for (int Counter = 0; Counter < SaveCityWithAllRelations_Object.CityLanguages.Count; Counter++)
-            {
-              SaveCityWithAllRelations_Object.CityLanguages[Counter].CityId = City_Object.CityId;
+//          if (null != SaveCityWithAllRelations_Object.CityLanguages)
+//          {
+//            for (int Counter = 0; Counter < SaveCityWithAllRelations_Object.CityLanguages.Count; Counter++)
+//            {
+//              SaveCityWithAllRelations_Object.CityLanguages[Counter].CityId = City_Object.CityId;
 
-              CityLanguage CityLanguage_Object = new CityLanguage();
+//              CityLanguage CityLanguage_Object = new CityLanguage();
 
-              if (CityLanguage_Object.CloneData<CityLanguage>(SaveCityWithAllRelations_Object.CityLanguages[Counter]))
-              {
-                await _repositoryWrapper.CityLanguageRepositoryWrapper.Create(CityLanguage_Object);
-              }
-              else
-              {
-                return BadRequest("CityLanguage Object kunne ikke genereres");
-              }
-            }
-          }
+//              if (CityLanguage_Object.CloneData<CityLanguage>(SaveCityWithAllRelations_Object.CityLanguages[Counter]))
+//              {
+//                await _repositoryWrapper.CityLanguageRepositoryWrapper.Create(CityLanguage_Object);
+//              }
+//              else
+//              {
+//                return BadRequest("CityLanguage Object kunne ikke genereres");
+//              }
+//            }
+//          }
 
-#if Use_Hub_Logic_On_ServertSide
-          await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-#endif
+//#if Use_Hub_Logic_On_ServertSide
+//          await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
+//#endif
 
-          NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
+//          NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
 
-          int NumberOfObjectsSavedBesideCity = SaveCityWithAllRelations_Object.CityLanguages.Count +
-            SaveCityWithAllRelations_Object.PointOfInterests.Count;
+//          int NumberOfObjectsSavedBesideCity = SaveCityWithAllRelations_Object.CityLanguages.Count +
+//            SaveCityWithAllRelations_Object.PointOfInterests.Count;
 
-          if (NumberOfObjectsSaved == SaveCityWithAllRelations_Object.CityLanguages.Count +
-            SaveCityWithAllRelations_Object.PointOfInterests.Count)
-          {
-            _logger.LogInfo($"City with Id : {City_Object.CityId} has been saved together with {NumberOfObjectsSavedBesideCity} CityLanguages + PointOfInterests by {UserName} !!!");
-            return Ok(City_Object.CityId);
-          }
-          else
-          {
-            _logger.LogError($"Error when saving CityLanguages or PointOfInterests for CityId : {City_Object.CityId} by {UserName} !!!");
-            return BadRequest($"Error when saving CityLanguages or PointOfInterests for CityId : {City_Object.CityId} by {UserName} !!!");
-          }
-        }
-        else
-        {
-          _logger.LogError($"Something went wrong when saving City for {UserName}");
-          return BadRequest($"Something went wrong when saving City for {UserName}");
-        }
-      }
-      catch (Exception Error)
-      {
-        _logger.LogError($"Something went wrong inside Save City action for {UserName}: {Error.Message}");
-        return StatusCode(500, "Internal server error for {UserName}");
-      }
-    }
+//          if (NumberOfObjectsSaved == SaveCityWithAllRelations_Object.CityLanguages.Count +
+//            SaveCityWithAllRelations_Object.PointOfInterests.Count)
+//          {
+//            _logger.LogInfo($"City with Id : {City_Object.CityId} has been saved together with {NumberOfObjectsSavedBesideCity} CityLanguages + PointOfInterests by {UserName} !!!");
+//            return Ok(City_Object.CityId);
+//          }
+//          else
+//          {
+//            _logger.LogError($"Error when saving CityLanguages or PointOfInterests for CityId : {City_Object.CityId} by {UserName} !!!");
+//            return BadRequest($"Error when saving CityLanguages or PointOfInterests for CityId : {City_Object.CityId} by {UserName} !!!");
+//          }
+//        }
+//        else
+//        {
+//          _logger.LogError($"Something went wrong when saving City for {UserName}");
+//          return BadRequest($"Something went wrong when saving City for {UserName}");
+//        }
+//      }
+//      catch (Exception Error)
+//      {
+//        _logger.LogError($"Something went wrong inside Save City action for {UserName}: {Error.Message}");
+//        return StatusCode(500, "Internal server error for {UserName}");
+//      }
+//    }
 
 
     // PUT: api/City/5
@@ -669,7 +672,7 @@ namespace CityInfo_8_0_Server.Controllers
     }
 
     // DELETE: api/5
-    [HttpDelete("{CityId}")]
+    [HttpDelete("DeleteCity/{CityId}")]
     public async Task<IActionResult> DeleteCity(int CityId,
                                                 string UserName = "No Name")
     {
@@ -732,12 +735,12 @@ namespace CityInfo_8_0_Server.Controllers
                 CityDtos.Add(CityDto_Object);
             }
 
-            CityDto CityDto_Object_Final = new CityDto();
-            CityDto_Object_Final.CityId = 0;
-            CityDto_Object_Final.CityName = "Egen Konvertering !!!";
-            CityDto_Object_Final.CityDescription = "Det sidste objekt her er lavet for at illustrere det arbejde, som AutoMapper gør for os !!!";
+            //CityDto CityDto_Object_Final = new CityDto();
+            //CityDto_Object_Final.CityId = 0;
+            //CityDto_Object_Final.CityName = "Egen Konvertering !!!";
+            //CityDto_Object_Final.CityDescription = "Det sidste objekt her er lavet for at illustrere det arbejde, som AutoMapper gør for os !!!";
 
-            CityDtos.Add(CityDto_Object_Final);
+            //CityDtos.Add(CityDto_Object_Final);
 
             return (CityDtos);
         }

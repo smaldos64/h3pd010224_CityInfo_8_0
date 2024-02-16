@@ -17,7 +17,7 @@ namespace Repository
             {
                 throw new ArgumentNullException(nameof(context));
             }
-            this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = false;
+            //this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)

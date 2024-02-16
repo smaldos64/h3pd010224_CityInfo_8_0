@@ -10,12 +10,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo_8_0_Server_UnitTests.Database
 {
-    public class InMemoryTest : CityRepositoryTest1
+    public class InMemoryTest// : CityRepositoryTest1
     {
-        public InMemoryTest(IRepositoryWrapper repositoryWrapper) : base(new DbContextOptionsBuilder<DatabaseContext>()
-        .UseInMemoryDatabase("UnitTestDatabase")
-        .Options, repositoryWrapper)
-        {
-        }
+        //public InMemoryTest(IRepositoryWrapper repositoryWrapper) : base(new DbContextOptionsBuilder<DatabaseContext>()
+        //.UseInMemoryDatabase("UnitTestDatabase")
+        //.Options)
+        //{
+        //}
     }
 }

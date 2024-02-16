@@ -19,7 +19,8 @@ namespace CityInfo_8_0_Server.Extensions
         options.AddPolicy("CorsPolicy",
             builder => builder.AllowAnyOrigin()
             .AllowAnyMethod()
-            .AllowAnyHeader());
+            .AllowAnyHeader()
+            .SetIsOriginAllowed((host) => true));
       });
     }
 

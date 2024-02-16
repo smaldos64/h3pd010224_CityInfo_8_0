@@ -1,60 +1,46 @@
-﻿using CityInf0_8_0_Server;
-using Contracts;
+﻿using Entities.Models;
 using Entities;
-using Entities.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
-using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xunit;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
+namespace CityInfo_8_0_Server_IntegrationTests.Setup
 {
-    public class CityRepositoryTest1
+    public static class SetupDatabaseData
     {
-        protected DbContextOptions<DatabaseContext> _contextOptions { get; }
+        public static List<Language> LanguageObjectList = new List<Language>();
+        public static List<Country> CountryObjectList = new List<Country>();
+        public static List<City> CityObjectList = new List<City>();
+        public static List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>();
+        public static List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>();
 
-        private DatabaseContext _databaseContext;
-        private DbContextOptions<DatabaseContext> _dbContextoptions;
-
-        protected TestServer _testServer;
-
-        private IRepositoryWrapper _repositoryWrapper { get; }
-
-        //private void SeedData(DatabaseContext context)
-        private void SeedData()
+        public static void SeedDatabaseData(DatabaseContext context1)
         {
-            using (var context = new DatabaseContext(this._dbContextoptions))
+            int NumberOfDatabaseObjectsChanged = 0;
+
+            using (var context = context1)
             {
-                List<Language> LanguageObjectList = new List<Language>()
+                LanguageObjectList = new List<Language>()
                 {
                     new Language
                     {
-                        //LanguageId = 1,
                         LanguageName = "dansk"
                     },
                     new Language
                     {
-                        //LanguageId = 2,
                         LanguageName = "engelsk"
                     },
                     new Language
                     {
-                        //LanguageId = 3,
                         LanguageName = "tysk"
                     }
                 };
                 context.AddRangeAsync(LanguageObjectList);
-                context.SaveChanges();
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<Country> CountryObjectList = new List<Country>()
+                CountryObjectList = new List<Country>()
                 {
                     new Country
                     {
@@ -70,9 +56,11 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                     },
                 };
                 context.AddRangeAsync(CountryObjectList);
-                context.SaveChanges();
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+                CountryObjectList = context.Core_8_0_Countries.ToList();
+                // Hent Country Liste tilbage for at få CountryId feltet med tilbage.
 
-                List<City> CityObjectList = new List<City>()
+                CityObjectList = new List<City>()
                 {
                     new City
                     {
@@ -94,9 +82,9 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                     }
                 };
                 context.AddRangeAsync(CityObjectList);
-                context.SaveChanges();
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>()
+                PointOfInterestObjectList = new List<PointOfInterest>()
                 {
                     new PointOfInterest
                     {
@@ -124,9 +112,9 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                     }
                 };
                 context.AddRangeAsync(PointOfInterestObjectList);
-                context.SaveChanges();
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>()
+                CityLanguageObjectList = new List<CityLanguage>()
                 {
                     new CityLanguage
                     {
@@ -167,74 +155,17 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                     },
                 };
                 context.AddRangeAsync(CityLanguageObjectList);
-                context.SaveChanges();
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                var Cities = context.Core_8_0_Cities.ToList();
+                CityObjectList = context.Core_8_0_Cities.ToList();
+                // Hent City Liste tilbage for at få CityId feltet med tilbage.
+                //var Cities = context.Core_8_0_Cities.ToList();
             }
         }
 
-        //public CityRepositoryTest1(DbContextOptions<DatabaseContext> contextOptions,
-        //                           IRepositoryWrapper repositoryWrapper)
+        //public static void SeedMockedDatabaseData<T>(Moq<DatabaseContext> context1)
         //{
-        //    this._contextOptions = contextOptions;
-        //    this._dbContextoptions = contextOptions;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._repositoryWrapper = repositoryWrapper;
-        //    SeedData();
+
         //}
-
-        public CityRepositoryTest1(TestServer testServer)
-        {
-            //this._contextOptions = contextOptions;
-            //this._dbContextoptions = contextOptions;
-            //this._databaseContext = new DatabaseContext(this._contextOptions);
-            this._testServer = testServer;
-            this._repositoryWrapper = testServer.Services.GetService<IRepositoryWrapper>();
-            //SeedData();
-        }
-
-        //public CityRepositoryTest1(DbContextOptions<DatabaseContext> contextOptions,
-        //                           TestServer testServer)
-        //{
-        //    this._contextOptions = contextOptions;
-        //    this._dbContextoptions = contextOptions;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._testServer = testServer;
-        //    this._repositoryWrapper = testServer.Services.GetService<IRepositoryWrapper>();
-        //    //SeedData();
-        //}
-
-        //public CityRepositoryTest1(DbContextOptions<DatabaseContext> contextOptions,
-        //                           TestServer testServer)
-        //{
-        //    this._contextOptions = contextOptions;
-        //    this._dbContextoptions = contextOptions;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._testServer = testServer;
-        //    this._repositoryWrapper = testServer.Services.GetService<IRepositoryWrapper>();
-        //    //SeedData();
-        //}
-
-        //protected CityRepositoryTest1(DbContextOptions<DatabaseContext> options) 
-        //{
-        //    this._contextOptions = options;
-        //    this._databaseContext = new DatabaseContext(this._contextOptions);
-        //    this._repositoryWrapper = new RepositoryWrapper();
-        //    SeedData();
-        //}
-
-        [Fact]
-        public async void Test_CityRepository_GetAllCities()
-        {
-            // Arrange
-            //var controller = new RegistrationController(context);
-
-            // Act
-            IEnumerable<City> CityList = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(false);
-            List<City> cities = CityList.ToList();
-
-            // Assert
-            Assert.Equal(3, cities.Count);
-        }
     }
 }
