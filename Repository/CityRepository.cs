@@ -55,7 +55,7 @@ namespace Repository
                 Include(c => c.PointsOfInterest).
                 Include(c => c.CityLanguages).
                 ThenInclude(l => l.Language).
-                FirstOrDefaultAsync();
+                FirstOrDefaultAsync(c => c.CityId == CityId);
 
                 return (City_Object);
             }

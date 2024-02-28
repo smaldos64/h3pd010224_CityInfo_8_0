@@ -9,6 +9,8 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using CityInfo_8_0_Server_IntegrationTests.Helpers;
+using Microsoft.AspNetCore.Mvc;
+using Mapster;
 
 namespace CityInfo_8_0_Server_IntegrationTests.Controller
 {
@@ -19,8 +21,18 @@ namespace CityInfo_8_0_Server_IntegrationTests.Controller
         public CityControllerTest(TestingWebAppFactory<Program> factory)
         {
             _client = factory.CreateClient();
-            //SetupDatabaseData.SeedDatabaseData(TestingWebAppFactory<Program>._databaseContext);
-        }
+
+          try
+          {
+            TestingWebAppFactory<Program>._databaseContext.Database.EnsureDeleted();
+            TestingWebAppFactory<Program>._databaseContext.Database.EnsureCreated();
+            SetupDatabaseData.SeedDatabaseData(TestingWebAppFactory<Program>._databaseContext);
+          }
+          catch (Exception ex) 
+          {
+            string ErrorString = ex.Message;
+          }
+      }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
@@ -32,10 +44,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Controller
         [InlineData(true, false, true, "LTPE_IntegrationTest")]
         [InlineData(true, true, false, "LTPE_IntegrationTest")]
         [InlineData(true, true, true, "LTPE_IntegrationTest")]
-        public async Task Read_All_Cities(bool includeRelations,
-                                          bool UseLazyLoading,
-                                          bool UseMapster,
-                                          string UserName)
+        public async Task ReadAllCities(bool includeRelations,
+                                        bool UseLazyLoading,
+                                        bool UseMapster,
+                                        string UserName)
         {
             // Arrange
             string URL = $"/City/GetCities/?includeRelations={includeRelations}&UseLazyLoading={UseLazyLoading}&UseMapster={UseMapster}&UserName={UserName}";
@@ -59,6 +71,16 @@ namespace CityInfo_8_0_Server_IntegrationTests.Controller
                     CityList[Counter].CityLanguages.Count);
                 }
             }
+            else
+            {
+              for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
+              {
+                Assert.Equal(0, CityList[Counter].CityLanguages.Count);
+              }
+        
+            }
+
+            return;
         }
 
         [Fact]
@@ -135,7 +157,9 @@ namespace CityInfo_8_0_Server_IntegrationTests.Controller
 
             // Act
             var ControllerResponse = await _client.SendAsync(DeleteRequest);
-            var ControllerResponse1 = await _client.DeleteAsync(URL);
+
+            //List<CityDto> CityList = await ReadAllCities(false, false, false, "TestFromDelete");
+            //var ControllerResponse1 = await _client.DeleteAsync(URL);
 
             // Assert
             ControllerResponse.EnsureSuccessStatusCode();

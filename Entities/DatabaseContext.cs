@@ -43,14 +43,20 @@ namespace Entities
       this._configuration = configuration;
     }
 
-        // LTPE => Constructor herunder oprettet af hensyn til unit test.
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) :
-            base(options)
-        {
+    // LTPE => Constructor herunder oprettet af hensyn til unit test.
+    public DatabaseContext(DbContextOptions<DatabaseContext> options) :
+        base(options)
+    {
 
-        }
+    }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public DatabaseContext(DbContextOptions options) :
+        base(options)
+    {
+
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<CityLanguage>()
           .HasKey(cl => new
@@ -66,17 +72,17 @@ namespace Entities
       string connectionString;
 
 #if ENABLED_FOR_LAZY_LOADING_USAGE
-            if (!String.IsNullOrEmpty(_sQLConnectionString))
-            {
-                connectionString = _sQLConnectionString;
-            }
-            else
-            {
-                connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
-            }
-            optionsBuilder
-                .UseLazyLoadingProxies()
-                .UseSqlServer(connectionString);
+      if (!String.IsNullOrEmpty(_sQLConnectionString))
+      {
+        connectionString = _sQLConnectionString;
+      }
+      else
+      {
+        connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
+      }
+      optionsBuilder
+          .UseLazyLoadingProxies()
+          .UseSqlServer(connectionString);
 #endif
     }
 

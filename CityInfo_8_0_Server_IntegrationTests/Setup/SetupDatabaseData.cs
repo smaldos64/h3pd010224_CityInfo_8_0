@@ -158,9 +158,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                 NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
                 CityObjectList = context.Core_8_0_Cities.ToList();
-                // Hent City Liste tilbage for at få CityId feltet med tilbage.
-                //var Cities = context.Core_8_0_Cities.ToList();
-            }
+                CityObjectList.Sort((x, y) => x.CityId.CompareTo(y.CityId));
+        // Hent City Liste tilbage for at få CityId feltet med tilbage.
+        //var Cities = context.Core_8_0_Cities.ToList();
+      }
         }
 
         //public static void SeedMockedDatabaseData<T>(Moq<DatabaseContext> context1)

@@ -17,7 +17,7 @@ namespace Repository
         public RepositoryBase(DatabaseContext repositoryContext)
         {
             this.RepositoryContext = repositoryContext;
-            this.dbSet = RepositoryContext.Set<T>();
+            this.dbSet = this.RepositoryContext.Set<T>();
         }
 
         public virtual async Task<IEnumerable<T>> FindAll()

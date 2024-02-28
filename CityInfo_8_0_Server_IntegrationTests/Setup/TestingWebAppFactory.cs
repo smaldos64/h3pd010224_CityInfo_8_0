@@ -4,6 +4,7 @@ using Entities.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -16,62 +17,122 @@ using System.Threading.Tasks;
 
 namespace CityInfo_8_0_Server_IntegrationTests.Setup
 {
-    public class TestingWebAppFactory<T> : WebApplicationFactory<Program>
+    public class TestingWebAppFactory<T> : WebApplicationFactory<Program> where T : class
     {
         public static DatabaseContext _databaseContext { get; set; }
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.ConfigureServices(services =>
-            {
-                var dbContext = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<DatabaseContext>));
+          builder.ConfigureServices(services =>
+          {
+            // Remove the app's DbContextOptions registration.
+            ServiceDescriptor? dbContextOptionsDescriptor = services.SingleOrDefault(
+                d => d.ServiceType ==
+                     typeof(DbContextOptions<DatabaseContext>));
+            if (dbContextOptionsDescriptor != null) services.Remove(dbContextOptionsDescriptor);
 
-                // LTPE => Slet database context fra CityInfo_8_0_Server
-                if (dbContext != null)
-                {
-                    //services.Remove(dbContext);
-                    services.RemoveAll(typeof(DbContextOptions<DatabaseContext>));
-                }
+            // Create DbContextOptions using an in-memory database for testing.
+            DbContextOptions dbContextOptions = new DbContextOptionsBuilder()
+                // .UseSqlite("DataSource=:memory:")
+                .UseInMemoryDatabase("InMemoryDbForTesting-" + Guid.NewGuid())
+                .Options;
 
-                var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase()
-                                                             .AddEntityFrameworkProxies() 
-                                                             .BuildServiceProvider();
 
-                services.AddDbContext<DatabaseContext>(options =>
-                {
-                    options.UseInMemoryDatabase("InMemoryDatabaseTest");
-                    options.UseInternalServiceProvider(serviceProvider);
-                });
+            // Remove the app's registrations.
+            ServiceDescriptor? sqlDbContextDescriptor = services.SingleOrDefault(
+                d => d.ServiceType ==
+                     typeof(DatabaseContext));
+            if (sqlDbContextDescriptor != null) services.Remove(sqlDbContextDescriptor);
 
-              //antiforgery
-              services.AddAntiforgery(t =>
-              {
-                t.Cookie.Name = AntiForgeryTokenExtractor.Cookie;
-                t.FormFieldName = AntiForgeryTokenExtractor.Field;
-              });
+            //ServiceDescriptor? dchUnitOfWorkDescriptor = services.SingleOrDefault(
+            //    d => d.ServiceType ==
+            //         typeof(DchUnitOfWork));
+            //if (dchUnitOfWorkDescriptor != null) services.Remove(dchUnitOfWorkDescriptor);
 
-              var sp = services.BuildServiceProvider();
+            // Add new registrations
+            //DatabaseContext sqlDbContext = new TestSqlDbContext(dbContextOptions);
+            DatabaseContext sqlDbContext = new DatabaseContext(dbContextOptions);
+            services.AddSingleton(sqlDbContext);
 
-                using (var scope = sp.CreateScope())
-                {
-                    using (DatabaseContext appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
-                    {
-                        try
-                        {
-                            appContext.Database.EnsureCreated();
-                            SetupDatabaseData.SeedDatabaseData(appContext);
-                            //SeedData(appContext);
-                            _databaseContext = appContext;
-                        }
-                        catch (Exception ex)
-                        {
-                            //Log errors
-                            throw;
-                        }
-                    }
-                }
-            });
-        }
+            //DchUnitOfWork dchUnitOfWork = new(sqlDbContext);
+            //services.AddSingleton(dchUnitOfWork);
+            //if (!dchUnitOfWork.IsServiceAvailable())
+            //  throw new Exception("Database connection can not be made at this time, please try again another time");
+
+            // Build the service provider.
+            IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+            // Create a scope to obtain a reference to the database contexts
+            using IServiceScope scope = serviceProvider.CreateScope();
+            IServiceProvider scopedServices = scope.ServiceProvider;
+            DatabaseContext db = scopedServices.GetRequiredService<DatabaseContext>();
+
+            // Ensure the database is created.
+            db.Database.EnsureCreated();
+          });
+
+          //builder.ConfigureTestServices(services =>
+          //{
+          //  services.AddScoped<DchPermissionService, TestDchPermissionService>();
+          //});
+
+          builder.UseEnvironment("Development");
+
+
+      //builder.ConfigureServices(services =>
+      //{
+      //    var dbContext = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<DatabaseContext>));
+
+      //    // LTPE => Slet database context fra CityInfo_8_0_Server
+      //    if (dbContext != null)
+      //    {
+      //        //services.Remove(dbContext);
+      //        services.RemoveAll(typeof(DbContextOptions<DatabaseContext>));
+      //    }
+
+      //    var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase()
+      //                                                 .AddEntityFrameworkProxies() 
+      //                                                 .BuildServiceProvider();
+
+      //    services.AddDbContext<DatabaseContext>(options =>
+      //    {
+      //        options.UseInMemoryDatabase("InMemoryDatabaseTest");
+      //        options.UseInternalServiceProvider(serviceProvider);
+      //    });
+
+      //    services.AddSingleton(DatabaseContext);
+
+      //  //antiforgery
+      //  services.AddAntiforgery(t =>
+      //  {
+      //    t.Cookie.Name = AntiForgeryTokenExtractor.Cookie;
+      //    t.FormFieldName = AntiForgeryTokenExtractor.Field;
+      //  });
+
+      //  var sp = services.BuildServiceProvider();
+
+      //    using (var scope = sp.CreateScope())
+      //    {
+      //        using (DatabaseContext appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
+      //        {
+      //            try
+      //            {
+      //                appContext.Database.EnsureCreated();
+      //                //appContext.Database.EnsureDeleted();
+      //                _databaseContext = appContext;
+      //                //SetupDatabaseData.SeedDatabaseData(_databaseContext);
+      //                //SeedData(appContext);
+      //                //_databaseContext = appContext;
+      //            }
+      //            catch (Exception ex)
+      //            {
+      //                //Log errors
+      //                throw;
+      //            }
+      //        }
+      //    }
+      //});
+    }
 
         private void SeedData(DatabaseContext context1)
         {

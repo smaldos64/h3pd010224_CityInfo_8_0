@@ -35,7 +35,10 @@ builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration(); 
 builder.Services.ConfigureLoggerService(); 
 
-builder.Services.ConfigureMsSqlContext(builder.Configuration); 
+//builder.Services.ConfigureMsSqlContext(builder.Configuration);
+string connectionString = Environment.GetEnvironmentVariable("cityInfoDBConnectionString");
+builder.Services.AddDbContext<DatabaseContext>(o => o.UseSqlServer(connectionString, x => x.MigrationsAssembly("Entities")));
+
 builder.Services.ConfigureRepositoryWrapper();
 builder.Services.ConfigureServiceLayerWrappers();
 
