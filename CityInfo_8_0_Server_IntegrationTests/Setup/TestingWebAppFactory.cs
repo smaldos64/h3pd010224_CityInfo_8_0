@@ -37,12 +37,14 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                 .UseInMemoryDatabase("InMemoryDbForTesting-" + Guid.NewGuid())
                 .Options;
 
-
             // Remove the app's registrations.
             ServiceDescriptor? sqlDbContextDescriptor = services.SingleOrDefault(
                 d => d.ServiceType ==
                      typeof(DatabaseContext));
-            if (sqlDbContextDescriptor != null) services.Remove(sqlDbContextDescriptor);
+            if (sqlDbContextDescriptor != null)
+            {
+              services.Remove(sqlDbContextDescriptor);
+            }
 
             //ServiceDescriptor? dchUnitOfWorkDescriptor = services.SingleOrDefault(
             //    d => d.ServiceType ==
@@ -51,8 +53,14 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
 
             // Add new registrations
             //DatabaseContext sqlDbContext = new TestSqlDbContext(dbContextOptions);
-            DatabaseContext sqlDbContext = new DatabaseContext(dbContextOptions);
-            services.AddSingleton(sqlDbContext);
+
+            // LTPE => 
+            //DatabaseContext sqlDbContext = new DatabaseContext(dbContextOptions);
+            //services.AddSingleton(sqlDbContext);
+
+            _databaseContext = new DatabaseContext(dbContextOptions);
+            //services.AddSingleton(_databaseContext);
+            // => LTPE
 
             //DchUnitOfWork dchUnitOfWork = new(sqlDbContext);
             //services.AddSingleton(dchUnitOfWork);
@@ -68,7 +76,12 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
             DatabaseContext db = scopedServices.GetRequiredService<DatabaseContext>();
 
             // Ensure the database is created.
-            db.Database.EnsureCreated();
+            // LTPE
+            bool TestDb = false;
+            TestDb = db.Database.EnsureCreated();
+            TestDb = _databaseContext.Database.EnsureCreated();
+            SetupDatabaseData.SeedDatabaseData(db);
+            SetupDatabaseData.SeedDatabaseData(_databaseContext);
           });
 
           //builder.ConfigureTestServices(services =>

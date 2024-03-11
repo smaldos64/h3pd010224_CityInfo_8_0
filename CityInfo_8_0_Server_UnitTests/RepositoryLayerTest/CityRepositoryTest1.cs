@@ -224,7 +224,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
         //}
 
         [Fact]
-        public async void Test_CityRepository_GetAllCities()
+        public async void Test_CityRepository_GetAllCities1()
         {
             // Arrange
             //var controller = new RegistrationController(context);
