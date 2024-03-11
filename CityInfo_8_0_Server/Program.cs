@@ -35,15 +35,44 @@ builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration(); 
 builder.Services.ConfigureLoggerService(); 
 
-//builder.Services.ConfigureMsSqlContext(builder.Configuration);
-string connectionString = Environment.GetEnvironmentVariable("cityInfoDBConnectionString");
-builder.Services.AddDbContext<DatabaseContext>(o => o.UseSqlServer(connectionString, x => x.MigrationsAssembly("Entities")));
+builder.Services.ConfigureMsSqlContext(builder.Configuration);
+
+//string connectionString = Environment.GetEnvironmentVariable("cityInfoDBConnectionString");
+//builder.Services.AddDbContext<DatabaseContext>(o => o.UseSqlServer(connectionString, x => x.MigrationsAssembly("Entities")));
+//DatabaseContext sqlDbContext = new(builder.Configuration["ConnectionStrings:cityInfoDBConnectionString"]);
+//string ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// Inject a DbContextOptions instance later
+//builder.Services.AddSingleton<DbContextOptions>(options =>
+//{
+//  var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+//  optionsBuilder.UseSqlServer(ConnectionString);
+//  return optionsBuilder.Options;
+//});
+
+//string ConnectionString = builder.Configuration.GetConnectionString("cityInfoDBConnectionString");
+//builder.Services.AddSingleton<DatabaseContext>().AddDbContext<DatabaseContext>(Options =>
+//{
+//  var OptionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+//  OptionsBuilder.UseSqlServer(ConnectionString);
+//  return OptionsBuilder.Options;
+//});
+//builder.Services.AddSingleton<DbContextOptions>(options =>
+//{
+//  var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+//  optionsBuilder.UseSqlServer(ConnectionString);
+//  return optionsBuilder.Options;
+//});
 
 builder.Services.ConfigureRepositoryWrapper();
 builder.Services.ConfigureServiceLayerWrappers();
 
 // Mapster
 UtilityService.SetupMapsterConfiguration();
+// LTPE added above
+
+//Json 
+//builder.Services.AddControllers().AddJsonOptions(x =>
+//                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // LTPE added above
 
 builder.Services.AddControllers();

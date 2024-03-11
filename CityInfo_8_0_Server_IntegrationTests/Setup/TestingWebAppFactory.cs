@@ -1,4 +1,5 @@
-﻿using CityInfo_8_0_Server_IntegrationTests.Setup;
+﻿using CityInfo_8_0_Server.Extensions;
+using CityInfo_8_0_Server_IntegrationTests.Setup;
 using Entities;
 using Entities.Models;
 using Microsoft.AspNetCore.Builder;
@@ -17,79 +18,113 @@ using System.Threading.Tasks;
 
 namespace CityInfo_8_0_Server_IntegrationTests.Setup
 {
-    public class TestingWebAppFactory<T> : WebApplicationFactory<Program> where T : class
+  public class TestingWebAppFactory<T> : WebApplicationFactory<Program> where T : class
+  {
+    public static DatabaseContext _databaseContext { get; set; }
+
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        public static DatabaseContext _databaseContext { get; set; }
+      builder.ConfigureServices(services =>
+      {
+        var descriptor = services.SingleOrDefault(
+            d => d.ServiceType ==
+                typeof(DbContextOptions<DatabaseContext>));
 
-        protected override void ConfigureWebHost(IWebHostBuilder builder)
+        if (descriptor != null)
         {
-          builder.ConfigureServices(services =>
+          services.Remove(descriptor);
+        }
+
+        var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
+
+        services.AddDbContext<DatabaseContext>(options =>
+        {
+          options.UseInMemoryDatabase("InMemoryCityTest");
+          options.UseInternalServiceProvider(serviceProvider);
+        });
+
+        //DatabaseContext.CalledFromIntegrationTest = true;
+        //ServiceExtension.CalledFromIntegrationTest = true;
+
+        var sp = services.BuildServiceProvider();
+        using (var scope = sp.CreateScope())
+        using (var appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
+        {
+          try
           {
-            // Remove the app's DbContextOptions registration.
-            ServiceDescriptor? dbContextOptionsDescriptor = services.SingleOrDefault(
-                d => d.ServiceType ==
-                     typeof(DbContextOptions<DatabaseContext>));
-            if (dbContextOptionsDescriptor != null) services.Remove(dbContextOptionsDescriptor);
+            //appContext.Database.EnsureDeleted();
+            appContext.Database.EnsureCreated();
+            SetupDatabaseData.SeedDatabaseData(appContext);
+          }
+          catch (Exception ex)
+          {
+            //Log errors or do anything you think it's needed
+            throw;
+          }
+        }
+        //DatabaseContext.CalledFromIntegrationTest = false;
+        //ServiceExtension.CalledFromIntegrationTest = false;
+      });
 
-            // Create DbContextOptions using an in-memory database for testing.
-            DbContextOptions dbContextOptions = new DbContextOptionsBuilder()
-                // .UseSqlite("DataSource=:memory:")
-                .UseInMemoryDatabase("InMemoryDbForTesting-" + Guid.NewGuid())
-                .Options;
+      //builder.ConfigureServices(services =>
+      //{
+      //  // Remove the app's DbContextOptions registration.
+      //  ServiceDescriptor? dbContextOptionsDescriptor = services.SingleOrDefault(
+      //      d => d.ServiceType ==
+      //           typeof(DbContextOptions<DatabaseContext>));
+      //  if (dbContextOptionsDescriptor != null)
+      //  {
+      //    services.Remove(dbContextOptionsDescriptor);
+      //  }
 
-            // Remove the app's registrations.
-            ServiceDescriptor? sqlDbContextDescriptor = services.SingleOrDefault(
-                d => d.ServiceType ==
-                     typeof(DatabaseContext));
-            if (sqlDbContextDescriptor != null)
-            {
-              services.Remove(sqlDbContextDescriptor);
-            }
+      //  // Create DbContextOptions using an in-memory database for testing.
+      //  DbContextOptions dbContextOptions = new DbContextOptionsBuilder()
+      //      // .UseSqlite("DataSource=:memory:")
+      //      .UseInMemoryDatabase("InMemoryDbForTesting-" + Guid.NewGuid())
+      //      .Options;
 
-            //ServiceDescriptor? dchUnitOfWorkDescriptor = services.SingleOrDefault(
-            //    d => d.ServiceType ==
-            //         typeof(DchUnitOfWork));
-            //if (dchUnitOfWorkDescriptor != null) services.Remove(dchUnitOfWorkDescriptor);
+      //  // Remove the app's registrations.
+      //  ServiceDescriptor? sqlDbContextDescriptor = services.SingleOrDefault(
+      //      d => d.ServiceType ==
+      //           typeof(DatabaseContext));
+      //  if (sqlDbContextDescriptor != null)
+      //  {
+      //    services.Remove(sqlDbContextDescriptor);
+      //  }
 
-            // Add new registrations
-            //DatabaseContext sqlDbContext = new TestSqlDbContext(dbContextOptions);
+      //  //ServiceDescriptor? dchUnitOfWorkDescriptor = services.SingleOrDefault(
+      //  //    d => d.ServiceType ==
+      //  //         typeof(DchUnitOfWork));
+      //  //if (dchUnitOfWorkDescriptor != null) services.Remove(dchUnitOfWorkDescriptor);
 
-            // LTPE => 
-            //DatabaseContext sqlDbContext = new DatabaseContext(dbContextOptions);
-            //services.AddSingleton(sqlDbContext);
+      //  //DchUnitOfWork dchUnitOfWork = new(sqlDbContext);
+      //  //services.AddSingleton(dchUnitOfWork);
+      //  //if (!dchUnitOfWork.IsServiceAvailable())
+      //  //  throw new Exception("Database connection can not be made at this time, please try again another time");
 
-            _databaseContext = new DatabaseContext(dbContextOptions);
-            //services.AddSingleton(_databaseContext);
-            // => LTPE
+      //  // Build the service provider.
+      //  IServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            //DchUnitOfWork dchUnitOfWork = new(sqlDbContext);
-            //services.AddSingleton(dchUnitOfWork);
-            //if (!dchUnitOfWork.IsServiceAvailable())
-            //  throw new Exception("Database connection can not be made at this time, please try again another time");
+      //  // Create a scope to obtain a reference to the database contexts
+      //  using IServiceScope scope = serviceProvider.CreateScope();
+      //  IServiceProvider scopedServices = scope.ServiceProvider;
+      //  DatabaseContext db = scopedServices.GetRequiredService<DatabaseContext>();
 
-            // Build the service provider.
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
+      //  // Ensure the database is created.
+      //  // LTPE
+      //  bool TestDb = false;
+      //  TestDb = db.Database.EnsureCreated();
+      //  //TestDb = _databaseContext.Database.EnsureCreated();
+      //  SetupDatabaseData.SeedDatabaseData(db);
+      //  //SetupDatabaseData.SeedDatabaseData(_databaseContext);
+      //});
 
-            // Create a scope to obtain a reference to the database contexts
-            using IServiceScope scope = serviceProvider.CreateScope();
-            IServiceProvider scopedServices = scope.ServiceProvider;
-            DatabaseContext db = scopedServices.GetRequiredService<DatabaseContext>();
+      ////builder.ConfigureTestServices(services =>
+      ////{
+      ////  services.AddScoped<DchPermissionService, TestDchPermissionService>();
+      ////});
 
-            // Ensure the database is created.
-            // LTPE
-            bool TestDb = false;
-            TestDb = db.Database.EnsureCreated();
-            TestDb = _databaseContext.Database.EnsureCreated();
-            SetupDatabaseData.SeedDatabaseData(db);
-            SetupDatabaseData.SeedDatabaseData(_databaseContext);
-          });
-
-          //builder.ConfigureTestServices(services =>
-          //{
-          //  services.AddScoped<DchPermissionService, TestDchPermissionService>();
-          //});
-
-          builder.UseEnvironment("Development");
+      //builder.UseEnvironment("Development");
 
 
       //builder.ConfigureServices(services =>
@@ -147,13 +182,13 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
       //});
     }
 
-        private void SeedData(DatabaseContext context1)
-        {
-            int NumberOfDatabaseObjectsChanged = 0;
+    private void SeedData(DatabaseContext context1)
+    {
+      int NumberOfDatabaseObjectsChanged = 0;
 
-            using (var context = context1)
-            {
-                List<Language> LanguageObjectList = new List<Language>()
+      using (var context = context1)
+      {
+        List<Language> LanguageObjectList = new List<Language>()
                 {
                     new Language
                     {
@@ -168,10 +203,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         LanguageName = "tysk"
                     }
                 };
-                context.AddRangeAsync(LanguageObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+        context.AddRangeAsync(LanguageObjectList);
+        NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<Country> CountryObjectList = new List<Country>()
+        List<Country> CountryObjectList = new List<Country>()
                 {
                     new Country
                     {
@@ -186,10 +221,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         CountryName = "Tyskland"
                     },
                 };
-                context.AddRangeAsync(CountryObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+        context.AddRangeAsync(CountryObjectList);
+        NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<City> CityObjectList = new List<City>()
+        List<City> CityObjectList = new List<City>()
                 {
                     new City
                     {
@@ -210,10 +245,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         CountryID = CountryObjectList[2].CountryID
                     }
                 };
-                context.AddRangeAsync(CityObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+        context.AddRangeAsync(CityObjectList);
+        NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>()
+        List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>()
                 {
                     new PointOfInterest
                     {
@@ -240,10 +275,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         CityId = CityObjectList[2].CityId
                     }
                 };
-                context.AddRangeAsync(PointOfInterestObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+        context.AddRangeAsync(PointOfInterestObjectList);
+        NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>()
+        List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>()
                 {
                     new CityLanguage
                     {
@@ -283,11 +318,11 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         LanguageId = LanguageObjectList[2].LanguageId
                     },
                 };
-                context.AddRangeAsync(CityLanguageObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+        context.AddRangeAsync(CityLanguageObjectList);
+        NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                var Cities = context.Core_8_0_Cities.ToList();
-            }
-        }
+        var Cities = context.Core_8_0_Cities.ToList();
+      }
     }
+  }
 }

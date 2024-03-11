@@ -34,7 +34,7 @@ namespace Repository
             else
             {
                 base.DisableLazyLoading();
-                var collection = await base.RepositoryContext.Core_8_0_CityLanguages.
+                var collection = await base.databaseContext.Core_8_0_CityLanguages.
                     Include(c => c.City).
                     ThenInclude(p => p.PointsOfInterest).
                     Include(c => c.City).

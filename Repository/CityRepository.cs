@@ -30,7 +30,7 @@ namespace Repository
             }
             else
             {
-                var collection = await base.RepositoryContext.Core_8_0_Cities.
+                var collection = await base.databaseContext.Core_8_0_Cities.
                 Include(c => c.PointsOfInterest).
                 Include(co => co.Country).
                 Include(c => c.CityLanguages).
@@ -51,7 +51,7 @@ namespace Repository
             else
             {
                 //var City_Object = base.FindAll().Where(c => c.Id == CityId).
-                var City_Object = await base.RepositoryContext.Core_8_0_Cities.Include(c => c.PointsOfInterest).
+                var City_Object = await base.databaseContext.Core_8_0_Cities.Include(c => c.PointsOfInterest).
                 Include(c => c.PointsOfInterest).
                 Include(c => c.CityLanguages).
                 ThenInclude(l => l.Language).

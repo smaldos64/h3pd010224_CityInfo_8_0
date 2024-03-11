@@ -23,16 +23,16 @@ namespace Repository
         {
             if (true == UseLazyLoading)
             {
-                this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = true;
+                this.databaseContext.ChangeTracker.LazyLoadingEnabled = true;
                 var collection = await (base.FindByCondition(x => x.City.CityLanguages.Any(cl => cl.LanguageId == LanguageID))); // LTPE => distinct ???
 
                 return (collection.ToList());
             }
             else
             {
-                this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = false;
+                this.databaseContext.ChangeTracker.LazyLoadingEnabled = false;
                 
-                var collection = await base.RepositoryContext.Core_8_0_PointsOfInterest.
+                var collection = await base.databaseContext.Core_8_0_PointsOfInterest.
                    Include(c => c.City).
                    ThenInclude(co => co.Country).
                    Include(c => c.City).

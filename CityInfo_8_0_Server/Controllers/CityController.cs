@@ -72,7 +72,7 @@ namespace CityInfo_8_0_Server.Controllers
             }
             else
             {
-              CityList = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(includeRelations);// as IEnumerable<City>; //as IQueryable<City>;
+              CityList = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(includeRelations);
             }
 
             // Koden der er udkommenteret herunder er med for at vise, at man kan nå alle
@@ -196,7 +196,6 @@ namespace CityInfo_8_0_Server.Controllers
     public async Task<IActionResult> CreateCity([FromBody] CityForSaveWithCountryDto CityDto_Object,
                                                 string UserName = "No Name")
     {
-      //string UserName = "No Name";
       try
       {
         //HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError; 
@@ -449,7 +448,6 @@ namespace CityInfo_8_0_Server.Controllers
           _logger.LogError($"Error when updating City with Id : {CityFromRepo.CityId} by {UserName} !!!");
           return BadRequest($"Error when updating City with Id : {CityFromRepo.CityId} by {UserName} !!!");
         }
-        //return NoContent();
       }
       catch (Exception Error)
       {
@@ -697,8 +695,7 @@ namespace CityInfo_8_0_Server.Controllers
     private List<CityDto> MapHere(List<City> Cities)
         {
             List<CityDto> CityDtos = new List<CityDto>();
-            //ICollection<CityDto> CityDtosI = new List<CityDto>();
-
+          
             for (int Counter = 0; Counter < Cities.Count(); Counter++)
             {
                 CityDto CityDto_Object = new CityDto();

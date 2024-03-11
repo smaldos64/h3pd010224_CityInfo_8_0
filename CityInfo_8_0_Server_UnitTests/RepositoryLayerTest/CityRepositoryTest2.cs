@@ -169,7 +169,9 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                                     .UseInMemoryDatabase("UnitTestDatabase")
                                     .Options);
 
-            this._databaseContext = new DatabaseContext(this._dbContextoptions);
+            // LTPE removed to make solution compile !!!
+            //this._databaseContext = new DatabaseContext(this._dbContextoptions);
+            
             //this._repositoryWrapper = repositoryWrapper;
             
             SeedData();

@@ -15,21 +15,21 @@ using Entities;
 
 namespace CityInfo_8_0_Server_IntegrationTests.Controller
 {
-  public class CityControllerTest : IClassFixture<TestingWebAppFactory<Program>>, IDisposable
+  public class CityControllerTest : IClassFixture<TestingWebAppFactory<Program>> //, IDisposable
   {
     private readonly HttpClient _client;
     protected DatabaseContext SqlDbContext { get; }
     
     public CityControllerTest(TestingWebAppFactory<Program> factory)
     {
-      bool TestDb = false;
+      //bool TestDb = false;
       _client = factory.CreateClient();
 
-      SqlDbContext = (DatabaseContext?)factory.Services.GetService(typeof(DatabaseContext)) ??
-                      throw new InvalidOperationException();
-      TestDb = SqlDbContext.Database.EnsureDeleted();
-      TestDb = SqlDbContext.Database.EnsureCreated();
-      SetupDatabaseData.SeedDatabaseData(SqlDbContext);
+      //SqlDbContext = (DatabaseContext?)factory.Services.GetService(typeof(DatabaseContext)) ??
+      //                throw new InvalidOperationException();
+      //TestDb = SqlDbContext.Database.EnsureDeleted();
+      //TestDb = SqlDbContext.Database.EnsureCreated();
+      //SetupDatabaseData.SeedDatabaseData(SqlDbContext);
       //try
       //{
       //  TestingWebAppFactory<Program>._databaseContext.Database.EnsureDeleted();
@@ -173,11 +173,11 @@ namespace CityInfo_8_0_Server_IntegrationTests.Controller
       ControllerResponse.EnsureSuccessStatusCode();
     }
 
-    public void Dispose()
-    {
-      bool TestDB = false;
-      TestDB = SqlDbContext.Database.EnsureDeleted();
-      GC.SuppressFinalize(this);
-    }
+    //public void Dispose()
+    //{
+    //  bool TestDB = false;
+    //  TestDB = SqlDbContext.Database.EnsureDeleted();
+    //  GC.SuppressFinalize(this);
+    //}
   }
 }

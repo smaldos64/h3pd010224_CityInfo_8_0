@@ -11,6 +11,10 @@ namespace Entities
 {
   public class DatabaseContext : DbContext
   {
+    // LTPE Test Purpose
+    private readonly string _connectionString;
+    private readonly Action<DatabaseContext, ModelBuilder> _modelCustomizer;
+
     private static string _sQLConnectionString = String.Empty;
 
     public static string SQLConnectionString
@@ -37,6 +41,13 @@ namespace Entities
 
     public virtual DbSet<CityLanguage> Core_8_0_CityLanguages { get; set; }
 
+    // LTPE Test purpose
+    //public DatabaseContext(string ConnectionString)
+    //{
+    //  this._connectionString = ConnectionString;
+    //}
+
+    // Constructor herunder bliver kaldt under normal kørsel.
     public DatabaseContext(DbContextOptions<DatabaseContext> options,
                            IConfiguration configuration) : base(options)
     {
@@ -44,17 +55,17 @@ namespace Entities
     }
 
     // LTPE => Constructor herunder oprettet af hensyn til unit test.
-    public DatabaseContext(DbContextOptions<DatabaseContext> options) :
-        base(options)
-    {
+    //public DatabaseContext(DbContextOptions<DatabaseContext> options) :
+    //    base(options)
+    //{
 
-    }
+    //}
 
-    public DatabaseContext(DbContextOptions options) :
-        base(options)
-    {
+    //public DatabaseContext(DbContextOptions options) :
+    //    base(options)
+    //{
 
-    }
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -72,19 +83,19 @@ namespace Entities
       string connectionString;
 
 #if ENABLED_FOR_LAZY_LOADING_USAGE
-      if (!String.IsNullOrEmpty(_sQLConnectionString))
-      {
-        connectionString = _sQLConnectionString;
-      }
-      else
-      {
-        connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
-      }
-      optionsBuilder
-          .UseLazyLoadingProxies()
-          .UseSqlServer(connectionString);
+        if (!String.IsNullOrEmpty(_sQLConnectionString))
+        {
+            connectionString = _sQLConnectionString;
+        }
+        else
+        {
+            connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
+        }
+        optionsBuilder
+            .UseLazyLoadingProxies()
+            .UseSqlServer(connectionString);
 #endif
-    }
+        }
 
   }
 }

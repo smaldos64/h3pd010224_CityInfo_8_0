@@ -11,31 +11,31 @@ namespace Repository
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     { 
-        protected DatabaseContext RepositoryContext { get; set; }
+        protected DatabaseContext databaseContext { get; set; }
         internal DbSet<T> dbSet;
 
-        public RepositoryBase(DatabaseContext repositoryContext)
+        public RepositoryBase(DatabaseContext databaseContext)
         {
-            this.RepositoryContext = repositoryContext;
-            this.dbSet = this.RepositoryContext.Set<T>();
+            this.databaseContext = databaseContext;
+            this.dbSet = this.databaseContext.Set<T>();
         }
 
         public virtual async Task<IEnumerable<T>> FindAll()
         {
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-            return await RepositoryContext.Set<T>().ToListAsync();
+            return await databaseContext.Set<T>().ToListAsync();
 #else
-            return await this.RepositoryContext.Set<T>().AsNoTracking().ToListAsync();
+            return await this.databaseContext.Set<T>().AsNoTracking().ToListAsync();
 #endif
         }
 
         public virtual async Task<T> FindOne(int id)
         {
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-            return await this.RepositoryContext.Set<T>().FindAsync(id);
+            return await this.databaseContext.Set<T>().FindAsync(id);
 #else
-            var entity = await this.RepositoryContext.Set<T>().FindAsync(id);
-            this.RepositoryContext.Entry(entity).State = EntityState.Detached;
+            var entity = await this.databaseContext.Set<T>().FindAsync(id);
+            this.databaseContext.Entry(entity).State = EntityState.Detached;
             return entity;
 #endif
         }
@@ -48,9 +48,9 @@ namespace Repository
       if (false == UseIQueryable)
       {
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-        return await this.RepositoryContext.Set<T>().Where(expression).ToListAsync();
+        return await this.databaseContext.Set<T>().Where(expression).ToListAsync();
 #else
-        return await this.RepositoryContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
+        return await this.databaseContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
 #endif
       }
       else
@@ -87,8 +87,7 @@ namespace Repository
 
     public virtual async Task Create(T entity)
     {
-        await this.RepositoryContext.Set<T>().AddAsync(entity);
-        //await this.Save();
+        await this.databaseContext.Set<T>().AddAsync(entity);
     }
 
     public virtual async Task Update(T entity)
@@ -96,8 +95,7 @@ namespace Repository
         // Skal laves asynkron i linjen herunder. Men UpdateAsync findes ikke !!!
         try
         {
-            this.RepositoryContext.Set<T>().Update(entity);
-            //await this.Save();
+            this.databaseContext.Set<T>().Update(entity);
         }
         catch (Exception Error)
         {
@@ -107,25 +105,24 @@ namespace Repository
 
     public virtual async Task Delete(T entity)
     {
-        this.RepositoryContext.Set<T>().Remove(entity);
-        //await this.Save();
+        this.databaseContext.Set<T>().Remove(entity);
     }
 
     public virtual async Task<int> Save()
     {
         int NumberOfObjectsChanged = -1;
-        NumberOfObjectsChanged = await this.RepositoryContext.SaveChangesAsync();
+        NumberOfObjectsChanged = await this.databaseContext.SaveChangesAsync();
         return NumberOfObjectsChanged;
     }
 
     public virtual void EnableLazyLoading()
     {
-        this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = true;
+        this.databaseContext.ChangeTracker.LazyLoadingEnabled = true;
     }
 
     public virtual void DisableLazyLoading()
     {
-        this.RepositoryContext.ChangeTracker.LazyLoadingEnabled = false;
+        this.databaseContext.ChangeTracker.LazyLoadingEnabled = false;
     }
   }
 }
