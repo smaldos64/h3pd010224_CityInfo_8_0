@@ -1,0 +1,1135 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorytest6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorytest6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\database\\unittestdatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\database\\unittestdatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\cityinfo_8_0_server_unittests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\cityinfo_8_0_server_unittests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\database\\inmemorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\database\\inmemorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\setup\\setupdatabasedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\setup\\setupdatabasedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorytest2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorytest2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_integrationtests\\setup\\testingwebappfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|solutionrelative:cityinfo_8_0_server_integrationtests\\setup\\testingwebappfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_integrationtests\\controller\\citycontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|solutionrelative:cityinfo_8_0_server_integrationtests\\controller\\citycontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_integrationtests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|solutionrelative:cityinfo_8_0_server_integrationtests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_integrationtests\\cityinfo_8_0_server_integrationtests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|solutionrelative:cityinfo_8_0_server_integrationtests\\cityinfo_8_0_server_integrationtests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\cityinfo_8_0_server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\cityinfo_8_0_server.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\datatransferobjects\\citydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\datatransferobjects\\citydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\citylanguagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\citylanguagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\pointofinterestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\pointofinterestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\pointofinterestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\pointofinterestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\cityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\cityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\viewmodels\\updatecitywithallrelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\viewmodels\\updatecitywithallrelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\viewmodels\\citywithallrelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\viewmodels\\citywithallrelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\servicescontracts\\icityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|solutionrelative:servicescontracts\\icityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\models\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\models\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\contracts\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|solutionrelative:contracts\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\languagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\languagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\contracts\\icountryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|solutionrelative:contracts\\icountryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\contracts\\irepositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|solutionrelative:contracts\\irepositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\contracts\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|solutionrelative:contracts\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\countryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\countryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\pointofinterestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\pointofinterestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\datatransferobjects\\countrydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\datatransferobjects\\countrydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\servicescontracts\\icitylanguageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|solutionrelative:servicescontracts\\icitylanguageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\citylanguageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\citylanguageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\citylanguagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\citylanguagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\servicescontracts\\ipointofinterestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|solutionrelative:servicescontracts\\ipointofinterestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\hubs\\broadcasthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\hubs\\broadcasthub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\communicationresults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\communicationresults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\servicescontracts\\icommunicationresults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}|ServicesContracts\\ServicesContracts.csproj|solutionrelative:servicescontracts\\icommunicationresults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\contracts\\icitylanguagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|solutionrelative:contracts\\icitylanguagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\models\\pointofinterest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\models\\pointofinterest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\utilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\utilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\viewmodels\\savecitywithallrelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\viewmodels\\savecitywithallrelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repository.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\repository.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repository.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\repository.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\entities.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\entities.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\cityinfo_8_0_server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\cityinfo_8_0_server.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\migrations\\20240112131821_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\migrations\\20240112131821_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\.editorconfig||{68B46364-D378-42F2-9E72-37D86C5F4468}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\.editorconfig||{68B46364-D378-42F2-9E72-37D86C5F4468}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\.filenesting.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\.filenesting.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CityInfo_8_0_Server_UnitTests.csproj",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-10T17:31:01.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CityRepositoryTest6.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest6.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest6.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest6.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest6.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAjwDUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T10:24:34.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\appsettings.Development.json",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.Development.json",
+              "RelativeToolTip": "CityInfo_8_0_Server\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-01-23T16:36:06.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CityController.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityController.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityController.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAIwFMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T09:37:51.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Program.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Program.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Program.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Program.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAtwCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T10:17:30.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ServiceExtensions.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAADwvyUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T09:11:54.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "Entities\\DatabaseContext.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DatabaseContext.cs",
+              "RelativeToolTip": "Entities\\DatabaseContext.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAIwFAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T09:46:55.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InMemoryTest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T14:51:47.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RepositoryBase.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryBase.cs",
+              "RelativeDocumentMoniker": "Repository\\RepositoryBase.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryBase.cs",
+              "RelativeToolTip": "Repository\\RepositoryBase.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAQwB0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-16T12:05:32.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UnitTestDatabaseContext.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T14:52:44.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SetupDatabaseData.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAqwBsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T10:31:43.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CityRepositoryTest2.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs",
+              "ViewState": "AQIAALEAAAAAAAAAAAAYwMEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T10:30:49.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TestingWebAppFactory.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAUwDgAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T10:25:42.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CityControllerTest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAYwD4AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T12:05:51.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CityRepositoryTest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T10:30:43.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "CityRepositoryTest1.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAEwCAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T17:31:24.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "CityRepositoryTest5.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAASwBcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T17:31:28.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RepositoryWrapper.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
+              "RelativeDocumentMoniker": "Repository\\RepositoryWrapper.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
+              "RelativeToolTip": "Repository\\RepositoryWrapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwAwAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T13:24:14.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CityInfo_8_0_Server_IntegrationTests.csproj",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
+              "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-07T13:12:58.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
+              "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-07T13:14:51.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CityInfo_8_0_Server.csproj",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
+              "RelativeToolTip": "CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAhwBAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-02-02T12:08:07.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PointOfInterestRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\PointOfInterestRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\PointOfInterestRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\PointOfInterestRepository.cs",
+              "RelativeToolTip": "Repository\\PointOfInterestRepository.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAYwCMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T10:34:26.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.json",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\appsettings.json",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.json",
+              "RelativeToolTip": "CityInfo_8_0_Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-04T09:25:47.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CityRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\CityRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
+              "RelativeToolTip": "Repository\\CityRepository.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAYwBQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T10:10:39.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CityDto.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CityDto.cs",
+              "RelativeDocumentMoniker": "Entities\\DataTransferObjects\\CityDto.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CityDto.cs",
+              "RelativeToolTip": "Entities\\DataTransferObjects\\CityDto.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAADwvygAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-24T09:50:24.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CityLanguageRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityLanguageRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\CityLanguageRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityLanguageRepository.cs",
+              "RelativeToolTip": "Repository\\CityLanguageRepository.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAkwCQAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T10:35:38.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "UpdateCityWithAllRelations.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-23T08:41:56.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Language.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\Language.cs",
+              "RelativeDocumentMoniker": "Entities\\Models\\Language.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\Language.cs",
+              "RelativeToolTip": "Entities\\Models\\Language.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T10:24:26.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "City.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\City.cs",
+              "RelativeDocumentMoniker": "Entities\\Models\\City.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\City.cs",
+              "RelativeToolTip": "Entities\\Models\\City.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T10:22:20.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ICityService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
+              "RelativeDocumentMoniker": "ServicesContracts\\ICityService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
+              "RelativeToolTip": "ServicesContracts\\ICityService.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAASwBQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T09:22:39.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CityService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityService.cs",
+              "RelativeDocumentMoniker": "Services\\CityService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityService.cs",
+              "RelativeToolTip": "Services\\CityService.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAMwG0AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T09:22:12.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CityWithAllRelations.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-23T08:41:36.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PointOfInterestService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\PointOfInterestService.cs",
+              "RelativeDocumentMoniker": "Services\\PointOfInterestService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\PointOfInterestService.cs",
+              "RelativeToolTip": "Services\\PointOfInterestService.cs",
+              "ViewState": "AQIAAKQAAAAAAAAAAAAMwC8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T16:40:55.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IRepositoryBase.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\IRepositoryBase.cs",
+              "RelativeDocumentMoniker": "Contracts\\IRepositoryBase.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\IRepositoryBase.cs",
+              "RelativeToolTip": "Contracts\\IRepositoryBase.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAkwAsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T12:11:27.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IRepositoryWrapper.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\IRepositoryWrapper.cs",
+              "RelativeDocumentMoniker": "Contracts\\IRepositoryWrapper.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\IRepositoryWrapper.cs",
+              "RelativeToolTip": "Contracts\\IRepositoryWrapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-17T19:04:08.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ICountryRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICountryRepository.cs",
+              "RelativeDocumentMoniker": "Contracts\\ICountryRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICountryRepository.cs",
+              "RelativeToolTip": "Contracts\\ICountryRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-28T11:29:32.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "LanguageRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\LanguageRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\LanguageRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\LanguageRepository.cs",
+              "RelativeToolTip": "Repository\\LanguageRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBZwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-14T12:58:37.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ICityRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICityRepository.cs",
+              "RelativeDocumentMoniker": "Contracts\\ICityRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICityRepository.cs",
+              "RelativeToolTip": "Contracts\\ICityRepository.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAYwA0AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T10:12:11.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\WeatherForecast.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\WeatherForecast.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\WeatherForecast.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAqwAoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-02T12:06:34.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CountryRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CountryRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\CountryRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CountryRepository.cs",
+              "RelativeToolTip": "Repository\\CountryRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-28T11:29:12.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PointOfInterestController.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
+              "ViewState": "AQIAAKoAAAAAAAAAAIBpwLYAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-31T10:10:20.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ControllerBase.cs",
+              "DocumentMoniker": "C:\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs",
+              "ToolTip": "C:\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs",
+              "RelativeToolTip": "..\\..\\..\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-25T15:10:22.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Country.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\Country.cs",
+              "RelativeDocumentMoniker": "Entities\\Models\\Country.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\Country.cs",
+              "RelativeToolTip": "Entities\\Models\\Country.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBZwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-24T09:52:09.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CountryDto.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CountryDto.cs",
+              "RelativeDocumentMoniker": "Entities\\DataTransferObjects\\CountryDto.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CountryDto.cs",
+              "RelativeToolTip": "Entities\\DataTransferObjects\\CountryDto.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAawAsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-08T10:19:49.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ICityLanguageService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityLanguageService.cs",
+              "RelativeDocumentMoniker": "ServicesContracts\\ICityLanguageService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityLanguageService.cs",
+              "RelativeToolTip": "ServicesContracts\\ICityLanguageService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T11:47:02.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "CityLanguageController.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
+              "ViewState": "AQIAACgBAAAAAAAAAAAvwDABAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-31T09:43:13.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "CityLanguageService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityLanguageService.cs",
+              "RelativeDocumentMoniker": "Services\\CityLanguageService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityLanguageService.cs",
+              "RelativeToolTip": "Services\\CityLanguageService.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAlwBAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-25T06:50:01.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "BroadcastHub.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-31T09:44:24.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "IPointOfInterestService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\IPointOfInterestService.cs",
+              "RelativeDocumentMoniker": "ServicesContracts\\IPointOfInterestService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\IPointOfInterestService.cs",
+              "RelativeToolTip": "ServicesContracts\\IPointOfInterestService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBZwA8AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T16:32:14.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "CommunicationResults.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CommunicationResults.cs",
+              "RelativeDocumentMoniker": "Services\\CommunicationResults.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CommunicationResults.cs",
+              "RelativeToolTip": "Services\\CommunicationResults.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvzEAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-23T08:47:06.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ICommunicationResults.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICommunicationResults.cs",
+              "RelativeDocumentMoniker": "ServicesContracts\\ICommunicationResults.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICommunicationResults.cs",
+              "RelativeToolTip": "ServicesContracts\\ICommunicationResults.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAYwA8AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-24T11:41:03.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "ICityLanguageRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICityLanguageRepository.cs",
+              "RelativeDocumentMoniker": "Contracts\\ICityLanguageRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICityLanguageRepository.cs",
+              "RelativeToolTip": "Contracts\\ICityLanguageRepository.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAuwAwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-25T07:14:57.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "PointOfInterest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\PointOfInterest.cs",
+              "RelativeDocumentMoniker": "Entities\\Models\\PointOfInterest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\PointOfInterest.cs",
+              "RelativeToolTip": "Entities\\Models\\PointOfInterest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-24T21:39:41.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": ".filenesting.json",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\.filenesting.json",
+              "RelativeDocumentMoniker": "Services\\.filenesting.json",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\.filenesting.json",
+              "RelativeToolTip": "Services\\.filenesting.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-01-27T10:38:28.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "UtilityService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\UtilityService.cs",
+              "RelativeDocumentMoniker": "Services\\UtilityService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\UtilityService.cs",
+              "RelativeToolTip": "Services\\UtilityService.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAwAkAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-24T10:44:24.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "nlog.config",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\nlog.config",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\nlog.config",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\nlog.config",
+              "RelativeToolTip": "CityInfo_8_0_Server\\nlog.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBZwBAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-01-23T15:56:34.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "SaveCityWithAllRelations.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAABhwAgAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-23T08:41:46.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Repository",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
+              "RelativeDocumentMoniker": "Repository\\Repository.csproj",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
+              "RelativeToolTip": "Repository\\Repository.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-01-23T11:33:20.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Entities",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Entities.csproj",
+              "RelativeDocumentMoniker": "Entities\\Entities.csproj",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Entities.csproj",
+              "RelativeToolTip": "Entities\\Entities.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-01-23T11:15:27.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Repository.csproj",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
+              "RelativeDocumentMoniker": "Repository\\Repository.csproj",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
+              "RelativeToolTip": "Repository\\Repository.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-01-16T11:49:20.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "CityInfo_8_0_Server.http",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
+              "RelativeToolTip": "CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-01-23T08:19:53.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "20240112131821_Init.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Migrations\\20240112131821_Init.cs",
+              "RelativeDocumentMoniker": "Entities\\Migrations\\20240112131821_Init.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Migrations\\20240112131821_Init.cs",
+              "RelativeToolTip": "Entities\\Migrations\\20240112131821_Init.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-22T22:51:27.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-01-23T08:19:58.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "LanguageController.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAgwBkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T12:43:53.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": ".editorconfig",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\.editorconfig",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\.editorconfig",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\.editorconfig",
+              "RelativeToolTip": "CityInfo_8_0_Server\\.editorconfig",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-01-16T13:25:28.411Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

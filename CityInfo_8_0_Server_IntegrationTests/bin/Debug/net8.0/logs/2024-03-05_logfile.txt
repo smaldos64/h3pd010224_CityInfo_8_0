@@ -1,0 +1,9 @@
+2024-03-05 14:23:11.8421 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:26:30.6088 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.4151 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.4276 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.4276 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.4502 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.4630 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.4868 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest
+2024-03-05 14:28:16.5095 INFO All Cities has been read from GetCities action by LTPE_IntegrationTest

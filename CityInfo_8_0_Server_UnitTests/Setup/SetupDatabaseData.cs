@@ -16,12 +16,12 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
         public static List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>();
         public static List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>();
 
-        public static void SeedDatabaseData(DatabaseContext context1)
+        public static void SeedDatabaseData(DatabaseContext context)
         {
             int NumberOfDatabaseObjectsChanged = 0;
 
-            using (var context = context1)
-            {
+            //using (var context = context1)
+            //{
                 //List<Language> LanguageObjectList = new List<Language>()
                 LanguageObjectList = new List<Language>()
                 {
@@ -161,7 +161,7 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                 NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
                 var Cities = context.Core_8_0_Cities.ToList();
-            }
+            //}
         }
     }
 }

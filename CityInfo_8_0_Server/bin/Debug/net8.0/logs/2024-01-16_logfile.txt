@@ -1,0 +1,10 @@
+2024-01-16 10:37:19.3686 INFO All Cities has been read from GetCities action
+2024-01-16 10:38:20.7698 INFO All Cities has been read from GetCities action
+2024-01-16 10:38:46.7379 INFO All Cities has been read from GetCities action
+2024-01-16 10:39:34.4626 INFO All Cities has been read from GetCities action
+2024-01-16 12:28:31.6269 INFO All Cities has been read from GetCities action
+2024-01-16 13:20:45.5234 ERROR Error when saving City !!!
+2024-01-16 13:40:17.9598 INFO City with Id : 7 has been stored using Service Layer !!!
+2024-01-16 13:54:57.7586 INFO All Languages has been read from GetLanguages action
+2024-01-16 14:13:50.9689 INFO City with Id : 8 has been stored by LPE !!!
+2024-01-16 14:15:56.3261 INFO City with Id : 9 has been stored using Service Layer by LTPE!!!

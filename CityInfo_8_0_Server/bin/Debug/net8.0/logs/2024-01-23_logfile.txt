@@ -1,0 +1,14 @@
+2024-01-23 09:29:45.9446 INFO All Cities has been read from GetCitiesServiceLayer action by No Name
+2024-01-23 11:14:13.9529 INFO City with Id : 18 has been updated by LTPE !!!
+2024-01-23 11:45:09.7008 INFO City with Id : 18 has been updated by LTPE !!!
+2024-01-23 11:46:07.5116 INFO City with Id : 19 has been stored by LTPE !!!
+2024-01-23 11:52:48.0840 ERROR Error when updating City with Id : 18 by LTPE !!!
+2024-01-23 12:01:21.2846 ERROR Error when updating City with Id : 18 by LTPE !!!
+2024-01-23 12:05:46.2701 ERROR Error when updating City with Id : 18 by LTPE !!!
+2024-01-23 12:06:42.9894 INFO City with Id : 20 has been stored by LTPE !!!
+2024-01-23 17:05:29.3845 INFO All Cities has been read from GetCities action by LTPE
+2024-01-23 17:06:56.1444 INFO All Cities has been read from GetCities action by LTPE
+2024-01-23 17:18:14.5854 INFO City with Id : 20 has been updated by LTPE !!!
+2024-01-23 17:19:01.0038 INFO City with Id : 20 has been updated by LTPE !!!
+2024-01-23 17:35:47.2096 ERROR Something went wrong inside GetCities action for No Name : A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - Certifikatkæden blev udstedt af et nøglecenter, der ikke er tillid til.)
+2024-01-23 17:37:50.4801 ERROR Something went wrong inside GetCities action for LTPE : A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - Certifikatkæden blev udstedt af et nøglecenter, der ikke er tillid til.)

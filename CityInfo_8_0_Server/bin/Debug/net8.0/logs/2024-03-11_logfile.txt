@@ -1,0 +1,7 @@
+2024-03-11 11:22:48.6701 INFO All Cities has been read from GetCities action by No Name
+2024-03-11 15:58:17.1014 ERROR Something went wrong inside GetCities action for No Name : The ConnectionString property has not been initialized.
+2024-03-11 15:59:54.3651 ERROR Something went wrong inside GetCities action for No Name : The ConnectionString property has not been initialized.
+2024-03-11 16:01:35.6220 ERROR Something went wrong inside GetCities action for No Name : The ConnectionString property has not been initialized.
+2024-03-11 16:05:46.3475 INFO All Cities has been read from GetCities action by No Name
+2024-03-11 16:06:29.5495 INFO All Cities has been read from GetCities action by No Name
+2024-03-11 16:07:10.1637 INFO All Cities has been read from GetCities action by No Name

@@ -1,0 +1,16 @@
+2024-02-16 12:30:12.6431 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:30:51.2728 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:31:00.5301 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:31:00.5708 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:31:00.5869 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:31:00.6211 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:31:00.6549 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:31:00.7076 INFO All Cities has been read from GetCities action by LTPE
+2024-02-16 12:50:07.9278 INFO City with Id : 4 has been stored by No Name !!!
+2024-02-16 12:52:33.7608 INFO City with Id : 4 has been stored by No Name !!!
+2024-02-16 13:47:26.6999 INFO City with Id : 4 has been stored by No Name !!!
+2024-02-16 13:53:34.2721 INFO City with Id : 4 has been stored by LTPE !!!
+2024-02-16 14:03:01.1396 INFO City with Id 3 has been deleted in action DeleteCity for LTPE_IntegrationTest
+2024-02-16 14:04:17.9609 INFO City with Id 3 has been deleted in action DeleteCity for LTPE_IntegrationTest
+2024-02-16 15:12:52.0425 INFO City with Id 3 has been deleted in action DeleteCity for LTPE_IntegrationTest
+2024-02-16 15:13:41.6347 INFO City with Id 3 has been deleted in action DeleteCity for LTPE_IntegrationTest

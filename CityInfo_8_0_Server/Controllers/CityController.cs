@@ -95,7 +95,7 @@ namespace CityInfo_8_0_Server.Controllers
           catch (Exception Error)
           {
             _logger.LogError($"Something went wrong inside GetCities action for {UserName} : {Error.Message}");
-            return StatusCode(500, "Internal server error");
+            return StatusCode(500, $"Internal server error : {Error.ToString()}");
           }
         }
 

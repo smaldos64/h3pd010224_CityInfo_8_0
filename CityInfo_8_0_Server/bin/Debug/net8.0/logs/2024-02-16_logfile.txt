@@ -1,0 +1,4 @@
+2024-02-16 13:45:57.1151 INFO City with Id : 1018 has been stored by LTPE_Swagger !!!
+2024-02-16 13:50:41.5006 INFO City with Id : 1019 has been stored by LTPE_Swagger !!!
+2024-02-16 13:55:15.9720 INFO City with Id 1019 has been deleted in action DeleteCity for LTPE_Swagger
+2024-02-16 14:00:13.0607 INFO City with Id 1019 has been deleted in action DeleteCity for LTPE_Swagger

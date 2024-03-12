@@ -1,0 +1,18 @@
+2024-03-04 09:19:52.8916 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 09:21:28.6322 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:26:44.5014 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:28:45.3459 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:30:12.7356 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:30:53.7859 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:32:04.3758 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:32:29.7962 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:34:17.1085 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:34:45.6186 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:36:42.2953 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 11:43:57.5245 INFO All Cities has been read from GetCitiesServiceLayer action by LTPE
+2024-03-04 12:15:36.4912 INFO 2 Cities has been read from GetCities action by LTPE
+2024-03-04 12:26:31.9537 INFO City and all relations has been updated/saved for No Name in action UpdateCityWithAllRelations. Number of objects changed : 6
+2024-03-04 12:27:02.2975 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 15:23:32.3770 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 15:58:45.0708 INFO All Cities has been read from GetCities action by LTPE
+2024-03-04 16:24:55.3613 INFO All Cities has been read from GetCities action by LTPE

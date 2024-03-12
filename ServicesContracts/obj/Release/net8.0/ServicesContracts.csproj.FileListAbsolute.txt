@@ -1,0 +1,16 @@
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\bin\Release\net8.0\ServicesContracts.deps.json
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\bin\Release\net8.0\ServicesContracts.dll
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\bin\Release\net8.0\ServicesContracts.pdb
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\bin\Release\net8.0\Entities.dll
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\bin\Release\net8.0\Entities.pdb
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.csproj.AssemblyReference.cache
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.AssemblyInfoInputs.cache
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.AssemblyInfo.cs
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.csproj.CoreCompileInputs.cache
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.sourcelink.json
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.csproj.CopyComplete
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.dll
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\refint\ServicesContracts.dll
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.pdb
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ref\ServicesContracts.dll

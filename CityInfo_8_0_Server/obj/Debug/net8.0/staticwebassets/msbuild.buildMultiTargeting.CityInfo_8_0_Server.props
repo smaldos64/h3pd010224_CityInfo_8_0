@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CityInfo_8_0_Server.props" />
+</Project>

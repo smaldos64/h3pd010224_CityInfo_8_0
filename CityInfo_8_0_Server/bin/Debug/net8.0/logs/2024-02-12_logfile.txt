@@ -1,0 +1,3 @@
+2024-02-12 14:02:37.9260 ERROR Something went wrong inside GetCities action for No Name : An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2024-02-12 14:07:18.9185 INFO All Cities has been read from GetCities action by No Name
+2024-02-12 14:14:24.9138 INFO All Cities has been read from GetCities action by No Name

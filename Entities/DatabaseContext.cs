@@ -13,7 +13,7 @@ namespace Entities
   {
     // LTPE Test Purpose
     private readonly string _connectionString;
-    private readonly Action<DatabaseContext, ModelBuilder> _modelCustomizer;
+    //private readonly Action<DatabaseContext, ModelBuilder> _modelCustomizer;
 
     private static string _sQLConnectionString = String.Empty;
 
@@ -41,32 +41,14 @@ namespace Entities
 
     public virtual DbSet<CityLanguage> Core_8_0_CityLanguages { get; set; }
 
-    // LTPE Test purpose
-    //public DatabaseContext(string ConnectionString)
-    //{
-    //  this._connectionString = ConnectionString;
-    //}
-
+        
     // Constructor herunder bliver kaldt under normal kørsel.
     public DatabaseContext(DbContextOptions<DatabaseContext> options,
-                           IConfiguration configuration) : base(options)
+                            IConfiguration configuration) : base(options)
     {
-      this._configuration = configuration;
+        this._configuration = configuration;
     }
-
-    // LTPE => Constructor herunder oprettet af hensyn til unit test.
-    //public DatabaseContext(DbContextOptions<DatabaseContext> options) :
-    //    base(options)
-    //{
-
-    //}
-
-    //public DatabaseContext(DbContextOptions options) :
-    //    base(options)
-    //{
-
-    //}
-
+       
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<CityLanguage>()
@@ -83,17 +65,33 @@ namespace Entities
       string connectionString;
 
 #if ENABLED_FOR_LAZY_LOADING_USAGE
-        if (!String.IsNullOrEmpty(_sQLConnectionString))
-        {
-            connectionString = _sQLConnectionString;
-        }
-        else
-        {
-            connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
-        }
-        optionsBuilder
-            .UseLazyLoadingProxies()
-            .UseSqlServer(connectionString);
+            //if (!Environment.GetEnvironmentVariable("IsTest").Equals("true", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
+
+            //    optionsBuilder
+            //        .UseLazyLoadingProxies()
+            //        .UseSqlServer(connectionString);
+            //}
+            //else
+            //{
+            //    //optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString()); // Unique in-memory database name
+            //}
+
+            if (!String.IsNullOrEmpty(_sQLConnectionString))
+            {
+                connectionString = _sQLConnectionString;
+            }
+            else
+            {
+                connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
+                optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer(connectionString);
+            }
+            //optionsBuilder
+            //    .UseLazyLoadingProxies()
+            //    .UseSqlServer(connectionString);
 #endif
         }
 

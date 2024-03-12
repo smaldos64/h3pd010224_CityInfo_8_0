@@ -1,0 +1,19 @@
+2024-01-31 10:28:29.9460 INFO All Languages has been read from GetLanguages action
+2024-01-31 11:46:56.5555 ERROR City With ID : 48 not found in Cities for LTPE in action UpdatePointOfInterestForCity
+2024-01-31 11:49:00.6169 INFO PointOfInterstlist for CityId : 2 er nu opdateret for for LTPE in action UpdatePointOfInterestForCity og tidligere PointOfInterests er slettet. Number of objects changed : 3
+2024-01-31 11:54:06.0710 INFO PointOfInterstlist for CityId : 2 er nu opdateret for for LTPE in action UpdatePointOfInterestForCity uden at slette tidligere PointOfInterests. Number of objects changed : 1
+2024-01-31 11:54:58.3713 INFO PointOfInterstlist for CityId : 2 er nu opdateret for for LTPE in action UpdatePointOfInterestForCity uden at slette tidligere PointOfInterests. Number of objects changed : 1
+2024-01-31 11:55:28.8780 INFO PointOfInterstlist for CityId : 2 er nu opdateret for for LTPE in action UpdatePointOfInterestForCity og tidligere PointOfInterests er slettet. Number of objects changed : 5
+2024-01-31 11:57:25.3044 ERROR CityId givet i 2 .element er forskellig fra det første CityId element i listen. Alle CityId felter skal være ens !!!
+2024-01-31 11:57:45.7549 ERROR Something went wrong inside action UpdateCityLanguagesList for LTPE: An error occurred while saving the entity changes. See the inner exception for details.
+2024-01-31 11:59:20.2180 ERROR Something went wrong inside action UpdateCityLanguagesList for LTPE: An error occurred while saving the entity changes. See the inner exception for details.
+2024-01-31 13:00:18.7133 ERROR City med CityId : 1 findes ikke i Databsen !!!
+2024-01-31 13:00:42.6875 ERROR CityId givet i 2 .element er forskellig fra det første CityId element i listen. Alle CityId felter skal være ens !!!
+2024-01-31 13:01:00.8628 ERROR CityLanguage Object with CityId : 2 and LanguageId : 3 not saved for LTPE in action UpdateCityLanguagesList
+2024-01-31 13:15:46.5841 ERROR CityLanguage Object with CityId : 2 and LanguageId : 2 not saved for No Name in action UpdateCityLanguagesList
+2024-01-31 13:18:12.5661 ERROR CityLanguage Object with CityId : 2 and LanguageId : 3 not saved for No Name in action UpdateCityLanguagesList
+2024-01-31 13:22:06.3794 INFO Languagelist for CityId : 2 er nu opdateret for for LTPE in action UpdateCityLanguagesList. Number of objects changed : 2
+2024-01-31 13:27:36.6314 INFO Languagelist for CityId : 2 er nu opdateret for for LTPE in action UpdateCityLanguagesList og tidligere City-Language kombinationer er ikke slettet. Number of objects changed : 1
+2024-01-31 13:28:06.7769 INFO Languagelist for CityId : 2 er nu opdateret for for LTPE in action UpdateCityLanguagesList og tidligere City-Language kombinationer er slettet. Number of objects changed : 1
+2024-01-31 13:30:29.9406 INFO City and all relations has been updated/saved for LTPE in action UpdateCityWithAllRelations. Number of objects changed : 3
+2024-01-31 13:36:16.4329 INFO City and all relations has been updated/saved for LTPE in action UpdateCityWithAllRelations. Number of objects changed : 5

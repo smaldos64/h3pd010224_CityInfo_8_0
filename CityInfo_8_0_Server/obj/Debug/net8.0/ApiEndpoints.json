@@ -1,0 +1,332 @@
+[
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "UpdateCityLanguagesList",
+    "RelativePath": "api/CityLanguage/UpdateCityLanguagesList",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityLanguageForSaveAndUpdateDto_List",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.DataTransferObjects.CityLanguageForSaveAndUpdateDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "DeleteOldElementsInListsNotSpecifiedInCurrentLists",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseExtendedDatabaseDebugging",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageController",
+    "Method": "GetLanguages",
+    "RelativePath": "api/Language",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includeRelations",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Entities.Models.LanguageDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CityInf0_8_0_Server.Controllers.PointOfInterestController",
+    "Method": "UpdatePointOfInterestListForCity",
+    "RelativePath": "api/PointOfInterest/{CityId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PointOfInterestForUpdateDto_List",
+        "Type": "System.Collections.Generic.List\u00601[[Entities.DataTransferObjects.PointOfInterestForUpdateDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "DeleteOldElementsInListNotSpecifiedInCurrentList",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseExtendedDatabaseDebugging",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "CreateCity",
+    "RelativePath": "City/CreateCity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityDto_Object",
+        "Type": "Entities.DataTransferObjects.CityForSaveWithCountryDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "DeleteCity",
+    "RelativePath": "City/DeleteCity/{CityId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetCities",
+    "RelativePath": "City/GetCities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includeRelations",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseLazyLoading",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseMapster",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetCitiesServiceLayer",
+    "RelativePath": "City/GetCitiesServiceLayer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includeRelations",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseLazyLoading",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseMapster",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetSpecifiedNumberOfCities",
+    "RelativePath": "City/GetSpecifiedNumberOfCities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includeRelations",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseLazyLoading",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseMapster",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseQueryable",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumberOfCities",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "UpdateCity",
+    "RelativePath": "City/UpdateCity/{CityId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CityForUpdateDto_Object",
+        "Type": "Entities.DataTransferObjects.CityForUpdateDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseOwnMapster",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "UpdateCityWithAllRelations",
+    "RelativePath": "City/UpdateCityWithAllRelations/{CityId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UpdateCityWithAllRelations_Object",
+        "Type": "CityInfo_8_0_Server.ViewModels.UpdateCityWithAllRelations",
+        "IsRequired": true
+      },
+      {
+        "Name": "DeleteOldElementsInListsNotSpecifiedInCurrentLists",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UseExtendedDatabaseDebugging",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CityInfo_8_0_Server.WeatherForecast, CityInfo_8_0_Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

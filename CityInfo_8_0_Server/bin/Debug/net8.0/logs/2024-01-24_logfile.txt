@@ -1,0 +1,10 @@
+2024-01-24 10:49:03.3016 ERROR Something went wrong inside Update City action for LTPE: Delegate 'System.Func<Entities.DataTransferObjects.CityForUpdateDto,Entities.Models.City,Entities.Models.City>' has some invalid arguments
+2024-01-24 10:56:40.6170 INFO City with Id : 20 has been updated by LTPE !!!
+2024-01-24 10:59:28.1565 INFO City with Id : 20 has been updated by LTPE !!!
+2024-01-24 11:01:43.3242 INFO City with Id : 20 has been updated by LTPE !!!
+2024-01-24 11:03:52.1549 INFO City with Id : 20 has been updated by LTPE !!!
+2024-01-24 11:49:06.1491 INFO All Cities has been read from GetCities action by LTPE
+2024-01-24 12:22:54.9123 INFO All Cities has been read from GetCities action by LTPE
+2024-01-24 21:59:29.7890 ERROR 
+2024-01-24 22:00:28.8942 ERROR City With ID : 60 not found in Cities for LTPE in action UpdateCityWithAllRelations
+2024-01-24 22:02:23.5330 ERROR City With ID : 60 not found in Cities for LTPE in action UpdateCityWithAllRelations

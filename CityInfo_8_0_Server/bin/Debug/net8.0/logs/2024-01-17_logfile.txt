@@ -1,0 +1,12 @@
+2024-01-17 19:54:41.6487 INFO City with Id : 14 has been stored by LTPE !!!
+2024-01-17 20:10:36.7952 INFO City with Id : 15 has been stored by LTPE !!!
+2024-01-17 20:12:33.4379 INFO City with Id : 16 has been stored by LTPE !!!
+2024-01-17 20:48:38.3770 INFO All Cities has been read from GetCities action by LTPE
+2024-01-17 20:49:18.4116 INFO All Cities has been read from GetCities action by LTPE
+2024-01-17 20:50:54.6835 INFO All Cities has been read from GetCities action by LTPE
+2024-01-17 23:48:41.0781 INFO 3 Cities has been read from GetCities action by LTPE
+2024-01-17 23:49:10.9316 INFO 1 Cities has been read from GetCities action by LTPE
+2024-01-17 23:49:25.8075 INFO 1 Cities has been read from GetCities action by LTPE
+2024-01-17 23:49:31.7006 INFO 2 Cities has been read from GetCities action by LTPE
+2024-01-17 23:49:41.7294 INFO 2 Cities has been read from GetCities action by LTPE
+2024-01-17 23:49:54.7735 INFO 2 Cities has been read from GetCities action by LTPE
