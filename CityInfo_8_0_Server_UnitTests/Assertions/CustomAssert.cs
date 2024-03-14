@@ -16,7 +16,7 @@ namespace CityInfo_8_0_Server_UnitTests.Assertions
             Assert.True(value >= min && value <= max);
         }
 
-        public static void CheckCitiesReadInMemroyMode(List<City> CityList, bool IncludeRelations)
+        public static void InMemoryModeCheckCitiesRead(List<City> CityList, bool IncludeRelations)
         {
             Assert.Equal(CityList.Count, SetupDatabaseData.CityObjectList.Count);
             if (true == IncludeRelations)

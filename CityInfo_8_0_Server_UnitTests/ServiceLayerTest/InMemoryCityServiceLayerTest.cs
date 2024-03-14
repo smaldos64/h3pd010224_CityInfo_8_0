@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {
-    public class CityServiceLayerTest
+    public class InMemoryCityServiceLayerTest
     {
         private readonly DbContextOptions<DatabaseContext> _contextOptions;
         //private readonly CityRepository _cityRepository;
@@ -27,7 +27,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
         private readonly ICityLanguageService _cityLanguage;
         private readonly IPointOfInterestService _pointOfInterestService;
 
-        public CityServiceLayerTest()
+        public InMemoryCityServiceLayerTest()
         {
             _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("BloggingControllerTest")
@@ -63,7 +63,8 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.CheckCitiesReadInMemroyMode(CityList, includeRelations);
+            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            
             //Assert.Equal(3, CityList.Count);
 
             //if (true == includeRelations) 

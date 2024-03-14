@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorylayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\repositorylayertest\\cityrepositorylayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\servicelayertest\\inmemorycityservicelayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\servicelayertest\\inmemorycityservicelayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\servicelayertest\\cityservicelayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\servicelayertest\\cityservicelayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\repositorylayertest\\sqlitecityrepositorylayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\repositorylayertest\\sqlitecityrepositorylayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\repositorylayertest\\inmemorycityrepositorylayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\repositorylayertest\\inmemorycityrepositorylayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\assertions\\customassert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -246,10 +250,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -276,36 +276,34 @@
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SqLiteCityRepositoryLayerTest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SqLiteCityRepositoryLayerTest.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SqLiteCityRepositoryLayerTest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SqLiteCityRepositoryLayerTest.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SqLiteCityRepositoryLayerTest.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAADgvzIAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-14T15:31:16.656Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CustomAssert.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Assertions\\CustomAssert.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Assertions\\CustomAssert.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Assertions\\CustomAssert.cs",
               "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Assertions\\CustomAssert.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAowBEAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAowBIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-14T13:12:27.674Z"
+              "WhenOpened": "2024-03-14T13:12:27.674Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SetupDatabaseData.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
-              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAQwJwAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T10:31:43.055Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CityRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
               "RelativeDocumentMoniker": "Repository\\CityRepository.cs",
@@ -313,48 +311,55 @@
               "RelativeToolTip": "Repository\\CityRepository.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAcwBgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T10:10:39.34Z"
+              "WhenOpened": "2024-01-13T10:10:39.34Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CityRepositoryLayerTest.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryLayerTest.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryLayerTest.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryLayerTest.cs",
-              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryLayerTest.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAAADsAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "InMemoryCityRepositoryLayerTest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\InMemoryCityRepositoryLayerTest.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\InMemoryCityRepositoryLayerTest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\InMemoryCityRepositoryLayerTest.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\InMemoryCityRepositoryLayerTest.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAvwEkAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-11T10:24:34.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "CityRepositoryTest.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
-              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAASAAAA",
+              "DocumentIndex": 0,
+              "Title": "InMemoryCityServiceLayerTest.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAA0wEMAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T10:30:43.528Z"
+              "WhenOpened": "2024-03-14T09:20:35.653Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CityServiceLayerTest.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\CityServiceLayerTest.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\CityServiceLayerTest.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\CityServiceLayerTest.cs",
-              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\CityServiceLayerTest.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAqwDwAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-14T09:20:35.653Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "SetupDatabaseData.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Setup\\SetupDatabaseData.cs",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAQwJwAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T10:31:43.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "CityControllerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
@@ -362,7 +367,8 @@
               "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\Controller\\CityControllerTest.cs",
               "ViewState": "AQIAADsAAAAAAAAAAAAqwEUAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T12:05:51.395Z"
+              "WhenOpened": "2024-03-05T12:05:51.395Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -374,11 +380,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest2.cs",
               "ViewState": "AQIAALEAAAAAAAAAAAAYwMEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T10:30:49.934Z"
+              "WhenOpened": "2024-03-11T10:30:49.934Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CityService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityService.cs",
               "RelativeDocumentMoniker": "Services\\CityService.cs",
@@ -386,11 +393,12 @@
               "RelativeToolTip": "Services\\CityService.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAApwCQAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T09:22:12.766Z"
+              "WhenOpened": "2024-01-13T09:22:12.766Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CityController.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
@@ -398,11 +406,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAAiwH4AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T09:37:51.772Z"
+              "WhenOpened": "2024-01-13T09:37:51.772Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ServiceExtensions.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
@@ -410,11 +419,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
               "ViewState": "AQIAACMAAAAAAAAAAADwvyUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-04T09:11:54.609Z"
+              "WhenOpened": "2024-03-04T09:11:54.609Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Program.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Program.cs",
@@ -422,11 +432,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Program.cs",
               "ViewState": "AQIAACAAAAAAAAAAAAAtwCUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T10:17:30.693Z"
+              "WhenOpened": "2024-01-13T10:17:30.693Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ICityService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
               "RelativeDocumentMoniker": "ServicesContracts\\ICityService.cs",
@@ -434,11 +445,12 @@
               "RelativeToolTip": "ServicesContracts\\ICityService.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAASwAwAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T09:22:39.114Z"
+              "WhenOpened": "2024-01-13T09:22:39.114Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.Development.json",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\appsettings.Development.json",
@@ -446,35 +458,38 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-01-23T16:36:06.506Z"
+              "WhenOpened": "2024-01-23T16:36:06.506Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "UnitTestDatabaseContext.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
               "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Database\\UnitTestDatabaseContext.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAA8wBUAAAAIAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAmwBUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-12T14:52:44.094Z"
+              "WhenOpened": "2024-03-12T14:52:44.094Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "InMemoryTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
               "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\Database\\InMemoryTest.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAABRwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-12T14:51:47.411Z"
+              "WhenOpened": "2024-03-12T14:51:47.411Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "TestingWebAppFactory.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
@@ -482,11 +497,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
               "ViewState": "AQIAAC0AAAAAAAAAAAAUwDgAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T10:25:42.464Z"
+              "WhenOpened": "2024-03-05T10:25:42.464Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "CityRepositoryTest1.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
@@ -494,11 +510,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest1.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAEwCAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T17:31:24.094Z"
+              "WhenOpened": "2024-03-10T17:31:24.094Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "CityRepositoryTest5.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
@@ -506,11 +523,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\CityRepositoryTest5.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAASwBcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T17:31:28.346Z"
+              "WhenOpened": "2024-03-10T17:31:28.346Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "RepositoryWrapper.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryWrapper.cs",
@@ -518,11 +536,12 @@
               "RelativeToolTip": "Repository\\RepositoryWrapper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBJwAwAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-16T13:24:14.578Z"
+              "WhenOpened": "2024-01-16T13:24:14.578Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "CityInfo_8_0_Server_IntegrationTests.csproj",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
@@ -530,11 +549,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-03-07T13:12:58.141Z"
+              "WhenOpened": "2024-03-07T13:12:58.141Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
@@ -542,11 +562,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-07T13:14:51.341Z"
+              "WhenOpened": "2024-03-07T13:14:51.341Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "CityInfo_8_0_Server.csproj",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
@@ -554,11 +575,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj",
               "ViewState": "AQIAAAkAAAAAAAAAAAAhwBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-02-02T12:08:07.403Z"
+              "WhenOpened": "2024-02-02T12:08:07.403Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "PointOfInterestRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\PointOfInterestRepository.cs",
               "RelativeDocumentMoniker": "Repository\\PointOfInterestRepository.cs",
@@ -566,11 +588,12 @@
               "RelativeToolTip": "Repository\\PointOfInterestRepository.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAYwCMAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T10:34:26.278Z"
+              "WhenOpened": "2024-03-05T10:34:26.278Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.json",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\appsettings.json",
@@ -578,11 +601,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-04T09:25:47.25Z"
+              "WhenOpened": "2024-03-04T09:25:47.25Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "CityDto.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CityDto.cs",
               "RelativeDocumentMoniker": "Entities\\DataTransferObjects\\CityDto.cs",
@@ -590,11 +614,12 @@
               "RelativeToolTip": "Entities\\DataTransferObjects\\CityDto.cs",
               "ViewState": "AQIAABwAAAAAAAAAAADwvygAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-24T09:50:24.651Z"
+              "WhenOpened": "2024-01-24T09:50:24.651Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "CityLanguageRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityLanguageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\CityLanguageRepository.cs",
@@ -602,11 +627,12 @@
               "RelativeToolTip": "Repository\\CityLanguageRepository.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAkwCQAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T10:35:38.397Z"
+              "WhenOpened": "2024-03-05T10:35:38.397Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "UpdateCityWithAllRelations.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
@@ -614,11 +640,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\ViewModels\\UpdateCityWithAllRelations.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-23T08:41:56.707Z"
+              "WhenOpened": "2024-01-23T08:41:56.707Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Language.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\Language.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\Language.cs",
@@ -626,11 +653,12 @@
               "RelativeToolTip": "Entities\\Models\\Language.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-04T10:24:26.054Z"
+              "WhenOpened": "2024-03-04T10:24:26.054Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "City.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\City.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\City.cs",
@@ -638,11 +666,12 @@
               "RelativeToolTip": "Entities\\Models\\City.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-04T10:22:20.666Z"
+              "WhenOpened": "2024-03-04T10:22:20.666Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "CityWithAllRelations.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
@@ -650,11 +679,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\ViewModels\\CityWithAllRelations.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-23T08:41:36.136Z"
+              "WhenOpened": "2024-01-23T08:41:36.136Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "IRepositoryBase.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\IRepositoryBase.cs",
               "RelativeDocumentMoniker": "Contracts\\IRepositoryBase.cs",
@@ -662,11 +692,12 @@
               "RelativeToolTip": "Contracts\\IRepositoryBase.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAkwAsAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-16T12:11:27.733Z"
+              "WhenOpened": "2024-01-16T12:11:27.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "IRepositoryWrapper.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\IRepositoryWrapper.cs",
               "RelativeDocumentMoniker": "Contracts\\IRepositoryWrapper.cs",
@@ -674,11 +705,12 @@
               "RelativeToolTip": "Contracts\\IRepositoryWrapper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-17T19:04:08.22Z"
+              "WhenOpened": "2024-01-17T19:04:08.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "ICountryRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICountryRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\ICountryRepository.cs",
@@ -686,11 +718,12 @@
               "RelativeToolTip": "Contracts\\ICountryRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T11:29:32.788Z"
+              "WhenOpened": "2024-02-28T11:29:32.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "LanguageRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\LanguageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\LanguageRepository.cs",
@@ -698,11 +731,12 @@
               "RelativeToolTip": "Repository\\LanguageRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-14T12:58:37.147Z"
+              "WhenOpened": "2024-02-14T12:58:37.147Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "ICityRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICityRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\ICityRepository.cs",
@@ -710,11 +744,12 @@
               "RelativeToolTip": "Contracts\\ICityRepository.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAYwA0AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T10:12:11.616Z"
+              "WhenOpened": "2024-01-13T10:12:11.616Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\WeatherForecast.cs",
@@ -722,11 +757,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\WeatherForecast.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAqwAoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-02T12:06:34.417Z"
+              "WhenOpened": "2024-02-02T12:06:34.417Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "CountryRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CountryRepository.cs",
               "RelativeDocumentMoniker": "Repository\\CountryRepository.cs",
@@ -734,23 +770,25 @@
               "RelativeToolTip": "Repository\\CountryRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T11:29:12.31Z"
+              "WhenOpened": "2024-02-28T11:29:12.31Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "PointOfInterestController.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
               "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\PointOfInterestController.cs",
-              "ViewState": "AQIAAKoAAAAAAAAAAIBpwLYAAABaAAAA",
+              "ViewState": "AQIAAKYAAAAAAAAAAABxwLYAAABaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-31T10:10:20.718Z"
+              "WhenOpened": "2024-01-31T10:10:20.718Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "ControllerBase.cs",
               "DocumentMoniker": "C:\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Users\\ltpe\\AppData\\Local\\SourceServer\\7f5a174c4a2bfff719d36fc241d775c6945a4528943b4829553268185294dd21\\ControllerBase.cs",
@@ -761,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "Country.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\Country.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\Country.cs",
@@ -769,11 +807,12 @@
               "RelativeToolTip": "Entities\\Models\\Country.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-24T09:52:09.978Z"
+              "WhenOpened": "2024-01-24T09:52:09.978Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "CountryDto.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CountryDto.cs",
               "RelativeDocumentMoniker": "Entities\\DataTransferObjects\\CountryDto.cs",
@@ -781,11 +820,12 @@
               "RelativeToolTip": "Entities\\DataTransferObjects\\CountryDto.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAawAsAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-08T10:19:49.287Z"
+              "WhenOpened": "2024-02-08T10:19:49.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "ICityLanguageService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityLanguageService.cs",
               "RelativeDocumentMoniker": "ServicesContracts\\ICityLanguageService.cs",
@@ -793,11 +833,12 @@
               "RelativeToolTip": "ServicesContracts\\ICityLanguageService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-01T11:47:02.226Z"
+              "WhenOpened": "2024-02-01T11:47:02.226Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "CityLanguageController.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
@@ -805,11 +846,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\CityLanguageController.cs",
               "ViewState": "AQIAACgBAAAAAAAAAAAvwDABAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-31T09:43:13.344Z"
+              "WhenOpened": "2024-01-31T09:43:13.344Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "CityLanguageService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityLanguageService.cs",
               "RelativeDocumentMoniker": "Services\\CityLanguageService.cs",
@@ -817,11 +859,12 @@
               "RelativeToolTip": "Services\\CityLanguageService.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAlwBAAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-25T06:50:01.82Z"
+              "WhenOpened": "2024-01-25T06:50:01.82Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "BroadcastHub.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
@@ -829,11 +872,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Hubs\\BroadcastHub.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-31T09:44:24.361Z"
+              "WhenOpened": "2024-01-31T09:44:24.361Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "IPointOfInterestService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\IPointOfInterestService.cs",
               "RelativeDocumentMoniker": "ServicesContracts\\IPointOfInterestService.cs",
@@ -841,11 +885,12 @@
               "RelativeToolTip": "ServicesContracts\\IPointOfInterestService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwA8AAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-30T16:32:14.232Z"
+              "WhenOpened": "2024-01-30T16:32:14.232Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "CommunicationResults.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CommunicationResults.cs",
               "RelativeDocumentMoniker": "Services\\CommunicationResults.cs",
@@ -853,11 +898,12 @@
               "RelativeToolTip": "Services\\CommunicationResults.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAADwvzEAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-23T08:47:06.491Z"
+              "WhenOpened": "2024-01-23T08:47:06.491Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "ICommunicationResults.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICommunicationResults.cs",
               "RelativeDocumentMoniker": "ServicesContracts\\ICommunicationResults.cs",
@@ -865,11 +911,12 @@
               "RelativeToolTip": "ServicesContracts\\ICommunicationResults.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAYwA8AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-24T11:41:03.982Z"
+              "WhenOpened": "2024-01-24T11:41:03.982Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "ICityLanguageRepository.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts\\ICityLanguageRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\ICityLanguageRepository.cs",
@@ -877,11 +924,12 @@
               "RelativeToolTip": "Contracts\\ICityLanguageRepository.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAuwAwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-25T07:14:57.435Z"
+              "WhenOpened": "2024-01-25T07:14:57.435Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "PointOfInterest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Models\\PointOfInterest.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\PointOfInterest.cs",
@@ -889,11 +937,12 @@
               "RelativeToolTip": "Entities\\Models\\PointOfInterest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-24T21:39:41.147Z"
+              "WhenOpened": "2024-01-24T21:39:41.147Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": ".filenesting.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\.filenesting.json",
               "RelativeDocumentMoniker": "Services\\.filenesting.json",
@@ -901,11 +950,12 @@
               "RelativeToolTip": "Services\\.filenesting.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-01-27T10:38:28.965Z"
+              "WhenOpened": "2024-01-27T10:38:28.965Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "UtilityService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\UtilityService.cs",
               "RelativeDocumentMoniker": "Services\\UtilityService.cs",
@@ -913,11 +963,12 @@
               "RelativeToolTip": "Services\\UtilityService.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAAwAkAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-24T10:44:24.364Z"
+              "WhenOpened": "2024-01-24T10:44:24.364Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "nlog.config",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\nlog.config",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\nlog.config",
@@ -925,11 +976,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\nlog.config",
               "ViewState": "AQIAAAAAAAAAAAAAAIBZwBAAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-01-23T15:56:34.705Z"
+              "WhenOpened": "2024-01-23T15:56:34.705Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "SaveCityWithAllRelations.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
@@ -937,33 +989,36 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\ViewModels\\SaveCityWithAllRelations.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAABhwAgAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-23T08:41:46.751Z"
+              "WhenOpened": "2024-01-23T08:41:46.751Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "Repository",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
               "RelativeDocumentMoniker": "Repository\\Repository.csproj",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
               "RelativeToolTip": "Repository\\Repository.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-01-23T11:33:20.4Z"
+              "WhenOpened": "2024-01-23T11:33:20.4Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "Entities",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Entities.csproj",
               "RelativeDocumentMoniker": "Entities\\Entities.csproj",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Entities.csproj",
               "RelativeToolTip": "Entities\\Entities.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-01-23T11:15:27.775Z"
+              "WhenOpened": "2024-01-23T11:15:27.775Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "Repository.csproj",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\Repository.csproj",
               "RelativeDocumentMoniker": "Repository\\Repository.csproj",
@@ -971,11 +1026,12 @@
               "RelativeToolTip": "Repository\\Repository.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-01-16T11:49:20.442Z"
+              "WhenOpened": "2024-01-16T11:49:20.442Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "CityInfo_8_0_Server.http",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
@@ -983,11 +1039,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\CityInfo_8_0_Server.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-01-23T08:19:53.079Z"
+              "WhenOpened": "2024-01-23T08:19:53.079Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "20240112131821_Init.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\Migrations\\20240112131821_Init.cs",
               "RelativeDocumentMoniker": "Entities\\Migrations\\20240112131821_Init.cs",
@@ -995,11 +1052,12 @@
               "RelativeToolTip": "Entities\\Migrations\\20240112131821_Init.cs",
               "ViewState": "AQIAACsAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-22T22:51:27.379Z"
+              "WhenOpened": "2024-01-22T22:51:27.379Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Properties\\launchSettings.json",
@@ -1007,11 +1065,12 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-01-23T08:19:58.618Z"
+              "WhenOpened": "2024-01-23T08:19:58.618Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "LanguageController.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
@@ -1019,22 +1078,20 @@
               "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\LanguageController.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAgwBkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-16T12:43:53.788Z"
+              "WhenOpened": "2024-01-16T12:43:53.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": ".editorconfig",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\.editorconfig",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\.editorconfig",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\.editorconfig",
               "RelativeToolTip": "CityInfo_8_0_Server\\.editorconfig",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-01-16T13:25:28.411Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2024-01-16T13:25:28.411Z",
+              "EditorCaption": ""
             }
           ]
         }

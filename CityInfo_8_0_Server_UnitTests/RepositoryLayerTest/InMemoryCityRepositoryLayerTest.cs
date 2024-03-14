@@ -18,14 +18,13 @@ using CityInfo_8_0_Server_UnitTests.Assertions;
 
 namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
-    public class CityRepositoryLayerTest
+    public class InMemoryCityRepositoryLayerTest
     {
         private readonly DbContextOptions<DatabaseContext> _contextOptions;
-        //private readonly DbContextOptions<UnitTestDatabaseContext> _contextOptions;
         private readonly ICityRepository _cityRepository;   
         private readonly IRepositoryWrapper _repositoryWrapper;
 
-        public CityRepositoryLayerTest()
+        public InMemoryCityRepositoryLayerTest()
         {
             _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("BloggingControllerTest")
@@ -56,7 +55,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.CheckCitiesReadInMemroyMode(CityList, includeRelations);
+            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
@@ -72,7 +71,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.CheckCitiesReadInMemroyMode(CityList, includeRelations);
+            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
     }
 }
