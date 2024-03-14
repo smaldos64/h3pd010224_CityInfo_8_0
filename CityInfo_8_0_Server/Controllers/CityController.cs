@@ -124,7 +124,7 @@ namespace CityInfo_8_0_Server.Controllers
         }
         else
         {
-          CityList = await _cityService.GetCities(includeRelations);
+          CityList = await _cityService.GetAllCities(includeRelations);
         }
 
         List<CityDto> CityDtos;

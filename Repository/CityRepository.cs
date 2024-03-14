@@ -25,7 +25,7 @@ namespace Repository
             if (false == IncludeRelations)
             {
                 var collection = await (base.FindAll());
-                collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
+                //collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
                 return (collection);
             }
             else
@@ -36,8 +36,8 @@ namespace Repository
                 Include(c => c.CityLanguages).
                 ThenInclude(l => l.Language).ToListAsync();
 
-                var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-                return (collection1);
+                //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
+                return (collection);
             }
         }
 

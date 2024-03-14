@@ -20,29 +20,26 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
         {
             int NumberOfDatabaseObjectsChanged = 0;
 
-            //using (var context = context1)
-            //{
-                //List<Language> LanguageObjectList = new List<Language>()
-                LanguageObjectList = new List<Language>()
+
+            LanguageObjectList = new List<Language>()
                 {
                     new Language
                     {
-                        LanguageName = "dansk"
+                        LanguageName = "Dansk"
                     },
                     new Language
                     {
-                        LanguageName = "engelsk"
+                        LanguageName = "Engelsk"
                     },
                     new Language
                     {
-                        LanguageName = "tysk"
+                        LanguageName = "Tysk"
                     }
                 };
-                context.AddRangeAsync(LanguageObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            context.AddRangeAsync(LanguageObjectList);
+            NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                //List<Country> CountryObjectList = new List<Country>()
-                CountryObjectList = new List<Country>()
+            CountryObjectList = new List<Country>()
                 {
                     new Country
                     {
@@ -57,11 +54,10 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         CountryName = "Tyskland"
                     },
                 };
-                context.AddRangeAsync(CountryObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            context.AddRangeAsync(CountryObjectList);
+            NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                //List<City> CityObjectList = new List<City>()
-                CityObjectList = new List<City>()
+            CityObjectList = new List<City>()
                 {
                     new City
                     {
@@ -82,11 +78,10 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         CountryID = CountryObjectList[2].CountryID
                     }
                 };
-                context.AddRangeAsync(CityObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            context.AddRangeAsync(CityObjectList);
+            NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                //List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>()
-                PointOfInterestObjectList = new List<PointOfInterest>()
+            PointOfInterestObjectList = new List<PointOfInterest>()
                 {
                     new PointOfInterest
                     {
@@ -113,11 +108,10 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         CityId = CityObjectList[2].CityId
                     }
                 };
-                context.AddRangeAsync(PointOfInterestObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            context.AddRangeAsync(PointOfInterestObjectList);
+            NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                //List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>()
-                CityLanguageObjectList = new List<CityLanguage>()
+            CityLanguageObjectList = new List<CityLanguage>()
                 {
                     new CityLanguage
                     {
@@ -157,11 +151,11 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         LanguageId = LanguageObjectList[2].LanguageId
                     },
                 };
-                context.AddRangeAsync(CityLanguageObjectList);
-                NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            context.AddRangeAsync(CityLanguageObjectList);
+            NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-                var Cities = context.Core_8_0_Cities.ToList();
-            //}
+            //var Cities = context.Core_8_0_Cities.ToList();
+            CityObjectList = context.Core_8_0_Cities.ToList();
         }
     }
 }

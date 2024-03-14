@@ -32,7 +32,7 @@ namespace Services
       UtilityService.SetupMapsterConfiguration();
     }
 
-    public async Task<IEnumerable<City>> GetCities(bool IncludeRelations = false)
+    public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)
     {
       return (await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(IncludeRelations));
     }

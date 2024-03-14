@@ -11,7 +11,7 @@ namespace ServicesContracts
 {
   public interface ICityService
   {
-    Task<IEnumerable<City>> GetCities(bool IncludeRelations = false);
+    Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false);
     Task<int> SaveCity(City City_Object);
 
     Task<ICommunicationResults> UpdateCityWithAllRelations(CityForUpdateDto CityForUpdateDto_Object,

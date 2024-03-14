@@ -18,8 +18,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RepositoryLayerTest\CityRepositoryTest.cs" />
     <Compile Remove="RepositoryLayerTest\CityRepositoryTest1.cs" />
+    <Compile Remove="RepositoryLayerTest\CityRepositoryTest2.cs" />
+    <Compile Remove="RepositoryLayerTest\CityRepositoryTest3.cs" />
+    <Compile Remove="RepositoryLayerTest\CityRepositoryTest4.cs" />
     <Compile Remove="RepositoryLayerTest\CityRepositoryTest5.cs" />
+    <Compile Remove="RepositoryLayerTest\CityRepositoryTestUseMocking.cs" />
   </ItemGroup>
 
   <ItemGroup>
