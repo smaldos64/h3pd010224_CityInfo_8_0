@@ -45,8 +45,8 @@ namespace Repository
         {
             if (false == IncludeRelations)
             {
-                var City_Object = base.FindOne(CityId);
-                return await (City_Object);
+                var City_Object = await base.FindOne(CityId);
+                return (City_Object);
             }
             else
             {

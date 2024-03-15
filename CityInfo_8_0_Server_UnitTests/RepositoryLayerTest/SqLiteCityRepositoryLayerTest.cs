@@ -32,8 +32,6 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             _connection.Open();
 
             _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-            //.UseInMemoryDatabase("BloggingControllerTest")
-            //.ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
             .UseSqlite(_connection)
             .Options;
 
@@ -57,7 +55,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
+        public async void SqLite_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
         {
             // Arrange
 
@@ -73,7 +71,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
+        public async void SqLite_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
         {
             // Arrange
 

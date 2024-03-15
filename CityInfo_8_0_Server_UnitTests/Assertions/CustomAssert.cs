@@ -18,13 +18,22 @@ namespace CityInfo_8_0_Server_UnitTests.Assertions
 
         public static void InMemoryModeCheckCitiesRead(List<City> CityList, bool IncludeRelations)
         {
+            bool DifferenceFound = false;
+            List<City> CityListSorted = new List<City>();
+            CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
+
             Assert.Equal(CityList.Count, SetupDatabaseData.CityObjectList.Count);
             if (true == IncludeRelations)
             {
                 for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
                 {
+                    if (SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count !=
+                        CityListSorted[Counter].CityLanguages.Count)
+                    {
+                        DifferenceFound = true;
+                    }
                     Assert.Equal(SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count,
-                    CityList[Counter].CityLanguages.Count);
+                    CityListSorted[Counter].CityLanguages.Count);
                 }
             }
             else
@@ -40,8 +49,13 @@ namespace CityInfo_8_0_Server_UnitTests.Assertions
                 //}
                 for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
                 {
+                    if (SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count !=
+                        CityListSorted[Counter].CityLanguages.Count)
+                    {
+                        DifferenceFound = true;
+                    }
                     Assert.Equal(SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count,
-                    CityList[Counter].CityLanguages.Count);
+                    CityListSorted[Counter].CityLanguages.Count);
                 }
             }
         }

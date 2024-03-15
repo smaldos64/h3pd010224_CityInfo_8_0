@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo_8_0_Server_UnitTests.Setup
 {
@@ -16,7 +17,7 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
         public static List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>();
         public static List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>();
 
-        public static void SeedDatabaseData(DatabaseContext context)
+        public static async Task SeedDatabaseData(DatabaseContext context)
         {
             int NumberOfDatabaseObjectsChanged = 0;
 
@@ -36,8 +37,8 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         LanguageName = "Tysk"
                     }
                 };
-            context.AddRangeAsync(LanguageObjectList);
-            NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            await context.AddRangeAsync(LanguageObjectList);
+            NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
 
             CountryObjectList = new List<Country>()
                 {
@@ -54,8 +55,8 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         CountryName = "Tyskland"
                     },
                 };
-            context.AddRangeAsync(CountryObjectList);
-            NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            await context.AddRangeAsync(CountryObjectList);
+            NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
 
             CityObjectList = new List<City>()
                 {
@@ -78,8 +79,8 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         CountryID = CountryObjectList[2].CountryID
                     }
                 };
-            context.AddRangeAsync(CityObjectList);
-            NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            await context.AddRangeAsync(CityObjectList);
+            NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
 
             PointOfInterestObjectList = new List<PointOfInterest>()
                 {
@@ -108,8 +109,8 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         CityId = CityObjectList[2].CityId
                     }
                 };
-            context.AddRangeAsync(PointOfInterestObjectList);
-            NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            await context.AddRangeAsync(PointOfInterestObjectList);
+            NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
 
             CityLanguageObjectList = new List<CityLanguage>()
                 {
@@ -151,11 +152,11 @@ namespace CityInfo_8_0_Server_UnitTests.Setup
                         LanguageId = LanguageObjectList[2].LanguageId
                     },
                 };
-            context.AddRangeAsync(CityLanguageObjectList);
-            NumberOfDatabaseObjectsChanged = context.SaveChanges();
+            await context.AddRangeAsync(CityLanguageObjectList);
+            NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
 
             //var Cities = context.Core_8_0_Cities.ToList();
-            CityObjectList = context.Core_8_0_Cities.ToList();
+            CityObjectList = await context.Core_8_0_Cities.ToListAsync();
         }
     }
 }

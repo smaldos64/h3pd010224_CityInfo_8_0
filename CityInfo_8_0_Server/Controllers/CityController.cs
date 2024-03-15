@@ -217,7 +217,7 @@ namespace CityInfo_8_0_Server.Controllers
         City City_Object = CityDto_Object.Adapt<City>();
 
         await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-        NumberOfObjectsSaved = _repositoryWrapper.Save();
+        NumberOfObjectsSaved = await _repositoryWrapper.Save();
 
 #if Use_Hub_Logic_On_ServertSide
         await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");

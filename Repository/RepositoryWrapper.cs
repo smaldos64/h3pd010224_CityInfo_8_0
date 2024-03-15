@@ -88,10 +88,10 @@ namespace Repository
             this._repoContext = repositoryContext;
         }
 
-        public int Save()
+        public async Task<int> Save()
         {
           int NumberOfObjectsChanged = 0;
-          NumberOfObjectsChanged = _repoContext.SaveChanges();
+          NumberOfObjectsChanged = await _repoContext.SaveChangesAsync();
 
           return (NumberOfObjectsChanged);
         }
