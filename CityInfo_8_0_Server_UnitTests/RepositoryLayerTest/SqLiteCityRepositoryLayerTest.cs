@@ -19,31 +19,34 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
     public class SqLiteCityRepositoryLayerTest : IDisposable
     {
-        private readonly DbConnection _connection;
-        private readonly DbContextOptions<DatabaseContext> _contextOptions;
-        private readonly ICityRepository _cityRepository;
-        private readonly IRepositoryWrapper _repositoryWrapper;
+        private DbConnection _connection;
+        private DbContextOptions<DatabaseContext> _contextOptions;
+        private ICityRepository _cityRepository;
+        private IRepositoryWrapper _repositoryWrapper;
 
         public SqLiteCityRepositoryLayerTest()
         {
-            // Create and open a connection. This creates the SQLite in-memory database, which will persist until the connection is closed
-            // at the end of the test (see Dispose below).
-            _connection = new SqliteConnection("Filename=:memory:");
-            _connection.Open();
+            Task.Run(async () =>
+            {
+                // Create and open a connection. This creates the SQLite in-memory database, which will persist until the connection is closed
+                // at the end of the test (see Dispose below).
+                _connection = new SqliteConnection("Filename=:memory:");
+                _connection.Open();
 
-            _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-            .UseSqlite(_connection)
-            .Options;
+                _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite(_connection)
+                .Options;
 
-            var context = new UnitTestDatabaseContext(_contextOptions, null);
+                var context = new UnitTestDatabaseContext(_contextOptions, null);
 
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+                await context.Database.EnsureDeletedAsync();
+                await context.Database.EnsureCreatedAsync();
 
-            SetupDatabaseData.SeedDatabaseData(context);
+                await SetupDatabaseData.SeedDatabaseData(context);
 
-            _cityRepository = new CityRepository(context);
-            _repositoryWrapper = new RepositoryWrapper(context);
+                _cityRepository = new CityRepository(context);
+                _repositoryWrapper = new RepositoryWrapper(context);
+            }).GetAwaiter().GetResult();
         }
 
         public void Dispose()
@@ -55,7 +58,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void SqLite_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
+        public async Task SqLite_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
         {
             // Arrange
 
@@ -64,14 +67,14 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void SqLite_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
+        public async Task SqLite_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
         {
             // Arrange
 
@@ -80,7 +83,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
     }
 }

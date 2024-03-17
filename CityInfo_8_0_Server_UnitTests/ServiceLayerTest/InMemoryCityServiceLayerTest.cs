@@ -20,39 +20,42 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {
     public class InMemoryCityServiceLayerTest
     {
-        private readonly DbContextOptions<DatabaseContext> _contextOptions;
-        private readonly IRepositoryWrapper _repositoryWrapper;
-        private readonly ICityService _cityService;
-        private readonly ICityLanguageService _cityLanguage;
-        private readonly IPointOfInterestService _pointOfInterestService;
+        private DbContextOptions<DatabaseContext> _contextOptions;
+        private IRepositoryWrapper _repositoryWrapper;
+        private ICityService _cityService;
+        private ICityLanguageService _cityLanguage;
+        private IPointOfInterestService _pointOfInterestService;
 
         public InMemoryCityServiceLayerTest()
         {
-            _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+            Task.Run(async () =>
+            {
+                _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
             .UseInMemoryDatabase("BloggingControllerTest")
             .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
             .Options;
 
-            var context = new UnitTestDatabaseContext(_contextOptions, null);
+                var context = new UnitTestDatabaseContext(_contextOptions, null);
 
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+                await context.Database.EnsureDeletedAsync();
+                await context.Database.EnsureCreatedAsync();
 
-            SetupDatabaseData.SeedDatabaseData(context);
+                await SetupDatabaseData.SeedDatabaseData(context);
 
-            _repositoryWrapper = new RepositoryWrapper(context);
-            _cityLanguage = new CityLanguageService(_repositoryWrapper);
-            _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
-            _cityService = new CityService(_repositoryWrapper,
-                                           _cityLanguage,
-                                           _pointOfInterestService);
+                _repositoryWrapper = new RepositoryWrapper(context);
+                _cityLanguage = new CityLanguageService(_repositoryWrapper);
+                _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
+                _cityService = new CityService(_repositoryWrapper,
+                                               _cityLanguage,
+                                               _pointOfInterestService);
+            }).GetAwaiter().GetResult();
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void InMemory_Test_CityService_GetAllCities_Using_CityService(bool includeRelations)
+        public async Task InMemory_Test_CityService_GetAllCities_Using_CityService(bool includeRelations)
         {
             // Arrange
             _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
@@ -62,8 +65,8 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
-            
+            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+
             //Assert.Equal(3, CityList.Count);
 
             //if (true == includeRelations) 

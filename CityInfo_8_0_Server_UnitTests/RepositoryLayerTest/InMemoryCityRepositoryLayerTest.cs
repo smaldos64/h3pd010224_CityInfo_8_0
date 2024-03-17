@@ -15,38 +15,48 @@ using Repository;
 using CityInfo_8_0_Server_UnitTests.Database;
 using Contracts;
 using CityInfo_8_0_Server_UnitTests.Assertions;
+using NLog.Common;
 
 namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
     public class InMemoryCityRepositoryLayerTest
     {
-        private readonly DbContextOptions<DatabaseContext> _contextOptions;
-        private readonly ICityRepository _cityRepository;   
-        private readonly IRepositoryWrapper _repositoryWrapper;
+        private DbContextOptions<DatabaseContext> _contextOptions;
+        private ICityRepository _cityRepository;   
+        private IRepositoryWrapper _repositoryWrapper;
 
         public InMemoryCityRepositoryLayerTest()
         {
-            _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-            .UseInMemoryDatabase("BloggingControllerTest")
-            .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
-            .Options;
+            Task.Run(async () =>
+            {
+                _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseInMemoryDatabase("InMemoryRepositoryTest")
+                .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+                .Options;
             
-            var context = new UnitTestDatabaseContext(_contextOptions, null);
+                var context = new UnitTestDatabaseContext(_contextOptions, null);
 
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
             
-            SetupDatabaseData.SeedDatabaseData(context);
+                await context.Database.EnsureDeletedAsync();
+                await context.Database.EnsureCreatedAsync();
+            
+                await SetupDatabaseData.SeedDatabaseData(context);
 
-            _cityRepository = new CityRepository(context);
-            _repositoryWrapper = new RepositoryWrapper(context);
+                _cityRepository = new CityRepository(context);
+                _repositoryWrapper = new RepositoryWrapper(context);
+            }).GetAwaiter().GetResult();
+            
+            //await SetupDatabaseData.SeedDatabaseData(context);
+
+            //_cityRepository = new CityRepository(context);
+            //_repositoryWrapper = new RepositoryWrapper(context);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void InMemory_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
+        public async Task InMemory_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
         {
             // Arrange
             
@@ -55,14 +65,14 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void InMemory_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
+        public async Task InMemory_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
         {
             // Arrange
 
@@ -71,7 +81,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
     }
 }

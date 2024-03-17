@@ -16,53 +16,56 @@ using CityInfo_8_0_Server_UnitTests.Setup;
 using Services;
 using ServicesContracts;
 
-namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest 
+namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {
     public class SqLiteCityServideLayerTest : IDisposable
     {
-        private readonly DbConnection _connection;
-        private readonly DbContextOptions<DatabaseContext> _contextOptions;
-        private readonly IRepositoryWrapper _repositoryWrapper;
-        private readonly ICityService _cityService;
-        private readonly ICityLanguageService _cityLanguage;
-        private readonly IPointOfInterestService _pointOfInterestService;
+        private DbConnection _connection;
+        private DbContextOptions<DatabaseContext> _contextOptions;
+        private IRepositoryWrapper _repositoryWrapper;
+        private ICityService _cityService;
+        private ICityLanguageService _cityLanguage;
+        private IPointOfInterestService _pointOfInterestService;
 
         public SqLiteCityServideLayerTest()
         {
-            // Create and open a connection. This creates the SQLite in-memory database, which will persist until the connection is closed
-            // at the end of the test (see Dispose below).
-            _connection = new SqliteConnection("Filename=:memory:");
-            _connection.Open();
+            Task.Run(async () =>
+            {
+                // Create and open a connection. This creates the SQLite in-memory database, which will persist until the connection is closed
+                // at the end of the test (see Dispose below).
+                _connection = new SqliteConnection("Filename=:memory:");
+                _connection.Open();
 
-            _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-            .UseSqlite(_connection)
-            .Options;
+                _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlite(_connection)
+                .Options;
 
-            var context = new UnitTestDatabaseContext(_contextOptions, null);
+                var context = new UnitTestDatabaseContext(_contextOptions, null);
 
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+                await context.Database.EnsureDeletedAsync();
+                await context.Database.EnsureCreatedAsync();
 
-            SetupDatabaseData.SeedDatabaseData(context);
-
-            _repositoryWrapper = new RepositoryWrapper(context);
-            _cityLanguage = new CityLanguageService(_repositoryWrapper);
-            _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
-            _cityService = new CityService(_repositoryWrapper,
-                                           _cityLanguage,
-                                           _pointOfInterestService);
+                await SetupDatabaseData.SeedDatabaseData(context);
+                
+                _repositoryWrapper = new RepositoryWrapper(context);
+                _cityLanguage = new CityLanguageService(_repositoryWrapper);
+                _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
+                _cityService = new CityService(_repositoryWrapper,
+                                               _cityLanguage,
+                                               _pointOfInterestService);
+            }).GetAwaiter().GetResult();
         }
 
         public void Dispose()
         {
-            _connection.Dispose();
+            _connection.DisposeAsync();
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
         [InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async void SqLite_Test_CityService_GetAllCities_Using_CityService(bool includeRelations)
+        public async Task SqLite_Test_CityService_GetAllCities_Using_CityService(bool includeRelations)
         {
             // Arrange
             _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
@@ -72,7 +75,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
         }
     }
 }
