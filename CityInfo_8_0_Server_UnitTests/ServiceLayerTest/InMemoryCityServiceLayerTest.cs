@@ -1,6 +1,7 @@
 ﻿using CityInfo_8_0_Server_UnitTests.Assertions;
 using CityInfo_8_0_Server_UnitTests.Database;
 using CityInfo_8_0_Server_UnitTests.Setup;
+using CityInfo_8_0_Server_UnitTests.ViewModels;
 using Contracts;
 using Entities;
 using Entities.Models;
@@ -25,22 +26,26 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
         private ICityService _cityService;
         private ICityLanguageService _cityLanguage;
         private IPointOfInterestService _pointOfInterestService;
+        private DatabaseViewModel _databaseViewModel;
 
         public InMemoryCityServiceLayerTest()
         {
             Task.Run(async () =>
             {
                 _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-            .UseInMemoryDatabase("BloggingControllerTest")
-            .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
-            .Options;
+                //.UseInMemoryDatabase("BloggingControllerTest")
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+                .Options;
 
                 var context = new UnitTestDatabaseContext(_contextOptions, null);
 
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
 
-                await SetupDatabaseData.SeedDatabaseData(context);
+                //await SetupDatabaseData.SeedDatabaseData(context);
+                _databaseViewModel = new DatabaseViewModel();
+                await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
 
                 _repositoryWrapper = new RepositoryWrapper(context);
                 _cityLanguage = new CityLanguageService(_repositoryWrapper);
@@ -65,7 +70,8 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
 
             //Assert.Equal(3, CityList.Count);
 

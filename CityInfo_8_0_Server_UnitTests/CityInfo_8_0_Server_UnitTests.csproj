@@ -27,6 +27,8 @@
     <Compile Remove="RepositoryLayerTest\CityRepositoryTest4.cs" />
     <Compile Remove="RepositoryLayerTest\CityRepositoryTest5.cs" />
     <Compile Remove="RepositoryLayerTest\CityRepositoryTestUseMocking.cs" />
+    <Compile Remove="RepositoryLayerTest\SqLiteCityRepositoryLayerTest.cs" />
+    <Compile Remove="ServiceLayerTest\SqLiteCityServideLayerTest.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -23,20 +23,20 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 
         public SynchronousInMemoryCityRepositoryLayerTest()
         {
-            _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseInMemoryDatabase("SynchronousInMemoryRepositoryTest")
-                .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
-                .Options;
+            //_contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
+            //    .UseInMemoryDatabase("SynchronousInMemoryRepositoryTest")
+            //    .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+            //    .Options;
 
-            var context = new UnitTestDatabaseContext(_contextOptions, null);
+            //var context = new UnitTestDatabaseContext(_contextOptions, null);
 
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+            //context.Database.EnsureDeleted();
+            //context.Database.EnsureCreated();
 
-            SynchronousSetupDatabaseData.SeedDatabaseData(context);
+            //SynchronousSetupDatabaseData.SeedDatabaseData(context);
 
-            _cityRepository = new CityRepository(context);
-            _repositoryWrapper = new RepositoryWrapper(context);
+            //_cityRepository = new CityRepository(context);
+            //_repositoryWrapper = new RepositoryWrapper(context);
         }
 
         //[Theory]  // Læg mærke til at vi bruger Theory her, da vi også 

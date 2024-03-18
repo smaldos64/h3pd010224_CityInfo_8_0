@@ -16,6 +16,7 @@ using CityInfo_8_0_Server_UnitTests.Database;
 using Contracts;
 using CityInfo_8_0_Server_UnitTests.Assertions;
 using NLog.Common;
+using CityInfo_8_0_Server_UnitTests.ViewModels;
 
 namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
@@ -24,23 +25,28 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
         private DbContextOptions<DatabaseContext> _contextOptions;
         private ICityRepository _cityRepository;   
         private IRepositoryWrapper _repositoryWrapper;
+        private DatabaseViewModel _databaseViewModel;
 
         public InMemoryCityRepositoryLayerTest()
         {
             Task.Run(async () =>
             {
                 _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseInMemoryDatabase("InMemoryRepositoryTest")
+                //.UseInMemoryDatabase("InMemoryRepositoryTest")
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .EnableSensitiveDataLogging(true)
+                .EnableDetailedErrors(true)
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
                 .Options;
             
                 var context = new UnitTestDatabaseContext(_contextOptions, null);
-
-            
+                            
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
-            
-                await SetupDatabaseData.SeedDatabaseData(context);
+
+                _databaseViewModel = new DatabaseViewModel();
+                await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
+                //await SetupDatabaseData.SeedDatabaseData(context);
 
                 _cityRepository = new CityRepository(context);
                 _repositoryWrapper = new RepositoryWrapper(context);
@@ -59,13 +65,14 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
         public async Task InMemory_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
         {
             // Arrange
-            
+                        
             // Act
             IEnumerable<City> CityIEnumerable = await _cityRepository.GetAllCities(includeRelations);
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
@@ -81,7 +88,8 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
         }
     }
 }
