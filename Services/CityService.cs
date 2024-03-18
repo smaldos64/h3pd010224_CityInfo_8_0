@@ -80,7 +80,6 @@ namespace Services
     {
       int NumberOfObjectsChanged = 0;
       int NumberOfObjectsActuallySaved = 0;
-      //int ListCounter = 0;
       List<int> AddedList = new List<int>();
       ICommunicationResults CommunicationResults_Object = new CommunicationResults(true);
 

@@ -33,7 +33,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             Task.Run(async () =>
             {
                 _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-                //.UseInMemoryDatabase("BloggingControllerTest")
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
                 .Options;
@@ -43,7 +42,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
 
-                //await SetupDatabaseData.SeedDatabaseData(context);
                 _databaseViewModel = new DatabaseViewModel();
                 await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
 
@@ -70,36 +68,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
             await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
-
-            //Assert.Equal(3, CityList.Count);
-
-            //if (true == includeRelations) 
-            //{
-            //    for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
-            //    {
-            //        Assert.Equal(SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count,
-            //        CityList[Counter].CityLanguages.Count);
-            //    }
-            //}
-            //else
-            //{
-            //    // Det kan åbenbart ikke rigtig lade sig gøre at få
-            //    // InMemory databasen til at holde op med at bruge
-            //    // LazyLoading, selvom vi længere oppe i vores testCase 
-            //    // har specificeret, at LazyLoading skal disables.
-
-            //    //for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
-            //    //{
-            //    //    Assert.Equal(0, CityList[Counter].CityLanguages.Count);
-            //    //}
-            //    for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
-            //    {
-            //        Assert.Equal(SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count,
-            //        CityList[Counter].CityLanguages.Count);
-            //    }
-            //}
         }
     }
 }

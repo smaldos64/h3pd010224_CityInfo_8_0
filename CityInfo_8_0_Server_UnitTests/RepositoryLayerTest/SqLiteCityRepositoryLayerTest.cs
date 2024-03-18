@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CityInfo_8_0_Server_UnitTests.Setup;
 using System.Data.Common;
+using CityInfo_8_0_Server_UnitTests.ViewModels;
 
 namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
@@ -23,6 +24,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
         private DbContextOptions<DatabaseContext> _contextOptions;
         private ICityRepository _cityRepository;
         private IRepositoryWrapper _repositoryWrapper;
+        private DatabaseViewModel _databaseViewModel;
 
         public SqLiteCityRepositoryLayerTest()
         {
@@ -42,7 +44,9 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
 
-                await SetupDatabaseData.SeedDatabaseData(context);
+                //await SetupDatabaseData.SeedDatabaseData(context);
+                _databaseViewModel = new DatabaseViewModel();
+                await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
 
                 _cityRepository = new CityRepository(context);
                 _repositoryWrapper = new RepositoryWrapper(context);
@@ -67,7 +71,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
@@ -83,7 +87,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
         }
     }
 }

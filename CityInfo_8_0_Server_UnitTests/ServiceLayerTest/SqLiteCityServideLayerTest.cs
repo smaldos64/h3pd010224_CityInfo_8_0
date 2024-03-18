@@ -15,6 +15,7 @@ using System.Data.Common;
 using CityInfo_8_0_Server_UnitTests.Setup;
 using Services;
 using ServicesContracts;
+using CityInfo_8_0_Server_UnitTests.ViewModels;
 
 namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {
@@ -26,6 +27,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
         private ICityService _cityService;
         private ICityLanguageService _cityLanguage;
         private IPointOfInterestService _pointOfInterestService;
+        private DatabaseViewModel _databaseViewModel;
 
         public SqLiteCityServideLayerTest()
         {
@@ -34,6 +36,8 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
                 // Create and open a connection. This creates the SQLite in-memory database, which will persist until the connection is closed
                 // at the end of the test (see Dispose below).
                 _connection = new SqliteConnection("Filename=:memory:");
+                //_connection = new SqliteConnection("Filename=:" + Guid.NewGuid().ToString() + ":");
+                //_connection = new SqliteConnection("Data Source = " + Guid.NewGuid().ToString());
                 _connection.Open();
 
                 _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
@@ -45,7 +49,10 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
 
-                await SetupDatabaseData.SeedDatabaseData(context);
+                //_connection.Open();
+                _databaseViewModel = new DatabaseViewModel();
+                await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
+                //await SetupDatabaseData.SeedDatabaseData(context);
                 
                 _repositoryWrapper = new RepositoryWrapper(context);
                 _cityLanguage = new CityLanguageService(_repositoryWrapper);
@@ -75,7 +82,8 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
         }
     }
 }
