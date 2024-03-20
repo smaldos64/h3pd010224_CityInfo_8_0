@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityInfo_8_0_TestSetup", "CityInfo_8_0_TestSetup\CityInfo_8_0_TestSetup.csproj", "{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{68388271-2DDA-4780-B486-256CE8816F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68388271-2DDA-4780-B486-256CE8816F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68388271-2DDA-4780-B486-256CE8816F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

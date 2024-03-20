@@ -43,9 +43,6 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
           options.UseInternalServiceProvider(serviceProvider);
         });
 
-        //DatabaseContext.CalledFromIntegrationTest = true;
-        //ServiceExtension.CalledFromIntegrationTest = true;
-
         var sp = services.BuildServiceProvider();
         using (var scope = sp.CreateScope())
         using (var appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
@@ -62,124 +59,8 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
             throw;
           }
         }
-        //DatabaseContext.CalledFromIntegrationTest = false;
-        //ServiceExtension.CalledFromIntegrationTest = false;
       });
 
-      //builder.ConfigureServices(services =>
-      //{
-      //  // Remove the app's DbContextOptions registration.
-      //  ServiceDescriptor? dbContextOptionsDescriptor = services.SingleOrDefault(
-      //      d => d.ServiceType ==
-      //           typeof(DbContextOptions<DatabaseContext>));
-      //  if (dbContextOptionsDescriptor != null)
-      //  {
-      //    services.Remove(dbContextOptionsDescriptor);
-      //  }
-
-      //  // Create DbContextOptions using an in-memory database for testing.
-      //  DbContextOptions dbContextOptions = new DbContextOptionsBuilder()
-      //      // .UseSqlite("DataSource=:memory:")
-      //      .UseInMemoryDatabase("InMemoryDbForTesting-" + Guid.NewGuid())
-      //      .Options;
-
-      //  // Remove the app's registrations.
-      //  ServiceDescriptor? sqlDbContextDescriptor = services.SingleOrDefault(
-      //      d => d.ServiceType ==
-      //           typeof(DatabaseContext));
-      //  if (sqlDbContextDescriptor != null)
-      //  {
-      //    services.Remove(sqlDbContextDescriptor);
-      //  }
-
-      //  //ServiceDescriptor? dchUnitOfWorkDescriptor = services.SingleOrDefault(
-      //  //    d => d.ServiceType ==
-      //  //         typeof(DchUnitOfWork));
-      //  //if (dchUnitOfWorkDescriptor != null) services.Remove(dchUnitOfWorkDescriptor);
-
-      //  //DchUnitOfWork dchUnitOfWork = new(sqlDbContext);
-      //  //services.AddSingleton(dchUnitOfWork);
-      //  //if (!dchUnitOfWork.IsServiceAvailable())
-      //  //  throw new Exception("Database connection can not be made at this time, please try again another time");
-
-      //  // Build the service provider.
-      //  IServiceProvider serviceProvider = services.BuildServiceProvider();
-
-      //  // Create a scope to obtain a reference to the database contexts
-      //  using IServiceScope scope = serviceProvider.CreateScope();
-      //  IServiceProvider scopedServices = scope.ServiceProvider;
-      //  DatabaseContext db = scopedServices.GetRequiredService<DatabaseContext>();
-
-      //  // Ensure the database is created.
-      //  // LTPE
-      //  bool TestDb = false;
-      //  TestDb = db.Database.EnsureCreated();
-      //  //TestDb = _databaseContext.Database.EnsureCreated();
-      //  SetupDatabaseData.SeedDatabaseData(db);
-      //  //SetupDatabaseData.SeedDatabaseData(_databaseContext);
-      //});
-
-      ////builder.ConfigureTestServices(services =>
-      ////{
-      ////  services.AddScoped<DchPermissionService, TestDchPermissionService>();
-      ////});
-
-      //builder.UseEnvironment("Development");
-
-
-      //builder.ConfigureServices(services =>
-      //{
-      //    var dbContext = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<DatabaseContext>));
-
-      //    // LTPE => Slet database context fra CityInfo_8_0_Server
-      //    if (dbContext != null)
-      //    {
-      //        //services.Remove(dbContext);
-      //        services.RemoveAll(typeof(DbContextOptions<DatabaseContext>));
-      //    }
-
-      //    var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase()
-      //                                                 .AddEntityFrameworkProxies() 
-      //                                                 .BuildServiceProvider();
-
-      //    services.AddDbContext<DatabaseContext>(options =>
-      //    {
-      //        options.UseInMemoryDatabase("InMemoryDatabaseTest");
-      //        options.UseInternalServiceProvider(serviceProvider);
-      //    });
-
-      //    services.AddSingleton(DatabaseContext);
-
-      //  //antiforgery
-      //  services.AddAntiforgery(t =>
-      //  {
-      //    t.Cookie.Name = AntiForgeryTokenExtractor.Cookie;
-      //    t.FormFieldName = AntiForgeryTokenExtractor.Field;
-      //  });
-
-      //  var sp = services.BuildServiceProvider();
-
-      //    using (var scope = sp.CreateScope())
-      //    {
-      //        using (DatabaseContext appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
-      //        {
-      //            try
-      //            {
-      //                appContext.Database.EnsureCreated();
-      //                //appContext.Database.EnsureDeleted();
-      //                _databaseContext = appContext;
-      //                //SetupDatabaseData.SeedDatabaseData(_databaseContext);
-      //                //SeedData(appContext);
-      //                //_databaseContext = appContext;
-      //            }
-      //            catch (Exception ex)
-      //            {
-      //                //Log errors
-      //                throw;
-      //            }
-      //        }
-      //    }
-      //});
     }
 
     private void SeedData(DatabaseContext context1)
