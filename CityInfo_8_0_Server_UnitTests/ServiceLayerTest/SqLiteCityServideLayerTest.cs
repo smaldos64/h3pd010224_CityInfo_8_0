@@ -82,7 +82,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
             await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
         }
     }

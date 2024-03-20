@@ -32,7 +32,6 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             Task.Run(async () =>
             {
                 _contextOptions = new DbContextOptionsBuilder<DatabaseContext>()
-                //.UseInMemoryDatabase("InMemoryRepositoryTest")
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .EnableSensitiveDataLogging(true)
                 .EnableDetailedErrors(true)
@@ -46,16 +45,10 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 
                 _databaseViewModel = new DatabaseViewModel();
                 await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
-                //await SetupDatabaseData.SeedDatabaseData(context);
-
+               
                 _cityRepository = new CityRepository(context);
                 _repositoryWrapper = new RepositoryWrapper(context);
             }).GetAwaiter().GetResult();
-            
-            //await SetupDatabaseData.SeedDatabaseData(context);
-
-            //_cityRepository = new CityRepository(context);
-            //_repositoryWrapper = new RepositoryWrapper(context);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 

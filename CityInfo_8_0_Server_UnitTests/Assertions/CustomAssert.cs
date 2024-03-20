@@ -76,35 +76,25 @@ namespace CityInfo_8_0_Server_UnitTests.Assertions
 
         public static async Task InMemoryModeCheckCitiesReadWithObject(List<City> CityList, 
                                                                        DatabaseViewModel databaseViewModel,
-                                                                       bool IncludeRelations)
+                                                                       bool IncludeRelations,
+                                                                       bool SqlDatabaseUsed = false)
         {
-            bool DifferenceFound = false;
             List<City> CityListSorted = new List<City>();
             CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
 
-            List<City> CityListSortedFromSetup = new List<City>();
-            CityListSortedFromSetup = SetupDatabaseData.CityObjectList.OrderBy(c => c.CityId).ToList();
+            //List<City> CityListSortedFromSetup = new List<City>();
+            //CityListSortedFromSetup = SetupDatabaseData.CityObjectList.OrderBy(c => c.CityId).ToList();
 
             await Task.Delay(1);
             // For at sikre at funktionen kører asynkront, selvom der ikke er noget await kald i 
             // funktionen.
 
-            if (CityList.Count !=
-                databaseViewModel.CityList.Count)
-            {
-                DifferenceFound = true;
-            }
             Assert.Equal(CityList.Count, databaseViewModel.CityList.Count);
 
             if (true == IncludeRelations)
             {
                 for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
                 {
-                    if (databaseViewModel.CityList[Counter].CityLanguages.Count !=
-                        CityListSorted[Counter].CityLanguages.Count)
-                    {
-                        DifferenceFound = true;
-                    }
                     Assert.Equal(databaseViewModel.CityList[Counter].CityLanguages.Count,
                     CityListSorted[Counter].CityLanguages.Count);
                 }
@@ -115,20 +105,23 @@ namespace CityInfo_8_0_Server_UnitTests.Assertions
                 // InMemory databasen til at holde op med at bruge
                 // LazyLoading, selvom vi længere oppe i vores testCase 
                 // har specificeret, at LazyLoading skal disables.
-
-                //for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
-                //{
-                //    Assert.Equal(0, CityList[Counter].CityLanguages.Count);
-                //}
-                for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
+                // Det er kun, når vi tester op imod en "rigtig" SQL Database,
+                // at vi kan teste for om IncludeRelations = false bevirker,
+                // at vi ikke får læst relaterede data med ud.
+                if (false == SqlDatabaseUsed)
                 {
-                    if (databaseViewModel.CityList[Counter].CityLanguages.Count !=
-                        CityListSorted[Counter].CityLanguages.Count)
+                    for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
                     {
-                        DifferenceFound = true;
+                        Assert.Equal(databaseViewModel.CityList[Counter].CityLanguages.Count,
+                        CityListSorted[Counter].CityLanguages.Count);
                     }
-                    Assert.Equal(databaseViewModel.CityList[Counter].CityLanguages.Count,
-                    CityListSorted[Counter].CityLanguages.Count);
+                }
+                else
+                {
+                    for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
+                    {
+                        Assert.Empty(CityListSorted[Counter].CityLanguages);
+                    }
                 }
             }
         }

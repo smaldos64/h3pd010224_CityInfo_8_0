@@ -19,7 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServicesContracts", "ServicesContracts\ServicesContracts.csproj", "{4A0718C5-70A6-4494-BFB7-7C8ECF927E1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityInfo_8_0_Server_IntegrationTests", "CityInfo_8_0_Server_IntegrationTests\CityInfo_8_0_Server_IntegrationTests.csproj", "{68388271-2DDA-4780-B486-256CE8816F31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityInfo_8_0_Server_IntegrationTests", "CityInfo_8_0_Server_IntegrationTests\CityInfo_8_0_Server_IntegrationTests.csproj", "{68388271-2DDA-4780-B486-256CE8816F31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{50E0C820-8B58-49A4-99EC-E0CE8FDAD402}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

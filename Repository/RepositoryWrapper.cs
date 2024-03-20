@@ -18,6 +18,11 @@ namespace Repository
         private ICountryRepository? _countryRepositoryWrapper;
         private IPointOfInterestRepository? _pointOfInterestRepositoryWrapper;
 
+        public RepositoryWrapper(DatabaseContext repositoryContext)
+        {
+            this._repoContext = repositoryContext;
+        }
+
         public ICityRepository CityRepositoryWrapper
         {
             get
@@ -81,11 +86,6 @@ namespace Repository
 
                 return (_pointOfInterestRepositoryWrapper);
             }
-        }
-
-        public RepositoryWrapper(DatabaseContext repositoryContext)
-        {
-            this._repoContext = repositoryContext;
         }
 
         public async Task<int> Save()

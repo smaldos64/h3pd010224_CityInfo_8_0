@@ -11,10 +11,6 @@ namespace Entities
 {
   public class DatabaseContext : DbContext
   {
-    // LTPE Test Purpose
-    private readonly string _connectionString;
-    //private readonly Action<DatabaseContext, ModelBuilder> _modelCustomizer;
-
     private static string _sQLConnectionString = String.Empty;
 
     public static string SQLConnectionString
@@ -65,19 +61,6 @@ namespace Entities
       string connectionString;
 
 #if ENABLED_FOR_LAZY_LOADING_USAGE
-            //if (!Environment.GetEnvironmentVariable("IsTest").Equals("true", StringComparison.OrdinalIgnoreCase))
-            //{
-            //    connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
-
-            //    optionsBuilder
-            //        .UseLazyLoadingProxies()
-            //        .UseSqlServer(connectionString);
-            //}
-            //else
-            //{
-            //    //optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString()); // Unique in-memory database name
-            //}
-
             if (!String.IsNullOrEmpty(_sQLConnectionString))
             {
                 connectionString = _sQLConnectionString;
@@ -85,13 +68,10 @@ namespace Entities
             else
             {
                 connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
-                optionsBuilder
+            }
+            optionsBuilder
                 .UseLazyLoadingProxies()
                 .UseSqlServer(connectionString);
-            }
-            //optionsBuilder
-            //    .UseLazyLoadingProxies()
-            //    .UseSqlServer(connectionString);
 #endif
         }
 
