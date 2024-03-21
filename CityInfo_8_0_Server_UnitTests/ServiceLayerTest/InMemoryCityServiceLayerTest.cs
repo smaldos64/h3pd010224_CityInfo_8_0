@@ -1,7 +1,7 @@
-﻿using CityInfo_8_0_Server_UnitTests.Assertions;
-using CityInfo_8_0_Server_UnitTests.Database;
-using CityInfo_8_0_Server_UnitTests.Setup;
-using CityInfo_8_0_Server_UnitTests.ViewModels;
+﻿using CityInfo_8_0_TestSetup.Assertions;
+using CityInfo_8_0_TestSetup.Database;
+using CityInfo_8_0_TestSetup.Setup;
+using CityInfo_8_0_TestSetup.ViewModels;
 using Contracts;
 using Entities;
 using Entities.Models;

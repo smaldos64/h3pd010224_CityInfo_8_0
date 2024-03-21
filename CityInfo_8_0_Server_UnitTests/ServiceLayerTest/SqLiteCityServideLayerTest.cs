@@ -1,5 +1,5 @@
-﻿using CityInfo_8_0_Server_UnitTests.Assertions;
-using CityInfo_8_0_Server_UnitTests.Database;
+﻿using CityInfo_8_0_TestSetup.Assertions;
+using CityInfo_8_0_TestSetup.Database;
 using Contracts;
 using Entities.Models;
 using Entities;
@@ -12,10 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using System.Data.Common;
-using CityInfo_8_0_Server_UnitTests.Setup;
+using CityInfo_8_0_TestSetup.Setup;
 using Services;
 using ServicesContracts;
-using CityInfo_8_0_Server_UnitTests.ViewModels;
+using CityInfo_8_0_TestSetup.ViewModels;
 
 namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {

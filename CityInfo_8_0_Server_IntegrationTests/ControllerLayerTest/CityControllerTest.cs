@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Mapster;
 using Entities;
 
-namespace CityInfo_8_0_Server_IntegrationTests.Controller
+namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 {
   public class CityControllerTest : IClassFixture<TestingWebAppFactory<Program>> //, IDisposable
   {
@@ -22,24 +22,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.Controller
     
     public CityControllerTest(TestingWebAppFactory<Program> factory)
     {
-      //bool TestDb = false;
       _client = factory.CreateClient();
-
-      //SqlDbContext = (DatabaseContext?)factory.Services.GetService(typeof(DatabaseContext)) ??
-      //                throw new InvalidOperationException();
-      //TestDb = SqlDbContext.Database.EnsureDeleted();
-      //TestDb = SqlDbContext.Database.EnsureCreated();
-      //SetupDatabaseData.SeedDatabaseData(SqlDbContext);
-      //try
-      //{
-      //  TestingWebAppFactory<Program>._databaseContext.Database.EnsureDeleted();
-      //  TestingWebAppFactory<Program>._databaseContext.Database.EnsureCreated();
-      //  SetupDatabaseData.SeedDatabaseData(TestingWebAppFactory<Program>._databaseContext);
-      //}
-      //catch (Exception ex)
-      //{
-      //  string ErrorString = ex.Message;
-      //}
     }
 
     [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 

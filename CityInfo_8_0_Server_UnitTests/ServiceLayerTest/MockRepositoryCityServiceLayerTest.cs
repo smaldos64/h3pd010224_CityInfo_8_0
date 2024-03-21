@@ -1,6 +1,6 @@
-﻿using CityInfo_8_0_Server_UnitTests.Assertions;
-using CityInfo_8_0_Server_UnitTests.ViewModels;
-using CityInfo_8_0_Server_UnitTests.Setup;
+﻿using CityInfo_8_0_TestSetup.Assertions;
+using CityInfo_8_0_TestSetup.ViewModels;
+using CityInfo_8_0_TestSetup.Setup;
 using Entities.Models;
 using ServicesContracts;
 using System;

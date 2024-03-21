@@ -35,7 +35,6 @@ namespace CityInfo_8_0_TestSetup.Database
                         DatabaseViewModelObject = new DatabaseViewModel();
                         await SetupDatabaseData.SeedDatabaseDataWithObject(context, DatabaseViewModelObject);
                        
-
                         _databaseInitialized = true;
                     }
                   //}

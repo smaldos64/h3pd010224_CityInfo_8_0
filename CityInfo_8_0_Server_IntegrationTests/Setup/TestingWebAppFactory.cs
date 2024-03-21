@@ -15,61 +15,76 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CityInfo_8_0_TestSetup.Database;
 
 namespace CityInfo_8_0_Server_IntegrationTests.Setup
 {
-  public class TestingWebAppFactory<T> : WebApplicationFactory<Program> where T : class
-  {
-    public static DatabaseContext _databaseContext { get; set; }
-
-    protected override void ConfigureWebHost(IWebHostBuilder builder)
+    public class TestingWebAppFactory<T> : WebApplicationFactory<Program> where T : class
     {
-      builder.ConfigureServices(services =>
-      {
-        var descriptor = services.SingleOrDefault(
-            d => d.ServiceType ==
-                typeof(DbContextOptions<DatabaseContext>));
+        public static DatabaseContext _databaseContext { get; set; }
 
-        if (descriptor != null)
+        protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-          services.Remove(descriptor);
+            //builder.ConfigureServices(services =>
+            //{
+            //    var descriptor = services.SingleOrDefault(
+            //    d => d.ServiceType == typeof(DbContextOptions<DatabaseContext>));
+
+            //    if (descriptor != null)
+            //    {
+            //        services.Remove(descriptor);
+            //        services.RemoveAll<DbContextOptions<DatabaseContext>>();
+            //    }
+
+            //    // Remove the app's registrations.
+            //    ServiceDescriptor? sqlDbContextDescriptor = services.SingleOrDefault(
+            //        d => d.ServiceType ==
+            //             typeof(DatabaseContext));
+            //    if (sqlDbContextDescriptor != null)
+            //    {
+            //        services.Remove(sqlDbContextDescriptor);
+            //    }
+
+            //    var serviceCollection = new ServiceCollection();
+            //    var descriptorsToRemove = serviceCollection.Where(s => s.ServiceType.FullName.Contains("DbContextOptions")).ToList();
+            //    foreach (var descriptorInLoop in descriptorsToRemove)
+            //    {
+            //        serviceCollection.Remove(descriptorInLoop);
+            //    }
+
+            //    var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
+            //    services.AddDbContext<SQLDatabaseUnitTestDatabaseContext>(options =>
+            //    {
+            //      options.UseInMemoryDatabase("InMemoryCityTest");
+            //      options.UseInternalServiceProvider(serviceProvider);
+            //    });
+
+            //    var sp = services.BuildServiceProvider();
+            //    using (var scope = sp.CreateScope())
+            //    using (var appContext = scope.ServiceProvider.GetRequiredService<SQLDatabaseUnitTestDatabaseContext>())
+            //    {
+            //        try
+            //        {
+            //            //appContext.Database.EnsureDeleted();
+            //            appContext.Database.EnsureCreated();
+            //            SetupDatabaseData.SeedDatabaseData(appContext);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            //Log errors or do anything you think it's needed
+            //            throw;
+            //        }
+            //    }
+            //});
         }
 
-        var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
-
-        services.AddDbContext<DatabaseContext>(options =>
+        private void SeedData(DatabaseContext context1)
         {
-          options.UseInMemoryDatabase("InMemoryCityTest");
-          options.UseInternalServiceProvider(serviceProvider);
-        });
+            int NumberOfDatabaseObjectsChanged = 0;
 
-        var sp = services.BuildServiceProvider();
-        using (var scope = sp.CreateScope())
-        using (var appContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
-        {
-          try
-          {
-            //appContext.Database.EnsureDeleted();
-            appContext.Database.EnsureCreated();
-            SetupDatabaseData.SeedDatabaseData(appContext);
-          }
-          catch (Exception ex)
-          {
-            //Log errors or do anything you think it's needed
-            throw;
-          }
-        }
-      });
-
-    }
-
-    private void SeedData(DatabaseContext context1)
-    {
-      int NumberOfDatabaseObjectsChanged = 0;
-
-      using (var context = context1)
-      {
-        List<Language> LanguageObjectList = new List<Language>()
+            using (var context = context1)
+            {
+                List<Language> LanguageObjectList = new List<Language>()
                 {
                     new Language
                     {
@@ -84,10 +99,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         LanguageName = "tysk"
                     }
                 };
-        context.AddRangeAsync(LanguageObjectList);
-        NumberOfDatabaseObjectsChanged = context.SaveChanges();
+                context.AddRangeAsync(LanguageObjectList);
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-        List<Country> CountryObjectList = new List<Country>()
+                List<Country> CountryObjectList = new List<Country>()
                 {
                     new Country
                     {
@@ -102,10 +117,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         CountryName = "Tyskland"
                     },
                 };
-        context.AddRangeAsync(CountryObjectList);
-        NumberOfDatabaseObjectsChanged = context.SaveChanges();
+                context.AddRangeAsync(CountryObjectList);
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-        List<City> CityObjectList = new List<City>()
+                List<City> CityObjectList = new List<City>()
                 {
                     new City
                     {
@@ -126,10 +141,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         CountryID = CountryObjectList[2].CountryID
                     }
                 };
-        context.AddRangeAsync(CityObjectList);
-        NumberOfDatabaseObjectsChanged = context.SaveChanges();
+                context.AddRangeAsync(CityObjectList);
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-        List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>()
+                List<PointOfInterest> PointOfInterestObjectList = new List<PointOfInterest>()
                 {
                     new PointOfInterest
                     {
@@ -156,10 +171,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         CityId = CityObjectList[2].CityId
                     }
                 };
-        context.AddRangeAsync(PointOfInterestObjectList);
-        NumberOfDatabaseObjectsChanged = context.SaveChanges();
+                context.AddRangeAsync(PointOfInterestObjectList);
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-        List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>()
+                List<CityLanguage> CityLanguageObjectList = new List<CityLanguage>()
                 {
                     new CityLanguage
                     {
@@ -199,11 +214,11 @@ namespace CityInfo_8_0_Server_IntegrationTests.Setup
                         LanguageId = LanguageObjectList[2].LanguageId
                     },
                 };
-        context.AddRangeAsync(CityLanguageObjectList);
-        NumberOfDatabaseObjectsChanged = context.SaveChanges();
+                context.AddRangeAsync(CityLanguageObjectList);
+                NumberOfDatabaseObjectsChanged = context.SaveChanges();
 
-        var Cities = context.Core_8_0_Cities.ToList();
-      }
+                var Cities = context.Core_8_0_Cities.ToList();
+            }
+        }
     }
-  }
 }

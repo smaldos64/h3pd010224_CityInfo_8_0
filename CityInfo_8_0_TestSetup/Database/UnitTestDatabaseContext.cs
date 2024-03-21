@@ -21,8 +21,8 @@ namespace CityInfo_8_0_TestSetup.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder
-            //    .UseLazyLoadingProxies()
-            //    .UseSqlServer(TestDatabaseFixture.ConnectionString);
+            //    .uselazyloadingproxies()
+            //    .usesqlserver(testdatabasefixture.connectionstring);
         }
     }
 }

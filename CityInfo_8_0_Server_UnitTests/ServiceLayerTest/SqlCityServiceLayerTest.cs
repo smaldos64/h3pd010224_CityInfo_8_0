@@ -1,7 +1,7 @@
-﻿using CityInfo_8_0_Server_UnitTests.Assertions;
-using CityInfo_8_0_Server_UnitTests.Database;
-using CityInfo_8_0_Server_UnitTests.Setup;
-using CityInfo_8_0_Server_UnitTests.ViewModels;
+﻿using CityInfo_8_0_TestSetup.Assertions;
+using CityInfo_8_0_TestSetup.Database;
+using CityInfo_8_0_TestSetup.Setup;
+using CityInfo_8_0_TestSetup.ViewModels;
 using Contracts;
 using Entities;
 using Entities.Models;
@@ -18,7 +18,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {
     public class SqlCityServiceLayerTest : IClassFixture<TestDatabaseFixture>
     {
-        public TestDatabaseFixture Fixture { get; }
+        private TestDatabaseFixture _fixture { get; }
 
         private IRepositoryWrapper _repositoryWrapper;
         private ICityService _cityService;
@@ -29,9 +29,9 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 
         public SqlCityServiceLayerTest(TestDatabaseFixture fixture)
         {
-            this.Fixture = fixture;
+            this._fixture = fixture;
            
-            _repositoryWrapper = new RepositoryWrapper(this.Fixture.CreateContext());
+            _repositoryWrapper = new RepositoryWrapper(this._fixture.CreateContext());
             _cityLanguage = new CityLanguageService(_repositoryWrapper);
             _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
             _cityService = new CityService(_repositoryWrapper,
@@ -53,7 +53,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this.Fixture.DatabaseViewModelObject, includeRelations, true);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, includeRelations, true);
         }
 
     }

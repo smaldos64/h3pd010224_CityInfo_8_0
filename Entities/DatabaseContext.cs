@@ -58,21 +58,21 @@ namespace Entities
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      string connectionString;
+//      string connectionString;
 
-#if ENABLED_FOR_LAZY_LOADING_USAGE
-            if (!String.IsNullOrEmpty(_sQLConnectionString))
-            {
-                connectionString = _sQLConnectionString;
-            }
-            else
-            {
-                connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
-            }
-            optionsBuilder
-                .UseLazyLoadingProxies()
-                .UseSqlServer(connectionString);
-#endif
+//#if ENABLED_FOR_LAZY_LOADING_USAGE
+//            if (!String.IsNullOrEmpty(_sQLConnectionString))
+//            {
+//                connectionString = _sQLConnectionString;
+//            }
+//            else
+//            {
+//                connectionString = this._configuration.GetConnectionString("cityInfoDBConnectionString");
+//            }
+//            optionsBuilder
+//                .UseLazyLoadingProxies()
+//                .UseSqlServer(connectionString);
+//#endif
         }
 
   }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ControllerLayerTest\CityControllerTest.cs" />
+    <Compile Remove="ControllerLayerTest\SqlCityControllerLayerTest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.1" />
@@ -30,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CityInfo_8_0_Server\CityInfo_8_0_Server.csproj" />
+    <ProjectReference Include="..\CityInfo_8_0_TestSetup\CityInfo_8_0_TestSetup.csproj" />
   </ItemGroup>
 
 </Project>

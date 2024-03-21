@@ -9,14 +9,14 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using CityInfo_8_0_Server_UnitTests.Setup;
+using CityInfo_8_0_TestSetup.Setup;
 using Entities.Models;
 using Repository;
-using CityInfo_8_0_Server_UnitTests.Database;
+using CityInfo_8_0_TestSetup.Database;
 using Contracts;
-using CityInfo_8_0_Server_UnitTests.Assertions;
+using CityInfo_8_0_TestSetup.Assertions;
 using NLog.Common;
-using CityInfo_8_0_Server_UnitTests.ViewModels;
+using CityInfo_8_0_TestSetup.ViewModels;
 
 namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {

@@ -1,4 +1,4 @@
-﻿using CityInfo_8_0_Server_UnitTests.Setup;
+﻿using CityInfo_8_0_TestSetup.Setup;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
