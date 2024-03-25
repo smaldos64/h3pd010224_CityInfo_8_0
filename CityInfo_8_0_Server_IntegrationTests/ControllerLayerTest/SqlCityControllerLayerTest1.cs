@@ -69,7 +69,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         [InlineData(true, false, false, MyConst.IntegrationTestUserName)]   // TestCase 5
         [InlineData(true, false, true, MyConst.IntegrationTestUserName)]    // TestCase 6
         [InlineData(true, true, false, MyConst.IntegrationTestUserName)]    // TestCase 7
-        [InlineData(true, true, true, MyConst.IntegrationTestUserName)]     // TestCase 
+        [InlineData(true, true, true, MyConst.IntegrationTestUserName)]     // TestCase 8
         public async Task ReadAllCities(bool IncludeRelations,
                                         bool UseLazyLoading,
                                         bool UseMapster,
@@ -79,9 +79,9 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             
             // Act
             var Result = await _cityController.GetCities(IncludeRelations,
-                                                        UseLazyLoading,
-                                                        UseMapster,
-                                                        UserName);
+                                                         UseLazyLoading,
+                                                         UseMapster,
+                                                         UserName);
 
             Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
             
@@ -94,7 +94,79 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             // Assert
             await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
         }
-                
+
+        [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
+                  // bruger InLineData !!!
+        [InlineData(false, false, false, MyConst.IntegrationTestUserName)]  // TestCase 1
+        [InlineData(false, false, true, MyConst.IntegrationTestUserName)]   // TestCase 2
+        [InlineData(false, true, false, MyConst.IntegrationTestUserName)]   // TestCase 3
+        [InlineData(false, true, true, MyConst.IntegrationTestUserName)]    // TestCase 4
+        [InlineData(true, false, false, MyConst.IntegrationTestUserName)]   // TestCase 5
+        [InlineData(true, false, true, MyConst.IntegrationTestUserName)]    // TestCase 6
+        [InlineData(true, true, false, MyConst.IntegrationTestUserName)]    // TestCase 7
+        [InlineData(true, true, true, MyConst.IntegrationTestUserName)]     // TestCase 8
+        public async Task ReadAllCitiesUsingServiceLayer(bool IncludeRelations,
+                                                         bool UseLazyLoading,
+                                                         bool UseMapster,
+                                                         string UserName)
+        {
+            // Arrange
+
+            // Act
+            var Result = await _cityController.GetCitiesServiceLayer(IncludeRelations,
+                                                                    UseLazyLoading,
+                                                                    UseMapster,
+                                                                    UserName);
+
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+
+            List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
+
+            List<City> CityList = new List<City>();
+
+            CityList = CityDtoList.Adapt<City[]>().ToList();
+
+            // Assert
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+        }
+
+        [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
+                  // bruger InLineData !!!
+        [InlineData(false, false, 2, MyConst.IntegrationTestUserName)]  // TestCase 1
+        [InlineData(false, true, 2, MyConst.IntegrationTestUserName)]   // TestCase 2
+        [InlineData(true, false, 2, MyConst.IntegrationTestUserName)]   // TestCase 3
+        [InlineData(true, true, 2, MyConst.IntegrationTestUserName)]    // TestCase 4
+        [InlineData(false, false, 3, MyConst.IntegrationTestUserName)]  // TestCase 1
+        [InlineData(false, true, 3, MyConst.IntegrationTestUserName)]   // TestCase 2
+        [InlineData(true, false, 3, MyConst.IntegrationTestUserName)]   // TestCase 3
+        [InlineData(true, true, 3, MyConst.IntegrationTestUserName)]    // TestCase 4
+        public async Task ReadSpecifiedNumberOfCities(bool IncludeRelations,
+                                                      bool UseIQueryable,
+                                                      int NumberOfCitiesToRead,
+                                                      string UserName)
+        {
+            // Arrange
+
+            // Act
+            var Result = await _cityController.GetSpecifiedNumberOfCities(IncludeRelations,
+                                                                          UseIQueryable,
+                                                                          NumberOfCitiesToRead,
+                                                                          UserName);
+
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+
+            List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
+
+            List<City> CityList = new List<City>();
+
+            CityList = CityDtoList.Adapt<City[]>().ToList();
+
+            // Assert
+
+            Assert.Equal(NumberOfCitiesToRead, CityList.Count);
+            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations, true);
+        }
+
         [Fact]
         public async Task ReadCityWhenCitDoesNotyExists()
         {

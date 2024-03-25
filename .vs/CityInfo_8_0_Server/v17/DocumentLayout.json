@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\database\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\database\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_integrationtests\\controllerlayertest\\sqlcitycontrollerlayertest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|solutionrelative:cityinfo_8_0_server_integrationtests\\controllerlayertest\\sqlcitycontrollerlayertest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\database\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\database\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\setup\\handledatabasedatainmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server_unittests\\servicelayertest\\inmemorycityservicelayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E09D59B9-DD58-42F1-9A2B-F07665E15ECA}|CityInfo_8_0_Server_UnitTests\\CityInfo_8_0_Server_UnitTests.csproj|solutionrelative:cityinfo_8_0_server_unittests\\servicelayertest\\inmemorycityservicelayertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\entities\\datatransferobjects\\citydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -361,7 +361,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -376,8 +376,12 @@
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HandleDatabaseDataInMemory.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\HandleDatabaseDataInMemory.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Setup\\HandleDatabaseDataInMemory.cs",
@@ -390,26 +394,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SqlCityControllerLayerTest1.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
               "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAApwBoAAABHAAAA",
+              "ViewState": "AQIAAJsAAAAAAAAAAAAiwKYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-21T16:40:16.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "CityController.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
-              "ViewState": "AQIAAIsBAAAAAAAAAAAAABEBAAAFAAAA",
+              "ViewState": "AQIAAKkAAAAAAAAAAAAhwK8AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-13T09:37:51.772Z",
               "EditorCaption": ""
@@ -429,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "InMemoryCityServiceLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
@@ -455,13 +459,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TestDatabaseFixture.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Database\\TestDatabaseFixture.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Database\\TestDatabaseFixture.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Database\\TestDatabaseFixture.cs",
               "RelativeToolTip": "CityInfo_8_0_TestSetup\\Database\\TestDatabaseFixture.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAYwA0AAAAkAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAA4wB8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T11:18:36.65Z",
               "EditorCaption": ""
@@ -478,10 +482,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-25T10:42:00.05Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",

@@ -109,7 +109,7 @@ namespace CityInfo_8_0_Server.Controllers
       {
         IEnumerable<City> CityList = new List<City>();
 
-        if ((false == includeRelations) || (false == UseLazyLoading))
+        if (false == UseLazyLoading)
         {
           _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
         }
@@ -149,8 +149,6 @@ namespace CityInfo_8_0_Server.Controllers
 
     [HttpGet("GetSpecifiedNumberOfCities")]
     public async Task<IActionResult> GetSpecifiedNumberOfCities(bool includeRelations = true,
-                                                                bool UseLazyLoading = true,
-                                                                bool UseMapster = true,
                                                                 bool UseQueryable = true,
                                                                 int NumberOfCities = 5,
                                                                 string UserName = "No Name")
@@ -159,27 +157,14 @@ namespace CityInfo_8_0_Server.Controllers
       {
         IEnumerable<City> CityList = new List<City>();
 
-        if (false == UseLazyLoading)
-        {
-          _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
-        }
-        else  
-        {
-          _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
-        }
-
+        _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
+        
         CityList = await _repositoryWrapper.CityRepositoryWrapper.GetSpecifiedNumberOfCities(NumberOfCities, includeRelations, UseQueryable);
         
         List<CityDto> CityDtos;
 
-        if (true == UseMapster)
-        {
-          CityDtos = CityList.Adapt<CityDto[]>().ToList();
-        }
-        else
-        {
-          CityDtos = MapHere(CityList.ToList());
-        }
+        CityDtos = CityList.Adapt<CityDto[]>().ToList();
+        
         _logger.LogInfo($"{NumberOfCities} Cities has been read from GetCities action by {UserName}");
         return Ok(CityDtos);
       }
