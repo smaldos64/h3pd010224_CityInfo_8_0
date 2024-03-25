@@ -190,6 +190,33 @@ namespace CityInfo_8_0_Server.Controllers
       }
     }
 
+    [HttpGet("{CityId}", Name = "GetCity")]
+    public async Task<IActionResult> GetCity(int CityId,
+                                             bool UseLazyLoading = true,
+                                             string UserName = "No Name")
+    {
+        if (false == UseLazyLoading)
+        {
+            _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
+        }
+        else
+        {
+            _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
+        }
+
+        var City_Object = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
+
+        if (null == City_Object)
+        {
+            return NotFound();
+        }
+        else
+        {
+            CityDto CityDto_Object = City_Object.Adapt<CityDto>();
+            return Ok(CityDto_Object);
+        }
+    }
+
     // POST: api/City
     [HttpPost("CreateCity")]
     public async Task<IActionResult> CreateCity([FromBody] CityForSaveWithCountryDto CityDto_Object,
@@ -243,8 +270,7 @@ namespace CityInfo_8_0_Server.Controllers
     [HttpPut("UpdateCity/{CityId}")]
     public async Task<IActionResult> UpdateCity(int CityId,
                                                 [FromBody] CityForUpdateDto CityForUpdateDto_Object,
-                                                string UserName = "No Name",
-                                                bool UseOwnMapster = false)
+                                                string UserName = "No Name")
     {
       int NumberOfObjectsSaved = 0;
       try
@@ -276,23 +302,13 @@ namespace CityInfo_8_0_Server.Controllers
           return NotFound();
         }
 
-        if (!UseOwnMapster)
-        {
-          TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
-        }
-        else
-        {
-          CityFromRepo.MyMapsterCloneData<City>(CityForUpdateDto_Object);
-        }
-
-        //if (CityFromRepo.CloneData<City>(CityDto_Object))
-        //{
-          await _repositoryWrapper.CityRepositoryWrapper.Update(CityFromRepo);
+        TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
+        
+        await _repositoryWrapper.CityRepositoryWrapper.Update(CityFromRepo);
 #if Use_Hub_Logic_On_ServertSide
-                await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
+        await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
 #endif
 
-        //}
         NumberOfObjectsSaved = await _repositoryWrapper.CityRepositoryWrapper.Save();
 
         if (1 == NumberOfObjectsSaved)

@@ -19,6 +19,7 @@ namespace CityInfo_8_0_TestSetup.Database
         private static readonly object _lock = new();
         private static bool _databaseInitialized;
 
+        // Kode her bliver kun kaldt én gang for hver Tast klasse fil. 
 
         public TestDatabaseFixture()
         {

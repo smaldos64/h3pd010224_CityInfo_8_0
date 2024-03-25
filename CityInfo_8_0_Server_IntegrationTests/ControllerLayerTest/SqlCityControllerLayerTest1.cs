@@ -20,6 +20,7 @@ using Newtonsoft.Json;
 using CityInfo_8_0_Server_IntegrationTests.Setup;
 using System.Net;
 using Mapster;
+using CityInfo_8_0_TestSetup.Setup;
 
 namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 {
@@ -36,12 +37,15 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         private ILoggerManager _loggerManager;
         private DatabaseContext _databaseContext;
 
+        private CityController _cityController;
+
         public SqlCityControllerLayerTest1(TestDatabaseFixture fixture)
         {
+            // Kode i constructoren her bliver kaldt for hver TestCase.
+
             this._fixture = fixture;
 
             _databaseContext = this._fixture.CreateContext();
-            //_repositoryWrapper = new RepositoryWrapper(this._fixture.CreateContext());
             _repositoryWrapper = new RepositoryWrapper(_databaseContext);
             _cityLanguage = new CityLanguageService(_repositoryWrapper);
             _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
@@ -50,32 +54,31 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                            _pointOfInterestService);
 
             _loggerManager = new LoggerManager();
+
+            _cityController = new CityController(_loggerManager,
+                                                 _repositoryWrapper,
+                                                 _cityService);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
-        [InlineData(false, false, false, "LTPE_IntegrationTest")]  // TestCase 1
-        [InlineData(false, false, true, "LTPE_IntegrationTest")]   // TestCase 2
-        [InlineData(false, true, false, "LTPE_IntegrationTest")]   // TestCase 3
-        [InlineData(false, true, true, "LTPE_IntegrationTest")]    // TestCase 4
-        [InlineData(true, false, false, "LTPE_IntegrationTest")]
-        [InlineData(true, false, true, "LTPE_IntegrationTest")]
-        [InlineData(true, true, false, "LTPE_IntegrationTest")]
-        [InlineData(true, true, true, "LTPE_IntegrationTest")]
+        [InlineData(false, false, false, MyConst.IntegrationTestUserName)]  // TestCase 1
+        [InlineData(false, false, true, MyConst.IntegrationTestUserName)]   // TestCase 2
+        [InlineData(false, true, false, MyConst.IntegrationTestUserName)]   // TestCase 3
+        [InlineData(false, true, true, MyConst.IntegrationTestUserName)]    // TestCase 4
+        [InlineData(true, false, false, MyConst.IntegrationTestUserName)]   // TestCase 5
+        [InlineData(true, false, true, MyConst.IntegrationTestUserName)]    // TestCase 6
+        [InlineData(true, true, false, MyConst.IntegrationTestUserName)]    // TestCase 7
+        [InlineData(true, true, true, MyConst.IntegrationTestUserName)]     // TestCase 
         public async Task ReadAllCities(bool IncludeRelations,
                                         bool UseLazyLoading,
                                         bool UseMapster,
                                         string UserName)
         {
             // Arrange
-            //string URL = $"/City/GetCities/?includeRelations={includeRelations}&UseLazyLoading={UseLazyLoading}&UseMapster={UseMapster}&UserName={UserName}";
             
-            var CityController = new CityController(_loggerManager,
-                                                    _repositoryWrapper,
-                                                    _cityService);
-
             // Act
-            var Result = await CityController.GetCities(IncludeRelations,
+            var Result = await _cityController.GetCities(IncludeRelations,
                                                         UseLazyLoading,
                                                         UseMapster,
                                                         UserName);
@@ -88,33 +91,183 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             CityList = CityDtoList.Adapt<City[]>().ToList();
 
-            //var ControllerResponse = await _client.GetAsync(URL);
+            // Assert
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+        }
+                
+        [Fact]
+        public async Task ReadCityWhenCitDoesNotyExists()
+        {
+            // Arrange
+
+            // Act
+            var Result = await _cityController.GetCity(0,
+                                                      false,
+                                                      MyConst.IntegrationTestUserName);
 
             // Assert
-            //ControllerResponse.EnsureSuccessStatusCode();
-            //var ControllerResponseString = await ControllerResponse.Content.ReadAsStringAsync();
+            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.StatusCodeResult)Result).StatusCode);
+        }
 
-            //List<CityDto> CityList = JsonConvert.DeserializeObject<List<CityDto>>(ControllerResponseString);
-            //CityList.Sort((x, y) => x.CityId.CompareTo(y.CityId));
+        [Theory]
+        [InlineData(false, MyConst.IntegrationTestUserName)]  // TestCase 1
+        [InlineData(true, MyConst.IntegrationTestUserName)]   // TestCase 2
+        public async Task ReadCityWhenCityExists(bool UseLazyLoading,
+                                                 string UserName)
+        {
+            // Arrange
+          
+            // Act
+            var Result = await _cityController.GetCity(this._fixture.DatabaseViewModelObject.CityList[0].CityId,
+                                                      UseLazyLoading,
+                                                      UserName);
 
-            //Assert.Equal(SetupDatabaseData.CityObjectList.Count, CityList.Count);
-            //if ((true == includeRelations) || (true == UseLazyLoading))
-            //{
-            //    for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
-            //    {
-            //        Assert.Equal(SetupDatabaseData.CityObjectList[Counter].CityLanguages.Count,
-            //        CityList[Counter].CityLanguages.Count);
-            //    }
-            //}
-            //else
-            //{
-            //    for (int Counter = 0; Counter < SetupDatabaseData.CityObjectList.Count; Counter++)
-            //    {
-            //        Assert.Equal(0, CityList[Counter].CityLanguages.Count);
-            //    }
+            // Assert
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
 
-            //}
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+            CityDto CityDtoObject = (CityDto)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
+
+            Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityId, CityDtoObject.CityId);
+            if (true == UseLazyLoading)
+            {
+                Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityLanguages.Count, 
+                             CityDtoObject.CityLanguages.Count);
+            }
+            else
+            {
+                Assert.Empty(CityDtoObject.CityLanguages);
+            }
+        }
+
+        [Fact]
+        public async Task SaveCityWhenCityNameEqualCityDescription()
+        {
+            // Arrange
+            CityDto CityDtoObject = new CityDto();
+            CityDtoObject.CityName = "Storvorde";
+            CityDtoObject.CityDescription = "Storvorde";
+            CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
+
+            // Act
+            var Result = await _cityController.CreateCity(CityDtoObject, MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+        }
+
+        [Fact]
+        public async Task SaveCityWhenParametersAreOk()
+        {
+            // Arrange
+            CityDto CityDtoObject = new CityDto();
+            CityDtoObject.CityName = "Storvorde";
+            CityDtoObject.CityDescription = "Naboby til Gudumholm";
+            CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
+
+            // Act
+            var Result = await _cityController.CreateCity(CityDtoObject, MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            int CityId = (int)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
+
+            Assert.True(CityId > 0);
+
+            City CityObject = CityDtoObject.Adapt<City>();
+            HandleDatabaseDataInMemory.AddCityToDatabaseDataInMemory(this._fixture.DatabaseViewModelObject, CityObject);
+        }
+
+        [Fact]
+        public async Task UpdateCityWhenCityNameEqualCityDescription()
+        {
+            // Arrange
+            CityDto CityDtoObject = new CityDto();
+            CityDtoObject.CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId;
+            CityDtoObject.CityName = "Storvorde";
+            CityDtoObject.CityDescription = "Storvorde";
+            CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
+
+            // Act
+            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
+                                                          CityDtoObject, 
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+        }
+
+        [Fact]
+        public async Task UpdateCityWhenCityIdIsNotFound()
+        {
+            // Arrange
+            CityDto CityDtoObject = new CityDto();
+            CityDtoObject.CityId = 0;
+            CityDtoObject.CityName = "Storvorde";
+            CityDtoObject.CityDescription = "Storvorde Stadion";
+            CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
+
+            // Act
+            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
+                                                          CityDtoObject,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.StatusCodeResult)Result).StatusCode);
+        }
+
+        [Fact]
+        public async Task UpdateCityWhenParametersAreOk()
+        {
+            // Arrange
+            CityDto CityDtoObject = new CityDto();
+            CityDtoObject.CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId;
+            CityDtoObject.CityName = "Storvorde";
+            CityDtoObject.CityDescription = "Storvorde Stadion";
+            CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
+
+            // Act
+            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
+                                                          CityDtoObject,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+           
+            Assert.Contains(CityDtoObject.CityId.ToString(), (string)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value);
+
+            City CityObject = CityDtoObject.Adapt<City>();
+            HandleDatabaseDataInMemory.UpdateCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject, CityObject);
+        }
+
+        [Fact]
+        public async Task DeleteCityWhenCityIdIsNotFound()
+        {
+            // Arrange
+            
+            // Act
+            var Result = await _cityController.DeleteCity(0,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.StatusCodeResult)Result).StatusCode);
+        }
+
+        [Fact]
+        public async Task DeleteCityWhenParametersAreOk()
+        {
+            // Arrange
+
+            // Act
+            var Result = await _cityController.DeleteCity(this._fixture.DatabaseViewModelObject.CityList[0].CityId,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+
+            Assert.Contains(this._fixture.DatabaseViewModelObject.CityList[0].CityId.ToString(), (string)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value);
+
+            HandleDatabaseDataInMemory.DeleteCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject,
+                                                                        this._fixture.DatabaseViewModelObject.CityList[0].CityId);
         }
     }
 }
