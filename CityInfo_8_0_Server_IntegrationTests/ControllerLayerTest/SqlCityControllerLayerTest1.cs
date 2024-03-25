@@ -21,6 +21,7 @@ using CityInfo_8_0_Server_IntegrationTests.Setup;
 using System.Net;
 using Mapster;
 using CityInfo_8_0_TestSetup.Setup;
+using CityInfo_8_0_Server.ViewModels;
 
 namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 {
@@ -236,11 +237,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(CityDescriptionEqualsCityName: true);
-            //CityDto CityDtoObject = new CityDto();
-            //CityDtoObject.CityName = "Storvorde";
-            //CityDtoObject.CityDescription = "Storvorde";
-            //CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
-
+            
             // Act
             var Result = await _cityController.CreateCity(CityDtoObject, MyConst.IntegrationTestUserName);
 
@@ -253,11 +250,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate();
-            //CityDto CityDtoObject = new CityDto();
-            //CityDtoObject.CityName = "Storvorde";
-            //CityDtoObject.CityDescription = "Naboby til Gudumholm";
-            //CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
-
+            
             // Act
             var Result = await _cityController.CreateCity(CityDtoObject, MyConst.IntegrationTestUserName);
 
@@ -276,12 +269,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true, CityDescriptionEqualsCityName: true);
-            //CityDto CityDtoObject = new CityDto();
-            //CityDtoObject.CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId;
-            //CityDtoObject.CityName = "Storvorde";
-            //CityDtoObject.CityDescription = "Storvorde";
-            //CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
-
+            
             // Act
             var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
                                                           CityDtoObject, 
@@ -292,16 +280,30 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         }
 
         [Fact]
+        public async Task UpdateCityWithAllRelationsWhenCityNameEqualCityDescription()
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true, CityDescriptionEqualsCityName: true);
+            UpdateCityWithAllRelations UpdateCityWithAllRelations_Object = new UpdateCityWithAllRelations();
+            UpdateCityWithAllRelations_Object.CityDto_Object = CityDtoObject;
+
+            // Act
+            var Result = await _cityController.UpdateCityWithAllRelations(UpdateCityWithAllRelations_Object.CityDto_Object.CityId,
+                                                                           UpdateCityWithAllRelations_Object,
+                                                                           false,
+                                                                           false,
+                                                                           MyConst.IntegrationTestUserName);
+            
+            // Assert
+            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+        }
+
+        [Fact]
         public async Task UpdateCityWhenCityIdDoesNotMatchCityIdInObject()
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
-            //CityDto CityDtoObject = new CityDto();
-            //CityDtoObject.CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId;
-            //CityDtoObject.CityName = "Storvorde";
-            //CityDtoObject.CityDescription = "Storvorde";
-            //CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
-
+            
             // Act
             var Result = await _cityController.UpdateCity(CityDtoObject.CityId + 1,
                                                           CityDtoObject,
@@ -312,16 +314,30 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         }
 
         [Fact]
+        public async Task UpdateCityWithAllRelationsWhenCityIdDoesNotMatchCityIdInObject()
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
+            UpdateCityWithAllRelations UpdateCityWithAllRelations_Object = new UpdateCityWithAllRelations();
+            UpdateCityWithAllRelations_Object.CityDto_Object = CityDtoObject;
+
+            // Act
+            var Result = await _cityController.UpdateCityWithAllRelations(UpdateCityWithAllRelations_Object.CityDto_Object.CityId + 1,
+                                                                          UpdateCityWithAllRelations_Object,
+                                                                          false,
+                                                                          false,
+                                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+        }
+
+        [Fact]
         public async Task UpdateCityWhenCityIdIsNotFound()
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate();
-            //CityDto CityDtoObject = new CityDto();
-            //CityDtoObject.CityId = 0;
-            //CityDtoObject.CityName = "Storvorde";
-            //CityDtoObject.CityDescription = "Storvorde Stadion";
-            //CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
-
+            
             // Act
             var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
                                                           CityDtoObject,
@@ -332,16 +348,30 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         }
 
         [Fact]
+        public async Task UpdateCityWithAllRelationsWhenCityIdIsNotFound()
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate();
+            UpdateCityWithAllRelations UpdateCityWithAllRelations_Object = new UpdateCityWithAllRelations();
+            UpdateCityWithAllRelations_Object.CityDto_Object = CityDtoObject;
+
+            // Act
+            var Result = await _cityController.UpdateCityWithAllRelations(UpdateCityWithAllRelations_Object.CityDto_Object.CityId,
+                                                                          UpdateCityWithAllRelations_Object,
+                                                                          false,
+                                                                          false,
+                                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+        }
+
+        [Fact]
         public async Task UpdateCityWhenParametersAreOk()
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
-            //CityDto CityDtoObject = new CityDto();
-            //CityDtoObject.CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId;
-            //CityDtoObject.CityName = "Storvorde";
-            //CityDtoObject.CityDescription = "Storvorde Stadion";
-            //CityDtoObject.CountryID = this._fixture.DatabaseViewModelObject.CityList[0].CountryID;
-
+            
             // Act
             var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
                                                           CityDtoObject,
@@ -354,6 +384,45 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             City CityObject = CityDtoObject.Adapt<City>();
             HandleDatabaseDataInMemory.UpdateCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject, CityObject);
+        }
+
+        [Theory]
+        [InlineData(false, MyConst.IntegrationTestUserName)]  // TestCase 1
+        //[InlineData(true, MyConst.IntegrationTestUserName)]   // TestCase 2
+        public async Task UpdateCityWithAllRelationsWhenParametersAreOk(bool DeleteOldElementsInListsNotSpecifiedInCurrentLists,
+                                                                        string UserName)
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
+            UpdateCityWithAllRelations UpdateCityWithAllRelations_Object = new UpdateCityWithAllRelations();
+            UpdateCityWithAllRelations_Object.CityDto_Object = CityDtoObject;
+            UpdateCityWithAllRelations_Object.PointOfInterests =
+            [
+                new PointOfInterestForUpdateDto
+                {
+                    CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId,
+                    PointOfInterestName = "From IntegrationTest Name",
+                    PointOfInterestDescription = "From IntegrationTest Description",
+                },
+                new PointOfInterestForUpdateDto
+                {
+                    PointOfInterestId = this._fixture.DatabaseViewModelObject.PointOfInterestList[0].PointOfInterestId,
+                    CityId = this._fixture.DatabaseViewModelObject.CityList[0].CityId,
+                    PointOfInterestName = "From IntegrationTest Name 1",
+                    PointOfInterestDescription = "From IntegrationTest Description 1",
+                }
+            ];
+
+            // Act
+            var Result = await _cityController.UpdateCityWithAllRelations(UpdateCityWithAllRelations_Object.CityDto_Object.CityId,
+                                                                          UpdateCityWithAllRelations_Object,
+                                                                          DeleteOldElementsInListsNotSpecifiedInCurrentLists,
+                                                                          false,
+                                                                          UserName);
+
+            // Assert
+            //Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
         }
 
         [Fact]

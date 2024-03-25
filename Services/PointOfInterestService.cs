@@ -44,7 +44,6 @@ namespace Services
 
       if (null != PointOfInterestForUpdateDto_List)
       {
-
         for (int Counter = 0; Counter < PointOfInterestForUpdateDto_List.Count; Counter++)
         {
           if (0 == PointOfInterestForUpdateDto_List[Counter].PointOfInterestId)
