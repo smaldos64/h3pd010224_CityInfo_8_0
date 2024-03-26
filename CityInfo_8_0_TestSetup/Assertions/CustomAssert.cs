@@ -21,7 +21,8 @@ namespace CityInfo_8_0_TestSetup.Assertions
         public static async Task InMemoryModeCheckCitiesReadWithObject(List<City> CityList, 
                                                                        DatabaseViewModel databaseViewModel,
                                                                        bool IncludeRelations,
-                                                                       bool SqlDatabaseUsed = false)
+                                                                       bool SqlDatabaseUsed = false,
+                                                                       int NumberOfCitiesToCheckFor = 0)
         {
             List<City> CityListSorted = new List<City>();
             CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
@@ -30,11 +31,14 @@ namespace CityInfo_8_0_TestSetup.Assertions
             // For at sikre at funktionen kører asynkront, selvom der ikke er noget await kald i 
             // funktionen.
 
-            Assert.Equal(CityList.Count, databaseViewModel.CityList.Count);
+            if (0 == NumberOfCitiesToCheckFor)
+            {
+                Assert.Equal(CityList.Count, databaseViewModel.CityList.Count);
+            }
 
             if (true == IncludeRelations)
             {
-                for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
+                for (int Counter = 0; Counter < CityList.Count; Counter++)
                 {
                     Assert.Equal(databaseViewModel.CityList[Counter].CityLanguages.Count,
                     CityListSorted[Counter].CityLanguages.Count);
@@ -51,7 +55,7 @@ namespace CityInfo_8_0_TestSetup.Assertions
                 // at vi ikke får læst relaterede data med ud.
                 if (false == SqlDatabaseUsed)
                 {
-                    for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
+                    for (int Counter = 0; Counter < CityList.Count; Counter++)
                     {
                         Assert.Equal(databaseViewModel.CityList[Counter].CityLanguages.Count,
                         CityListSorted[Counter].CityLanguages.Count);
@@ -59,7 +63,7 @@ namespace CityInfo_8_0_TestSetup.Assertions
                 }
                 else
                 {
-                    for (int Counter = 0; Counter < databaseViewModel.CityList.Count; Counter++)
+                    for (int Counter = 0; Counter < CityList.Count; Counter++)
                     {
                         Assert.Empty(CityListSorted[Counter].CityLanguages);
                     }

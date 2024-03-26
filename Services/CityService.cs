@@ -95,12 +95,14 @@ namespace Services
       TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
 
       NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
-      if (1 != NumberOfObjectsChanged)
-      {
-        CommunicationResults_Object.ResultString = $"City with Id : {CityForUpdateDto_Object.CityId} not updated for {UserName} in action UpdateCityWithAllRelations";
-        CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
-        return (CommunicationResults_Object);
-      }
+      // Udelad check herunder. Vi kan være i den situation, hvor vi ikke ønsker at opdatere 
+      // noget i City, men "kun" vil opdatere i en af de tilhørende lister.
+      //if (1 != NumberOfObjectsChanged)
+      //{
+      //  CommunicationResults_Object.ResultString = $"City with Id : {CityForUpdateDto_Object.CityId} not updated for {UserName} in action UpdateCityWithAllRelations";
+      //  CommunicationResults_Object.HttpStatusCodeResult = (int)HttpStatusCode.NotModified;
+      //  return (CommunicationResults_Object);
+      //}
       CommunicationResults_Object.NumberOfObjetsChanged++;
 
       if (null != PointOfInterestForUpdateDto_List)

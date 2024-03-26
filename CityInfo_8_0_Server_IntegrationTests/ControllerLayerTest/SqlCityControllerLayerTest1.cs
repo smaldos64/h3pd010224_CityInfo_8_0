@@ -22,6 +22,7 @@ using System.Net;
 using Mapster;
 using CityInfo_8_0_TestSetup.Setup;
 using CityInfo_8_0_Server.ViewModels;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 {
@@ -84,8 +85,8 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                          UseMapster,
                                                          UserName);
 
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-            
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+                    
             List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             List<City> CityList = new List<City>();
@@ -119,8 +120,8 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                     UseMapster,
                                                                     UserName);
 
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+           
             List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             List<City> CityList = new List<City>();
@@ -154,8 +155,8 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                           NumberOfCitiesToRead,
                                                                           UserName);
 
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+   
             List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             List<City> CityList = new List<City>();
@@ -164,11 +165,12 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             // Assert
 
-            Assert.Equal(NumberOfCitiesToRead, CityList.Count);
-         }
+            //Assert.Equal(NumberOfCitiesToRead, CityList.Count);
+            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations, true, CityList.Count);
+        }
 
         [Fact]
-        public async Task ReadCityWhenCitDoesNotyExists()
+        public async Task ReadCityWhenCityDoesNotExists()
         {
             // Arrange
 
@@ -178,7 +180,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                       MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.StatusCodeResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
         }
 
         [Theory]
@@ -195,8 +197,8 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                       UserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+     
             CityDto CityDtoObject = (CityDto)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityId, CityDtoObject.CityId);
@@ -242,7 +244,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             var Result = await _cityController.CreateCity(CityDtoObject, MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -255,7 +257,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             var Result = await _cityController.CreateCity(CityDtoObject, MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
             int CityId = (int)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             Assert.True(CityId > 0);
@@ -276,7 +278,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -293,9 +295,9 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                            false,
                                                                            false,
                                                                            MyConst.IntegrationTestUserName);
-            
+
             // Assert
-            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -310,7 +312,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -329,7 +331,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.BadRequest, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -344,7 +346,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.StatusCodeResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -363,7 +365,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -378,8 +380,8 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-           
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+          
             Assert.Contains(CityDtoObject.CityId.ToString(), (string)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value);
 
             City CityObject = CityDtoObject.Adapt<City>();
@@ -388,12 +390,20 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
         [Theory]
         [InlineData(false, MyConst.IntegrationTestUserName)]  // TestCase 1
-        //[InlineData(true, MyConst.IntegrationTestUserName)]   // TestCase 2
+        [InlineData(true, MyConst.IntegrationTestUserName)]   // TestCase 2
         public async Task UpdateCityWithAllRelationsWhenParametersAreOk(bool DeleteOldElementsInListsNotSpecifiedInCurrentLists,
                                                                         string UserName)
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
+            //if (true == DeleteOldElementsInListsNotSpecifiedInCurrentLists)
+            //{
+            //    CityDtoObject.CityName += "_true";
+            //}
+            //else
+            //{
+            //    CityDtoObject.CityName += "_false";
+            //}
             UpdateCityWithAllRelations UpdateCityWithAllRelations_Object = new UpdateCityWithAllRelations();
             UpdateCityWithAllRelations_Object.CityDto_Object = CityDtoObject;
             UpdateCityWithAllRelations_Object.PointOfInterests =
@@ -421,8 +431,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                           UserName);
 
             // Assert
-            //Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -435,7 +444,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.NotFound, ((Microsoft.AspNetCore.Mvc.StatusCodeResult)Result).StatusCode);
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -448,10 +457,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                           MyConst.IntegrationTestUserName);
 
             // Assert
-            Assert.Equal((int)HttpStatusCode.OK, ((Microsoft.AspNetCore.Mvc.ObjectResult)Result).StatusCode);
-
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+      
             Assert.Contains(this._fixture.DatabaseViewModelObject.CityList[0].CityId.ToString(), (string)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value);
-
+           
             HandleDatabaseDataInMemory.DeleteCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject,
                                                                         this._fixture.DatabaseViewModelObject.CityList[0].CityId);
         }

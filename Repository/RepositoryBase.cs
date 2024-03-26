@@ -10,7 +10,7 @@ using Contracts;
 namespace Repository
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
-    { 
+    {
         protected DatabaseContext databaseContext { get; set; }
         internal DbSet<T> dbSet;
 
@@ -40,42 +40,42 @@ namespace Repository
 #endif
         }
 
-    public virtual async Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression,
-                                                              bool UseIQueryable = false)
-    {
-      ParameterExpression s = Expression.Parameter(typeof(T));
+        public virtual async Task<IEnumerable<T>> FindByCondition(Expression<Func<T, bool>> expression,
+                                                                  bool UseIQueryable = false)
+        {
+            ParameterExpression s = Expression.Parameter(typeof(T));
 
-      if (false == UseIQueryable)
-      {
+            if (false == UseIQueryable)
+            {
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-        return await this.databaseContext.Set<T>().Where(expression).ToListAsync();
+                return await this.databaseContext.Set<T>().Where(expression).ToListAsync();
 #else
-        return await this.databaseContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
+                return await this.databaseContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
 #endif
-      }
-      else
-      {
-        IQueryable<T> Query = dbSet;
+            }
+            else
+            {
+                IQueryable<T> Query = dbSet;
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-        return await Query.Where(expression).ToListAsync();
+                return await Query.Where(expression).ToListAsync();
 #else
-        return await Query.Where(expression).AsNoTracking().ToListAsync();
+                return await Query.Where(expression).AsNoTracking().ToListAsync();
 #endif
-      }
-    }
+            }
+        }
 
-    public virtual async Task<IQueryable<T>> FindByConditionReturnIQueryable(Expression<Func<T, bool>> expression)
-    {
-        IQueryable<T> Query = dbSet;
+        public virtual async Task<IQueryable<T>> FindByConditionReturnIQueryable(Expression<Func<T, bool>> expression)
+        {
+            IQueryable<T> Query = dbSet;
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-        //return await Query.Where(expression).AsQueryable<T>();
-        var Data = await Query.Where(expression).ToListAsync();
-        return (Data.AsQueryable<T>());
+            //return await Query.Where(expression).AsQueryable<T>();
+            var Data = await Query.Where(expression).ToListAsync();
+            return (Data.AsQueryable<T>());
 
 #else
-      var Data = await Query.Where(expression).AsNoTracking().ToListAsync();
-      return (Data.AsQueryable<T>());
-      //return await Query.Where(expression).AsNoTracking().ToListAsync();
+            var Data = await Query.Where(expression).AsNoTracking().ToListAsync();
+            return (Data.AsQueryable<T>());
+            //return await Query.Where(expression).AsNoTracking().ToListAsync();
 #endif
         }
 
@@ -86,43 +86,43 @@ namespace Repository
         //}
 
         public virtual async Task Create(T entity)
-    {
-        await this.databaseContext.Set<T>().AddAsync(entity);
-    }
-
-    public virtual async Task Update(T entity)
-    {
-        // Skal laves asynkron i linjen herunder. Men UpdateAsync findes ikke !!!
-        try
         {
-            this.databaseContext.Set<T>().Update(entity);
+            await this.databaseContext.Set<T>().AddAsync(entity);
         }
-        catch (Exception Error)
+
+        public virtual async Task Update(T entity)
         {
-            string ErrorString = Error.ToString();
+            // Skal laves asynkron i linjen herunder. Men UpdateAsync findes ikke !!!
+            try
+            {
+                this.databaseContext.Set<T>().Update(entity);
+            }
+            catch (Exception Error)
+            {
+                string ErrorString = Error.ToString();
+            }
+        }
+
+        public virtual async Task Delete(T entity)
+        {
+            this.databaseContext.Set<T>().Remove(entity);
+        }
+
+        public virtual async Task<int> Save()
+        {
+            int NumberOfObjectsChanged = -1;
+            NumberOfObjectsChanged = await this.databaseContext.SaveChangesAsync();
+            return NumberOfObjectsChanged;
+        }
+
+        public virtual void EnableLazyLoading()
+        {
+            this.databaseContext.ChangeTracker.LazyLoadingEnabled = true;
+        }
+
+        public virtual void DisableLazyLoading()
+        {
+            this.databaseContext.ChangeTracker.LazyLoadingEnabled = false;
         }
     }
-
-    public virtual async Task Delete(T entity)
-    {
-        this.databaseContext.Set<T>().Remove(entity);
-    }
-
-    public virtual async Task<int> Save()
-    {
-        int NumberOfObjectsChanged = -1;
-        NumberOfObjectsChanged = await this.databaseContext.SaveChangesAsync();
-        return NumberOfObjectsChanged;
-    }
-
-    public virtual void EnableLazyLoading()
-    {
-        this.databaseContext.ChangeTracker.LazyLoadingEnabled = true;
-    }
-
-    public virtual void DisableLazyLoading()
-    {
-        this.databaseContext.ChangeTracker.LazyLoadingEnabled = false;
-    }
-  }
 }
