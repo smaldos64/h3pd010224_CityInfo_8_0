@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{68388271-2DDA-4780-B486-256CE8816F31}|CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj|solutionrelative:cityinfo_8_0_server_integrationtests\\controllerlayertest\\sqlcitycontrollerlayertest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\cityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\cityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\assertions\\customassert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\assertions\\customassert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\services\\cityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CDBFE6F-BD31-43DE-8A42-EEED9DC2689F}|Services\\Services.csproj|solutionrelative:services\\cityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\setup\\handledatabasedatainmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\setup\\handledatabasedatainmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\assertions\\customassert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\assertions\\customassert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\database\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -91,10 +103,6 @@
       "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\database\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -115,10 +123,6 @@
       "RelativeMoniker": "D:0:0:{D55AB236-636A-42AA-9707-A94E57C29214}|Entities\\Entities.csproj|solutionrelative:entities\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_testsetup\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30B2EDB0-7334-482A-B3E4-4777A30FCAA5}|CityInfo_8_0_TestSetup\\CityInfo_8_0_TestSetup.csproj|solutionrelative:cityinfo_8_0_testsetup\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -133,10 +137,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\cityinfo_8_0_server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{68B4868E-B81F-4E72-A29B-4DC6D8652ED6}|CityInfo_8_0_Server\\CityInfo_8_0_Server.csproj|solutionrelative:cityinfo_8_0_server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\repository\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F545F71-90FD-4BD7-BDDD-F467E7E0A737}|Repository\\Repository.csproj|solutionrelative:repository\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9541C976-CC4C-4823-A6C1-CF1FC8519E6C}|Contracts\\Contracts.csproj|c:\\lars\\h3pd010124\\cityinfo_8_0\\contracts\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -391,7 +391,7 @@
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
               "RelativeToolTip": "CityInfo_8_0_Server_IntegrationTests\\ControllerLayerTest\\SqlCityControllerLayerTest1.cs",
-              "ViewState": "AQIAAL8BAAAAAAAAAAAEwM0BAAAOAAAA",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAqwIkAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-21T16:40:16.517Z",
               "EditorCaption": ""
@@ -404,14 +404,40 @@
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Controllers\\CityController.cs",
               "RelativeToolTip": "CityInfo_8_0_Server\\Controllers\\CityController.cs",
-              "ViewState": "AQIAAFQBAAAAAAAAAAAAAFoBAAAQAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAASwFMAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-13T09:37:51.772Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "ICityService.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
+              "RelativeDocumentMoniker": "ServicesContracts\\ICityService.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
+              "RelativeToolTip": "ServicesContracts\\ICityService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAnwBAAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-13T09:22:39.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomAssert.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
+              "RelativeToolTip": "CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAMwGcAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T21:23:19.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "MockRepositoryCityServiceLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\MockRepositoryCityServiceLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\MockRepositoryCityServiceLayerTest.cs",
@@ -425,19 +451,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "SetupDatabaseData.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
-              "RelativeToolTip": "CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
-              "ViewState": "AQIAAMIAAAAAAAAAAAAjwEgBAAAPAAAA",
+              "Title": "CityRepository.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\CityRepository.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
+              "RelativeToolTip": "Repository\\CityRepository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAArwCkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T11:34:17.405Z",
+              "WhenOpened": "2024-01-13T10:10:39.34Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "ServiceExtensions.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "RelativeToolTip": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAvwCcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T09:11:54.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RepositoryWrapper.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
+              "RelativeDocumentMoniker": "Repository\\RepositoryWrapper.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
+              "RelativeToolTip": "Repository\\RepositoryWrapper.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAuwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T13:24:14.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "CityService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\CityService.cs",
               "RelativeDocumentMoniker": "Services\\CityService.cs",
@@ -450,20 +502,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ICityService.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
-              "RelativeDocumentMoniker": "ServicesContracts\\ICityService.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\ServicesContracts\\ICityService.cs",
-              "RelativeToolTip": "ServicesContracts\\ICityService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAnwBAAAAAnAAAA",
+              "DocumentIndex": 9,
+              "Title": "SetupDatabaseData.cs",
+              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
+              "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
+              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
+              "RelativeToolTip": "CityInfo_8_0_TestSetup\\Setup\\SetupDatabaseData.cs",
+              "ViewState": "AQIAAMIAAAAAAAAAAAAjwEgBAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T09:22:39.114Z",
+              "WhenOpened": "2024-03-20T11:34:17.405Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "RepositoryBase.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryBase.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryBase.cs",
@@ -476,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "PointOfInterestService.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Services\\PointOfInterestService.cs",
               "RelativeDocumentMoniker": "Services\\PointOfInterestService.cs",
@@ -489,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "HandleDatabaseDataInMemory.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\HandleDatabaseDataInMemory.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Setup\\HandleDatabaseDataInMemory.cs",
@@ -502,20 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CustomAssert.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
-              "RelativeToolTip": "CityInfo_8_0_TestSetup\\Assertions\\CustomAssert.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAvwBQAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T21:23:19.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "MyConst.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Setup\\MyConst.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Setup\\MyConst.cs",
@@ -528,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "TestDatabaseFixture.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Database\\TestDatabaseFixture.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Database\\TestDatabaseFixture.cs",
@@ -541,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "InMemoryCityServiceLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\InMemoryCityServiceLayerTest.cs",
@@ -554,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "CityDto.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DataTransferObjects\\CityDto.cs",
               "RelativeDocumentMoniker": "Entities\\DataTransferObjects\\CityDto.cs",
@@ -567,7 +606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "CityInfo_8_0_Server_IntegrationTests.csproj",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
@@ -579,7 +618,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "SqLiteCityServideLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\SqLiteCityServideLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\SqLiteCityServideLayerTest.cs",
@@ -592,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "SqlCityServiceLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\SqlCityServiceLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\ServiceLayerTest\\SqlCityServiceLayerTest.cs",
@@ -605,7 +644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "SetupDatabaseData.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Setup\\SetupDatabaseData.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\Setup\\SetupDatabaseData.cs",
@@ -617,7 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "SynchronousInMemoryCityRepositoryLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SynchronousInMemoryCityRepositoryLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SynchronousInMemoryCityRepositoryLayerTest.cs",
@@ -629,7 +668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "SqLiteCityRepositoryLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SqLiteCityRepositoryLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\SqLiteCityRepositoryLayerTest.cs",
@@ -641,7 +680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "InMemoryCityRepositoryLayerTest.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\InMemoryCityRepositoryLayerTest.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_UnitTests\\RepositoryLayerTest\\InMemoryCityRepositoryLayerTest.cs",
@@ -665,7 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Database\\Class1.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Database\\Class1.cs",
@@ -689,7 +728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Program.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Program.cs",
@@ -701,19 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "CityRepository.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\CityRepository.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\CityRepository.cs",
-              "RelativeToolTip": "Repository\\CityRepository.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAEwCkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-13T10:10:39.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "SQLDatabaseUnitTestDatabaseContext.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Database\\SQLDatabaseUnitTestDatabaseContext.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Database\\SQLDatabaseUnitTestDatabaseContext.cs",
@@ -725,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "UnitTestDatabaseContext.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Database\\UnitTestDatabaseContext.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Database\\UnitTestDatabaseContext.cs",
@@ -737,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "DatabaseContext.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities\\DatabaseContext.cs",
               "RelativeDocumentMoniker": "Entities\\DatabaseContext.cs",
@@ -749,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "TestingWebAppFactory.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server_IntegrationTests\\Setup\\TestingWebAppFactory.cs",
@@ -761,19 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ServiceExtensions.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
-              "RelativeDocumentMoniker": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
-              "RelativeToolTip": "CityInfo_8_0_Server\\Extensions\\ServiceExtensions.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAvwCcAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-04T09:11:54.609Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\Class1.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\Class1.cs",
@@ -785,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "DatabaseViewModel.cs",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup\\ViewModels\\DatabaseViewModel.cs",
               "RelativeDocumentMoniker": "CityInfo_8_0_TestSetup\\ViewModels\\DatabaseViewModel.cs",
@@ -845,7 +860,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.json",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\appsettings.json",
@@ -858,18 +873,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 33,
-              "Title": "RepositoryWrapper.cs",
-              "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
-              "RelativeDocumentMoniker": "Repository\\RepositoryWrapper.cs",
-              "ToolTip": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Repository\\RepositoryWrapper.cs",
-              "RelativeToolTip": "Repository\\RepositoryWrapper.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAIwBMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-16T13:24:14.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server\\appsettings.Development.json",
               "RelativeDocumentMoniker": "CityInfo_8_0_Server\\appsettings.Development.json",

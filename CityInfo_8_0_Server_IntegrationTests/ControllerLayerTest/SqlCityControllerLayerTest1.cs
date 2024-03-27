@@ -95,6 +95,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             // Assert
             await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+            bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
+                                                                                  this._fixture.DatabaseViewModelObject.CityList,
+                                                                                  false);
+            Assert.True(CompareResult);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
@@ -130,6 +134,11 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             // Assert
             await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+
+            bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
+                                                                                  this._fixture.DatabaseViewModelObject.CityList,
+                                                                                  false);
+            Assert.True(CompareResult);
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
