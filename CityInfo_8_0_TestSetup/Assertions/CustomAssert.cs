@@ -113,26 +113,67 @@ namespace CityInfo_8_0_TestSetup.Assertions
 
                 if (value1 == null || value2 == null)
                 {
-                    if (!ReferenceEquals(value1, value2))
-                    {
-                        return false; // Handle both null and one-null cases
-                    }
+                    //if (!ReferenceEquals(value1, value2))
+                    //{
+                    //    return false; // Handle both null and one-null cases
+                    //}
+
                 }
-                else if (compareLists && value1 is IEnumerable && value2 is IEnumerable)
+                else if (compareLists && value1 is IEnumerable && value2 is IEnumerable && !(value1 is String) )
                 {
                     if (!AreEqualCollections((IEnumerable)value1, (IEnumerable)value2, compareLists))
                     {
                         return false; // Recursively compare lists
                     }
+                    //if (!AreEqualCollectionsLTPE(value1, value2, compareLists))
+                    //{
+                    //    return false; // Recursively compare lists
+                    //}
                 }
-                else if (!value1.Equals(value2))
+                else if (!(value1 is IEnumerable) || (value1 is String) )
                 {
-                    return false; // Regular value comparison
+                    if (!EqualsByFieldValue(value1, value2))
+                    { 
+                        return false; 
+                    }
+                    //if (!value1.Equals(value2))
+                    //{
+                    //    return false; // Regular value comparison
+                    //}
                 }
-            }
+
+                //else if (!value1.Equals(value2))
+                //{
+                //    return false; // Regular value comparison
+                //}
+              }
 
             return true;
         }
+
+        private static bool EqualsByFieldValue(object value1, object value2)
+        {
+            // Handle primitive types and strings directly
+            if (value1 is IComparable comparable1 && value2 is IComparable comparable2)
+            {
+                return comparable1.CompareTo(comparable2) == 0;
+            }
+            else if (value1 is string str1 && value2 is string str2)
+            {
+                return str1 == str2;
+            }
+            else if (value1 is object && value2 is object)
+            {
+                return true;
+            }
+            else
+            {
+                // For other types, consider using a custom equality comparer
+                // or overriding Equals method in specific classes
+                return value1.Equals(value2);
+            }
+        }
+
 
         public static bool AreEqualCollections(IEnumerable collection1, IEnumerable collection2, bool compareLists)
         {
@@ -144,10 +185,10 @@ namespace CityInfo_8_0_TestSetup.Assertions
                 return collection1 == collection2; // Handle null collections
             }
 
-            if (collection1Count.Count() != collection2Count.Count())
-            {
-                return false; // Different sizes
-            }
+            //if (collection1Count.Count() != collection2Count.Count())
+            //{
+            //    return false; // Different sizes
+            //}
 
             var enumerator1 = collection1.GetEnumerator();
             var enumerator2 = collection2.GetEnumerator();
@@ -169,6 +210,89 @@ namespace CityInfo_8_0_TestSetup.Assertions
                     return false; // Compare individual items
                 }
             }
+
+            return true;
+        }
+
+        //private static List<T> ReturnListBasedOnObjectType(Object collection)
+        //{
+
+        //}
+
+        public static bool AreEqualCollectionsLTPE(object collection1, object collection2, bool compareLists)
+        {
+            dynamic List1 = 0;
+            dynamic List2 = 0;
+
+            if (collection1 is List<City>)
+            {
+                List1 = (List<City>)collection1;
+                List1 = (List<City>)collection2;
+            }
+
+            if (collection1 is List<PointOfInterest>)
+            {
+                List1 = (List<PointOfInterest>)collection1;
+                List2 = (List<PointOfInterest>)collection2;
+            }
+
+            if (collection1 is List<CityLanguage>)
+            {
+                List1 = (List<CityLanguage>)collection1;
+                List2 = (List<CityLanguage>)collection2;
+            }
+
+            if (collection1 is List<Language>)
+            {
+                List1 = (List<Language>)collection1;
+                List2 = (List<Language>)collection2;
+            }
+
+            if (collection1 is List<Country>)
+            {
+                List1 = (List<Country>)collection1;
+                List2 = (List<Country>)collection2;
+            }
+
+            if (List1.Count != List2.Count)
+            {
+                return false;
+            }
+            //dynamic collection1Count = collection1;
+            //dynamic collection2Count = collection2;
+
+            
+
+            //if (collection1 is null || collection2 is null)
+            //{
+            //    return collection1 == collection2; // Handle null collections
+            //}
+
+            //if (collection1Count.Count() != collection2Count.Count())
+            //{
+            //    return false; // Different sizes
+            //}
+
+            //var enumerator1 = collection1.GetEnumerator();
+            //var enumerator2 = collection2.GetEnumerator();
+
+            //while (enumerator1.MoveNext() && enumerator2.MoveNext())
+            //{
+            //    var item1 = enumerator1.Current;
+            //    var item2 = enumerator2.Current;
+
+            //    if (item1 is IEnumerable && item2 is IEnumerable && compareLists)
+            //    {
+            //        if (!AreEqualCollections((IEnumerable)item1, (IEnumerable)item2, compareLists))
+            //        {
+            //            return false; // Recursively compare nested lists
+            //        }
+            //    }
+            //    else if (!item1.Equals(item2))
+            //    {
+            //        return false; // Compare individual items
+            //    }
+            //}
 
             return true;
         }

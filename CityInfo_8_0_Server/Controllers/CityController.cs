@@ -419,6 +419,7 @@ namespace CityInfo_8_0_Server.Controllers
                 CityDto_Object.CityId = Cities[Counter].CityId;
                 CityDto_Object.CityName = Cities[Counter].CityName;
                 CityDto_Object.CityDescription = Cities[Counter].CityDescription;
+                CityDto_Object.CountryID = Cities[Counter].CountryID;
                 CityDto_Object.PointsOfInterest = new List<PointOfInterestForUpdateDto>();
 
                 for (int PointOfInterestsCounter = 0;

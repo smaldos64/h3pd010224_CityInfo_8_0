@@ -18,7 +18,8 @@ namespace CityInfo_8_0_TestSetup.Setup
         }
 
         public static void UpdateCityInDatabaseDataInMemory(DatabaseViewModel databaseViewModel,
-                                                            City CityObject)
+                                                            City CityObject,
+                                                            bool AddToExistingLists = false)
         {
             int Index = databaseViewModel.CityList.FindIndex(c => c.CityId == CityObject.CityId);
 
@@ -32,6 +33,32 @@ namespace CityInfo_8_0_TestSetup.Setup
                 databaseViewModel.CityList[Index].CityName = CityObject.CityName;
                 databaseViewModel.CityList[Index].CityDescription = CityObject.CityDescription;
                 databaseViewModel.CityList[Index].CountryID = CityObject.CountryID;
+
+                if (!AddToExistingLists)
+                {
+                    databaseViewModel.CityList[Index].PointsOfInterest = new List<PointOfInterest>();
+                    databaseViewModel.CityList[Index].PointsOfInterest = CityObject.PointsOfInterest;
+
+                    databaseViewModel.CityList[Index].CityLanguages = new List<CityLanguage>();
+                    databaseViewModel.CityList[Index].CityLanguages = CityObject.CityLanguages;
+                }
+                else
+                {
+                    List<PointOfInterest> PointOfInterestsList = new List<PointOfInterest>();
+                    PointOfInterestsList = CityObject.PointsOfInterest.ToList();
+                    for (int Counter = 0; Counter < CityObject.PointsOfInterest.Count; Counter++)
+                    {
+                        databaseViewModel.CityList[Index].PointsOfInterest.Add(PointOfInterestsList[Counter]);
+                    }
+
+                    List<CityLanguage> CityLanguagesList = new List<CityLanguage>();
+                    CityLanguagesList = CityObject.CityLanguages.ToList();
+                    for (int Counter = 0; Counter < CityObject.CityLanguages.Count; Counter++)
+                    {
+                        databaseViewModel.CityList[Index].CityLanguages.Add(CityLanguagesList[Counter]);
+                    }
+                }
+
             }
         }
 
@@ -44,6 +71,22 @@ namespace CityInfo_8_0_TestSetup.Setup
             {
                 databaseViewModel.CityList.RemoveAt(Index);
             }
+        }
+
+        public static int FindCityWithSpecifiedCityId(DatabaseViewModel databaseViewModel,
+                                                      int CityId)
+        {
+            int Counter = 0;
+
+            do
+            {
+                if (CityId == databaseViewModel.CityList[Counter].CityId)
+                {
+                    return Counter;
+                }
+            } while (Counter < databaseViewModel.CityList.Count);
+
+            return -1;
         }
     }
 }

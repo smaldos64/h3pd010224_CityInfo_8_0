@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using CityInfo_8_0_TestSetup.ViewModels;
+using Entities.DataTransferObjects;
+using Mapster;
 
 namespace CityInfo_8_0_TestSetup.Setup
 {
@@ -62,6 +64,8 @@ namespace CityInfo_8_0_TestSetup.Setup
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
 
+                databaseViewModel.LanguageDtoList = databaseViewModel.LanguageList.Adapt<LanguageDto[]>().ToList();  
+                    
                 if (null == context)
                 {
                     databaseViewModel.CountryList = new List<Country>()
@@ -103,6 +107,8 @@ namespace CityInfo_8_0_TestSetup.Setup
                     await context.AddRangeAsync(databaseViewModel.CountryList);
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
+
+                databaseViewModel.CountryDtoList = databaseViewModel.CountryList.Adapt<CountryDto[]>().ToList();
 
                 if (null == context)
                 {
@@ -157,6 +163,8 @@ namespace CityInfo_8_0_TestSetup.Setup
                     await context.AddRangeAsync(databaseViewModel.CityList);
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
+
+                databaseViewModel.CityDtoList = databaseViewModel.CityList.Adapt<CityDto[]>().ToList();
 
                 if (null == context)
                 {
@@ -224,6 +232,8 @@ namespace CityInfo_8_0_TestSetup.Setup
                     await context.AddRangeAsync(databaseViewModel.PointOfInterestList);
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
+
+                databaseViewModel.PointOfInterestsDtoList = databaseViewModel.PointOfInterestList.Adapt<PointOfInterestDto[]>().ToList();
 
                 databaseViewModel.CityLanguageList = new List<CityLanguage>()
                 {
@@ -317,6 +327,8 @@ namespace CityInfo_8_0_TestSetup.Setup
                         });
                     }
                 }
+
+                databaseViewModel.CityLanguageDtoList = databaseViewModel.CityLanguageList.Adapt<CityLanguageDto[]>().ToList();
             }
             catch (Exception ex)
             {

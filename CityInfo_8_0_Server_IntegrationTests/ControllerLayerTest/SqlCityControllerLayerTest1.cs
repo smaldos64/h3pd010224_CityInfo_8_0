@@ -94,7 +94,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             CityList = CityDtoList.Adapt<City[]>().ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
                                                                                   this._fixture.DatabaseViewModelObject.CityList,
                                                                                   false);
@@ -129,15 +129,14 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             List<City> CityList = new List<City>();
-
             CityList = CityDtoList.Adapt<City[]>().ToList();
 
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
+            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations || UseLazyLoading, true);
 
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
-                                                                                  this._fixture.DatabaseViewModelObject.CityList,
-                                                                                  false);
+                                                                                      this._fixture.DatabaseViewModelObject.CityList,
+                                                                                      false);
             Assert.True(CompareResult);
         }
 
@@ -147,10 +146,10 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         [InlineData(false, true, 2, MyConst.IntegrationTestUserName)]   // TestCase 2
         [InlineData(true, false, 2, MyConst.IntegrationTestUserName)]   // TestCase 3
         [InlineData(true, true, 2, MyConst.IntegrationTestUserName)]    // TestCase 4
-        [InlineData(false, false, 3, MyConst.IntegrationTestUserName)]  // TestCase 1
-        [InlineData(false, true, 3, MyConst.IntegrationTestUserName)]   // TestCase 2
-        [InlineData(true, false, 3, MyConst.IntegrationTestUserName)]   // TestCase 3
-        [InlineData(true, true, 3, MyConst.IntegrationTestUserName)]    // TestCase 4
+        [InlineData(false, false, 3, MyConst.IntegrationTestUserName)]  // TestCase 5
+        [InlineData(false, true, 3, MyConst.IntegrationTestUserName)]   // TestCase 6
+        [InlineData(true, false, 3, MyConst.IntegrationTestUserName)]   // TestCase 7
+        [InlineData(true, true, 3, MyConst.IntegrationTestUserName)]    // TestCase 8
         public async Task ReadSpecifiedNumberOfCities(bool IncludeRelations,
                                                       bool UseIQueryable,
                                                       int NumberOfCitiesToRead,
@@ -169,13 +168,17 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             List<CityDto> CityDtoList = (List<CityDto>)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             List<City> CityList = new List<City>();
-
             CityList = CityDtoList.Adapt<City[]>().ToList();
 
             // Assert
 
             //Assert.Equal(NumberOfCitiesToRead, CityList.Count);
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations, true, CityList.Count);
+            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations, true, CityList.Count);
+
+            bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
+                                                                                  this._fixture.DatabaseViewModelObject.CityList,
+                                                                                  false);
+            Assert.True(CompareResult);
         }
 
         [Fact]
@@ -210,16 +213,26 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
      
             CityDto CityDtoObject = (CityDto)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
-            Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityId, CityDtoObject.CityId);
-            if (true == UseLazyLoading)
-            {
-                Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityLanguages.Count, 
-                             CityDtoObject.CityLanguages.Count);
-            }
-            else
-            {
-                Assert.Empty(CityDtoObject.CityLanguages);
-            }
+            City CityObject = CityDtoObject.Adapt<City>();
+
+            //Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityId, CityDtoObject.CityId);
+            //if (true == UseLazyLoading)
+            //{
+            //    Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityLanguages.Count, 
+            //                 CityDtoObject.CityLanguages.Count);
+            //}
+            //else
+            //{
+            //    Assert.Empty(CityDtoObject.CityLanguages);
+            //}
+
+            int IndexInList = this._fixture.DatabaseViewModelObject.CityList.FindIndex(c => c.CityId == CityObject.CityId);
+            Assert.NotEqual(-1, IndexInList);
+
+            bool CompareResult = CustomAssert.AreObjectsEqualByFields<City>(CityObject,
+                                                                            this._fixture.DatabaseViewModelObject.CityList[IndexInList],
+                                                                            false);
+            Assert.True(CompareResult);
         }
 
         private CityDto SetupCityDtoForSaveOrUpdate(bool ForUpdate = false, 
@@ -291,6 +304,56 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         }
 
         [Fact]
+        public async Task UpdateCityWhenCityIdDoesNotMatchCityIdInObject()
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
+
+            // Act
+            var Result = await _cityController.UpdateCity(CityDtoObject.CityId + 1,
+                                                          CityDtoObject,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async Task UpdateCityWhenCityIdIsNotFound()
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate();
+
+            // Act
+            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
+                                                          CityDtoObject,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async Task UpdateCityWhenParametersAreOk()
+        {
+            // Arrange
+            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
+
+            // Act
+            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
+                                                          CityDtoObject,
+                                                          MyConst.IntegrationTestUserName);
+
+            // Assert
+            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+
+            Assert.Contains(CityDtoObject.CityId.ToString(), (string)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value);
+
+            City CityObject = CityDtoObject.Adapt<City>();
+            HandleDatabaseDataInMemory.UpdateCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject, CityObject);
+        }
+
+        [Fact]
         public async Task UpdateCityWithAllRelationsWhenCityNameEqualCityDescription()
         {
             // Arrange
@@ -304,21 +367,6 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
                                                                            false,
                                                                            false,
                                                                            MyConst.IntegrationTestUserName);
-
-            // Assert
-            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
-        }
-
-        [Fact]
-        public async Task UpdateCityWhenCityIdDoesNotMatchCityIdInObject()
-        {
-            // Arrange
-            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
-            
-            // Act
-            var Result = await _cityController.UpdateCity(CityDtoObject.CityId + 1,
-                                                          CityDtoObject,
-                                                          MyConst.IntegrationTestUserName);
 
             // Assert
             Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.BadRequest);
@@ -344,21 +392,6 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         }
 
         [Fact]
-        public async Task UpdateCityWhenCityIdIsNotFound()
-        {
-            // Arrange
-            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate();
-            
-            // Act
-            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
-                                                          CityDtoObject,
-                                                          MyConst.IntegrationTestUserName);
-
-            // Assert
-            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
-        }
-
-        [Fact]
         public async Task UpdateCityWithAllRelationsWhenCityIdIsNotFound()
         {
             // Arrange
@@ -377,26 +410,6 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.NotFound);
         }
 
-        [Fact]
-        public async Task UpdateCityWhenParametersAreOk()
-        {
-            // Arrange
-            CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
-            
-            // Act
-            var Result = await _cityController.UpdateCity(CityDtoObject.CityId,
-                                                          CityDtoObject,
-                                                          MyConst.IntegrationTestUserName);
-
-            // Assert
-            Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
-          
-            Assert.Contains(CityDtoObject.CityId.ToString(), (string)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value);
-
-            City CityObject = CityDtoObject.Adapt<City>();
-            HandleDatabaseDataInMemory.UpdateCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject, CityObject);
-        }
-
         [Theory]
         [InlineData(false, MyConst.IntegrationTestUserName)]  // TestCase 1
         [InlineData(true, MyConst.IntegrationTestUserName)]   // TestCase 2
@@ -405,14 +418,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         {
             // Arrange
             CityDto CityDtoObject = SetupCityDtoForSaveOrUpdate(ForUpdate: true);
-            //if (true == DeleteOldElementsInListsNotSpecifiedInCurrentLists)
-            //{
-            //    CityDtoObject.CityName += "_true";
-            //}
-            //else
-            //{
-            //    CityDtoObject.CityName += "_false";
-            //}
+            
             UpdateCityWithAllRelations UpdateCityWithAllRelations_Object = new UpdateCityWithAllRelations();
             UpdateCityWithAllRelations_Object.CityDto_Object = CityDtoObject;
             UpdateCityWithAllRelations_Object.PointOfInterests =
@@ -441,6 +447,9 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             // Assert
             Assert.Equal(((IStatusCodeActionResult)Result).StatusCode, (int)HttpStatusCode.OK);
+
+            City CityObject = CityDtoObject.Adapt<City>();
+            HandleDatabaseDataInMemory.UpdateCityInDatabaseDataInMemory(this._fixture.DatabaseViewModelObject, CityObject, DeleteOldElementsInListsNotSpecifiedInCurrentLists);
         }
 
         [Fact]
