@@ -103,9 +103,7 @@ namespace CityInfo_8_0_TestSetup.Assertions
 
             Type ObjectType = obj1.GetType();
             var fields = ObjectType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
-            //var type = typeof(T);
-            //var fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
+           
             foreach (var field in fields)
             {
                 var value1 = field.GetValue(obj1);
@@ -117,7 +115,6 @@ namespace CityInfo_8_0_TestSetup.Assertions
                     //{
                     //    return false; // Handle both null and one-null cases
                     //}
-
                 }
                 else if (compareLists && value1 is IEnumerable && value2 is IEnumerable && !(value1 is String) )
                 {
@@ -125,10 +122,6 @@ namespace CityInfo_8_0_TestSetup.Assertions
                     {
                         return false; // Recursively compare lists
                     }
-                    //if (!AreEqualCollectionsLTPE(value1, value2, compareLists))
-                    //{
-                    //    return false; // Recursively compare lists
-                    //}
                 }
                 else if (!(value1 is IEnumerable) || (value1 is String) )
                 {
@@ -141,11 +134,6 @@ namespace CityInfo_8_0_TestSetup.Assertions
                     //    return false; // Regular value comparison
                     //}
                 }
-
-                //else if (!value1.Equals(value2))
-                //{
-                //    return false; // Regular value comparison
-                //}
               }
 
             return true;
@@ -214,11 +202,6 @@ namespace CityInfo_8_0_TestSetup.Assertions
             return true;
         }
 
-        //private static List<T> ReturnListBasedOnObjectType(Object collection)
-        //{
-
-        //}
-
         public static bool AreEqualCollectionsLTPE(object collection1, object collection2, bool compareLists)
         {
             dynamic List1 = 0;
@@ -258,42 +241,7 @@ namespace CityInfo_8_0_TestSetup.Assertions
             {
                 return false;
             }
-            //dynamic collection1Count = collection1;
-            //dynamic collection2Count = collection2;
-
             
-
-            //if (collection1 is null || collection2 is null)
-            //{
-            //    return collection1 == collection2; // Handle null collections
-            //}
-
-            //if (collection1Count.Count() != collection2Count.Count())
-            //{
-            //    return false; // Different sizes
-            //}
-
-            //var enumerator1 = collection1.GetEnumerator();
-            //var enumerator2 = collection2.GetEnumerator();
-
-            //while (enumerator1.MoveNext() && enumerator2.MoveNext())
-            //{
-            //    var item1 = enumerator1.Current;
-            //    var item2 = enumerator2.Current;
-
-            //    if (item1 is IEnumerable && item2 is IEnumerable && compareLists)
-            //    {
-            //        if (!AreEqualCollections((IEnumerable)item1, (IEnumerable)item2, compareLists))
-            //        {
-            //            return false; // Recursively compare nested lists
-            //        }
-            //    }
-            //    else if (!item1.Equals(item2))
-            //    {
-            //        return false; // Compare individual items
-            //    }
-            //}
-
             return true;
         }
     }

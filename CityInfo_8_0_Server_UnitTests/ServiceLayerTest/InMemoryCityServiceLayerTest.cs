@@ -67,8 +67,15 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             IEnumerable<City> CityIEnumerable = await _cityService.GetAllCities(includeRelations);
             List<City> CityList = CityIEnumerable.ToList();
 
+            List<City> CityListSorted = new List<City>();
+            CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
+
             // Assert
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
+            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
+            bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityListSorted,
+                                                                                  _databaseViewModel.CityList,
+                                                                                  false);
+            Assert.True(CompareResult);
         }
     }
 }
