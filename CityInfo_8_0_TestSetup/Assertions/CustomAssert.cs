@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,36 +107,38 @@ namespace CityInfo_8_0_TestSetup.Assertions
            
             foreach (var field in fields)
             {
-                var value1 = field.GetValue(obj1);
-                var value2 = field.GetValue(obj2);
+                try
+                {
+                    var value1 = field.GetValue(obj1);
+                     var value2 = field.GetValue(obj2);
 
-                if (value1 == null || value2 == null)
-                {
-                    //if (!ReferenceEquals(value1, value2))
-                    //{
-                    //    return false; // Handle both null and one-null cases
-                    //}
-                }
-                else if (compareLists && value1 is IEnumerable && value2 is IEnumerable && !(value1 is String) )
-                {
-                    if (!AreEqualCollections((IEnumerable)value1, (IEnumerable)value2, compareLists))
+                    if (value1 == null || value2 == null)
                     {
-                        return false; // Recursively compare lists
+                        //if (!ReferenceEquals(value1, value2))
+                        //{
+                        //    return false; // Handle both null and one-null cases
+                        //}
+                    }
+                    else if (compareLists && value1 is IEnumerable && value2 is IEnumerable && !(value1 is String))
+                    {
+                        if (!AreEqualCollections((IEnumerable)value1, (IEnumerable)value2, compareLists))
+                        {
+                            return false; // Recursively compare lists
+                        }
+                    }
+                    else if (!(value1 is IEnumerable) || (value1 is String))
+                    {
+                        if (!EqualsByFieldValue(value1, value2))
+                        {
+                            return false;
+                        }
                     }
                 }
-                else if (!(value1 is IEnumerable) || (value1 is String) )
+                catch (Exception Error)
                 {
-                    if (!EqualsByFieldValue(value1, value2))
-                    { 
-                        return false; 
-                    }
-                    //if (!value1.Equals(value2))
-                    //{
-                    //    return false; // Regular value comparison
-                    //}
+                    string ErrorString = Error.ToString();
                 }
-              }
-
+            }
             return true;
         }
 

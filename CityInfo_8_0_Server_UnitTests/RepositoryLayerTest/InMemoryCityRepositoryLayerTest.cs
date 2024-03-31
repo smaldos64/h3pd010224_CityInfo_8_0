@@ -67,8 +67,6 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityListSorted,
                                                                                   _databaseViewModel.CityList,
                                                                                   false);
@@ -87,9 +85,14 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             IEnumerable<City> CityIEnumerable = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(false);
             List<City> CityList = CityIEnumerable.ToList();
 
+            List<City> CityListSorted = new List<City>();
+            CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
+
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesRead(CityList, includeRelations);
-            await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
+            bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityListSorted,
+                                                                                  _databaseViewModel.CityList,
+                                                                                  false);
+            Assert.True(CompareResult);
         }
     }
 }

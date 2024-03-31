@@ -71,7 +71,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityListSorted,
                                                                                   _databaseViewModel.CityList,
                                                                                   false);

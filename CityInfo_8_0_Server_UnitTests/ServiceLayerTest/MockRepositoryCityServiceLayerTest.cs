@@ -62,7 +62,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
                                                                                   _databaseViewModel.CityList,
                                                                                   false);
@@ -84,7 +83,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
                                                                                   _databaseViewModel.CityList,
                                                                                   false);

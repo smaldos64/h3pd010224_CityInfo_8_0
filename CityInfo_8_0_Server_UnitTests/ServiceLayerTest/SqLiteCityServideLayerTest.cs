@@ -52,8 +52,7 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
                 //_connection.Open();
                 _databaseViewModel = new DatabaseViewModel();
                 await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
-                //await SetupDatabaseData.SeedDatabaseData(context);
-                
+                               
                 _repositoryWrapper = new RepositoryWrapper(context);
                 _cityLanguage = new CityLanguageService(_repositoryWrapper);
                 _pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
@@ -82,7 +81,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
                                                                                   _databaseViewModel.CityList,
                                                                                   false);

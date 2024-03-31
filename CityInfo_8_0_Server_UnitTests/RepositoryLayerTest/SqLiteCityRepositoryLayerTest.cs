@@ -44,7 +44,6 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
 
-                //await SetupDatabaseData.SeedDatabaseData(context);
                 _databaseViewModel = new DatabaseViewModel();
                 await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
 
@@ -71,7 +70,6 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
             List<City> CityList = CityIEnumerable.ToList();
 
             // Assert
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, _databaseViewModel, includeRelations);
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
                                                                                   _databaseViewModel.CityList,
                                                                                   false);

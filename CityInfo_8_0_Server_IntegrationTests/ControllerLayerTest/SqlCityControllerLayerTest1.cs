@@ -171,10 +171,6 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             CityList = CityDtoList.Adapt<City[]>().ToList();
 
             // Assert
-
-            //Assert.Equal(NumberOfCitiesToRead, CityList.Count);
-            //await CustomAssert.InMemoryModeCheckCitiesReadWithObject(CityList, this._fixture.DatabaseViewModelObject, IncludeRelations, true, CityList.Count);
-
             bool CompareResult = CustomAssert.AreListOfObjectsEqualByFields<City>(CityList,
                                                                                   this._fixture.DatabaseViewModelObject.CityList,
                                                                                   false);
@@ -214,17 +210,6 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             CityDto CityDtoObject = (CityDto)((Microsoft.AspNetCore.Mvc.ObjectResult)Result).Value;
 
             City CityObject = CityDtoObject.Adapt<City>();
-
-            //Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityId, CityDtoObject.CityId);
-            //if (true == UseLazyLoading)
-            //{
-            //    Assert.Equal(this._fixture.DatabaseViewModelObject.CityList[0].CityLanguages.Count, 
-            //                 CityDtoObject.CityLanguages.Count);
-            //}
-            //else
-            //{
-            //    Assert.Empty(CityDtoObject.CityLanguages);
-            //}
 
             int IndexInList = this._fixture.DatabaseViewModelObject.CityList.FindIndex(c => c.CityId == CityObject.CityId);
             Assert.NotEqual(-1, IndexInList);
@@ -383,7 +368,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
             // Act
             var Result = await _cityController.UpdateCityWithAllRelations(UpdateCityWithAllRelations_Object.CityDto_Object.CityId + 1,
                                                                           UpdateCityWithAllRelations_Object,
-                                                                          false,
+                                                                           false,
                                                                           false,
                                                                           MyConst.IntegrationTestUserName);
 
