@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CityInfo_8_0_Server_UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91f585306c4d4200d2d818b0368470f809ad01d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2453a123cd904123d4d359eae4a180cb3eeb7d52")]
 [assembly: System.Reflection.AssemblyProductAttribute("CityInfo_8_0_Server_UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CityInfo_8_0_Server_UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

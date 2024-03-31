@@ -64,7 +64,7 @@ namespace CityInfo_8_0_TestSetup.Setup
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
 
-                databaseViewModel.LanguageDtoList = databaseViewModel.LanguageList.Adapt<LanguageDto[]>().ToList();  
+                //databaseViewModel.LanguageDtoList = databaseViewModel.LanguageList.Adapt<LanguageDto[]>().ToList();  
                     
                 if (null == context)
                 {
@@ -108,7 +108,7 @@ namespace CityInfo_8_0_TestSetup.Setup
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
 
-                databaseViewModel.CountryDtoList = databaseViewModel.CountryList.Adapt<CountryDto[]>().ToList();
+                //databaseViewModel.CountryDtoList = databaseViewModel.CountryList.Adapt<CountryDto[]>().ToList();
 
                 if (null == context)
                 {
@@ -164,7 +164,7 @@ namespace CityInfo_8_0_TestSetup.Setup
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
 
-                databaseViewModel.CityDtoList = databaseViewModel.CityList.Adapt<CityDto[]>().ToList();
+                //databaseViewModel.CityDtoList = databaseViewModel.CityList.Adapt<CityDto[]>().ToList();
 
                 if (null == context)
                 {
@@ -233,7 +233,7 @@ namespace CityInfo_8_0_TestSetup.Setup
                     NumberOfDatabaseObjectsChanged = await context.SaveChangesAsync();
                 }
 
-                databaseViewModel.PointOfInterestsDtoList = databaseViewModel.PointOfInterestList.Adapt<PointOfInterestDto[]>().ToList();
+                //databaseViewModel.PointOfInterestsDtoList = databaseViewModel.PointOfInterestList.Adapt<PointOfInterestDto[]>().ToList();
 
                 databaseViewModel.CityLanguageList = new List<CityLanguage>()
                 {
@@ -328,7 +328,7 @@ namespace CityInfo_8_0_TestSetup.Setup
                     }
                 }
 
-                databaseViewModel.CityLanguageDtoList = databaseViewModel.CityLanguageList.Adapt<CityLanguageDto[]>().ToList();
+                //databaseViewModel.CityLanguageDtoList = databaseViewModel.CityLanguageList.Adapt<CityLanguageDto[]>().ToList();
             }
             catch (Exception ex)
             {

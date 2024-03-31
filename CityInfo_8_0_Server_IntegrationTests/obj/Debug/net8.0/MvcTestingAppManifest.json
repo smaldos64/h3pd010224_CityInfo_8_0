@@ -1,6 +1,6 @@
 {
   "CityInfo_8_0_Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server",
-  "CityInfo_8_0_TestSetup, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup",
+  "CityInfo_8_0_TestSetup": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_TestSetup",
   "Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Contracts",
   "Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\Entities",
   "LoggerService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\LoggerService",

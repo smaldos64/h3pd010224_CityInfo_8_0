@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Mapster;
+using Entities;
 
 namespace CityInfo_8_0_TestSetup.Setup
 {
@@ -15,6 +16,31 @@ namespace CityInfo_8_0_TestSetup.Setup
                                                          City CityObject)
         {
             databaseViewModel.CityList.Add(CityObject);
+        }
+
+        public static async Task<IEnumerable<City>> FindAllCities(DatabaseViewModel databaseViewModel,
+                                                           bool IncludeRelations)
+        {
+            await Task.Delay(1);
+            return databaseViewModel.CityList;
+        }
+
+        //public static async Task<IEnumerable<T>> FindAllItems(DatabaseViewModel databaseViewModel,
+        //                                                      bool IncludeRelations) where T : class
+        //{
+        //    await Task.Delay(1);
+        //    var list = databaseViewModel.GetType().GetProperties()
+        //              .FirstOrDefault(prop => prop.PropertyType == typeof(List<T>))?.GetValue(baseClass) as List<T>;
+        //    return databaseViewModel.CityList;
+        //}
+
+        public static IEnumerable<T> GetListFromBaseClass<T>(DatabaseViewModel databaseViewModel, bool IncludeRelations) where T : class
+        {
+            // Get the appropriate list based on the generic type T
+            var list = databaseViewModel.GetType().GetProperties()
+                       .FirstOrDefault(prop => prop.PropertyType == typeof(List<T>))?.GetValue(databaseViewModel) as List<T>;
+
+            return list; // Return the matching list or null if not found
         }
 
         public static void UpdateCityInDatabaseDataInMemory(DatabaseViewModel databaseViewModel,

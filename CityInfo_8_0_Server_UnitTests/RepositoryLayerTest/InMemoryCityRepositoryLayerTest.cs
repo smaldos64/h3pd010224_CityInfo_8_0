@@ -43,11 +43,11 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
                 await context.Database.EnsureDeletedAsync();
                 await context.Database.EnsureCreatedAsync();
 
-                _databaseViewModel = new DatabaseViewModel();
+                this._databaseViewModel = new DatabaseViewModel();
                 await SetupDatabaseData.SeedDatabaseDataWithObject(context, _databaseViewModel);
                
-                _cityRepository = new CityRepository(context);
-                _repositoryWrapper = new RepositoryWrapper(context);
+                this._cityRepository = new CityRepository(context);
+                this._repositoryWrapper = new RepositoryWrapper(context);
             }).GetAwaiter().GetResult();
         }
 
