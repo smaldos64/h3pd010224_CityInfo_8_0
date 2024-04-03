@@ -99,6 +99,32 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetCity",
+    "RelativePath": "City/{CityId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UseLazyLoading",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
     "Method": "CreateCity",
     "RelativePath": "City/CreateCity",
     "HttpMethod": "POST",
@@ -215,16 +241,6 @@
         "IsRequired": false
       },
       {
-        "Name": "UseLazyLoading",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "UseMapster",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
         "Name": "UseQueryable",
         "Type": "System.Boolean",
         "IsRequired": false
@@ -263,11 +279,6 @@
       {
         "Name": "UserName",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "UseOwnMapster",
-        "Type": "System.Boolean",
         "IsRequired": false
       }
     ],

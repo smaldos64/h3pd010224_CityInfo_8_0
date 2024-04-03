@@ -340,5 +340,10 @@ namespace CityInfo_8_0_TestSetup.Setup
         {
             return (databaseViewModel.CityList.ToList());
         }
+
+        public static List<City> GetAllCitiesAsList(DatabaseViewModel databaseViewModel, bool IncludeRelations = false)
+        {
+            return (databaseViewModel.CityList.ToList());
+        }
     }
 }

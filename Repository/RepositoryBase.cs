@@ -29,6 +29,11 @@ namespace Repository
 #endif
         }
 
+        public virtual async Task<IEnumerable<T>> FindAll1()
+        {
+            return await databaseContext.Set<T>().ToListAsync();
+        }
+
         public virtual async Task<T> FindOne(int id)
         {
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)

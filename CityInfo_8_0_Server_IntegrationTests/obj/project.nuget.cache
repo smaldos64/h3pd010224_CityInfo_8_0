@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VeEVF2StrV4gOcwqyJPDPk6keNpeRPsEUkTGe/YUwRNmQrQREkQAPE3dxfntESSQjjCPAX8QDXRkYnGaXHPScA==",
+  "dgSpecHash": "anjGJhCb3Sq7UQgMlnShpvyVeOGnyqVKETVSCxq1vC4N7LojuSiPslsCJgctl4PXrfNEtfpIlDc782FuLnCDug==",
   "success": true,
   "projectFilePath": "C:\\Lars\\h3pd010124\\CityInfo_8_0\\CityInfo_8_0_Server_IntegrationTests\\CityInfo_8_0_Server_IntegrationTests.csproj",
   "expectedPackageFiles": [
@@ -75,6 +75,7 @@
     "C:\\Users\\ltpe\\.nuget\\packages\\microsoft.testplatform.testhost\\17.6.0\\microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
     "C:\\Users\\ltpe\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\ltpe\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
+    "C:\\Users\\ltpe\\.nuget\\packages\\moq.entityframeworkcore\\8.0.1.2\\moq.entityframeworkcore.8.0.1.2.nupkg.sha512",
     "C:\\Users\\ltpe\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ltpe\\.nuget\\packages\\nlog\\5.2.8\\nlog.5.2.8.nupkg.sha512",
     "C:\\Users\\ltpe\\.nuget\\packages\\nlog.extensions.logging\\5.3.8\\nlog.extensions.logging.5.3.8.nupkg.sha512",

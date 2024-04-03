@@ -504,3 +504,4 @@ C:\Lars\h3pd010124\CityInfo_8_0\CityInfo_8_0_Server_IntegrationTests\bin\Debug\n
 C:\Lars\h3pd010124\CityInfo_8_0\CityInfo_8_0_Server_IntegrationTests\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Lars\h3pd010124\CityInfo_8_0\CityInfo_8_0_Server_IntegrationTests\bin\Debug\net8.0\CityInfo_8_0_TestSetup.dll
 C:\Lars\h3pd010124\CityInfo_8_0\CityInfo_8_0_Server_IntegrationTests\bin\Debug\net8.0\CityInfo_8_0_TestSetup.pdb
+C:\Lars\h3pd010124\CityInfo_8_0\CityInfo_8_0_Server_IntegrationTests\bin\Debug\net8.0\Moq.EntityFrameworkCore.dll

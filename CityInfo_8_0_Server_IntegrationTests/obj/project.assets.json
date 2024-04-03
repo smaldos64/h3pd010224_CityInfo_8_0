@@ -1517,6 +1517,19 @@
           }
         }
       },
+      "Moq.EntityFrameworkCore/8.0.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.1",
+          "Moq": "4.20.70"
+        },
+        "compile": {
+          "lib/net8.0/Moq.EntityFrameworkCore.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Moq.EntityFrameworkCore.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -2356,6 +2369,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.1",
           "Microsoft.NET.Test.Sdk": "17.6.0",
           "Moq": "4.20.70",
+          "Moq.EntityFrameworkCore": "8.0.1.2",
           "xunit": "2.6.6"
         },
         "compile": {
@@ -4707,6 +4721,19 @@
         "readme.md"
       ]
     },
+    "Moq.EntityFrameworkCore/8.0.1.2": {
+      "sha512": "LAgsu4wwRLlUjM8+t0FFwk4hy7of4BfeKqe52UUfXNaDKYUzYCZqwTcId1dB3FHiuailsmowei6lej1t//d8Ng==",
+      "type": "package",
+      "path": "moq.entityframeworkcore/8.0.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Moq.EntityFrameworkCore.dll",
+        "moq.entityframeworkcore.8.0.1.2.nupkg.sha512",
+        "moq.entityframeworkcore.nuspec"
+      ]
+    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -6158,6 +6185,7 @@
       "Microsoft.Extensions.Configuration.Json >= 8.0.0",
       "Microsoft.NET.Test.Sdk >= 17.6.0",
       "Moq >= 4.20.70",
+      "Moq.EntityFrameworkCore >= 8.0.1.2",
       "Newtonsoft.Json >= 13.0.3",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.6.6",
@@ -6248,6 +6276,10 @@
           "Moq": {
             "target": "Package",
             "version": "[4.20.70, )"
+          },
+          "Moq.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.1.2, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

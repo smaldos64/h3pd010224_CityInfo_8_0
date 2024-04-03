@@ -10,17 +10,17 @@ namespace Repository
     // benævnt UnitOfWork i andre sammenhænge.
     public class RepositoryWrapper : IRepositoryWrapper
     {
-        private DatabaseContext _repoContext;
-
+        private DatabaseContext _databaseContext;
+       
         private ICityRepository? _cityRepositoryWrapper;
         private ICityLanguageRepository? _cityLanguageRepositoryWrapper;
         private ILanguageRepository? _languageRepositoryWrapper;
         private ICountryRepository? _countryRepositoryWrapper;
         private IPointOfInterestRepository? _pointOfInterestRepositoryWrapper;
 
-        public RepositoryWrapper(DatabaseContext repositoryContext)
+        public RepositoryWrapper(DatabaseContext databaseContext)
         {
-            this._repoContext = repositoryContext;
+            this._databaseContext = databaseContext;
         }
 
         public ICityRepository CityRepositoryWrapper
@@ -29,7 +29,7 @@ namespace Repository
             {
                 if (null == _cityRepositoryWrapper)
                 {
-                    _cityRepositoryWrapper = new CityRepository(_repoContext);
+                    _cityRepositoryWrapper = new CityRepository(this._databaseContext);
                 }
 
                 return (_cityRepositoryWrapper);
@@ -42,7 +42,7 @@ namespace Repository
             {
                 if (null == _cityLanguageRepositoryWrapper)
                 {
-                    _cityLanguageRepositoryWrapper = new CityLanguageRepository(_repoContext);
+                    _cityLanguageRepositoryWrapper = new CityLanguageRepository(this._databaseContext);
                 }
 
                 return (_cityLanguageRepositoryWrapper);
@@ -55,7 +55,7 @@ namespace Repository
             {
                 if (null == _languageRepositoryWrapper)
                 {
-                    _languageRepositoryWrapper = new LanguageRepository(_repoContext);
+                    _languageRepositoryWrapper = new LanguageRepository(this._databaseContext);
                 }
 
                 return (_languageRepositoryWrapper);
@@ -68,7 +68,7 @@ namespace Repository
             {
                 if (null == _countryRepositoryWrapper)
                 {
-                    _countryRepositoryWrapper = new CountryRepository(_repoContext);
+                    _countryRepositoryWrapper = new CountryRepository(this._databaseContext);
                 }
 
                 return (_countryRepositoryWrapper);
@@ -81,7 +81,7 @@ namespace Repository
             {
                 if (null == _pointOfInterestRepositoryWrapper)
                 {
-                    _pointOfInterestRepositoryWrapper = new PointOfInterestRepository(_repoContext);
+                    _pointOfInterestRepositoryWrapper = new PointOfInterestRepository(this._databaseContext);
                 }
 
                 return (_pointOfInterestRepositoryWrapper);
@@ -91,7 +91,7 @@ namespace Repository
         public async Task<int> Save()
         {
           int NumberOfObjectsChanged = 0;
-          NumberOfObjectsChanged = await _repoContext.SaveChangesAsync();
+          NumberOfObjectsChanged = await this._databaseContext.SaveChangesAsync();
 
           return (NumberOfObjectsChanged);
         }

@@ -1517,6 +1517,19 @@
           }
         }
       },
+      "Moq.EntityFrameworkCore/8.0.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.1",
+          "Moq": "4.20.70"
+        },
+        "compile": {
+          "lib/net8.0/Moq.EntityFrameworkCore.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Moq.EntityFrameworkCore.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -2356,6 +2369,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.1",
           "Microsoft.NET.Test.Sdk": "17.6.0",
           "Moq": "4.20.70",
+          "Moq.EntityFrameworkCore": "8.0.1.2",
           "xunit": "2.6.6"
         },
         "compile": {
@@ -4707,6 +4721,19 @@
         "readme.md"
       ]
     },
+    "Moq.EntityFrameworkCore/8.0.1.2": {
+      "sha512": "LAgsu4wwRLlUjM8+t0FFwk4hy7of4BfeKqe52UUfXNaDKYUzYCZqwTcId1dB3FHiuailsmowei6lej1t//d8Ng==",
+      "type": "package",
+      "path": "moq.entityframeworkcore/8.0.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Moq.EntityFrameworkCore.dll",
+        "moq.entityframeworkcore.8.0.1.2.nupkg.sha512",
+        "moq.entityframeworkcore.nuspec"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -6155,6 +6182,7 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.1",
       "Microsoft.NET.Test.Sdk >= 17.6.0",
       "Moq >= 4.20.70",
+      "Moq.EntityFrameworkCore >= 8.0.1.2",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.6.6",
       "xunit.runner.visualstudio >= 2.4.5"
@@ -6243,6 +6271,10 @@
           "Moq": {
             "target": "Package",
             "version": "[4.20.70, )"
+          },
+          "Moq.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.1.2, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

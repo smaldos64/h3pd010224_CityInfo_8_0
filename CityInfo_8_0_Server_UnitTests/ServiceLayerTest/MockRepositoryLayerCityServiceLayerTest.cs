@@ -19,7 +19,6 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
 {
     public class MockRepositoryLayerCityServiceLayerTest
     {
-        //private Mock<ICityService> _mockCityService;
         private Mock<IRepositoryWrapper> _mockRepositoryWrapper;
 
         private DbContextOptions<DatabaseContext> _contextOptions;
@@ -33,12 +32,10 @@ namespace CityInfo_8_0_Server_UnitTests.ServiceLayerTest
         {
             Task.Run(async () =>
             {
-                //this._mockCityService = new Mock<ICityService>();
                 this._mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
 
                 this._databaseViewModel = new DatabaseViewModel();
-                //await SetupDatabaseData.SeedDatabaseDataWithObject(null, _databaseViewModel);
-
+             
                 this._cityLanguage = new CityLanguageService(_repositoryWrapper);
                 this._pointOfInterestService = new PointOfInterestService(_repositoryWrapper);
                 this._cityService = new CityService(this._mockRepositoryWrapper.Object,

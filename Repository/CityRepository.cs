@@ -11,15 +11,24 @@ namespace Repository
 {
     public class CityRepository : RepositoryBase<City>, ICityRepository
     {
-        public CityRepository(DatabaseContext context) : base(context)
+        public CityRepository(DatabaseContext databaseContext) : base(databaseContext)
         {
-            if (null == context)
+            if (null == databaseContext)
             {
-                throw new ArgumentNullException(nameof(context));
+                throw new ArgumentNullException(nameof(databaseContext));
             }
         }
 
-        public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)
+        //public CityRepository(RepositoryWrapper repositoryWrapper, 
+        //                      DatabaseContext databaseContext) : base(databaseContext)
+        //{
+        //    if (null == databaseContext)
+        //    {
+        //        throw new ArgumentNullException(nameof(databaseContext));
+        //    }
+        //}
+
+        public async Task<IEnumerable<City>> GetAllCitiesMockable(bool IncludeRelations = false)
         {
             if (false == IncludeRelations)
             {
@@ -38,6 +47,36 @@ namespace Repository
                 //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
                 return (collection);
             }
+        }
+
+        public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)
+        {
+            if (false == IncludeRelations)
+            {
+                try
+                {
+                    var collection = await (base.FindAll());
+                    //collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
+                    return (collection);
+                }
+                catch (Exception Error)
+                {
+                    string ErrorString = Error.ToString();
+                    return null;
+                }
+            }
+            else
+            {
+                var collection = await base.databaseContext.Core_8_0_Cities.
+                Include(c => c.PointsOfInterest).
+                Include(co => co.Country).
+                Include(c => c.CityLanguages).
+                ThenInclude(l => l.Language).ToListAsync();
+
+                //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
+                return (collection);
+            }
+            //return await GetAllCitiesMockable(IncludeRelations);
         }
 
         public async Task<City> GetCity(int CityId, bool IncludeRelations = false)

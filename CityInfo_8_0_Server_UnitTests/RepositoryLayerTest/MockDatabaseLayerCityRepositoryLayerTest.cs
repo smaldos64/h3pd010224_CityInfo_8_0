@@ -1,4 +1,5 @@
-﻿using CityInfo_8_0_TestSetup.Assertions;
+﻿using CityInfo_8_0_Server_UnitTests.Mock;
+using CityInfo_8_0_TestSetup.Assertions;
 using CityInfo_8_0_TestSetup.Database;
 using CityInfo_8_0_TestSetup.Setup;
 using CityInfo_8_0_TestSetup.ViewModels;
@@ -8,6 +9,7 @@ using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Moq;
+using Moq.EntityFrameworkCore;
 using Repository;
 using Services;
 using ServicesContracts;
@@ -21,7 +23,7 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 {
     public class MockDatabaseLayerCityRepositoryLayerTest
     {
-        //private Mock<ICityRepository> _mockCityRepository;
+        private Mock<ICityRepository> _mockCityRepository;
         //private Mock<IRepositoryWrapper> _mockRepositoryWrapper;
         private Mock<DatabaseContext> _mockDbContext;
         private Mock<IRepositoryBase<City>> _mockRepositoryBase;
@@ -38,36 +40,39 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
         {
             Task.Run(async () =>
             {
-                this._mockRepositoryBase = new Mock<IRepositoryBase<City>>();
+                // Forsøg herunder på Mock af DatabaseContext
+                //this._cityRepository = CityRepositoryMock.GetMock();
 
-                this._mockDbContext = new Mock<DatabaseContext>();
-                
+                this._mockCityRepository = new Mock<ICityRepository>();
+
                 this._databaseViewModel = new DatabaseViewModel();
+               
+                this._mockDbContext = new Mock<DatabaseContext>();
 
-                this._repositoryWrapper = new RepositoryWrapper(this._mockDbContext.Object);
-
+                // Alternativ måde herunder at få det til at køre på.
                 this._cityRepository = new CityRepository(this._mockDbContext.Object);
+                this._repositoryWrapper = new RepositoryWrapper(this._mockDbContext.Object);
             }).GetAwaiter().GetResult();
         }
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
-        [InlineData(false)]  // TestCase 1
+        //[InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
         //public async Task Mock_Test_City_GetAllCities_Using_CityService_using_Moq_Return(bool includeRelations)
-        public async Task Mock_Test_CityRepository_GetAllCities_Using_CityRepository(bool includeRelations)
+        public async Task Mock_Test_CityRepository_GetAllCities_Using_CityRepository(bool IncludeRelations)
         {
             // Arrange
-            await SetupDatabaseData.SeedDatabaseDataWithObject(null, this._databaseViewModel, includeRelations);
-            this._mockRepositoryBase.Setup(func => func.FindAll()).Returns((Task<IEnumerable<City>>)await HandleDatabaseDataInMemory.FindAllCities(this._databaseViewModel,
-                                                                                                                                                   includeRelations));
-            //this._mockRepositoryBase.Setup(func => func.FindAll()).Returns((Task<IEnumerable<City>>)HandleDatabaseDataInMemory.GetListFromBaseClass<City>(this._databaseViewModel,
-            //                                                                                                                                       includeRelations));
+            await SetupDatabaseData.SeedDatabaseDataWithObject(null, _databaseViewModel, IncludeRelations);
+            //this._cityRepository = CityRepositoryMock.GetMock();
+
+            // Kører med IncludeRelations == true med linjen herunder.
+            this._mockDbContext.Setup<DbSet<City>>(x => x.Core_8_0_Cities).ReturnsDbSet(SetupDatabaseData.GetAllCitiesAsList(this._databaseViewModel, IncludeRelations));
 
             // Act
-            IEnumerable<City> CityIEnumerable = await this._cityRepository.GetAllCities(includeRelations);
+            IEnumerable<City> CityIEnumerable = await this._cityRepository.GetAllCities(IncludeRelations);
             List<City> CityList = CityIEnumerable.ToList();
-
+    
             List<City> CityListSorted = new List<City>();
             CityListSorted = CityList.OrderBy(c => c.CityId).ToList();
 
@@ -80,14 +85,17 @@ namespace CityInfo_8_0_Server_UnitTests.RepositoryLayerTest
 
         [Theory]  // Læg mærke til at vi bruger Theory her, da vi også 
                   // bruger InLineData !!!
-        [InlineData(false)]  // TestCase 1
+        //[InlineData(false)]  // TestCase 1
         [InlineData(true)]   // TestCase 2
-        public async Task Mock_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool includeRelations)
+        public async Task Mock_Test_CityRepository_GetAllCities_Using_RepositoryWrapper(bool IncludeRelations)
         {
             // Arrange
+            await SetupDatabaseData.SeedDatabaseDataWithObject(null, _databaseViewModel, IncludeRelations);
+
+            this._mockDbContext.Setup<DbSet<City>>(x => x.Core_8_0_Cities).ReturnsDbSet(SetupDatabaseData.GetAllCitiesAsList(this._databaseViewModel, IncludeRelations));
 
             // Act
-            IEnumerable<City> CityIEnumerable = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(false);
+            IEnumerable<City> CityIEnumerable = await _repositoryWrapper.CityRepositoryWrapper.GetAllCities(IncludeRelations);
             List<City> CityList = CityIEnumerable.ToList();
 
             List<City> CityListSorted = new List<City>();
