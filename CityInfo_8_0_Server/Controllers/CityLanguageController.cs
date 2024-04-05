@@ -12,7 +12,7 @@ using ServicesContracts;
 using Entities.DataTransferObjects;
 using Services;
 
-#if Use_Hub_Logic_On_ServertSide
+#if Use_Hub_Logic_On_ServerSide
 using CityInfo_8_0_Server.Hubs;
 #endif
 
@@ -29,7 +29,7 @@ namespace CityInfo_8_0_Server.Controllers
         private ILoggerManager _logger;
         private ICityLanguageService _cityLanguageService;
 
-#if Use_Hub_Logic_On_ServertSide
+#if Use_Hub_Logic_On_ServerSide
         private readonly IHubContext<BroadcastHub> _broadcastHub;
 #endif
 
@@ -149,7 +149,7 @@ namespace CityInfo_8_0_Server.Controllers
         //                        + CityLanguageDto_Object.LanguageId.ToString() + " oprettet af : " + UserName);
         //#endif
 
-        //#if Use_Hub_Logic_On_ServertSide
+        //#if Use_Hub_Logic_On_ServerSide
         //                    await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
         //#endif
         //                    return Ok(CityLanguageDto_Object);
@@ -200,7 +200,7 @@ namespace CityInfo_8_0_Server.Controllers
         //            {
         //               await _repositoryWrapper.CityLanguageRepositoryWrapper.UpdateCityLanguageCombination(CityLanguageFromRepoDelete,
         //                                                                                                    CityLanguageToSave);
-        //#if Use_Hub_Logic_On_ServertSide
+        //#if Use_Hub_Logic_On_ServerSide
         //                await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
         //#endif
 
@@ -346,7 +346,7 @@ namespace CityInfo_8_0_Server.Controllers
         //            }
 
         //            await _repositoryWrapper.CityLanguageRepositoryWrapper.Delete(cityLanguageFromRepo);
-        //#if Use_Hub_Logic_On_ServertSide
+        //#if Use_Hub_Logic_On_ServerSide
         //            await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
         //#endif
 

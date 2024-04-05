@@ -54,4 +54,10 @@ namespace Entities.DataTransferObjects
         public ICollection<LanguageDtoMinusRelations> CityLanguages { get; set; }
                = new List<LanguageDtoMinusRelations>();
     }
+
+    public class CityDtoMinusCountryRelations : CityDtoPointsOfInterests
+    {
+        public ICollection<LanguageDtoMinusRelations> CityLanguages { get; set; }
+               = new List<LanguageDtoMinusRelations>();
+    }
 }

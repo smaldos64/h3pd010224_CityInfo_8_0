@@ -73,22 +73,13 @@ namespace Repository
         {
             IQueryable<T> Query = dbSet;
 #if (ENABLED_FOR_LAZY_LOADING_USAGE)
-            //return await Query.Where(expression).AsQueryable<T>();
             var Data = await Query.Where(expression).ToListAsync();
             return (Data.AsQueryable<T>());
-
 #else
             var Data = await Query.Where(expression).AsNoTracking().ToListAsync();
             return (Data.AsQueryable<T>());
-            //return await Query.Where(expression).AsNoTracking().ToListAsync();
 #endif
         }
-
-        //public virtual List<T> FindByCondition(Expression<Func<T, bool>> expression)
-        //{
-        //    //ParameterExpression s = Expression.Parameter(typeof(T));
-        //    return this.RepositoryContext.Set<T>().Where(expression).AsNoTracking().ToList();
-        //}
 
         public virtual async Task Create(T entity)
         {
@@ -113,12 +104,12 @@ namespace Repository
             this.databaseContext.Set<T>().Remove(entity);
         }
 
-        public virtual async Task<int> Save()
-        {
-            int NumberOfObjectsChanged = -1;
-            NumberOfObjectsChanged = await this.databaseContext.SaveChangesAsync();
-            return NumberOfObjectsChanged;
-        }
+        //public virtual async Task<int> Save()
+        //{
+        //    int NumberOfObjectsChanged = -1;
+        //    NumberOfObjectsChanged = await this.databaseContext.SaveChangesAsync();
+        //    return NumberOfObjectsChanged;
+        //}
 
         public virtual void EnableLazyLoading()
         {

@@ -39,7 +39,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
         private ILoggerManager _loggerManager;
         private DatabaseContext _databaseContext;
 
-        private CityController _cityController;
+        private CityEducationController _cityController;
 
         public SqlCityControllerLayerTest1(TestDatabaseFixture fixture)
         {
@@ -57,7 +57,7 @@ namespace CityInfo_8_0_Server_IntegrationTests.ControllerLayerTest
 
             _loggerManager = new LoggerManager();
 
-            _cityController = new CityController(_loggerManager,
+            _cityController = new CityEducationController(_loggerManager,
                                                  _repositoryWrapper,
                                                  _cityService);
         }

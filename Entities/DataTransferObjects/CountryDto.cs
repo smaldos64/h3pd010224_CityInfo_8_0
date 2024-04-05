@@ -12,11 +12,13 @@ namespace Entities.DataTransferObjects
         public string CountryName { get; set; }
     }
 
-    public class CountryDto : CountryForSaveDto
+    public class CountryForUpdateDto : CountryForSaveDto
     {
         public int CountryID { get; set; }
 
         //public virtual ICollection<CityDto> Cities { get; set; }
         //       = new List<CityDto>();
     }
+
+    public class CountryDto
 }

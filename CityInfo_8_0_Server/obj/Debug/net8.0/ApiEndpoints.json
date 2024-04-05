@@ -1,5 +1,110 @@
 [
   {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "CreateCity",
+    "RelativePath": "api/City",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityDto_Object",
+        "Type": "Entities.DataTransferObjects.CityForSaveWithCountryDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "DeleteCity",
+    "RelativePath": "api/City/DeleteCity/{CityId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetCities",
+    "RelativePath": "api/City/GetCities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetCity",
+    "RelativePath": "api/City/GetCity/{CityId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "UpdateCity",
+    "RelativePath": "api/City/UpdateCity/{CityId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CityForUpdateDto_Object",
+        "Type": "Entities.DataTransferObjects.CityForUpdateDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
     "Method": "UpdateCityLanguagesList",
     "RelativePath": "api/CityLanguage/UpdateCityLanguagesList",
@@ -22,6 +127,119 @@
         "Type": "System.Boolean",
         "IsRequired": false
       },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "Post",
+    "RelativePath": "api/Country",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "Get",
+    "RelativePath": "api/Country/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "Put",
+    "RelativePath": "api/Country/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "Delete",
+    "RelativePath": "api/Country/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "GetCountries",
+    "RelativePath": "api/Country/GetCountries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "UserName",
         "Type": "System.String",
@@ -98,35 +316,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
-    "Method": "GetCity",
-    "RelativePath": "City/{CityId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CityId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "UseLazyLoading",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "UserName",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "CreateCity",
-    "RelativePath": "City/CreateCity",
+    "RelativePath": "CityEducation/CreateCity",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -145,9 +337,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "DeleteCity",
-    "RelativePath": "City/DeleteCity/{CityId}",
+    "RelativePath": "CityEducation/DeleteCity/{CityId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -166,9 +358,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "GetCities",
-    "RelativePath": "City/GetCities",
+    "RelativePath": "CityEducation/GetCities",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -197,9 +389,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "GetCitiesServiceLayer",
-    "RelativePath": "City/GetCitiesServiceLayer",
+    "RelativePath": "CityEducation/GetCitiesServiceLayer",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -228,9 +420,35 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
+    "Method": "GetCity",
+    "RelativePath": "CityEducation/GetCity/{CityId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UseLazyLoading",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "GetSpecifiedNumberOfCities",
-    "RelativePath": "City/GetSpecifiedNumberOfCities",
+    "RelativePath": "CityEducation/GetSpecifiedNumberOfCities",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -259,9 +477,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "UpdateCity",
-    "RelativePath": "City/UpdateCity/{CityId}",
+    "RelativePath": "CityEducation/UpdateCity/{CityId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -285,9 +503,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityEducationController",
     "Method": "UpdateCityWithAllRelations",
-    "RelativePath": "City/UpdateCityWithAllRelations/{CityId}",
+    "RelativePath": "CityEducation/UpdateCityWithAllRelations/{CityId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

@@ -13,7 +13,7 @@ using Entities.DataTransferObjects;
 using Entities.Models;
 using Services;
 
-#if Use_Hub_Logic_On_ServertSide
+#if Use_Hub_Logic_On_ServerSide
 using CityInf0_8_0_Server.Hubs;
 #endif
 
@@ -29,7 +29,7 @@ namespace CityInf0_8_0_Server.Controllers
         private ILoggerManager _logger;
         private IPointOfInterestService _pointOfInterestService;
 
-#if Use_Hub_Logic_On_ServertSide
+#if Use_Hub_Logic_On_ServerSide
         private readonly IHubContext<BroadcastHub> _broadcastHub;
 #endif
 
@@ -148,7 +148,7 @@ namespace CityInf0_8_0_Server.Controllers
 
         //            PointOfInterest PointOfInterest_Object = PointOfInterestDto_Object.Adapt<PointOfInterest>();
         //            await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
-        //#if Use_Hub_Logic_On_ServertSide
+        //#if Use_Hub_Logic_On_ServerSide
         //            await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
         //#endif
 
@@ -181,7 +181,7 @@ namespace CityInf0_8_0_Server.Controllers
         //            if (PointOfInterestFromRepo.CloneData<PointOfInterest>(PointOfInterestDto_Object))
         //            {
         //                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Update(PointOfInterestFromRepo);
-        //#if Use_Hub_Logic_On_ServertSide
+        //#if Use_Hub_Logic_On_ServerSide
         //                await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
         //#endif
 
@@ -211,7 +211,7 @@ namespace CityInf0_8_0_Server.Controllers
         //            }
 
         //            await _repositoryWrapper.PointOfInterestRepositoryWrapper.Delete(PointOfInterestFromRepo);
-        //#if Use_Hub_Logic_On_ServertSide
+        //#if Use_Hub_Logic_On_ServerSide
         //            await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
         //#endif
 
