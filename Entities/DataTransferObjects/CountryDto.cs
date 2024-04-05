@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -20,5 +21,9 @@ namespace Entities.DataTransferObjects
         //       = new List<CityDto>();
     }
 
-    public class CountryDto
+    public class CountryDto : CountryForUpdateDto
+    {
+        public ICollection<CityDtoMinusCountryRelations> Cities { get; set; }
+               = new List<CityDtoMinusCountryRelations>();
+    }
 }

@@ -27,8 +27,9 @@ namespace Entities.Models
     {
         [Required]
         [MaxLength(100)]
-        public virtual string LanguageName { get; set; }
-  }
+        //public virtual string LanguageName { get; set; }
+        public string LanguageName { get; set; }
+    }
 
     public class LanguageForUpdateDto : LanguageForSaveDto
     {
