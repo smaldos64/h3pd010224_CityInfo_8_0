@@ -21,6 +21,11 @@ namespace Entities.DataTransferObjects
         //       = new List<CityDto>();
     }
 
+    public class CountryDtoMinusRelations : CountryForUpdateDto
+    {
+
+    }
+
     public class CountryDto : CountryForUpdateDto
     {
         public ICollection<CityDtoMinusCountryRelations> Cities { get; set; }

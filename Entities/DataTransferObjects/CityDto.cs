@@ -46,7 +46,8 @@ namespace Entities.DataTransferObjects
     {
         public override int CountryID { get; set; }
 
-        public CountryDto Country { get; set; }
+        //public CountryDto Country { get; set; }
+        public CountryDtoMinusRelations Country { get; set; }
     }
         
     public class CityDto : CityDtoMinusRelations

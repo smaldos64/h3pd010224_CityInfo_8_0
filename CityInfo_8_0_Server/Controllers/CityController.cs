@@ -191,9 +191,7 @@ namespace CityInfo_8_0_Server.Controllers
         {
             int NumberOfObjectsDeleted;
 
-            _repositoryWrapper.CityRepositoryWrapper.DisableLazyLoading();
-
-            var CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
+            City CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
 
             if (null == CityFromRepo)
             {
@@ -211,8 +209,8 @@ namespace CityInfo_8_0_Server.Controllers
 #if Use_Hub_Logic_On_ServerSide
                 await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
 #endif
-                _logger.LogInfo($"City with Id {CityId} has been deleted in action DeleteCity for {UserName}");
-                return Ok($"City with Id {CityId} has been deleted in action DeleteCity for {UserName}");
+                _logger.LogInfo($"City with Id {CityId} has been deleted in action DeleteCity by {UserName}");
+                return Ok($"City with Id {CityId} has been deleted in action DeleteCity by {UserName}");
             }
             else
             {

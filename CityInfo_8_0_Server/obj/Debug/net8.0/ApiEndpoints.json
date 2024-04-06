@@ -137,100 +137,45 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
-    "Method": "Post",
+    "Method": "CreateCountry",
     "RelativePath": "api/Country",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "value",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
-    "Method": "Get",
-    "RelativePath": "api/Country/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
-    "Method": "Put",
-    "RelativePath": "api/Country/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "CountryDto_Object",
+        "Type": "Entities.DataTransferObjects.CountryForSaveDto",
         "IsRequired": true
       },
       {
-        "Name": "value",
+        "Name": "UserName",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
-    "Method": "Delete",
-    "RelativePath": "api/Country/{id}",
+    "Method": "DeleteCountry",
+    "RelativePath": "api/Country/DeleteCountry/{CountryId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "CountryId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
@@ -240,6 +185,53 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "GetCountry",
+    "RelativePath": "api/Country/GetCountry/{CountryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CountryController",
+    "Method": "UpdateCountry",
+    "RelativePath": "api/Country/UpdateCountry/{CountryId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CountryForUpdateDto_Object",
+        "Type": "Entities.DataTransferObjects.CountryForUpdateDto",
+        "IsRequired": true
+      },
       {
         "Name": "UserName",
         "Type": "System.String",
