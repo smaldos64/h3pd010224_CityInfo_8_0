@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "CityDto_Object",
-        "Type": "Entities.DataTransferObjects.CityForSaveWithCountryDto",
+        "Type": "Entities.DataTransferObjects.CityForSaveDto",
         "IsRequired": true
       },
       {
@@ -261,7 +261,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Entities.Models.LanguageDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Entities.DataTransferObjects.LanguageDto, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -317,7 +317,7 @@
     "Parameters": [
       {
         "Name": "CityDto_Object",
-        "Type": "Entities.DataTransferObjects.CityForSaveWithCountryDto",
+        "Type": "Entities.DataTransferObjects.CityForSaveDto",
         "IsRequired": true
       },
       {

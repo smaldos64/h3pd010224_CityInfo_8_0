@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities.Models;
+using Entities.DataTransferObjects;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using ServicesContracts;

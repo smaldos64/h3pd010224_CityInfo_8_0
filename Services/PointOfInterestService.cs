@@ -19,7 +19,6 @@ namespace Services
         public PointOfInterestService(IRepositoryWrapper repositoryWrapper)
         {
             this._repositoryWrapper = repositoryWrapper;
-            UtilityService.SetupMapsterConfiguration();
         }
 
         public async Task<ICommunicationResults> UpdatePointOfInterestListForCity(int CityId,

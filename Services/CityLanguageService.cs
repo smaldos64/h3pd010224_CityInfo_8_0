@@ -21,7 +21,6 @@ namespace Services
         public CityLanguageService(IRepositoryWrapper repositoryWrapper)
         {
             this._repositoryWrapper = repositoryWrapper;
-            UtilityService.SetupMapsterConfiguration();
         }
 
         public async Task<ICommunicationResults> UpdateCityLanguagesList(List<CityLanguageForSaveAndUpdateDto> CityLanguageForSaveAndUpdateDto_List,

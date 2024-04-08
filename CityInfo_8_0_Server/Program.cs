@@ -41,7 +41,9 @@ builder.Services.ConfigureRepositoryWrapper();
 builder.Services.ConfigureServiceLayerWrappers();
 
 // Mapster
-UtilityService.SetupMapsterConfiguration();
+//UtilityService.SetupMapsterConfiguration();
+// Med den nuværende konfiguration af DTO klasser er det ikke nødvendigt at
+// sætte noget overhovedet med hensyn til Mapster !!!
 // LTPE added above
 
 //Json 

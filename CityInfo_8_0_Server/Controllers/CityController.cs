@@ -75,7 +75,7 @@ namespace CityInfo_8_0_Server.Controllers
 
         // POST: api/City
         [HttpPost]
-        public async Task<IActionResult> CreateCity([FromBody] CityForSaveWithCountryDto CityDto_Object,
+        public async Task<IActionResult> CreateCity([FromBody] CityForSaveDto CityDto_Object,
                                                     string UserName = "No Name")
         {
             try

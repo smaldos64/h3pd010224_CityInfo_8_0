@@ -28,8 +28,6 @@ namespace Services
             this._repositoryWrapper = repositoryWrapper;
             this._cityLanguage = cityLanguage;
             this._pointOfInterestService = pointOfInterestService;
-
-            UtilityService.SetupMapsterConfiguration();
         }
 
         public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)

@@ -94,7 +94,7 @@ namespace CityInfo_8_0_Server.Controllers
                 else
                 {
                     CityDtos = MapHere(CityList.ToList());
-                }
+               }
                 _logger.LogInfo($"All Cities has been read from GetCities action by {UserName}");
                 return Ok(CityDtos);
             }
@@ -211,7 +211,7 @@ namespace CityInfo_8_0_Server.Controllers
 
         // POST: api/City
         [HttpPost("CreateCity")]
-        public async Task<IActionResult> CreateCity([FromBody] CityForSaveWithCountryDto CityDto_Object,
+        public async Task<IActionResult> CreateCity([FromBody] CityForSaveDto CityDto_Object,
                                                     string UserName = "No Name")
         {
             try
@@ -444,14 +444,20 @@ namespace CityInfo_8_0_Server.Controllers
                     CityDto_Object.PointsOfInterest.Add(PointOfInterestDto_Object);
                 }
 
-                CityDto_Object.CityLanguages = new List<LanguageDtoMinusRelations>();
+                //CityDto_Object.CityLanguages = new List<LanguageDtoMinusRelations>();
+                CityDto_Object.CityLanguages = new List<CityLanguageDtoMinusCityRelations>();
                 for (int CityLanguageCounter = 0;
                     CityLanguageCounter < Cities[Counter].CityLanguages.Count();
                     CityLanguageCounter++)
                 {
-                    LanguageDtoMinusRelations LanguageDto_Object = new LanguageDtoMinusRelations();
-                    LanguageDto_Object.LanguageId = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).LanguageId;
-                    LanguageDto_Object.LanguageName = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).Language.LanguageName;
+                    CityLanguageDtoMinusCityRelations LanguageDto_Object = new CityLanguageDtoMinusCityRelations();
+                    LanguageDto_Object.Language = new LanguageDtoMinusRelations();
+                    LanguageDto_Object.Language.LanguageId = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).LanguageId;
+                    LanguageDto_Object.Language.LanguageName = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).Language.LanguageName;
+
+                    //LanguageDtoMinusRelations LanguageDto_Object = new LanguageDtoMinusRelations();
+                    //LanguageDto_Object.LanguageId = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).LanguageId;
+                    ////LanguageDto_Object.LanguageName = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).Language.LanguageName;
 
                     CityDto_Object.CityLanguages.Add(LanguageDto_Object);
                 }

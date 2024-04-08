@@ -3,6 +3,7 @@ using Entities.DataTransferObjects;
 using Entities.Models;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
+using Services;
 using ServicesContracts;
 using System.Net;
 
@@ -41,6 +42,7 @@ namespace CityInfo_8_0_Server.Controllers
                 List<CountryDto> CountryDtos;
 
                 CountryDtos = CountryList.Adapt<CountryDto[]>().ToList();
+                //CountryDtos = UtilityService.MapCountryList(CountryList, true);
 
                 _logger.LogInfo($"All Countries has been read from GetCountries action by {UserName}");
                 return Ok(CountryDtos);

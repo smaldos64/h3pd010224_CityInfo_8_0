@@ -23,26 +23,26 @@ namespace Entities.Models
     }
 
     // DTO modeller
-    public class LanguageForSaveDto
-    {
-        [Required]
-        [MaxLength(100)]
-        //public virtual string LanguageName { get; set; }
-        public string LanguageName { get; set; }
-    }
+    //public class LanguageForSaveDto
+    //{
+    //    [Required]
+    //    [MaxLength(100)]
+    //    //public virtual string LanguageName { get; set; }
+    //    public string LanguageName { get; set; }
+    //}
 
-    public class LanguageForUpdateDto : LanguageForSaveDto
-    {
-        public int LanguageId { get; set; }
-    }
+    //public class LanguageForUpdateDto : LanguageForSaveDto
+    //{
+    //    public int LanguageId { get; set; }
+    //}
     
-    public class LanguageDtoMinusRelations : LanguageForUpdateDto
-    {
-    }
+    //public class LanguageDtoMinusRelations : LanguageForUpdateDto
+    //{
+    //}
 
-    public class LanguageDto : LanguageDtoMinusRelations
-    {
-        public ICollection<CityDto> CityLanguages { get; set; }
-              = new List<CityDto>();
-    }
+    //public class LanguageDto : LanguageDtoMinusRelations
+    //{
+    //    public ICollection<CityDto> CityLanguages { get; set; }
+    //          = new List<CityDto>();
+    //}
 }

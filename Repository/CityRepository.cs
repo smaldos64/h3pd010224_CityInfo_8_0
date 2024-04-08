@@ -19,15 +19,6 @@ namespace Repository
             }
         }
 
-        //public CityRepository(RepositoryWrapper repositoryWrapper, 
-        //                      DatabaseContext databaseContext) : base(databaseContext)
-        //{
-        //    if (null == databaseContext)
-        //    {
-        //        throw new ArgumentNullException(nameof(databaseContext));
-        //    }
-        //}
-
         public async Task<IEnumerable<City>> GetAllCitiesMockable(bool IncludeRelations = false)
         {
             if (false == IncludeRelations)

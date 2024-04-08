@@ -8,9 +8,9 @@ namespace CityInfo_8_0_Server.ViewModels
 {
     public class SaveCityWithAllRelations : CityWithAllRelations
     {
-        public CityForSaveWithCountryDto CityDto_Object { get; set; }
+        public CityForSaveDto CityDto_Object { get; set; }
 
-        public List<PointOfInterestForSaveWithCityDto> PointOfInterests { get; set; }
-            = new List<PointOfInterestForSaveWithCityDto>();
+        public List<PointOfInterestForSaveDto> PointOfInterests { get; set; }
+            = new List<PointOfInterestForSaveDto>();
     }
 }
