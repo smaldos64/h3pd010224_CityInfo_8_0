@@ -20,6 +20,8 @@ namespace Contracts
         Task AddCityLanguage(CityLanguage cityLanguage);
 
         Task<IEnumerable<CityLanguage>> GetAllCitiesWithLanguageId(int LanguageId);
+        
+        Task<IEnumerable<CityLanguage>> GetAllLanguagesWithCityId(int CityId);
 
         Task<CityLanguage> GetCityIdLanguageIdCombination(int CityId, int LanguageId);
 

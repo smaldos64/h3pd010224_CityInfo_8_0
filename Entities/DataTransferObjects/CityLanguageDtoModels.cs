@@ -24,11 +24,13 @@ namespace Entities.DataTransferObjects
 
     public class CityLanguageDtoMinusCityRelations
     {
+        public int LanguageId { get; set; }
         public LanguageDtoMinusRelations Language { get; set; }
     }
 
     public class CityLanguageDtoMinusLanguageRelations
     {
+        public int CityId { get; set; }
         public CityDtoMinusRelations City { get; set; }
     }
 }

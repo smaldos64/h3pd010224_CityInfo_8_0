@@ -83,6 +83,14 @@ namespace Repository
             return (collection.ToList());
         }
 
+        public async Task<IEnumerable<CityLanguage>> GetAllLanguagesWithCityId(int CityId)
+        {
+            var collection = await base.FindByCondition(l => l.CityId == CityId);
+            collection = collection.OrderByDescending(c => c.City.CityLanguages.Count).ThenBy(l => l.Language.LanguageName);
+
+            return (collection.ToList());
+        }
+
         public async Task<CityLanguage> GetCityIdLanguageIdCombination(int CityId, int LanguageId)
         {
             var CityLanguageItem = await base.FindByCondition(l => l.LanguageId == LanguageId &&

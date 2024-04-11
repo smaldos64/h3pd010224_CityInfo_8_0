@@ -16,18 +16,15 @@ namespace CityInfo_8_0_Server.Controllers
     {
         private IRepositoryWrapper _repositoryWrapper;
         private ILoggerManager _logger;
-        private ICityService _cityService;
 
 #if Use_Hub_Logic_On_ServerSide
         private readonly IHubContext<BroadcastHub> _broadcastHub;
 #endif
         public CityController(ILoggerManager logger,
-                              IRepositoryWrapper repositoryWrapper,
-                              ICityService cityService)
+                              IRepositoryWrapper repositoryWrapper)
         {
             this._logger = logger;
             this._repositoryWrapper = repositoryWrapper;
-            this._cityService = cityService;
         }
 
         [HttpGet("GetCities")]
@@ -50,7 +47,7 @@ namespace CityInfo_8_0_Server.Controllers
             catch (Exception Error)
             {
                 _logger.LogError($"Something went wrong inside GetCities action for {UserName} : {Error.Message}");
-                return StatusCode(500, $"Internal server error : {Error.ToString()}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
@@ -58,30 +55,38 @@ namespace CityInfo_8_0_Server.Controllers
         public async Task<IActionResult> GetCity(int CityId,
                                                  string UserName = "No Name")
         {
-            _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
-
-            City City_Object = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
-
-            if (null == City_Object)
+            try
             {
-                return NotFound();
+                _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
+
+                City City_Object = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
+
+                if (null == City_Object)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    CityDto CityDto_Object = City_Object.Adapt<CityDto>();
+                    return Ok(CityDto_Object);
+                }
             }
-            else
+            catch (Exception Error)
             {
-                CityDto CityDto_Object = City_Object.Adapt<CityDto>();
-                return Ok(CityDto_Object);
+                _logger.LogError($"Something went wrong inside GetCity action for {UserName} : {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
         // POST: api/City
         [HttpPost]
-        public async Task<IActionResult> CreateCity([FromBody] CityForSaveDto CityDto_Object,
+        public async Task<IActionResult> CreateCity([FromBody] CityForSaveDto CityForSaveDto_Object,
                                                     string UserName = "No Name")
         {
             try
             {
                 int NumberOfObjectsSaved = 0;
-                if (CityDto_Object.CityDescription == CityDto_Object.CityName)
+                if (CityForSaveDto_Object.CityDescription == CityForSaveDto_Object.CityName)
                 {
                     ModelState.AddModelError(
                         "Description",
@@ -94,7 +99,7 @@ namespace CityInfo_8_0_Server.Controllers
                     return BadRequest(ModelState);
                 }
 
-                City City_Object = CityDto_Object.Adapt<City>();
+                City City_Object = CityForSaveDto_Object.Adapt<City>();
 
                 await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
                 NumberOfObjectsSaved = await _repositoryWrapper.Save();
@@ -115,7 +120,7 @@ namespace CityInfo_8_0_Server.Controllers
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside Save City action for {UserName}: {Error.Message}");
+                _logger.LogError($"Something went wrong inside CreateCity action for {UserName}: {Error.Message}");
                 return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error for {UserName}");
             }
         }
@@ -126,9 +131,9 @@ namespace CityInfo_8_0_Server.Controllers
                                                     [FromBody] CityForUpdateDto CityForUpdateDto_Object,
                                                     string UserName = "No Name")
         {
-            int NumberOfObjectsUpdated = 0;
             try
             {
+                int NumberOfObjectsUpdated = 0;
 
                 if (CityId != CityForUpdateDto_Object.CityId)
                 {
@@ -149,18 +154,17 @@ namespace CityInfo_8_0_Server.Controllers
                     return BadRequest(ModelState);
                 }
 
-                City CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
+                City City_Object = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
 
-                if (null == CityFromRepo)
+                if (null == City_Object)
                 {
                     return NotFound();
                 }
 
-                TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
+                TypeAdapter.Adapt(CityForUpdateDto_Object, City_Object);
 
-                await _repositoryWrapper.CityRepositoryWrapper.Update(CityFromRepo);
+                await _repositoryWrapper.CityRepositoryWrapper.Update(City_Object);
 
-                //NumberOfObjectsUpdated = await _repositoryWrapper.CityRepositoryWrapper.Save();
                 NumberOfObjectsUpdated = await _repositoryWrapper.Save();
 
                 if (1 == NumberOfObjectsUpdated)
@@ -168,18 +172,18 @@ namespace CityInfo_8_0_Server.Controllers
 #if Use_Hub_Logic_On_ServerSide
                     await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
 #endif
-                    _logger.LogInfo($"City with Id : {CityFromRepo.CityId} has been updated by {UserName} !!!");
-                    return Ok($"City with Id : {CityFromRepo.CityId} has been updated by {UserName} !!!"); ;
+                    _logger.LogInfo($"City with Id : {City_Object.CityId} has been updated by {UserName} !!!");
+                    return Ok($"City with Id : {City_Object.CityId} has been updated by {UserName} !!!"); ;
                 }
                 else
                 {
-                    _logger.LogError($"Error when updating City with Id : {CityFromRepo.CityId} by {UserName} !!!");
-                    return BadRequest($"Error when updating City with Id : {CityFromRepo.CityId} by {UserName} !!!");
+                    _logger.LogError($"Error when updating City with Id : {City_Object.CityId} by {UserName} !!!");
+                    return BadRequest($"Error when updating City with Id : {City_Object.CityId} by {UserName} !!!");
                 }
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside Update City action for {UserName}: {Error.Message}");
+                _logger.LogError($"Something went wrong inside UpdateCity action for {UserName}: {Error.Message}");
                 return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
             }
         }
@@ -189,33 +193,40 @@ namespace CityInfo_8_0_Server.Controllers
         public async Task<IActionResult> DeleteCity(int CityId,
                                                     string UserName = "No Name")
         {
-            int NumberOfObjectsDeleted;
-
-            City CityFromRepo = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
-
-            if (null == CityFromRepo)
+            try
             {
-                _logger.LogError($"City with Id {CityId} not found inside action DeleteCity for {UserName}");
-                return NotFound();
-            }
+                int NumberOfObjectsDeleted;
 
-            await _repositoryWrapper.CityRepositoryWrapper.Delete(CityFromRepo);
+                City City_Object = await _repositoryWrapper.CityRepositoryWrapper.FindOne(CityId);
 
-            //NumberOfObjectsDeleted = await _repositoryWrapper.CityRepositoryWrapper.Save();
-            NumberOfObjectsDeleted = await _repositoryWrapper.Save();
+                if (null == City_Object)
+                {
+                    _logger.LogError($"City with Id {CityId} not found inside action DeleteCity for {UserName}");
+                    return NotFound();
+                }
 
-            if (1 == NumberOfObjectsDeleted)
-            {
+                await _repositoryWrapper.CityRepositoryWrapper.Delete(City_Object);
+
+                NumberOfObjectsDeleted = await _repositoryWrapper.Save();
+
+                if (1 == NumberOfObjectsDeleted)
+                {
 #if Use_Hub_Logic_On_ServerSide
                 await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
 #endif
-                _logger.LogInfo($"City with Id {CityId} has been deleted in action DeleteCity by {UserName}");
-                return Ok($"City with Id {CityId} has been deleted in action DeleteCity by {UserName}");
+                    _logger.LogInfo($"City with Id {CityId} has been deleted in action DeleteCity by {UserName}");
+                    return Ok($"City with Id {CityId} has been deleted in action DeleteCity by {UserName}");
+                }
+                else
+                {
+                    _logger.LogError($"Error when deleting City with Id : {City_Object.CityId} by {UserName} !!!");
+                    return BadRequest($"Error when deleting City with Id : {City_Object.CityId} by {UserName} !!!");
+                }
             }
-            else
+            catch (Exception Error)
             {
-                _logger.LogError($"Error when deleting City with Id : {CityFromRepo.CityId} by {UserName} !!!");
-                return BadRequest($"Error when deleting City with Id : {CityFromRepo.CityId} by {UserName} !!!");
+                _logger.LogError($"Something went wrong inside DeleteCity action for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
             }
         }
     }

@@ -17,7 +17,7 @@ namespace CityInfo_8_0_Server.Controllers
     {
         private IRepositoryWrapper _repositoryWrapper;
         private ILoggerManager _logger;
-        
+
 #if Use_Hub_Logic_On_ServerSide
         private readonly IHubContext<BroadcastHub> _broadcastHub;
 #endif
@@ -42,15 +42,14 @@ namespace CityInfo_8_0_Server.Controllers
                 List<CountryDto> CountryDtos;
 
                 CountryDtos = CountryList.Adapt<CountryDto[]>().ToList();
-                //CountryDtos = UtilityService.MapCountryList(CountryList, true);
 
                 _logger.LogInfo($"All Countries has been read from GetCountries action by {UserName}");
                 return Ok(CountryDtos);
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside GetCities action for {UserName} : {Error.Message}");
-                return StatusCode(500, $"Internal server error : {Error.ToString()}");
+                _logger.LogError($"Something went wrong inside GetCountries action for {UserName} : {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
@@ -58,18 +57,26 @@ namespace CityInfo_8_0_Server.Controllers
         public async Task<IActionResult> GetCountry(int CountryId,
                                                     string UserName = "No Name")
         {
-            _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
-
-            Country Country_Object = await _repositoryWrapper.CountryRepositoryWrapper.FindOne(CountryId);
-
-            if (null == Country_Object)
+            try
             {
-                return NotFound();
+                _repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
+
+                Country Country_Object = await _repositoryWrapper.CountryRepositoryWrapper.FindOne(CountryId);
+
+                if (null == Country_Object)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    CountryDto CountryDto_Object = Country_Object.Adapt<CountryDto>();
+                    return Ok(CountryDto_Object);
+                }
             }
-            else
+            catch (Exception Error)
             {
-                CountryDto CountryDto_Object = Country_Object.Adapt<CountryDto>();
-                return Ok(CountryDto_Object);
+                _logger.LogError($"Something went wrong inside GetCountry action for {UserName} : {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
@@ -81,7 +88,7 @@ namespace CityInfo_8_0_Server.Controllers
             try
             {
                 int NumberOfObjectsSaved = 0;
-                
+
                 if (!ModelState.IsValid)
                 {
                     _logger.LogError($"ModelState is Invalid for {UserName} in action CreateCountry");
@@ -109,7 +116,7 @@ namespace CityInfo_8_0_Server.Controllers
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside Save Country action for {UserName}: {Error.Message}");
+                _logger.LogError($"Something went wrong inside CreateCountry action for {UserName}: {Error.Message}");
                 return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error for {UserName}");
             }
         }
@@ -136,17 +143,17 @@ namespace CityInfo_8_0_Server.Controllers
                     return BadRequest(ModelState);
                 }
 
-                Country CountryFromRepo = await _repositoryWrapper.CountryRepositoryWrapper.FindOne(CountryId);
+                Country Country_Object = await _repositoryWrapper.CountryRepositoryWrapper.FindOne(CountryId);
 
-                if (null == CountryFromRepo)
+                if (null == Country_Object)
                 {
                     _logger.LogError($"CountryId {CountryId} not found in database for {UserName} in action UpdateCountry");
                     return NotFound();
                 }
 
-                TypeAdapter.Adapt(CountryForUpdateDto_Object, CountryFromRepo);
+                TypeAdapter.Adapt(CountryForUpdateDto_Object, Country_Object);
 
-                await _repositoryWrapper.CountryRepositoryWrapper.Update(CountryFromRepo);
+                await _repositoryWrapper.CountryRepositoryWrapper.Update(Country_Object);
 
                 NumberOfObjectsUpdated = await _repositoryWrapper.Save();
 
@@ -155,13 +162,13 @@ namespace CityInfo_8_0_Server.Controllers
 #if Use_Hub_Logic_On_ServerSide
                     await this._broadcastHub.Clients.All.SendAsync("UpdateCountryDataMessage");
 #endif
-                    _logger.LogInfo($"Country with Id : {CountryFromRepo.CountryID} has been updated by {UserName} !!!");
-                    return Ok($"Country with Id : {CountryFromRepo.CountryID} has been updated by {UserName} !!!"); ;
+                    _logger.LogInfo($"Country with Id : {Country_Object.CountryID} has been updated by {UserName} !!!");
+                    return Ok($"Country with Id : {Country_Object.CountryID} has been updated by {UserName} !!!"); ;
                 }
                 else
                 {
-                    _logger.LogError($"Error when updating Country with Id : {CountryFromRepo.CountryID} by {UserName} !!!");
-                    return BadRequest($"Error when updating Country with Id : {CountryFromRepo.CountryID} by {UserName} !!!");
+                    _logger.LogError($"Error when updating Country with Id : {Country_Object.CountryID} by {UserName} !!!");
+                    return BadRequest($"Error when updating Country with Id : {Country_Object.CountryID} by {UserName} !!!");
                 }
             }
             catch (Exception Error)
@@ -176,32 +183,40 @@ namespace CityInfo_8_0_Server.Controllers
         public async Task<IActionResult> DeleteCountry(int CountryId,
                                                        string UserName = "No Name")
         {
-            int NumberOfObjectsDeleted;
-
-            Country CountryFromRepo = await _repositoryWrapper.CountryRepositoryWrapper.FindOne(CountryId);
-
-            if (null == CountryFromRepo)
+            try
             {
-                _logger.LogError($"Country with Id {CountryId} not found inside action DeleteCountry for {UserName}");
-                return NotFound();
-            }
+                int NumberOfObjectsDeleted;
 
-            await _repositoryWrapper.CountryRepositoryWrapper.Delete(CountryFromRepo);
+                Country CountryFromRepo = await _repositoryWrapper.CountryRepositoryWrapper.FindOne(CountryId);
 
-            NumberOfObjectsDeleted = await _repositoryWrapper.Save();
+                if (null == CountryFromRepo)
+                {
+                    _logger.LogError($"Country with Id {CountryId} not found inside action DeleteCountry for {UserName}");
+                    return NotFound();
+                }
 
-            if (1 == NumberOfObjectsDeleted)
-            {
+                await _repositoryWrapper.CountryRepositoryWrapper.Delete(CountryFromRepo);
+
+                NumberOfObjectsDeleted = await _repositoryWrapper.Save();
+
+                if (1 == NumberOfObjectsDeleted)
+                {
 #if Use_Hub_Logic_On_ServerSide
                 await this._broadcastHub.Clients.All.SendAsync("UpdateCountryDataMessage");
 #endif
-                _logger.LogInfo($"Country with Id {CountryId} has been deleted in action DeleteCountry by {UserName}");
-                return Ok($"Country with Id {CountryId} has been deleted in action DeleteCountry by {UserName}");
+                    _logger.LogInfo($"Country with Id {CountryId} has been deleted in action DeleteCountry by {UserName}");
+                    return Ok($"Country with Id {CountryId} has been deleted in action DeleteCountry by {UserName}");
+                }
+                else
+                {
+                    _logger.LogError($"Error when deleting Country with Id : {CountryFromRepo.CountryID} by {UserName} !!!");
+                    return BadRequest($"Error when deleting Country with Id : {CountryFromRepo.CountryID} by {UserName} !!!");
+                }
             }
-            else
+            catch (Exception Error)
             {
-                _logger.LogError($"Error when deleting Country with Id : {CountryFromRepo.CountryID} by {UserName} !!!");
-                return BadRequest($"Error when deleting Country with Id : {CountryFromRepo.CountryID} by {UserName} !!!");
+                _logger.LogError($"Something went wrong inside DeleteCountry action for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
             }
         }
     }

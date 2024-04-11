@@ -1,25 +1,13 @@
-﻿using Mapster;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Logging;
-using Contracts;
-using ServicesContracts;
-using CityInfo_8_0_Server.Extensions;
+﻿using Contracts;
 using Entities.DataTransferObjects;
 using Entities.Models;
-using Services;
-
-#if Use_Hub_Logic_On_ServerSide
-using CityInf0_8_0_Server.Hubs;
-#endif
+using Mapster;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace CityInf0_8_0_Server.Controllers
+namespace CityInfo_8_0_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -27,199 +15,199 @@ namespace CityInf0_8_0_Server.Controllers
     {
         private IRepositoryWrapper _repositoryWrapper;
         private ILoggerManager _logger;
-        private IPointOfInterestService _pointOfInterestService;
 
 #if Use_Hub_Logic_On_ServerSide
         private readonly IHubContext<BroadcastHub> _broadcastHub;
 #endif
-
         public PointOfInterestController(ILoggerManager logger,
-                                         IRepositoryWrapper repositoryWrapper,
-                                         IPointOfInterestService pointOfInterestService)
+                                         IRepositoryWrapper repositoryWrapper)
         {
             this._logger = logger;
             this._repositoryWrapper = repositoryWrapper;
-            this._pointOfInterestService = pointOfInterestService;
         }
 
-        // PUT api/<PointOfInteresController>/5
-        [HttpPut("{CityId}")]
-        public async Task<IActionResult> UpdatePointOfInterestListForCity(int CityId,
-                                                                        [FromBody] List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
-                                                                        bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
-                                                                        string UserName = "No Name",
-                                                                        bool UseExtendedDatabaseDebugging = false)
+        [HttpGet("GetPointOfInterests")]
+        public async Task<IActionResult> GetPointOfInterests(string UserName = "No Name")
         {
             try
             {
-                ICommunicationResults CommunicationResults_Object;
+                IEnumerable<PointOfInterest> PointOfInterestList = new List<PointOfInterest>();
 
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
+                _repositoryWrapper.PointOfInterestRepositoryWrapper.EnableLazyLoading();
+                PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindAll();
 
-                CommunicationResults_Object = await _pointOfInterestService.UpdatePointOfInterestListForCity(CityId,
-                                                                                                PointOfInterestForUpdateDto_List,
-                                                                                                DeleteOldElementsInListNotSpecifiedInCurrentList,
-                                                                                                UserName,
-                                                                                                UseExtendedDatabaseDebugging);
+                List<PointOfInterestDto> PointOfInterestDtos;
 
-                if (CommunicationResults_Object.HasErrorOccured == true)
-                {
-                    _logger.LogError(CommunicationResults_Object.ResultString);
-                }
-                else
-                {
-                    _logger.LogInfo(CommunicationResults_Object.ResultString);
-                }
+                PointOfInterestDtos = PointOfInterestList.Adapt<PointOfInterestDto[]>().ToList();
 
-                return StatusCode(CommunicationResults_Object.HttpStatusCodeResult, CommunicationResults_Object.ResultString);
+                _logger.LogInfo($"All PointOfInterests has been read from GetPointOfInterests action by {UserName}");
+                return Ok(PointOfInterestDtos);
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside action UpdatePointOfInterestListForCity for {UserName}: {Error.Message}");
-                return StatusCode(500, "Internal server error for {UserName}");
+                _logger.LogError($"Something went wrong inside GetPointOfInterests action for {UserName} : {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
-        //        // GET: api/<PointOfInterestController>
-        //        [HttpGet]
-        //        //public async Task<IActionResult> PointOfInterestDto(bool includeRelations = false)
-        //        public async Task<ActionResult<IEnumerable<PointOfInterestDto>>> GetPointOfInterests(bool includeRelations = true,
-        //                                                                                             string UserName = "No Name")
-        //        {
-        //            if (false == includeRelations)
-        //            {
-        //                _repositoryWrapper.LanguageRepositoryWrapper.DisableLazyLoading();
-        //            }
-        //            else  // true == includeRelations 
-        //            {
-        //                _repositoryWrapper.LanguageRepositoryWrapper.EnableLazyLoading();
-        //            }
+        [HttpGet("GetPointOfInterest/{PointOfInterestsId}")]
+        public async Task<IActionResult> GetPointOfInterest(int PointOfInterestsId,
+                                                            string UserName = "No Name")
+        {
+            try
+            {
+                _repositoryWrapper.PointOfInterestRepositoryWrapper.EnableLazyLoading();
 
-        //            var PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindAll();
+                PointOfInterest PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestsId);
 
-        //            List<PointOfInterestDto> PointOfInterestDtos = PointOfInterestList.Adapt<PointOfInterestDto[]>().ToList();
+                if (null == PointOfInterest_Object)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    PointOfInterestDto PointOfInterestDto_Object = PointOfInterest_Object.Adapt<PointOfInterestDto>();
+                    return Ok(PointOfInterestDto_Object);
+                }
+            }
+            catch (Exception Error)
+            {
+                _logger.LogError($"Something went wrong inside GetPointOfInterest action for {UserName} : {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
+            }
+        }
 
-        //#if Test_Logging
-        //            this._logger.LogWarning(PointOfInterestControllerLoggingEventID, "Alle PointOfInterests læst af : " + UserName);
-        //#endif
+        // POST: api/PointOfInterest
+        [HttpPost]
+        public async Task<IActionResult> CreatePointOfInterest([FromBody] PointOfInterestForSaveDto PointOfInterestForSaveDto_Object,
+                                                                string UserName = "No Name")
+        {
+            try
+            {
+                int NumberOfObjectsSaved = 0;
+                
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError($"ModelState is Invalid for {UserName} in action CreatePointOfInterest");
+                    return BadRequest(ModelState);
+                }
 
-        //            return Ok(PointOfInterestDtos);
-        //        }
+                PointOfInterest PointOfInterest_Object = PointOfInterestForSaveDto_Object.Adapt<PointOfInterest>();
 
-        //        // GET api/<PointOfInterestController>/5
-        //        [HttpGet("{id}", Name = "GetPointOfInterest")]
-        //        //public async Task<IActionResult> GetPointOfInterest(int id, bool includeRelations = false)
-        //        public async Task<ActionResult<PointOfInterestDto>> GetPointOfInterest(int Id, 
-        //                                                                               bool includeRelations = true,
-        //                                                                               string UserName = "No Name")
-        //        {
-        //            if (false == includeRelations)
-        //            {
-        //                _repositoryWrapper.LanguageRepositoryWrapper.DisableLazyLoading();
-        //            }
-        //            else  // true == includeRelations 
-        //            {
-        //                _repositoryWrapper.LanguageRepositoryWrapper.EnableLazyLoading();
-        //            }
+                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
+                NumberOfObjectsSaved = await _repositoryWrapper.Save();
 
-        //            var PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(Id);
+#if Use_Hub_Logic_On_ServerSide
+        await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
+#endif
+                if (1 == NumberOfObjectsSaved)
+                {
+                    _logger.LogInfo($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been stored by {UserName} !!!");
+                    return Ok(PointOfInterest_Object.PointOfInterestId);
+                }
+                else
+                {
+                    _logger.LogError($"Error when saving PointOfInterest by {UserName} !!!");
+                    return BadRequest($"Error when saving PointOfInterest_Object by {UserName} !!!");
+                }
+            }
+            catch (Exception Error)
+            {
+                _logger.LogError($"Something went wrong inside CreatePointOfInterest action for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error for {UserName}");
+            }
+        }
 
-        //            PointOfInterestDto PointOfInterestDto_Object = new PointOfInterestDto();
+        // PUT: api/City/5
+        [HttpPut("UpdatePointOfInterest/{PointOfInterestId}")]
+        public async Task<IActionResult> UpdatePointOfInterest(int PointOfInterestId,
+                                                    [FromBody] PointOfInterestForUpdateDto PointOfInterestForUpdateDto_Object,
+                                                    string UserName = "No Name")
+        {
+            try
+            {
+                int NumberOfObjectsUpdated = 0;
 
-        //#if Test_Logging
-        //            this._logger.LogWarning(PointOfInterestControllerLoggingEventID, "PointOfInterest med PointOfInterestId : " + Id.ToString() + " læst af : " + UserName);
-        //#endif
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError($"ModelState is Invalid for {UserName} in action UpdatePointOfInterest");
+                    return BadRequest(ModelState);
+                }
 
-        //            return Ok(PointOfInterestDto_Object = PointOfInterest_Object.Adapt<PointOfInterestDto>());
-        //        }
+                PointOfInterest PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestId);
 
-        //        // POST api/<PointOfInteresController>
-        //        [HttpPost]
-        //        public async Task<IActionResult> AddPointOfInterest([FromBody] PointOfInterestForSaveWithCityDto PointOfInterestDto_Object,
-        //                                                            string UserName = "No Name")
-        //        {
-        //            if (!ModelState.IsValid)
-        //            {
-        //                return BadRequest(ModelState);
-        //            }
+                if (null == PointOfInterest_Object)
+                {
+                    return NotFound();
+                }
 
-        //            PointOfInterest PointOfInterest_Object = PointOfInterestDto_Object.Adapt<PointOfInterest>();
-        //            await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
-        //#if Use_Hub_Logic_On_ServerSide
-        //            await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-        //#endif
+                TypeAdapter.Adapt(PointOfInterestForUpdateDto_Object, PointOfInterest_Object);
 
-        //#if Test_Logging
-        //            this._logger.LogWarning(PointOfInterestControllerLoggingEventID, "PointOfInterest med PointOfInterestId : " + PointOfInterest_Object.PointOfInterestId.ToString() +
-        //                                    " og navn : " + PointOfInterest_Object.Name + " oprettet af : " + UserName);
-        //#endif
+                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Update(PointOfInterest_Object);
 
-        //            return Ok(PointOfInterest_Object.PointOfInterestId);
-        //        }
+                NumberOfObjectsUpdated = await _repositoryWrapper.Save();
 
-        //        // PUT api/<PointOfInteresController>/5
-        //        [HttpPut("{id}")]
-        //        public async Task<IActionResult> UpdatePointOfInterest(int Id, 
-        //                                                               [FromBody] PointOfInterestForUpdateDto PointOfInterestDto_Object,
-        //                                                               string UserName = "No Name")
-        //        {
-        //            if (!ModelState.IsValid)
-        //            {
-        //                return BadRequest(ModelState);
-        //            }
+                if (1 == NumberOfObjectsUpdated)
+                {
+#if Use_Hub_Logic_On_ServerSide
+                    await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
+#endif
+                    _logger.LogInfo($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been updated by {UserName} !!!");
+                    return Ok($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been updated by {UserName} !!!"); ;
+                }
+                else
+                {
+                    _logger.LogError($"Error when updating PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} by {UserName} !!!");
+                    return BadRequest($"Error when updating PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} by {UserName} !!!");
+                }
+            }
+            catch (Exception Error)
+            {
+                _logger.LogError($"Something went wrong inside UpdatePointOfInterest action for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
+            }
+        }
 
-        //            var PointOfInterestFromRepo = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(Id);
+        // DELETE: api/5
+        [HttpDelete("DeletePointOfInterest/{PointOfInterestId}")]
+        public async Task<IActionResult> DeletePointOfInterest(int PointOfInterestId,
+                                                               string UserName = "No Name")
+        {
+            try
+            {
+                int NumberOfObjectsDeleted;
 
-        //            if (null == PointOfInterestFromRepo)
-        //            {
-        //                return NotFound();
-        //            }
+                PointOfInterest PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestId);
 
-        //            if (PointOfInterestFromRepo.CloneData<PointOfInterest>(PointOfInterestDto_Object))
-        //            {
-        //                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Update(PointOfInterestFromRepo);
-        //#if Use_Hub_Logic_On_ServerSide
-        //                await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-        //#endif
+                if (null == PointOfInterest_Object)
+                {
+                    _logger.LogError($"PointOfInterest with Id {PointOfInterestId} not found inside action DeletePointOfInterest for {UserName}");
+                    return NotFound();
+                }
 
-        //#if Test_Logging
-        //                this._logger.LogWarning(PointOfInterestControllerLoggingEventID, "PointOfInterest med PointOfInterestId : " + PointOfInterestDto_Object.PointOfInterestId.ToString() + " ændret til (Name) : " +
-        //                                        PointOfInterestDto_Object.Name + " (Description) : " +
-        //                                        PointOfInterestDto_Object.Description + " (CityId) : " +
-        //                                        PointOfInterestDto_Object.CityId + " ændret af : " + UserName);
-        //#endif
-        //            }
+                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Delete(PointOfInterest_Object);
 
-        //            return NoContent();
-        //        }
+                NumberOfObjectsDeleted = await _repositoryWrapper.Save();
 
-        //        // DELETE api/<PointOfInterestController>/5
-        //        [HttpDelete("{id}")]
-        //        public async Task<IActionResult> DeletePointOfInterest(int Id,
-        //                                                               string UserName = "No Name")
-        //        {
-        //            _repositoryWrapper.CityInfoRepositoryWrapper.DisableLazyLoading();
-
-        //            var PointOfInterestFromRepo = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(Id);
-
-        //            if (null == PointOfInterestFromRepo)
-        //            {
-        //                return NotFound();
-        //            }
-
-        //            await _repositoryWrapper.PointOfInterestRepositoryWrapper.Delete(PointOfInterestFromRepo);
-        //#if Use_Hub_Logic_On_ServerSide
-        //            await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-        //#endif
-
-        //#if Test_Logging
-        //            this._logger.LogWarning(PointOfInterestControllerLoggingEventID, "PointOfInterest med PointOfInterestId : " + Id.ToString() + " slettet af : " + UserName);
-        //#endif
-
-        //            return NoContent();
-        //        }
+                if (1 == NumberOfObjectsDeleted)
+                {
+#if Use_Hub_Logic_On_ServerSide
+                await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
+#endif
+                    _logger.LogInfo($"PointOfInterest with Id {PointOfInterestId} has been deleted in action DeletePointOfInterestId by {UserName}");
+                    return Ok($"PointOfInterest with Id {PointOfInterestId} has been deleted in action DeletePointOfInterestId by {UserName}");
+                }
+                else
+                {
+                    _logger.LogError($"Error when deleting PointOfInterest with Id : {PointOfInterestId} by {UserName} !!!");
+                    return BadRequest($"Error when deleting PointOfInterest with Id : {PointOfInterestId} by {UserName} !!!");
+                }
+            }
+            catch (Exception Error)
+            {
+                _logger.LogError($"Something went wrong inside DeletePointOfInterest action for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
+            }
+        }
     }
 }

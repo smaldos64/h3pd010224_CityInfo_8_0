@@ -8,7 +8,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "CityDto_Object",
+        "Name": "CityForSaveDto_Object",
         "Type": "Entities.DataTransferObjects.CityForSaveDto",
         "IsRequired": true
       },
@@ -106,8 +106,66 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "GetCitiesWithLanguageId",
+    "RelativePath": "api/CityLanguage/GetCitiesWithLanguageId/{languageId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "languageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "GetCiyLanguages",
+    "RelativePath": "api/CityLanguage/GetCiyLanguages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "GetLanguagesWithCityId",
+    "RelativePath": "api/CityLanguage/GetLanguagesWithCityId/{CityId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageEducationController",
     "Method": "UpdateCityLanguagesList",
-    "RelativePath": "api/CityLanguage/UpdateCityLanguagesList",
+    "RelativePath": "api/CityLanguageEducation/UpdateCityLanguagesList",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -242,8 +300,113 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageController",
-    "Method": "GetLanguages",
+    "Method": "CreateLanguage",
     "RelativePath": "api/Language",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "LanguageForSaveDto_Object",
+        "Type": "Entities.DataTransferObjects.LanguageForSaveDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageController",
+    "Method": "DeleteLanguage",
+    "RelativePath": "api/Language/DeleteLanguage/{LanguageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "LanguageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageController",
+    "Method": "GetLanguage",
+    "RelativePath": "api/Language/GetLanguage/{LanguageId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "LanguageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageController",
+    "Method": "GetLanguages",
+    "RelativePath": "api/Language/GetLanguages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageController",
+    "Method": "UpdateLanguage",
+    "RelativePath": "api/Language/UpdateLanguage/{LanguageId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "LanguageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "LanguageForUpdateDto_Object",
+        "Type": "Entities.DataTransferObjects.LanguageForUpdateDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.LanguageEducationController",
+    "Method": "GetLanguages",
+    "RelativePath": "api/LanguageEducation",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -272,9 +435,114 @@
     ]
   },
   {
-    "ContainingType": "CityInf0_8_0_Server.Controllers.PointOfInterestController",
+    "ContainingType": "CityInfo_8_0_Server.Controllers.PointOfInterestController",
+    "Method": "CreatePointOfInterest",
+    "RelativePath": "api/PointOfInterest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PointOfInterestForSaveDto_Object",
+        "Type": "Entities.DataTransferObjects.PointOfInterestForSaveDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.PointOfInterestController",
+    "Method": "DeletePointOfInterest",
+    "RelativePath": "api/PointOfInterest/DeletePointOfInterest/{PointOfInterestId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PointOfInterestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.PointOfInterestController",
+    "Method": "GetPointOfInterest",
+    "RelativePath": "api/PointOfInterest/GetPointOfInterest/{PointOfInterestsId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PointOfInterestsId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.PointOfInterestController",
+    "Method": "GetPointOfInterests",
+    "RelativePath": "api/PointOfInterest/GetPointOfInterests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.PointOfInterestController",
+    "Method": "UpdatePointOfInterest",
+    "RelativePath": "api/PointOfInterest/UpdatePointOfInterest/{PointOfInterestId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PointOfInterestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PointOfInterestForUpdateDto_Object",
+        "Type": "Entities.DataTransferObjects.PointOfInterestForUpdateDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInf0_8_0_Server.Controllers.PointOfInterestEducationController",
     "Method": "UpdatePointOfInterestListForCity",
-    "RelativePath": "api/PointOfInterest/{CityId}",
+    "RelativePath": "api/PointOfInterestEducation/{CityId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
