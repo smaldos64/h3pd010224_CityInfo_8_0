@@ -104,11 +104,11 @@ namespace CityInfo_8_0_Server.Controllers
                 await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
                 NumberOfObjectsSaved = await _repositoryWrapper.Save();
 
-#if Use_Hub_Logic_On_ServerSide
-        await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
-#endif
                 if (1 == NumberOfObjectsSaved)
                 {
+#if Use_Hub_Logic_On_ServerSide
+                    await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
+#endif
                     _logger.LogInfo($"City with Id : {City_Object.CityId} has been stored by {UserName} !!!");
                     return Ok(City_Object.CityId);
                 }

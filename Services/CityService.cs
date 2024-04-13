@@ -42,7 +42,6 @@ namespace Services
             try
             {
                 await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-                //NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
                 NumberOfObjectsChanged = await _repositoryWrapper.Save();
 
                 return (NumberOfObjectsChanged);
@@ -60,7 +59,6 @@ namespace Services
             try
             {
                 await _repositoryWrapper.CityRepositoryWrapper.Create(City_Object);
-                //NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
                 NumberOfObjectsChanged = await _repositoryWrapper.Save();
 
                 return (NumberOfObjectsChanged);
@@ -94,7 +92,6 @@ namespace Services
 
             TypeAdapter.Adapt(CityForUpdateDto_Object, CityFromRepo);
 
-            //NumberOfObjectsChanged = await _repositoryWrapper.CityRepositoryWrapper.Save();
             NumberOfObjectsChanged = await _repositoryWrapper.Save();
 
 

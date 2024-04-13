@@ -106,6 +106,27 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "CreateCityLanguage",
+    "RelativePath": "api/CityLanguage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityLanguageForSaveDto_Object",
+        "Type": "Entities.DataTransferObjects.CityLanguageForSaveDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
     "Method": "GetCitiesWithLanguageId",
     "RelativePath": "api/CityLanguage/GetCitiesWithLanguageId/{languageId}",
     "HttpMethod": "GET",
@@ -114,6 +135,32 @@
     "Parameters": [
       {
         "Name": "languageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "GetCityLanguageWithLanguageIdAndCityId",
+    "RelativePath": "api/CityLanguage/GetCityLanguageWithLanguageIdAndCityId/{CityId}/{LanguageId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "LanguageId",
         "Type": "System.Int32",
         "IsRequired": true
       },
@@ -152,6 +199,37 @@
       {
         "Name": "CityId",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "UpdateCityLanguage",
+    "RelativePath": "api/CityLanguage/UpdateCityLanguage/{OldCityId}/{OldLanguageId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OldCityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "OldLanguageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CityLanguageForUpdateDto_Object",
+        "Type": "Entities.DataTransferObjects.CityLanguageForUpdateDto",
         "IsRequired": true
       },
       {

@@ -72,7 +72,6 @@ namespace Services
 
                             if (UseExtendedDatabaseDebugging)
                             {
-                                //NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
                                 NumberOfObjectsChanged = await _repositoryWrapper.Save();
 
                                 if (1 != NumberOfObjectsChanged)
@@ -104,7 +103,6 @@ namespace Services
 
                         if (UseExtendedDatabaseDebugging)
                         {
-                            //NumberOfObjectsChanged = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
                             NumberOfObjectsChanged = await _repositoryWrapper.Save();
                             if (1 != NumberOfObjectsChanged)
                             {
@@ -119,7 +117,6 @@ namespace Services
 
                 if (!UseExtendedDatabaseDebugging)
                 {
-                    //NumberOfObjectsActuallySaved = await _repositoryWrapper.CityLanguageRepositoryWrapper.Save();
                     NumberOfObjectsActuallySaved = await _repositoryWrapper.Save();
 
                     if (NumberOfObjectsActuallySaved != CommunicationResults_Object.NumberOfObjetsChanged)

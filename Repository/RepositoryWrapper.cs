@@ -23,6 +23,11 @@ namespace Repository
             this._databaseContext = databaseContext;
         }
 
+        public DatabaseContext GetCurrentDatabaseContext()
+        {
+           return (this._databaseContext);
+        }
+
         public ICityRepository CityRepositoryWrapper
         {
             get
