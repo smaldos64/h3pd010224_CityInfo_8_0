@@ -127,6 +127,32 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
+    "Method": "DeleteCity",
+    "RelativePath": "api/CityLanguage/DeleteCityLanguage/{CityId}/{LanguageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "LanguageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityLanguageController",
     "Method": "GetCitiesWithLanguageId",
     "RelativePath": "api/CityLanguage/GetCitiesWithLanguageId/{languageId}",
     "HttpMethod": "GET",

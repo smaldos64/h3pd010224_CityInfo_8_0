@@ -33,19 +33,19 @@ namespace CityInfo_8_0_Server.Controllers
             {
                 IEnumerable<PointOfInterest> PointOfInterestList = new List<PointOfInterest>();
 
-                _repositoryWrapper.PointOfInterestRepositoryWrapper.EnableLazyLoading();
-                PointOfInterestList = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindAll();
+                this._repositoryWrapper.PointOfInterestRepositoryWrapper.EnableLazyLoading();
+                PointOfInterestList = await this._repositoryWrapper.PointOfInterestRepositoryWrapper.FindAll();
 
                 List<PointOfInterestDto> PointOfInterestDtos;
 
                 PointOfInterestDtos = PointOfInterestList.Adapt<PointOfInterestDto[]>().ToList();
 
-                _logger.LogInfo($"All PointOfInterests has been read from GetPointOfInterests action by {UserName}");
+                this._logger.LogInfo($"All PointOfInterests has been read from GetPointOfInterests action by {UserName}");
                 return Ok(PointOfInterestDtos);
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside GetPointOfInterests action for {UserName} : {Error.Message}");
+                this._logger.LogError($"Something went wrong inside GetPointOfInterests action for {UserName} : {Error.Message}");
                 return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
@@ -56,9 +56,9 @@ namespace CityInfo_8_0_Server.Controllers
         {
             try
             {
-                _repositoryWrapper.PointOfInterestRepositoryWrapper.EnableLazyLoading();
+                this._repositoryWrapper.PointOfInterestRepositoryWrapper.EnableLazyLoading();
 
-                PointOfInterest PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestsId);
+                PointOfInterest PointOfInterest_Object = await this._repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestsId);
 
                 if (null == PointOfInterest_Object)
                 {
@@ -86,39 +86,33 @@ namespace CityInfo_8_0_Server.Controllers
             {
                 int NumberOfObjectsSaved = 0;
                 
-                if (!ModelState.IsValid)
-                {
-                    _logger.LogError($"ModelState is Invalid for {UserName} in action CreatePointOfInterest");
-                    return BadRequest(ModelState);
-                }
-
                 PointOfInterest PointOfInterest_Object = PointOfInterestForSaveDto_Object.Adapt<PointOfInterest>();
 
-                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
-                NumberOfObjectsSaved = await _repositoryWrapper.Save();
+                await this._repositoryWrapper.PointOfInterestRepositoryWrapper.Create(PointOfInterest_Object);
+                NumberOfObjectsSaved = await this._repositoryWrapper.Save();
 
-#if Use_Hub_Logic_On_ServerSide
-        await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
-#endif
                 if (1 == NumberOfObjectsSaved)
                 {
-                    _logger.LogInfo($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been stored by {UserName} !!!");
+#if Use_Hub_Logic_On_ServerSide
+                    await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
+#endif
+                    this._logger.LogInfo($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been stored by {UserName} !!!");
                     return Ok(PointOfInterest_Object.PointOfInterestId);
                 }
                 else
                 {
-                    _logger.LogError($"Error when saving PointOfInterest by {UserName} !!!");
+                    this._logger.LogError($"Error when saving PointOfInterest by {UserName} !!!");
                     return BadRequest($"Error when saving PointOfInterest_Object by {UserName} !!!");
                 }
             }
             catch (Exception Error)
             {
                 _logger.LogError($"Something went wrong inside CreatePointOfInterest action for {UserName}: {Error.Message}");
-                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error for {UserName}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
-        // PUT: api/City/5
+        // PUT: api/PointOfInterest/5
         [HttpPut("UpdatePointOfInterest/{PointOfInterestId}")]
         public async Task<IActionResult> UpdatePointOfInterest(int PointOfInterestId,
                                                     [FromBody] PointOfInterestForUpdateDto PointOfInterestForUpdateDto_Object,
@@ -128,13 +122,7 @@ namespace CityInfo_8_0_Server.Controllers
             {
                 int NumberOfObjectsUpdated = 0;
 
-                if (!ModelState.IsValid)
-                {
-                    _logger.LogError($"ModelState is Invalid for {UserName} in action UpdatePointOfInterest");
-                    return BadRequest(ModelState);
-                }
-
-                PointOfInterest PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestId);
+                PointOfInterest PointOfInterest_Object = await this._repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestId);
 
                 if (null == PointOfInterest_Object)
                 {
@@ -143,32 +131,32 @@ namespace CityInfo_8_0_Server.Controllers
 
                 TypeAdapter.Adapt(PointOfInterestForUpdateDto_Object, PointOfInterest_Object);
 
-                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Update(PointOfInterest_Object);
+                await this._repositoryWrapper.PointOfInterestRepositoryWrapper.Update(PointOfInterest_Object);
 
-                NumberOfObjectsUpdated = await _repositoryWrapper.Save();
+                NumberOfObjectsUpdated = await this._repositoryWrapper.Save();
 
                 if (1 == NumberOfObjectsUpdated)
                 {
 #if Use_Hub_Logic_On_ServerSide
                     await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
 #endif
-                    _logger.LogInfo($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been updated by {UserName} !!!");
+                    this._logger.LogInfo($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been updated by {UserName} !!!");
                     return Ok($"PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} has been updated by {UserName} !!!"); ;
                 }
                 else
                 {
-                    _logger.LogError($"Error when updating PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} by {UserName} !!!");
+                    this._logger.LogError($"Error when updating PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} by {UserName} !!!");
                     return BadRequest($"Error when updating PointOfInterest with Id : {PointOfInterest_Object.PointOfInterestId} by {UserName} !!!");
                 }
             }
             catch (Exception Error)
             {
                 _logger.LogError($"Something went wrong inside UpdatePointOfInterest action for {UserName}: {Error.Message}");
-                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
 
-        // DELETE: api/5
+        // DELETE: api/PointOfInterest/5
         [HttpDelete("DeletePointOfInterest/{PointOfInterestId}")]
         public async Task<IActionResult> DeletePointOfInterest(int PointOfInterestId,
                                                                string UserName = "No Name")
@@ -177,36 +165,36 @@ namespace CityInfo_8_0_Server.Controllers
             {
                 int NumberOfObjectsDeleted;
 
-                PointOfInterest PointOfInterest_Object = await _repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestId);
+                PointOfInterest PointOfInterest_Object = await this._repositoryWrapper.PointOfInterestRepositoryWrapper.FindOne(PointOfInterestId);
 
                 if (null == PointOfInterest_Object)
                 {
-                    _logger.LogError($"PointOfInterest with Id {PointOfInterestId} not found inside action DeletePointOfInterest for {UserName}");
+                    this._logger.LogError($"PointOfInterest with Id {PointOfInterestId} not found inside action DeletePointOfInterest for {UserName}");
                     return NotFound();
                 }
 
-                await _repositoryWrapper.PointOfInterestRepositoryWrapper.Delete(PointOfInterest_Object);
+                await this._repositoryWrapper.PointOfInterestRepositoryWrapper.Delete(PointOfInterest_Object);
 
-                NumberOfObjectsDeleted = await _repositoryWrapper.Save();
+                NumberOfObjectsDeleted = await this._repositoryWrapper.Save();
 
                 if (1 == NumberOfObjectsDeleted)
                 {
 #if Use_Hub_Logic_On_ServerSide
-                await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
+                    await this._broadcastHub.Clients.All.SendAsync("UpdatePointOfInterestDataMessage");
 #endif
-                    _logger.LogInfo($"PointOfInterest with Id {PointOfInterestId} has been deleted in action DeletePointOfInterestId by {UserName}");
+                    this._logger.LogInfo($"PointOfInterest with Id {PointOfInterestId} has been deleted in action DeletePointOfInterestId by {UserName}");
                     return Ok($"PointOfInterest with Id {PointOfInterestId} has been deleted in action DeletePointOfInterestId by {UserName}");
                 }
                 else
                 {
-                    _logger.LogError($"Error when deleting PointOfInterest with Id : {PointOfInterestId} by {UserName} !!!");
+                    this._logger.LogError($"Error when deleting PointOfInterest with Id : {PointOfInterestId} by {UserName} !!!");
                     return BadRequest($"Error when deleting PointOfInterest with Id : {PointOfInterestId} by {UserName} !!!");
                 }
             }
             catch (Exception Error)
             {
-                _logger.LogError($"Something went wrong inside DeletePointOfInterest action for {UserName}: {Error.Message}");
-                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
+                this._logger.LogError($"Something went wrong inside DeletePointOfInterest action for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
             }
         }
     }
