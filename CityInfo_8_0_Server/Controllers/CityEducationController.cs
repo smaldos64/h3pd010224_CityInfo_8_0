@@ -257,6 +257,56 @@ namespace CityInfo_8_0_Server.Controllers
             }
         }
 
+        [HttpPost("CreateCityWithAllRelations")]
+        public async Task<IActionResult> CreateCityWithAllRelations([FromBody] SaveCityWithAllRelations SaveCityWithAllRelations_Object,
+                                                                    bool UseExtendedDatabaseDebugging = false,
+                                                                    string UserName = "No Name")
+        {
+            try
+            {
+                ICommunicationResults CommunicationResults_Object;
+
+                if (SaveCityWithAllRelations_Object.CityDto_Object.CityDescription ==
+                    SaveCityWithAllRelations_Object.CityDto_Object.CityName)
+                {
+                    ModelState.AddModelError(
+                        "Description",
+                        "The provided description should be different from the name.");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError($"ModelState is Invalid for {UserName} in action CreateCityWithAllRelations");
+                    return BadRequest(ModelState);
+                }
+
+                CommunicationResults_Object = await _cityService.SaveCityWithAllInfo(SaveCityWithAllRelations_Object.CityDto_Object,
+                                                                                     SaveCityWithAllRelations_Object.PointOfInterests,
+                                                                                     SaveCityWithAllRelations_Object.CityLanguages,
+                                                                                     UserName,
+                                                                                     UseExtendedDatabaseDebugging);
+
+                if (CommunicationResults_Object.HasErrorOccured == true)
+                {
+                    _logger.LogError(CommunicationResults_Object.ResultString);
+                }
+                else
+                {
+#if Use_Hub_Logic_On_ServerSide
+                    await this._broadcastHub.Clients.All.SendAsync("UpdateCityDataMessage");
+#endif
+                    _logger.LogInfo(CommunicationResults_Object.ResultString);
+                }
+
+                return StatusCode(CommunicationResults_Object.HttpStatusCodeResult, CommunicationResults_Object.ResultString);
+            }
+            catch (Exception Error)
+            {
+                _logger.LogError($"Something went wrong inside action CreateCityWithAllRelations for {UserName}: {Error.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Internal server error for {UserName}");
+            }
+        }
+
         // PUT: api/City/5
         [HttpPut("UpdateCity/{CityId}")]
         public async Task<IActionResult> UpdateCity(int CityId,
