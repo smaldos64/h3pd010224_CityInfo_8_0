@@ -10,7 +10,7 @@ using System.Net;
 namespace CityInfo_8_0_Server.Controllers
 {
     // Koden her skal bruges til at lave en fuld generisk Controller. Jeg er lige startet
-    // på at lave koden spm i lige startet. Planen er, at koden i controlleren her er 
+    // på at lave koden som i lige startet. Planen er, at koden i controlleren her er 
     // færdig og fuldt funktinsdygtig i løbet af et par SW releases.
 
     [Route("api/[controller]")]

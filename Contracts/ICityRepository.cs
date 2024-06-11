@@ -22,5 +22,7 @@ namespace Contracts
         Task<IEnumerable<City>> GetSpecifiedNumberOfCities(int NumberOfCities = 5,
                                                            bool IncludeRelations = false,
                                                            bool UseIQueryable = false);
+
+        Task<IEnumerable<City>> GetCitiesInCountry(int CountryId);
     }
 }

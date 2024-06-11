@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Lars\h3pd010124\CityInfo_8_0\Publish</_PublishTargetUrl>
-    <History>True|2024-01-23T21:20:17.3539935Z;True|2024-01-23T22:17:36.5611333+01:00;</History>
+    <History>True|2024-06-11T07:34:26.1395405Z||;True|2024-06-04T12:36:52.3828450+02:00||;True|2024-05-01T12:03:38.6154146+02:00||;True|2024-01-23T22:20:17.3539935+01:00||;True|2024-01-23T22:17:36.5611333+01:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

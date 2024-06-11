@@ -9,86 +9,78 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class CityRepository : RepositoryBase<City>, ICityRepository
+  public class CityRepository : RepositoryBase<City>, ICityRepository
+  {
+    public CityRepository(DatabaseContext databaseContext) : base(databaseContext)
     {
-        public CityRepository(DatabaseContext databaseContext) : base(databaseContext)
+      if (null == databaseContext)
+      {
+        throw new ArgumentNullException(nameof(databaseContext));
+      }
+    }
+
+    public async Task<IEnumerable<City>> GetAllCitiesMockable(bool IncludeRelations = false)
+    {
+      if (false == IncludeRelations)
+      {
+        var collection = await (base.FindAll());
+        return (collection);
+      }
+      else
+      {
+        var collection = await base.databaseContext.Core_8_0_Cities.
+        Include(c => c.PointsOfInterest).
+        Include(co => co.Country).
+        Include(c => c.CityLanguages).
+        ThenInclude(l => l.Language).ToListAsync();
+        return (collection);
+      }
+    }
+
+    public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)
+    {
+      if (false == IncludeRelations)
+      {
+        try
         {
-            if (null == databaseContext)
-            {
-                throw new ArgumentNullException(nameof(databaseContext));
-            }
+          var collection = await (base.FindAll());
+          return (collection);
         }
-
-        public async Task<IEnumerable<City>> GetAllCitiesMockable(bool IncludeRelations = false)
+        catch (Exception Error)
         {
-            if (false == IncludeRelations)
-            {
-                var collection = await (base.FindAll());
-                //collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-                return (collection);
-            }
-            else
-            {
-                var collection = await base.databaseContext.Core_8_0_Cities.
-                Include(c => c.PointsOfInterest).
-                Include(co => co.Country).
-                Include(c => c.CityLanguages).
-                ThenInclude(l => l.Language).ToListAsync();
-
-                //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-                return (collection);
-            }
+          string ErrorString = Error.ToString();
+          return null;
         }
+      }
+      else
+      {
+        var collection = await base.databaseContext.Core_8_0_Cities.
+        Include(c => c.PointsOfInterest).
+        Include(co => co.Country).
+        Include(c => c.CityLanguages).
+        ThenInclude(l => l.Language).ToListAsync();
+        return (collection);
+      }
+    }
 
-        public async Task<IEnumerable<City>> GetAllCities(bool IncludeRelations = false)
-        {
-            if (false == IncludeRelations)
-            {
-                try
-                {
-                    var collection = await (base.FindAll());
-                    //collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-                    return (collection);
-                }
-                catch (Exception Error)
-                {
-                    string ErrorString = Error.ToString();
-                    return null;
-                }
-            }
-            else
-            {
-                var collection = await base.databaseContext.Core_8_0_Cities.
-                Include(c => c.PointsOfInterest).
-                Include(co => co.Country).
-                Include(c => c.CityLanguages).
-                ThenInclude(l => l.Language).ToListAsync();
+    public async Task<City> GetCity(int CityId, bool IncludeRelations = false)
+    {
+      if (false == IncludeRelations)
+      {
+        var City_Object = await base.FindOne(CityId);
+        return (City_Object);
+      }
+      else
+      {
+        var City_Object = await base.databaseContext.Core_8_0_Cities.Include(c => c.PointsOfInterest).
+        Include(c => c.PointsOfInterest).
+        Include(c => c.CityLanguages).
+        ThenInclude(l => l.Language).
+        FirstOrDefaultAsync(c => c.CityId == CityId);
 
-                //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-                return (collection);
-            }
-            //return await GetAllCitiesMockable(IncludeRelations);
-        }
-
-        public async Task<City> GetCity(int CityId, bool IncludeRelations = false)
-        {
-            if (false == IncludeRelations)
-            {
-                var City_Object = await base.FindOne(CityId);
-                return (City_Object);
-            }
-            else
-            {
-                //var City_Object = base.FindAll().Where(c => c.Id == CityId).
-                var City_Object = await base.databaseContext.Core_8_0_Cities.Include(c => c.PointsOfInterest).
-                Include(c => c.PointsOfInterest).
-                Include(c => c.CityLanguages).
-                ThenInclude(l => l.Language).
-                FirstOrDefaultAsync(c => c.CityId == CityId);
-
-                return (City_Object);
-            }
-        }
+        return (City_Object);
+      }
+    }
 
 #if OLD_IMPLEMENTATION
         public Async Task <IEnumerable<City>> GetCitiesFromLanguages(int languageID)
@@ -96,43 +88,45 @@ namespace Repository
             return RepositoryContext.Cities.Include(x => x.CityLanguages).ThenInclude(x => x.Language).Include(x => x.PointsOfInterest).Where(x => x.CityLanguages.Any(cl => cl.LanguageId == languageID));
         }
 #else
-        public async Task<IEnumerable<City>> GetCitiesFromLanguageID(int languageID)
-        {
-            var collection = await base.FindByCondition(x => x.CityLanguages.Any(cl => cl.LanguageId == languageID));
+    public async Task<IEnumerable<City>> GetCitiesFromLanguageID(int languageID)
+    {
+      var collection = await base.FindByCondition(x => x.CityLanguages.Any(cl => cl.LanguageId == languageID));
 
-            collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-            
-            return (collection.ToList());
-        }
+      collection = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
+
+      return (collection.ToList());
+    }
 #endif
-      public async Task<IEnumerable<City>> GetSpecifiedNumberOfCities(int NumberOfCities = 5,
-                                                                      bool IncludeRelations = false,
-                                                                      bool UseIQueryable = false)
+    public async Task<IEnumerable<City>> GetSpecifiedNumberOfCities(int NumberOfCities = 5,
+                                                                    bool IncludeRelations = false,
+                                                                    bool UseIQueryable = false)
+    {
+      IEnumerable<City> CityList = new List<City>();
+      IEnumerable<City> CityListToReturn = new List<City>();
+
+      if (false == IncludeRelations)
       {
-        IEnumerable<City> CityList = new List<City>();
-        IEnumerable<City> CityListToReturn = new List<City>();
-
-        if (false == IncludeRelations)
-        {
-          CityList = await base.FindByCondition(c => c.CityId > 0, UseIQueryable);
-          CityListToReturn = CityList.Take(NumberOfCities);
-        }
-        else
-        {
-        //  var Collection = await base.FindByConditionReturnIQueryable(c => c.CityId > 0).
-        //      Include(c => c.PointsOfInterest).
-        //      Include(co => co.Country).
-        //      Include(c => c.CityLanguages).
-        //      ThenInclude(l => l.Language).ToListAsync();
-
-        //var collection1 = collection.OrderByDescending(c => c.CityLanguages.Count).ThenBy(c => c.CityName);
-        //return (collection1);
-          base.EnableLazyLoading();
-          CityList = await base.FindByCondition(c => c.CityId > 0, UseIQueryable);
-          CityListToReturn = CityList.Take(NumberOfCities);
+        CityList = await base.FindByCondition(c => c.CityId > 0, UseIQueryable);
+        CityListToReturn = CityList.Take(NumberOfCities);
+      }
+      else
+      {
+        base.EnableLazyLoading();
+        CityList = await base.FindByCondition(c => c.CityId > 0, UseIQueryable);
+        CityListToReturn = CityList.Take(NumberOfCities);
       }
 
-        return (CityListToReturn);
-      }
+      return (CityListToReturn);
+    }
+
+    public async Task<IEnumerable<City>> GetCitiesInCountry(int CountryId)
+    {
+      IEnumerable<City> CityList = new List<City>();
+
+      CityList = await base.FindByCondition(c => c.CountryID == CountryId);
+
+      return (CityList);
+    }
+
   }
 }  

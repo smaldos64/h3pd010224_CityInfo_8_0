@@ -32,9 +32,8 @@ using CityInfo_8_0_Server.Hubs;
 
 namespace CityInfo_8_0_Server.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    //[Route("[controller]")]
     public class CityEducationController : ControllerBase
     {
         private IRepositoryWrapper _repositoryWrapper;
@@ -444,7 +443,6 @@ namespace CityInfo_8_0_Server.Controllers
                     CityDto_Object.PointsOfInterest.Add(PointOfInterestDto_Object);
                 }
 
-                //CityDto_Object.CityLanguages = new List<LanguageDtoMinusRelations>();
                 CityDto_Object.CityLanguages = new List<CityLanguageDtoMinusCityRelations>();
                 for (int CityLanguageCounter = 0;
                     CityLanguageCounter < Cities[Counter].CityLanguages.Count();
@@ -454,10 +452,6 @@ namespace CityInfo_8_0_Server.Controllers
                     LanguageDto_Object.Language = new LanguageDtoMinusRelations();
                     LanguageDto_Object.Language.LanguageId = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).LanguageId;
                     LanguageDto_Object.Language.LanguageName = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).Language.LanguageName;
-
-                    //LanguageDtoMinusRelations LanguageDto_Object = new LanguageDtoMinusRelations();
-                    //LanguageDto_Object.LanguageId = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).LanguageId;
-                    ////LanguageDto_Object.LanguageName = Cities[Counter].CityLanguages.ElementAt(CityLanguageCounter).Language.LanguageName;
 
                     CityDto_Object.CityLanguages.Add(LanguageDto_Object);
                 }

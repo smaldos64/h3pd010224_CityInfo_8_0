@@ -79,8 +79,34 @@ namespace CityInfo_8_0_Server.Controllers
             }
         }
 
+        [HttpGet("GetCitiesInCountry/{CountryId}")]
+        public async Task<IActionResult> GetCitiesInCountry(int CountryId,
+                                                            string UserName = "No Name")
+        {
+            try
+            {
+              IEnumerable<City> CityList = new List<City>();
+
+              this._repositoryWrapper.CityRepositoryWrapper.EnableLazyLoading();
+
+              CityList = await this._repositoryWrapper.CityRepositoryWrapper.GetCitiesInCountry(CountryId);
+
+              List<CityDto> CityDtos;
+
+              CityDtos = CityList.Adapt<CityDto[]>().ToList();
+
+              this._logger.LogInfo($"All Cities within Country Id : {CountryId} has been read from GetCitiesInCountry action by {UserName}");
+              return Ok(CityDtos);
+            }
+            catch (Exception Error)
+            {
+              this._logger.LogError($"Something went wrong inside GetCitiesInCountry action for {UserName} : {Error.Message}");
+              return StatusCode((int)HttpStatusCode.InternalServerError, $"Internal server error : {Error.ToString()}");
+            }
+        }
+
         // POST: api/City
-        [HttpPost]
+        [HttpPost("CreateCity")]
         public async Task<IActionResult> CreateCity([FromBody] CityForSaveDto CityForSaveDto_Object,
                                                     string UserName = "No Name")
         {

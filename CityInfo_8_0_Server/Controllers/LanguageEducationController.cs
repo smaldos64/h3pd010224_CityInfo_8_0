@@ -24,7 +24,7 @@ namespace CityInfo_8_0_Server.Controllers
     }
 
     // GET: api/<LanguageController>
-    [HttpGet]
+    [HttpGet("GetLanguages")]
     public async Task<ActionResult<IEnumerable<LanguageDto>>> GetLanguages(bool includeRelations = true,
                                                                            string UserName = "No Name")
     {

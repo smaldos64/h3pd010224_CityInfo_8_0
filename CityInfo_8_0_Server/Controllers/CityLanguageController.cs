@@ -144,7 +144,7 @@ namespace CityInfo_8_0_Server.Controllers
         }
 
         // POST: api/CityLanguage
-        [HttpPost]
+        [HttpPost("CreateCityLanguage")]
         public async Task<IActionResult> CreateCityLanguage([FromBody] CityLanguageForSaveDto CityLanguageForSaveDto_Object,
                                                             string UserName = "No Name")
         {

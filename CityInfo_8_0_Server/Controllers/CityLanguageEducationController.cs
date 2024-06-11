@@ -291,8 +291,7 @@ namespace CityInfo_8_0_Server.Controllers
         //    }
         //}
 
-        [HttpPut]
-        [Route("[action]")]
+        [HttpPut("UpdateCityLanguagesList")]
         public async Task<IActionResult> UpdateCityLanguagesList([FromBody] List<CityLanguageForSaveAndUpdateDto> CityLanguageForSaveAndUpdateDto_List,
                                                                  bool DeleteOldElementsInListsNotSpecifiedInCurrentLists = true,
                                                                  bool UseExtendedDatabaseDebugging = false,

@@ -78,7 +78,7 @@ namespace CityInfo_8_0_Server.Controllers
         }
 
         // POST: api/PointOfInterest
-        [HttpPost]
+        [HttpPost("CreatePointOfInterest")]
         public async Task<IActionResult> CreatePointOfInterest([FromBody] PointOfInterestForSaveDto PointOfInterestForSaveDto_Object,
                                                                 string UserName = "No Name")
         {

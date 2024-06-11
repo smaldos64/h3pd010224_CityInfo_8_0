@@ -59,6 +59,27 @@
   },
   {
     "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
+    "Method": "GetCitiesInCountry",
+    "RelativePath": "api/City/GetCitiesInCountry/{CountryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CityInfo_8_0_Server.Controllers.CityController",
     "Method": "GetCity",
     "RelativePath": "api/City/GetCity/{CityId}",
     "HttpMethod": "GET",

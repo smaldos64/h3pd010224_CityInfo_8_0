@@ -43,12 +43,12 @@ namespace CityInf0_8_0_Server.Controllers
         }
 
         // PUT api/<PointOfInteresController>/5
-        [HttpPut("{CityId}")]
+        [HttpPut("UpdatePointOfInterestListForCity/{CityId}")]
         public async Task<IActionResult> UpdatePointOfInterestListForCity(int CityId,
-                                                                        [FromBody] List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
-                                                                        bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
-                                                                        string UserName = "No Name",
-                                                                        bool UseExtendedDatabaseDebugging = false)
+                                                                         [FromBody] List<PointOfInterestForUpdateDto> PointOfInterestForUpdateDto_List,
+                                                                         bool DeleteOldElementsInListNotSpecifiedInCurrentList = true,
+                                                                         string UserName = "No Name",
+                                                                         bool UseExtendedDatabaseDebugging = false)
         {
             try
             {
@@ -60,10 +60,10 @@ namespace CityInf0_8_0_Server.Controllers
                 }
 
                 CommunicationResults_Object = await _pointOfInterestService.UpdatePointOfInterestListForCity(CityId,
-                                                                                                PointOfInterestForUpdateDto_List,
-                                                                                                DeleteOldElementsInListNotSpecifiedInCurrentList,
-                                                                                                UserName,
-                                                                                                UseExtendedDatabaseDebugging);
+                                                                                                             PointOfInterestForUpdateDto_List,
+                                                                                                             DeleteOldElementsInListNotSpecifiedInCurrentList,
+                                                                                                             UserName,
+                                                                                                             UseExtendedDatabaseDebugging);
 
                 if (CommunicationResults_Object.HasErrorOccured == true)
                 {

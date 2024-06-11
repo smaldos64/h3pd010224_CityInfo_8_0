@@ -13,6 +13,7 @@ using Mapster;
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 
@@ -31,7 +32,7 @@ Console.WriteLine(Error.Message);
 }
 //var Logger = NLog.LogManager.GetCurrentClassLogger();
 
-builder.Services.ConfigureCors(); 
+//builder.Services.ConfigureCors(); 
 builder.Services.ConfigureIISIntegration(); 
 builder.Services.ConfigureLoggerService(); 
 
@@ -39,6 +40,15 @@ builder.Services.ConfigureMsSqlContext(builder.Configuration);
 
 builder.Services.ConfigureRepositoryWrapper();
 builder.Services.ConfigureServiceLayerWrappers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        builder => builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .SetIsOriginAllowed((host) => true));
+});
 
 // Mapster
 //UtilityService.SetupMapsterConfiguration();
@@ -77,6 +87,8 @@ else // LTPE
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

@@ -15,8 +15,8 @@ C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.AssemblyInf
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.AssemblyInfo.cs
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.csproj.CoreCompileInputs.cache
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.sourcelink.json
-C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.csproj.CopyComplete
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.dll
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\refint\Services.dll
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.pdb
 C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\ref\Services.dll
+C:\Lars\h3pd010124\CityInfo_8_0\Services\obj\Release\net8.0\Services.csproj.Up2Date

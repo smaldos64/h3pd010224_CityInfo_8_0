@@ -9,8 +9,8 @@ C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesCon
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.AssemblyInfo.cs
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.csproj.CoreCompileInputs.cache
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.sourcelink.json
-C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.csproj.CopyComplete
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.dll
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\refint\ServicesContracts.dll
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ServicesContracts.pdb
 C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\ref\ServicesContracts.dll
+C:\Lars\h3pd010124\CityInfo_8_0\ServicesContracts\obj\Release\net8.0\Services.566559F3.Up2Date
