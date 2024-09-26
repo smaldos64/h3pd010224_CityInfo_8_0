@@ -9,10 +9,22 @@ namespace Entities.Models
 {
     public class City
     {
+        //private int _cityId;
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int CityId
+        //{
+        //    get
+        //    {
+        //        return this.CityId;
+        //    }
+        //    set
+        //    {
+        //        this.CityId = value;
+        //    }
+        //} Giver problemer med denne syntaks !!!
         public int CityId { get; set; }
-        
+
         [Required]
         [MaxLength(50)]
         public string CityName { get; set; }
